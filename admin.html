@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex, nofollow" />
+  <title>Espace Administrateur | Tableau de Bord des Devis — DoomuTech</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- Barre supérieure -->
+  <div class="utility-bar">
+    <div class="container utility-inner">
+      <div class="utility-left">
+        <span class="live-indicator">
+          <span class="pulse-dot"></span>
+          <strong>ESPACE ADMINISTRATEUR DOOMUTECH</strong> — Pilotage de l'activité commerciale &amp; Suivi des devis
+        </span>
+      </div>
+      <div class="utility-right">
+        <span id="dbConnectionStatus">🟢 Base locale active (Prête pour Supabase)</span>
+        <span class="utility-divider">|</span>
+        <a href="index.html" class="utility-phone">← Retour au site public</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Header Admin -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="index.html" class="brand-logo">
+        <div class="logo-mark">
+          <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="20" cy="20" r="18" stroke="url(#sunGradAdm)" stroke-width="2.5" />
+            <circle cx="20" cy="20" r="9" fill="url(#sunGradAdm)" />
+            <path d="M20 3V7M20 33V37M3 20H7M33 20H37M7.98 7.98L10.8 10.8M29.2 29.2L32.02 32.02M32.02 7.98L29.2 10.8M10.8 29.2L7.98 32.02" stroke="#2897FF" stroke-width="2.2" stroke-linecap="round"/>
+            <defs>
+              <linearGradient id="sunGradAdm" x1="4" y1="4" x2="36" y2="36" gradientUnits="userSpaceOnUse">
+                <stop stop-color="#006FFD" />
+                <stop offset="1" stop-color="#2897FF" />
+              </linearGradient>
+            </defs>
+          </svg>
+        </div>
+        <div class="brand-text">
+          <span class="brand-name">Doomu<span class="brand-accent">Tech</span></span>
+          <span class="brand-tag">TABLEAU DE BORD COMMERCIAL</span>
+        </div>
+      </a>
+
+      <div class="header-actions">
+        <button type="button" class="theme-toggle-btn" id="themeToggleBtn" title="Mode Clair / Sombre">
+          <span id="themeIcon">🌙</span>
+        </button>
+        <button type="button" class="btn btn-outline btn-sm" id="openSupabaseConfigBtn">
+          ⚙️ Base Supabase
+        </button>
+        <button type="button" class="btn btn-outline btn-sm" id="exportCsvBtn">
+          📥 Exporter CSV (Excel)
+        </button>
+        <button type="button" class="btn btn-primary btn-sm" id="newManualLeadBtn">
+          + Nouveau prospect
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Écran de verrouillage Administrateur -->
+  <div class="dt-modal-backdrop" id="adminAuthBackdrop">
+    <div class="dt-modal-card" style="max-width: 430px; text-align: center;">
+      <div style="font-size: 36px; margin-bottom: 10px;">🔒</div>
+      <h2 style="font-size: 21px; font-weight: 800; margin-bottom: 6px;">Accès Administrateur DoomuTech</h2>
+      <p style="font-size: 13.5px; color: var(--mut); margin-bottom: 20px;">
+        Cet espace est privé et réservé à l'équipe commerciale DoomuTech pour consulter et traiter les demandes de devis.
+      </p>
+      <form id="adminLoginForm" style="display: flex; flex-direction: column; gap: 12px; text-align: left;">
+        <div class="form-group">
+          <label for="adminPinInput">Code d'accès administrateur *</label>
+          <input type="password" id="adminPinInput" required placeholder="Code par défaut : doomutech2025" value="doomutech2025" />
+          <span class="budget-note-hint">Code initial de démonstration pré-rempli : <code>doomutech2025</code></span>
+        </div>
+        <button type="submit" class="btn btn-primary btn-lg btn-block">Déverrouiller le tableau de bord</button>
+        <a href="index.html" class="btn btn-outline btn-sm btn-block" style="text-align: center;">Retourner à l'accueil</a>
+      </form>
+    </div>
+  </div>
+
+  <!-- Contenu principal du Tableau de Bord (Section 4 du cahier des charges) -->
+  <main class="admin-page-wrap">
+    <div class="container">
+      <div class="admin-top-bar">
+        <div>
+          <span class="section-eyebrow">PILOTER L'ACTIVITÉ COMMERCIALE</span>
+          <h1 class="section-title" style="margin-bottom: 4px;">Tableau de bord DoomuTech</h1>
+          <p class="section-desc">Données 100% réelles issues des demandes enregistrées (aucun chiffre fictif).</p>
+        </div>
+        <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+          <a href="index.html#devis" class="btn btn-outline btn-sm">Tester le formulaire de devis →</a>
+        </div>
+      </div>
+
+      <!-- Indicateurs Clés (KPIs — Données réelles uniquement) -->
+      <div class="admin-kpi-grid">
+        <div class="admin-kpi-card">
+          <span class="admin-kpi-label">Nouvelles demandes</span>
+          <strong class="admin-kpi-value" id="kpiNewLeads"># —</strong>
+          <span class="admin-kpi-sub" id="kpiNewLeadsSub">Données réelles après enregistrement</span>
+        </div>
+        <div class="admin-kpi-card">
+          <span class="admin-kpi-label">Devis en cours</span>
+          <strong class="admin-kpi-value" id="kpiActiveQuotes"># —</strong>
+          <span class="admin-kpi-sub">Qualification, étude &amp; relance</span>
+        </div>
+        <div class="admin-kpi-card">
+          <span class="admin-kpi-label">Total prospects reçus</span>
+          <strong class="admin-kpi-value" id="kpiTotalLeads"># —</strong>
+          <span class="admin-kpi-sub">Toutes sources confondues</span>
+        </div>
+        <div class="admin-kpi-card">
+          <span class="admin-kpi-label">Volume devis signés (Gagnés)</span>
+          <strong class="admin-kpi-value" id="kpiWonAmount"># —</strong>
+          <span class="admin-kpi-sub" id="kpiWonCountSub">Suivi commercial</span>
+        </div>
+      </div>
+
+      <!-- Cycle de traitement des prospects (01 -> 05) -->
+      <div class="pipeline-cycle-box">
+        <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px;">
+          <div>
+            <span class="section-eyebrow" style="margin-bottom: 2px;">SUIVI COMMERCIAL</span>
+            <h3 style="font-size: 16px; font-weight: 800;">Cycle de traitement des prospects (Cliquez sur une étape pour filtrer)</h3>
+          </div>
+          <button type="button" class="btn btn-outline btn-sm" id="resetStageFilterBtn">Afficher toutes les étapes</button>
+        </div>
+
+        <div class="pipeline-steps-grid" id="pipelineStepsGrid">
+          <div class="pipeline-step-card" data-stage="01_nouveau">
+            <div class="p-step-head">
+              <span class="p-step-code">01</span>
+              <span class="p-step-count" id="count-01_nouveau">0</span>
+            </div>
+            <strong>Nouveau</strong>
+            <span>Demande reçue sur le site</span>
+          </div>
+
+          <div class="pipeline-step-card" data-stage="02_a_qualifier">
+            <div class="p-step-head">
+              <span class="p-step-code">02</span>
+              <span class="p-step-count" id="count-02_a_qualifier">0</span>
+            </div>
+            <strong>À qualifier</strong>
+            <span>Besoin et budget à préciser</span>
+          </div>
+
+          <div class="pipeline-step-card" data-stage="03_etude_devis">
+            <div class="p-step-head">
+              <span class="p-step-code">03</span>
+              <span class="p-step-count" id="count-03_etude_devis">0</span>
+            </div>
+            <strong>Étude / devis</strong>
+            <span>Analyse technique et offre commerciale</span>
+          </div>
+
+          <div class="pipeline-step-card" data-stage="04_relance">
+            <div class="p-step-head">
+              <span class="p-step-code">04</span>
+              <span class="p-step-count" id="count-04_relance">0</span>
+            </div>
+            <strong>Relance</strong>
+            <span>Suivi du prospect</span>
+          </div>
+
+          <div class="pipeline-step-card" data-stage="05_issue">
+            <div class="p-step-head">
+              <span class="p-step-code">05</span>
+              <span class="p-step-count" id="count-05_issue">0</span>
+            </div>
+            <strong>Gagné / perdu</strong>
+            <span>Issue commerciale enregistrée</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Barre de recherche et filtres (Service, Date, Ville, Statut) -->
+      <div class="admin-filters-bar">
+        <input type="search" id="filterSearch" class="admin-input" placeholder="🔍 Rechercher par nom, téléphone, ville, référence..." />
+
+        <select id="filterService" class="admin-select">
+          <option value="all">Tous les services</option>
+          <option value="Installation solaire photovoltaïque">Installation solaire photovoltaïque</option>
+          <option value="Climatisation">Climatisation</option>
+          <option value="Vidéosurveillance">Vidéosurveillance</option>
+          <option value="Maintenance et dépannage">Maintenance et dépannage</option>
+          <option value="Pack Multi-Services (Solaire + Clim + Caméras)">Pack Multi-Services</option>
+        </select>
+
+        <select id="filterStatus" class="admin-select">
+          <option value="all">Tous les statuts (01 à 05)</option>
+          <option value="01_nouveau">01 — Nouveau</option>
+          <option value="02_a_qualifier">02 — À qualifier</option>
+          <option value="03_etude_devis">03 — Étude / devis</option>
+          <option value="04_relance">04 — Relance</option>
+          <option value="05_gagne">05 — Gagné</option>
+          <option value="05_perdu">05 — Perdu</option>
+        </select>
+
+        <input type="date" id="filterDate" class="admin-input" title="Filtrer par date de demande" />
+
+        <button type="button" class="btn btn-outline btn-sm" id="clearAllFiltersBtn">Réinitialiser</button>
+      </div>
+
+      <!-- Tableau des demandes de devis -->
+      <div class="admin-table-card">
+        <div class="admin-table-scroll">
+          <table class="admin-table">
+            <thead>
+              <tr>
+                <th>Réf. &amp; Date</th>
+                <th>Prospect &amp; Contact</th>
+                <th>Ville / Profil</th>
+                <th>Service &amp; Nature</th>
+                <th>Budget &amp; Devis</th>
+                <th>Statut (01–05)</th>
+                <th>Relance</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody id="adminLeadsTableBody">
+              <!-- Rempli dynamiquement par app.js avec les données réelles -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Modal de gestion / qualification d'un prospect -->
+  <div class="dt-modal-backdrop hidden" id="leadEditModal">
+    <div class="dt-modal-card">
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px;">
+        <h3 id="leadModalTitle" style="font-size: 19px; font-weight: 800;">Qualification &amp; Suivi du Prospect</h3>
+        <button type="button" class="btn btn-outline btn-sm" id="closeLeadModalBtn">Fermer ✕</button>
+      </div>
+
+      <form id="leadEditForm" style="display: flex; flex-direction: column; gap: 14px;">
+        <input type="hidden" id="editLeadId" />
+
+        <div class="form-row-2">
+          <div class="form-group">
+            <label for="editLeadName">Nom du prospect *</label>
+            <input type="text" id="editLeadName" required />
+          </div>
+          <div class="form-group">
+            <label for="editLeadPhone">Téléphone / WhatsApp *</label>
+            <input type="tel" id="editLeadPhone" required />
+          </div>
+        </div>
+
+        <div class="form-row-2">
+          <div class="form-group">
+            <label for="editLeadEmail">E-mail</label>
+            <input type="email" id="editLeadEmail" />
+          </div>
+          <div class="form-group">
+            <label for="editLeadCity">Ville / Zone du projet *</label>
+            <input type="text" id="editLeadCity" required />
+          </div>
+        </div>
+
+        <div class="form-row-2">
+          <div class="form-group">
+            <label for="editLeadService">Service demandé</label>
+            <select id="editLeadService">
+              <option value="Installation solaire photovoltaïque">Installation solaire photovoltaïque</option>
+              <option value="Climatisation">Climatisation</option>
+              <option value="Vidéosurveillance">Vidéosurveillance</option>
+              <option value="Maintenance et dépannage">Maintenance et dépannage</option>
+              <option value="Pack Multi-Services (Solaire + Clim + Caméras)">Pack Multi-Services (Solaire + Clim + Caméras)</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="editLeadClientType">Type de client</label>
+            <select id="editLeadClientType">
+              <option value="Particulier / habitation">Particulier / habitation</option>
+              <option value="Entreprise / commerce">Entreprise / commerce</option>
+              <option value="Projet industriel ou institutionnel">Projet industriel ou institutionnel</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-row-2">
+          <div class="form-group">
+            <label for="editLeadNature">Nature du projet</label>
+            <select id="editLeadNature">
+              <option value="Nouvelle installation">Nouvelle installation</option>
+              <option value="Extension d’une installation existante">Extension d’une installation existante</option>
+              <option value="Panne ou maintenance">Panne ou maintenance</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="editLeadBudget">Budget indicatif client</label>
+            <select id="editLeadBudget">
+              <option value="À définir après étude">À définir après étude</option>
+              <option value="Moins de 500 000 FCFA">Moins de 500 000 FCFA</option>
+              <option value="500 000 à 2 000 000 FCFA">500 000 à 2 000 000 FCFA</option>
+              <option value="Plus de 2 000 000 FCFA">Plus de 2 000 000 FCFA</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="editLeadDescription">Besoin exprimé par le client</label>
+          <textarea id="editLeadDescription" rows="2"></textarea>
+        </div>
+
+        <hr style="border: none; border-top: 1px solid var(--line);" />
+
+        <!-- Partie Suivi Commercial Administrateur -->
+        <div class="form-row-2">
+          <div class="form-group">
+            <label for="editLeadStatus">Statut dans le cycle commercial (01–05) *</label>
+            <select id="editLeadStatus" required>
+              <option value="01_nouveau">01 — Nouveau (Demande reçue)</option>
+              <option value="02_a_qualifier">02 — À qualifier (Besoin/budget à préciser)</option>
+              <option value="03_etude_devis">03 — Étude / devis (Offre en cours)</option>
+              <option value="04_relance">04 — Relance (Suivi du prospect)</option>
+              <option value="05_gagne">05 — Gagné (Devis accepté / signé)</option>
+              <option value="05_perdu">05 — Perdu (Sans suite)</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="editLeadQuoteAmount">Montant du devis chiffré (FCFA)</label>
+            <input type="number" id="editLeadQuoteAmount" min="0" step="5000" placeholder="Ex: 1450000" />
+          </div>
+        </div>
+
+        <div class="form-row-2">
+          <div class="form-group">
+            <label for="editLeadFollowUpDate">Date de prochaine relance</label>
+            <input type="date" id="editLeadFollowUpDate" />
+          </div>
+          <div class="form-group" style="display: flex; align-items: flex-end;">
+            <a href="#" id="modalWhatsAppBtn" target="_blank" rel="noopener" class="btn btn-outline btn-block" style="min-height: 44px;">
+              💬 Ouvrir WhatsApp avec ce prospect
+            </a>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="editLeadNotes">Notes commerciales &amp; techniques internes</label>
+          <textarea id="editLeadNotes" rows="3" placeholder="Compte-rendu d'appel, matériel envisagé, remarques après visite sur site..."></textarea>
+        </div>
+
+        <div style="display: flex; justify-content: space-between; gap: 12px; margin-top: 6px;">
+          <button type="button" class="btn btn-outline btn-sm" id="deleteLeadBtn" style="color: #DC2626; border-color: #FCA5A5;">Supprimer la demande</button>
+          <button type="submit" class="btn btn-primary">Enregistrer le suivi commercial</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Modal Configuration Supabase (Couche 2 Backend) -->
+  <div class="dt-modal-backdrop hidden" id="supabaseConfigModal">
+    <div class="dt-modal-card">
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px;">
+        <h3 style="font-size: 19px; font-weight: 800;">⚙️ Connexion Base de Données Supabase (Couche 2)</h3>
+        <button type="button" class="btn btn-outline btn-sm" id="closeSupabaseModalBtn">Fermer ✕</button>
+      </div>
+      <p style="font-size: 13px; color: var(--mut); margin-bottom: 14px;">
+        Par défaut, toutes les demandes sont enregistrées localement dans votre navigateur. Pour synchroniser avec votre base cloud <strong>Supabase</strong> (table <code>demandes_devis</code> définie dans <code>supabase-schema.sql</code>), renseignez vos clés ci-dessous :
+      </p>
+      <form id="supabaseConfigForm" style="display: flex; flex-direction: column; gap: 12px;">
+        <div class="form-group">
+          <label for="sbUrlInput">URL du projet Supabase</label>
+          <input type="url" id="sbUrlInput" placeholder="https://votre-projet.supabase.co" />
+        </div>
+        <div class="form-group">
+          <label for="sbKeyInput">Clé publique (anon / service key pour l'admin)</label>
+          <input type="password" id="sbKeyInput" placeholder="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9..." />
+        </div>
+        <div style="display: flex; gap: 10px; justify-content: flex-end;">
+          <button type="submit" class="btn btn-primary">Enregistrer la configuration Supabase</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

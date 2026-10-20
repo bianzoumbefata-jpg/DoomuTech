@@ -1,0 +1,259 @@
+{
+  "note": "Catalogue local sauvegardé de la boutique DoomuTech (Victron Energy Solaris-Shop + Climatiseurs Carrier + Batteries Lithium). Les images officielles sont conservées dans assets/images/victron/ et assets/images/carrier/.",
+  "products": [
+    {
+      "id": "vic-mp2-48-5000",
+      "category": "victron-multiplus",
+      "sku": "PMP482505010",
+      "brand": "VICTRON ENERGY",
+      "title": "Victron MultiPlus-II 48/5000/70-50 230V Convertisseur/Chargeur",
+      "image": "assets/images/victron/multiplus-ii.png",
+      "price": 985000,
+      "installFee": 75000,
+      "victronUrl": "https://www.victronenergy.com/inverters-chargers/multiplus-ii"
+    },
+    {
+      "id": "vic-mp2-48-3000",
+      "category": "victron-multiplus",
+      "sku": "PMP482305010",
+      "brand": "VICTRON ENERGY",
+      "title": "Victron MultiPlus-II 48/3000/35-32 230V Convertisseur/Chargeur",
+      "image": "assets/images/victron/multiplus-ii.png",
+      "price": 645000,
+      "installFee": 55000,
+      "victronUrl": "https://www.victronenergy.com/inverters-chargers/multiplus-ii"
+    },
+    {
+      "id": "vic-quattro-48-10000",
+      "category": "victron-multiplus",
+      "sku": "QUA483100000",
+      "brand": "VICTRON ENERGY",
+      "title": "Victron Quattro 48/10000/140-100/100 230V",
+      "image": "assets/images/victron/quattro.jpg",
+      "price": 2150000,
+      "installFee": 120000,
+      "victronUrl": "https://www.victronenergy.com/inverters-chargers/quattro"
+    },
+    {
+      "id": "vic-easysolar-2-gx",
+      "category": "victron-multiplus",
+      "sku": "EPA483021010",
+      "brand": "VICTRON ENERGY",
+      "title": "Victron EasySolar-II GX 48/3000/35-32 + SmartSolar MPPT 250/70",
+      "image": "assets/images/victron/easysolar-ii-gx.png",
+      "price": 1290000,
+      "installFee": 85000,
+      "victronUrl": "https://www.victronenergy.com/inverters-chargers/easysolar-ii-gx"
+    },
+    {
+      "id": "vic-mppt-150-45",
+      "category": "victron-mppt",
+      "sku": "SCC115045212",
+      "brand": "VICTRON ENERGY",
+      "title": "Victron SmartSolar MPPT 150/45-Tr Bluetooth",
+      "image": "assets/images/victron/smartsolar-mppt.png",
+      "price": 245000,
+      "installFee": 25000
+    },
+    {
+      "id": "vic-mppt-100-20",
+      "category": "victron-mppt",
+      "sku": "SCC110020060R",
+      "brand": "VICTRON ENERGY",
+      "title": "Victron SmartSolar MPPT 100/20 (48V - 20A) Bluetooth",
+      "image": "assets/images/victron/smartsolar-mppt-100-20.png",
+      "price": 115000,
+      "installFee": 20000
+    },
+    {
+      "id": "vic-mppt-250-100",
+      "category": "victron-mppt",
+      "sku": "SCC125110411",
+      "brand": "VICTRON ENERGY",
+      "title": "Victron SmartSolar MPPT 250/100-Tr VE.Can",
+      "image": "assets/images/victron/smartsolar-mppt.png",
+      "price": 560000,
+      "installFee": 40000
+    },
+    {
+      "id": "vic-cerbo-gx",
+      "category": "victron-gx",
+      "sku": "BPP900450100",
+      "brand": "VICTRON ENERGY",
+      "title": "Victron Cerbo GX — Centre de Communication VRM",
+      "image": "assets/images/victron/cerbo-gx.png",
+      "price": 235000,
+      "installFee": 30000
+    },
+    {
+      "id": "vic-gx-touch-50",
+      "category": "victron-gx",
+      "sku": "BPP900455050",
+      "brand": "VICTRON ENERGY",
+      "title": "Victron GX Touch 50 — Écran Tactile HD",
+      "image": "assets/images/victron/gx-touch-50.png",
+      "price": 185000,
+      "installFee": 15000
+    },
+    {
+      "id": "vic-bmv-712",
+      "category": "victron-gx",
+      "sku": "BAM030712200",
+      "brand": "VICTRON ENERGY",
+      "title": "Victron BMV-712 Smart — Contrôleur Batterie Bluetooth",
+      "image": "assets/images/victron/bmv-712.png",
+      "price": 155000,
+      "installFee": 20000
+    },
+    {
+      "id": "vic-smartshunt-500",
+      "category": "victron-gx",
+      "sku": "SHU050150050",
+      "brand": "VICTRON ENERGY",
+      "title": "Victron SmartShunt 500A/50mV IP65 Bluetooth",
+      "image": "assets/images/victron/smartshunt.png",
+      "price": 118000,
+      "installFee": 15000
+    },
+    {
+      "id": "vic-inverter-rs-6000",
+      "category": "victron-ond",
+      "sku": "PIN482600000",
+      "brand": "VICTRON ENERGY",
+      "title": "Victron Inverter RS 48/6000 230V Smart Solar",
+      "image": "assets/images/victron/inverter-rs-smart.png",
+      "price": 1450000,
+      "installFee": 85000
+    },
+    {
+      "id": "vic-phoenix-12-800",
+      "category": "victron-ond",
+      "sku": "PIN121800000",
+      "brand": "VICTRON ENERGY",
+      "title": "Victron Phoenix Inverter 12/800 230V VE.Direct",
+      "image": "assets/images/victron/phoenix-inverter.png",
+      "price": 215000,
+      "installFee": 20000
+    },
+    {
+      "id": "vic-lynx-distributor",
+      "category": "victron-dc",
+      "sku": "LYN060102000",
+      "brand": "VICTRON ENERGY",
+      "title": "Victron Lynx Distributor M8/M10 1000A",
+      "image": "assets/images/victron/lynx-distributor.png",
+      "price": 175000,
+      "installFee": 25000
+    },
+    {
+      "id": "vic-orion-tr-smart",
+      "category": "victron-dc",
+      "sku": "ORI121236120",
+      "brand": "VICTRON ENERGY",
+      "title": "Victron Orion-Tr Smart 12/12-30A (360W) DC-DC",
+      "image": "assets/images/victron/orion-tr-smart.png",
+      "price": 165000,
+      "installFee": 20000
+    },
+    {
+      "id": "vic-smart-battery-protect",
+      "category": "victron-dc",
+      "sku": "BPR110022000",
+      "brand": "VICTRON ENERGY",
+      "title": "Victron Smart BatteryProtect 12/24V-100A",
+      "image": "assets/images/victron/smart-battery-protect.png",
+      "price": 68000,
+      "installFee": 15000
+    },
+    {
+      "id": "vic-blue-smart-ip22",
+      "category": "victron-dc",
+      "sku": "BPC123047002",
+      "brand": "VICTRON ENERGY",
+      "title": "Victron Blue Smart IP22 Charger 12V/30A",
+      "image": "assets/images/victron/blue-smart-ip22.png",
+      "price": 135000,
+      "installFee": 15000
+    },
+    {
+      "id": "vic-agm-super-cycle",
+      "category": "batteries",
+      "sku": "BAT412101104",
+      "brand": "VICTRON ENERGY",
+      "title": "Batterie Victron 12V/100Ah AGM Super Cycle",
+      "image": "assets/images/victron/agm-super-cycle.png",
+      "price": 210000,
+      "installFee": 15000
+    },
+    {
+      "id": "clim-acdc-12k",
+      "category": "clim",
+      "sku": "42QHG012D8S",
+      "brand": "CARRIER AIR CONDITIONING",
+      "title": "Climatiseur Carrier XPower Gold Inverter 12 000 BTU (1.5 CV)",
+      "image": "assets/images/carrier/carrier-xpower-12k.jpg",
+      "price": 445000,
+      "installFee": 35000
+    },
+    {
+      "id": "clim-acdc-18k",
+      "category": "clim",
+      "sku": "53QHG018N-T3",
+      "brand": "CARRIER AIR CONDITIONING",
+      "title": "Climatiseur Carrier Tropical Inverter T3 18 000 BTU (2 CV)",
+      "image": "assets/images/carrier/carrier-tropical-18k.jpg",
+      "price": 585000,
+      "installFee": 45000
+    },
+    {
+      "id": "clim-inv-9k",
+      "category": "clim",
+      "sku": "42QHC009D8S",
+      "brand": "CARRIER AIR CONDITIONING",
+      "title": "Split Carrier Smart Wi-Fi Inverter A+++ 9 000 BTU (1 CV)",
+      "image": "assets/images/carrier/carrier-smart-9k.jpg",
+      "price": 265000,
+      "installFee": 30000
+    },
+    {
+      "id": "clim-pro-24k",
+      "category": "clim",
+      "sku": "40GKX024-PRO",
+      "brand": "CARRIER COMMERCIAL",
+      "title": "Carrier Cassette 4 Voies / Armoire Inverter Pro 24 000 BTU (3 CV)",
+      "image": "assets/images/carrier/carrier-cassette-24k.jpg",
+      "price": 720000,
+      "installFee": 55000
+    },
+    {
+      "id": "cam-kit-ip-4k-4",
+      "category": "cameras",
+      "sku": "HIK-NVR4K-4CH",
+      "brand": "HIKVISION PRO",
+      "title": "Pack 4 Caméras IP ColorVu 4K + Enregistreur NVR PoE 2 To",
+      "image": "assets/images/camera-kit-4k.jpg",
+      "price": 345000,
+      "installFee": 45000
+    },
+    {
+      "id": "cam-solaire-4g-ptz",
+      "category": "cameras",
+      "sku": "DT-SOLAR-CAM4G",
+      "brand": "DOOMUTECH SECURITY",
+      "title": "Caméra Solaire Autonome PTZ 360° 4G/Wi-Fi avec Batterie Lithium",
+      "image": "assets/images/installation-cameras.jpg",
+      "price": 125000,
+      "installFee": 20000
+    },
+    {
+      "id": "cam-kit-ip-8",
+      "category": "cameras",
+      "sku": "DAH-WIZSENSE-8CH",
+      "brand": "DAHUA WIZSENSE IA",
+      "title": "Pack Entreprise 8 Caméras IP IA Détection Humaine/Véhicule + NVR 4 To",
+      "image": "assets/images/camera-kit-4k.jpg",
+      "price": 620000,
+      "installFee": 75000
+    }
+  ]
+}
