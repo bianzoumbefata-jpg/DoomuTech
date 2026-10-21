@@ -4423,3 +4423,325 @@ body {
     grid-template-columns: 1fr;
   }
 }
+
+/* ==========================================================================
+   AUDIT REFINEMENTS — PALETTE BLEU NUIT / BLANC / VERT SOLAIRE,
+   SIMULATEUR SIMPLE, TÉMOIGNAGES CLIENTS, PAGES SERVICES & WHATSAPP PERMANENT
+   ========================================================================== */
+:root {
+  --solar-green: #059669;
+  --solar-green-light: #10B981;
+  --solar-green-soft: #ECFDF5;
+  --navy-deep: #0B1528;
+}
+
+.btn-whatsapp-hero {
+  background: var(--solar-green);
+  color: #FFFFFF;
+  border: 1.5px solid var(--solar-green);
+  box-shadow: 0 8px 20px -4px rgba(5, 150, 105, 0.35);
+}
+
+.btn-whatsapp-hero:hover {
+  background: #047857;
+  border-color: #047857;
+  transform: translateY(-2px);
+}
+
+/* Bouton WhatsApp flottant permanent (Mobile & Desktop) */
+.wa-floating-btn {
+  position: fixed;
+  bottom: 22px;
+  right: 22px;
+  z-index: 320;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 13px 20px;
+  border-radius: 999px;
+  background: #059669;
+  color: #FFFFFF;
+  font-size: 14px;
+  font-weight: 700;
+  box-shadow: 0 14px 30px -6px rgba(5, 150, 105, 0.5);
+  border: 2px solid rgba(255, 255, 255, 0.85);
+  transition: transform 0.25s var(--framer-spring), background 0.2s ease;
+}
+
+.wa-floating-btn:hover {
+  background: #047857;
+  transform: translateY(-3px) scale(1.03);
+}
+
+.wa-floating-btn svg {
+  width: 22px;
+  height: 22px;
+  flex-shrink: 0;
+}
+
+/* Section 06 : Avis de nos clients */
+.testimonials-section {
+  padding: 80px 0;
+  background: var(--fintech-bg);
+  border-top: 1px solid var(--line);
+}
+
+.testimonials-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.testimonial-card {
+  background: var(--fintech-card);
+  border: 1px solid var(--line);
+  border-radius: var(--fintech-radius);
+  padding: 28px 24px;
+  box-shadow: var(--fintech-shadow);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 18px;
+}
+
+.t-stars {
+  color: #F59E0B;
+  font-size: 15px;
+  letter-spacing: 2px;
+}
+
+.t-quote {
+  font-size: 14.5px;
+  color: var(--body);
+  line-height: 1.6;
+  font-style: italic;
+}
+
+.t-author-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 14px;
+  border-top: 1px solid var(--line);
+  gap: 10px;
+}
+
+.t-author-info strong {
+  display: block;
+  font-size: 14px;
+  color: var(--ink);
+}
+
+.t-author-info span {
+  font-size: 12px;
+  color: var(--mut);
+}
+
+.t-service-tag {
+  font-size: 11px;
+  font-weight: 700;
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: var(--solar-green-soft);
+  color: var(--solar-green);
+}
+
+/* Section 07 : Simulateur Solaire Simple */
+.simple-sim-section {
+  padding: 80px 0;
+  background: var(--surf);
+  border-top: 1px solid var(--line);
+}
+
+.simple-sim-grid {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 32px;
+  align-items: stretch;
+}
+
+.simple-sim-inputs {
+  background: var(--fintech-bg);
+  border: 1px solid var(--line);
+  border-radius: var(--fintech-radius);
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+
+.sim-appliance-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+}
+
+.sim-app-label {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 14px;
+  background: var(--fintech-card);
+  border: 1.5px solid var(--line);
+  border-radius: 14px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--ink);
+  cursor: pointer;
+  transition: border-color 0.2s ease, background 0.2s ease;
+}
+
+.sim-app-label input[type="checkbox"] {
+  width: 17px;
+  height: 17px;
+  accent-color: var(--solar-green);
+}
+
+.sim-app-label:has(input:checked) {
+  border-color: var(--solar-green);
+  background: var(--solar-green-soft);
+}
+
+:root[data-theme="dark"] .sim-app-label:has(input:checked) {
+  background: rgba(16, 185, 129, 0.14);
+}
+
+.simple-sim-output {
+  background: var(--navy-deep);
+  color: #FFFFFF;
+  border-radius: var(--fintech-radius);
+  padding: 32px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 20px;
+  box-shadow: var(--sh-lg);
+}
+
+.sim-out-kpis {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 14px;
+}
+
+.sim-out-box {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 16px;
+  padding: 16px;
+}
+
+.sim-out-box span {
+  display: block;
+  font-size: 11.5px;
+  color: #94A3B8;
+  margin-bottom: 4px;
+}
+
+.sim-out-box strong {
+  font-size: 22px;
+  font-weight: 800;
+  color: #10B981;
+}
+
+.sim-disclaimer {
+  font-size: 12px;
+  color: #94A3B8;
+  line-height: 1.5;
+  padding: 12px 14px;
+  background: rgba(255, 255, 255, 0.04);
+  border-radius: 12px;
+  border-left: 3px solid #10B981;
+}
+
+/* Pages de services dédiées (solaire.html, climatisation.html, videosurveillance.html) */
+.service-page-hero {
+  padding: 56px 0;
+  background: linear-gradient(135deg, #0B1528 0%, #132342 100%);
+  color: #FFFFFF;
+}
+
+.service-page-hero h1 {
+  color: #FFFFFF;
+  font-size: clamp(2rem, 3.3vw, 2.9rem);
+  font-weight: 800;
+  line-height: 1.15;
+  margin-bottom: 16px;
+}
+
+.service-page-hero p {
+  color: #CBD5E1;
+  font-size: 16px;
+  line-height: 1.6;
+  margin-bottom: 24px;
+}
+
+.install-steps-section {
+  padding: 72px 0;
+  background: var(--fintech-bg);
+  border-top: 1px solid var(--line);
+}
+
+.install-steps-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+.install-step-card {
+  background: var(--fintech-card);
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  padding: 24px 20px;
+  box-shadow: var(--sh-sm);
+}
+
+.step-num-badge {
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  background: var(--brand);
+  color: #FFFFFF;
+  font-weight: 800;
+  font-size: 14px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 12px;
+}
+
+.install-step-card h3 {
+  font-size: 16px;
+  font-weight: 800;
+  margin-bottom: 8px;
+}
+
+.install-step-card p {
+  font-size: 13.5px;
+  color: var(--mut);
+  line-height: 1.5;
+}
+
+@media (max-width: 980px) {
+  .testimonials-grid,
+  .simple-sim-grid {
+    grid-template-columns: 1fr;
+  }
+  .install-steps-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 560px) {
+  .sim-appliance-grid,
+  .sim-out-kpis,
+  .install-steps-grid {
+    grid-template-columns: 1fr;
+  }
+  .wa-floating-btn span {
+    display: none;
+  }
+  .wa-floating-btn {
+    padding: 14px;
+  }
+}

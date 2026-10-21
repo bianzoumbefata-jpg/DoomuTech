@@ -1,9 +1,10 @@
 /**
- * DOOMUTECH SÉNÉGAL — APPLICATION PRINCIPALE & ESPACE ADMINISTRATEUR CRM
- * Architecture :
- * - Couche 1 : Interface web (index.html + admin.html), validation formulaire, navigation mobile & motion design
- * - Couche 2 : Stockage des demandes de devis (Base locale immédiate + Connecteur REST Supabase `demandes_devis`)
- * - Couche 3 : Notifications (WhatsApp +221 77 701 92 59, Mail doomutech@gmail.com) & Suivi commercial (Cycle 01 -> 05, Export CSV Excel)
+ * DOOMUTECH SÉNÉGAL — APPLICATION PRINCIPALE, SIMULATEUR SOLAIRE & ESPACE ADMINISTRATEUR CRM
+ * Fonctionnalités :
+ * - Simulateur solaire simple & interactif (#simulateur) avec transfert vers le devis ou WhatsApp
+ * - Formulaire de devis qualifié avec anti-spam Honeypot + bouton de demande rapide WhatsApp
+ * - Pré-remplissage depuis les pages dédiées (solaire.html, climatisation.html, videosurveillance.html)
+ * - Espace Administrateur CRM (admin.html) avec données 100% réelles, cycle 01->05 et export CSV Excel
  */
 
 const STORAGE_LEADS_KEY = "doomutech_leads_db_v1";
@@ -24,6 +25,7 @@ document.addEventListener("DOMContentLoaded", () => {
   initMobileNav();
   initPortfolioFilter();
   initServicePrefillButtons();
+  initSimpleSolarSimulator();
   initLegalModal();
   initQuoteForm();
   updateHeaderLeadsBadge();
@@ -180,11 +182,26 @@ function initPortfolioFilter() {
 }
 
 /* ==========================================================================
-   4. PRÉ-REMPLISSAGE DU SERVICE DANS LE FORMULAIRE DE DEVIS
+   4. PRÉ-REMPLISSAGE DU SERVICE (Boutons & Paramètre URL ?service=...)
    ========================================================================== */
 function initServicePrefillButtons() {
   const serviceSelect = document.getElementById("projectService");
   if (!serviceSelect) return;
+
+  // Vérifier si l'URL contient ?service=... depuis les pages solaire.html / climatisation.html / videosurveillance.html
+  const params = new URLSearchParams(window.location.search);
+  const srvParam = params.get("service");
+  if (srvParam) {
+    const map = {
+      solaire: "Installation solaire photovoltaïque",
+      climatisation: "Climatisation",
+      videosurveillance: "Vidéosurveillance",
+      maintenance: "Maintenance et dépannage"
+    };
+    if (map[srvParam]) {
+      serviceSelect.value = map[srvParam];
+    }
+  }
 
   document.querySelectorAll("[data-prefill-service]").forEach((btn) => {
     btn.addEventListener("click", () => {
@@ -197,7 +214,117 @@ function initServicePrefillButtons() {
 }
 
 /* ==========================================================================
-   5. MODAL MENTIONS LÉGALES & PROTECTION DES DONNÉES (CDP SÉNÉGAL)
+   5. SIMULATEUR SOLAIRE SIMPLE (#simulateur — Modification #5 de l'audit)
+   ========================================================================== */
+function initSimpleSolarSimulator() {
+  const billSlider = document.getElementById("simBillSlider");
+  const billDisplay = document.getElementById("simBillDisplay");
+  const appChecks = document.querySelectorAll(".sim-app-check");
+  const goalSelect = document.getElementById("simGoalSelect");
+
+  const outTitle = document.getElementById("simResultTitle");
+  const outSub = document.getElementById("simResultSubtitle");
+  const outKwc = document.getElementById("simOutKwc");
+  const outKwh = document.getElementById("simOutKwh");
+  const outInv = document.getElementById("simOutInverter");
+  const outProd = document.getElementById("simOutProd");
+  const applyBtn = document.getElementById("simApplyToFormBtn");
+  const waBtn = document.getElementById("simWhatsAppBtn");
+
+  if (!billSlider || !outKwc) return;
+
+  let currentSimSummary = "";
+
+  function computeSimulation() {
+    const bill = Number(billSlider.value || 100000);
+    billDisplay.textContent = `${bill.toLocaleString("fr-FR")}${bill >= 500000 ? "+" : ""} FCFA / mois`;
+
+    const selectedApps = Array.from(appChecks)
+      .filter((c) => c.checked)
+      .map((c) => c.value);
+
+    const hasClim = selectedApps.includes("clim");
+    const hasFrigo = selectedApps.includes("frigo");
+    const goal = goalSelect.value;
+
+    // Estimation indicative de la puissance panneaux (kWc) selon facture et appareils
+    let baseKwc = Math.max(1.5, Math.round((bill / 32000) * 2) / 2);
+    if (hasClim && baseKwc < 4.5) baseKwc = 4.5;
+    if (hasFrigo && baseKwc < 2.5) baseKwc = 2.5;
+    if (baseKwc > 15) baseKwc = 15;
+
+    let batteryKwh = 0;
+    let inverterLabel = "Onduleur 3 à 5 kVA";
+    let subtitle = "";
+
+    if (goal === "diurne_sans_batterie") {
+      batteryKwh = 0;
+      inverterLabel = baseKwc <= 5 ? "Hybride 5 kVA (Évolutif)" : "Hybride 8 à 10 kVA";
+      subtitle = "Configuration diurne sans batterie pour réduire votre facture en journée (stockage ajoutable plus tard).";
+    } else if (goal === "autonomie_complete") {
+      batteryKwh = Math.max(10, Math.round(baseKwc * 2.2));
+      inverterLabel = baseKwc <= 5 ? "Victron / Hybride 5 kVA" : "Victron / Hybride 8 à 10 kVA";
+      subtitle = "Dimensionnement renforcé en batteries Lithium pour maximiser votre autonomie de jour comme de nuit.";
+    } else {
+      // hybride_secours
+      batteryKwh = Math.max(5, Math.round(baseKwc * 1.6));
+      inverterLabel = baseKwc <= 4 ? "Hybride 3 à 5 kVA" : baseKwc <= 8 ? "Hybride 5 à 8 kVA" : "Hybride 10 kVA+";
+      subtitle = "Système hybride équilibré pour alléger vos factures et maintenir vos appareils essentiels lors des coupures.";
+    }
+
+    const dailyProd = Math.round(baseKwc * 4.4);
+    const kwcText = `${baseKwc.toFixed(1).replace(".", ",")} kWc`;
+    const kwhText = batteryKwh > 0 ? `${batteryKwh} kWh Lithium` : "Sans batterie (Évolutif)";
+
+    outTitle.textContent =
+      batteryKwh > 0
+        ? `Système Hybride ~${kwcText} + ${kwhText}`
+        : `Système Solaire Diurne ~${kwcText} (Évolutif)`;
+    outSub.textContent = subtitle;
+    outKwc.textContent = kwcText;
+    outKwh.textContent = kwhText;
+    outInv.textContent = inverterLabel;
+    outProd.textContent = `~${dailyProd} kWh / jour`;
+
+    const appLabels = [];
+    if (selectedApps.includes("base")) appLabels.push("Éclairage/TV/Wi-Fi");
+    if (hasFrigo) appLabels.push("Réfrigérateur");
+    if (hasClim) appLabels.push("Climatiseurs Inverter");
+    if (selectedApps.includes("cameras")) appLabels.push("Caméras de surveillance");
+
+    currentSimSummary =
+      `Estimation simulateur DoomuTech : Facture ~${bill.toLocaleString("fr-FR")} FCFA/mois | ` +
+      `Appareils : ${appLabels.join(", ") || "À préciser"} | ` +
+      `Configuration indicative : ${kwcText} panneaux + ${kwhText} (${inverterLabel}).`;
+
+    if (waBtn) {
+      const waText = encodeURIComponent(
+        `Bonjour DoomuTech,\nJe viens d'utiliser votre simulateur solaire :\n- ${currentSimSummary}\nJe souhaite obtenir une étude personnalisée.`
+      );
+      waBtn.href = `https://wa.me/221777019259?text=${waText}`;
+    }
+  }
+
+  billSlider.addEventListener("input", computeSimulation);
+  appChecks.forEach((c) => c.addEventListener("change", computeSimulation));
+  if (goalSelect) goalSelect.addEventListener("change", computeSimulation);
+
+  if (applyBtn) {
+    applyBtn.addEventListener("click", () => {
+      const serviceSelect = document.getElementById("projectService");
+      const msgBox = document.getElementById("clientMessage");
+      if (serviceSelect) serviceSelect.value = "Installation solaire photovoltaïque";
+      if (msgBox) {
+        msgBox.value = currentSimSummary;
+      }
+    });
+  }
+
+  computeSimulation();
+}
+
+/* ==========================================================================
+   6. MODAL MENTIONS LÉGALES & PROTECTION DES DONNÉES (CDP SÉNÉGAL)
    ========================================================================== */
 function initLegalModal() {
   const modal = document.getElementById("legalModal");
@@ -223,16 +350,48 @@ function initLegalModal() {
 }
 
 /* ==========================================================================
-   6. FORMULAIRE DE QUALIFICATION DE DEVIS (Section 3 du cahier des charges)
+   7. FORMULAIRE DE DEVIS & DEMANDE RAPIDE WHATSAPP (Section 3 & Audit #4)
    ========================================================================== */
 function initQuoteForm() {
   const form = document.getElementById("quoteForm");
   const feedback = document.getElementById("formFeedback");
+  const quickWaBtn = document.getElementById("quickWhatsAppQuoteBtn");
 
   if (!form || !feedback) return;
 
+  // Bouton de demande rapide WhatsApp avec message prérempli selon les champs saisis
+  if (quickWaBtn) {
+    quickWaBtn.addEventListener("click", () => {
+      const nom = (document.getElementById("clientName")?.value || "").trim();
+      const tel = (document.getElementById("clientPhone")?.value || "").trim();
+      const ville = (document.getElementById("clientLocation")?.value || "").trim();
+      const service = document.getElementById("projectService")?.value || "Installation solaire photovoltaïque";
+      const typeClient = document.getElementById("clientType")?.value || "Particulier / habitation";
+      const besoin = (document.getElementById("clientMessage")?.value || "").trim();
+
+      const msg = encodeURIComponent(
+        `Bonjour DoomuTech,\n` +
+        `Je souhaite demander un devis gratuit :\n` +
+        `- Service : ${service}\n` +
+        `- Profil : ${typeClient}\n` +
+        (ville ? `- Ville / Quartier : ${ville}\n` : "") +
+        (nom ? `- Nom : ${nom}\n` : "") +
+        (tel ? `- Téléphone : ${tel}\n` : "") +
+        (besoin ? `- Besoin : ${besoin}` : "Merci de me recontacter pour étudier mon besoin.")
+      );
+
+      window.open(`https://wa.me/221777019259?text=${msg}`, "_blank", "noopener");
+    });
+  }
+
   form.addEventListener("submit", async (e) => {
     e.preventDefault();
+
+    // Vérification anti-spam Honeypot
+    const honey = document.getElementById("websiteHoney");
+    if (honey && honey.value.trim() !== "") {
+      return;
+    }
 
     const nom_client = document.getElementById("clientName").value.trim();
     const telephone = document.getElementById("clientPhone").value.trim();
@@ -273,13 +432,11 @@ function initQuoteForm() {
       notes_commerciales: ""
     };
 
-    // 1. Enregistrement dans la base locale + synchronisation Supabase
     const leads = getStoredLeads();
     leads.unshift(newLead);
     saveStoredLeads(leads);
     await syncLeadToSupabase(newLead);
 
-    // 2. Préparation des liens de notification (WhatsApp & E-mail)
     const waText = encodeURIComponent(
       `Bonjour DoomuTech,\n` +
       `Je viens d'enregistrer une demande de devis (${reference}) :\n` +
@@ -298,17 +455,17 @@ function initQuoteForm() {
 
     feedback.classList.remove("hidden");
     feedback.innerHTML = `
-      <strong>✅ Demande enregistrée avec succès ! (Référence : <code>${reference}</code>)</strong><br/>
-      Merci <strong>${escapeHtml(nom_client)}</strong>. Votre demande a été transmise à notre bureau d'études et ajoutée à l'espace de suivi DoomuTech.<br/>
+      <strong>Demande enregistrée avec succès (Référence : <code>${reference}</code>)</strong><br/>
+      Merci <strong>${escapeHtml(nom_client)}</strong>. Votre demande a été enregistrée pour étude. Vous pouvez également lancer la conversation directe sur WhatsApp ci-dessous :<br/>
       <div style="display:flex;flex-wrap:wrap;gap:10px;margin-top:10px;">
-        <a href="https://wa.me/221777019259?text=${waText}" target="_blank" rel="noopener" class="btn btn-primary btn-sm">
-          💬 Envoyer aussi sur WhatsApp (+221 77 701 92 59)
+        <a href="https://wa.me/221777019259?text=${waText}" target="_blank" rel="noopener" class="btn btn-whatsapp-hero btn-sm">
+          Envoyer maintenant sur WhatsApp (+221 77 701 92 59)
         </a>
         <a href="mailto:doomutech@gmail.com?subject=${mailSubject}&body=${waText}" class="btn btn-outline btn-sm">
-          📧 Notifier par e-mail (doomutech@gmail.com)
+          Notifier par e-mail (doomutech@gmail.com)
         </a>
         <a href="admin.html" class="btn btn-outline btn-sm">
-          📊 Voir dans l'espace administrateur →
+          Voir dans le suivi des devis →
         </a>
       </div>
     `;
@@ -319,13 +476,12 @@ function initQuoteForm() {
 }
 
 /* ==========================================================================
-   7. ESPACE ADMINISTRATEUR : TABLEAU DE BORD & CRM (admin.html — Section 4)
+   8. ESPACE ADMINISTRATEUR : TABLEAU DE BORD & CRM (admin.html)
    ========================================================================== */
 function initAdminDashboard() {
   const tableBody = document.getElementById("adminLeadsTableBody");
-  if (!tableBody) return; // Pas sur la page admin.html
+  if (!tableBody) return;
 
-  // Authentification Administrateur
   const authBackdrop = document.getElementById("adminAuthBackdrop");
   const loginForm = document.getElementById("adminLoginForm");
   const pinInput = document.getElementById("adminPinInput");
@@ -345,7 +501,6 @@ function initAdminDashboard() {
     });
   }
 
-  // État des filtres
   let currentStageFilter = "all";
   const searchInput = document.getElementById("filterSearch");
   const serviceSelect = document.getElementById("filterService");
@@ -354,11 +509,9 @@ function initAdminDashboard() {
   const clearBtn = document.getElementById("clearAllFiltersBtn");
   const resetStageBtn = document.getElementById("resetStageFilterBtn");
 
-  // Rendu principal (100% données réelles, aucun chiffre fictif)
   function renderDashboard() {
     const allLeads = getStoredLeads();
 
-    // 1. Mise à jour des KPIs (affiche "# —" si aucune donnée réelle enregistrée)
     const kpiNew = document.getElementById("kpiNewLeads");
     const kpiActive = document.getElementById("kpiActiveQuotes");
     const kpiTotal = document.getElementById("kpiTotalLeads");
@@ -386,7 +539,6 @@ function initAdminDashboard() {
       kpiWonCountSub.textContent = `${wonLeads.length} devis gagné(s)`;
     }
 
-    // 2. Mise à jour des compteurs du cycle commercial (01 -> 05)
     document.getElementById("count-01_nouveau").textContent = String(countNew);
     document.getElementById("count-02_a_qualifier").textContent = String(
       allLeads.filter((l) => l.statut === "02_a_qualifier").length
@@ -401,7 +553,6 @@ function initAdminDashboard() {
       allLeads.filter((l) => l.statut === "05_gagne" || l.statut === "05_perdu").length
     );
 
-    // 3. Filtrage de la liste
     const filtered = getFilteredLeads(allLeads);
 
     if (filtered.length === 0) {
@@ -440,11 +591,11 @@ function initAdminDashboard() {
             </td>
             <td>
               <strong style="color:var(--ink);display:block;">${escapeHtml(lead.nom_client)}</strong>
-              <span style="font-size:12px;">📞 ${escapeHtml(lead.telephone)}</span>
-              ${lead.email ? `<span style="display:block;font-size:11.5px;color:var(--mut);">✉️ ${escapeHtml(lead.email)}</span>` : ""}
+              <span style="font-size:12px;">${escapeHtml(lead.telephone)}</span>
+              ${lead.email ? `<span style="display:block;font-size:11.5px;color:var(--mut);">${escapeHtml(lead.email)}</span>` : ""}
             </td>
             <td>
-              <strong>📍 ${escapeHtml(lead.ville_zone)}</strong>
+              <strong>${escapeHtml(lead.ville_zone)}</strong>
               <span style="display:block;font-size:11.5px;color:var(--mut);">${escapeHtml(lead.type_client)}</span>
             </td>
             <td>
@@ -462,8 +613,8 @@ function initAdminDashboard() {
               </span>
             </td>
             <td>
-              ${lead.date_relance ? `<span style="font-size:12px;font-weight:700;">📅 ${escapeHtml(lead.date_relance)}</span>` : `<span style="font-size:11.5px;color:var(--mut);">—</span>`}
-              ${lead.notes_commerciales ? `<span style="display:block;font-size:11px;color:var(--mut);max-width:140px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;" title="${escapeHtml(lead.notes_commerciales)}">📝 ${escapeHtml(lead.notes_commerciales)}</span>` : ""}
+              ${lead.date_relance ? `<span style="font-size:12px;font-weight:700;">${escapeHtml(lead.date_relance)}</span>` : `<span style="font-size:11.5px;color:var(--mut);">—</span>`}
+              ${lead.notes_commerciales ? `<span style="display:block;font-size:11px;color:var(--mut);max-width:140px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;" title="${escapeHtml(lead.notes_commerciales)}">${escapeHtml(lead.notes_commerciales)}</span>` : ""}
             </td>
             <td>
               <div style="display:flex;gap:6px;flex-wrap:wrap;">
@@ -471,7 +622,7 @@ function initAdminDashboard() {
                   Gérer / Devis
                 </button>
                 <a href="${waHref}" target="_blank" rel="noopener" class="btn btn-outline btn-sm" title="Contacter sur WhatsApp">
-                  💬 WhatsApp
+                  WhatsApp
                 </a>
               </div>
             </td>
@@ -480,7 +631,6 @@ function initAdminDashboard() {
       })
       .join("");
 
-    // Attacher les écouteurs d'édition
     tableBody.querySelectorAll("[data-edit-lead]").forEach((btn) => {
       btn.addEventListener("click", () => {
         openLeadEditModal(btn.getAttribute("data-edit-lead"));
@@ -524,7 +674,6 @@ function initAdminDashboard() {
     });
   }
 
-  // Événements de filtrage
   [searchInput, serviceSelect, statusSelect, dateInput].forEach((el) => {
     if (el) el.addEventListener("input", renderDashboard);
   });
@@ -565,7 +714,6 @@ function initAdminDashboard() {
     });
   });
 
-  // Modal d'édition / création de prospect
   const leadModal = document.getElementById("leadEditModal");
   const closeLeadModalBtn = document.getElementById("closeLeadModalBtn");
   const leadEditForm = document.getElementById("leadEditForm");
@@ -600,7 +748,6 @@ function initAdminDashboard() {
       );
       document.getElementById("modalWhatsAppBtn").href = `https://wa.me/${cleanPhone}?text=${waMsg}`;
     } else {
-      // Nouveau prospect manuel
       document.getElementById("leadModalTitle").textContent = "Ajouter un nouveau prospect";
       leadEditForm.reset();
       document.getElementById("editLeadId").value = "";
@@ -676,7 +823,6 @@ function initAdminDashboard() {
     });
   }
 
-  // Export CSV (Compatible Excel UTF-8 avec BOM)
   const exportCsvBtn = document.getElementById("exportCsvBtn");
   if (exportCsvBtn) {
     exportCsvBtn.addEventListener("click", () => {
@@ -737,7 +883,6 @@ function initAdminDashboard() {
     });
   }
 
-  // Configuration Supabase Modal
   const sbModal = document.getElementById("supabaseConfigModal");
   const openSbBtn = document.getElementById("openSupabaseConfigBtn");
   const closeSbBtn = document.getElementById("closeSupabaseModalBtn");
@@ -773,7 +918,7 @@ function initAdminDashboard() {
 }
 
 /* ==========================================================================
-   8. OASIS ONE (FRAMER) MOTION DESIGN ENGINE
+   9. ANIMATIONS DOUCES & FLUIDES
    ========================================================================== */
 function initOasisOneMotion() {
   const progressBar = document.createElement("div");
@@ -791,60 +936,8 @@ function initOasisOneMotion() {
     { passive: true }
   );
 
-  const revealSelectors = [
-    ".hero-content > *",
-    ".hero-visual",
-    ".section-header",
-    ".eng-image-col",
-    ".eng-feature-item",
-    ".activity-bento-card",
-    ".solution-spotlight-block",
-    ".project-card",
-    ".team-card",
-    ".partners-box",
-    ".tip-article-card",
-    ".c-card",
-    ".quote-form"
-  ];
-
-  const elementsToReveal = document.querySelectorAll(revealSelectors.join(","));
-  elementsToReveal.forEach((el, index) => {
-    el.classList.add("framer-reveal");
-    const delayMod = index % 4;
-    if (delayMod > 0) {
-      el.setAttribute("data-framer-delay", String(delayMod));
-    }
-  });
-
-  const revealObserver = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("is-inview");
-          revealObserver.unobserve(entry.target);
-        }
-      });
-    },
-    {
-      threshold: 0.1,
-      rootMargin: "0px 0px -20px 0px"
-    }
-  );
-
-  elementsToReveal.forEach((el) => revealObserver.observe(el));
-
-  // Mise à jour active de la Barre de Navigation en haut selon la section visible
   const dockLinks = document.querySelectorAll("#navLinks .top-nav-item[data-dock-link]");
-  const trackedSections = [
-    "accueil",
-    "entreprise",
-    "solutions-solaires",
-    "climatisation",
-    "videosurveillance",
-    "realisations",
-    "conseils",
-    "devis"
-  ]
+  const trackedSections = ["accueil", "services", "realisations", "simulateur", "devis"]
     .map((id) => document.getElementById(id))
     .filter(Boolean);
 
@@ -860,7 +953,7 @@ function initOasisOneMotion() {
           }
         });
       },
-      { threshold: 0.2 }
+      { threshold: 0.25 }
     );
 
     trackedSections.forEach((sec) => sectionObserver.observe(sec));
