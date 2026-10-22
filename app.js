@@ -108,8 +108,11 @@ function updateHeaderLeadsBadge() {
 }
 
 /* ==========================================================================
-   1. THÈME CLAIR / SOMBRE
+   1. THÈME CLAIR / SOMBRE (UI/UX Pro Max SVG Vectors)
    ========================================================================== */
+const THEME_SUN_SVG = `<svg class="svg-icon svg-stroke" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>`;
+const THEME_MOON_SVG = `<svg class="svg-icon svg-stroke" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>`;
+
 function initThemeSwitcher() {
   const btn = document.getElementById("themeToggleBtn");
   const icon = document.getElementById("themeIcon");
@@ -118,7 +121,9 @@ function initThemeSwitcher() {
   const savedTheme = localStorage.getItem("doomutech_theme");
   if (savedTheme === "dark") {
     root.setAttribute("data-theme", "dark");
-    if (icon) icon.textContent = "☀️";
+    if (icon) icon.innerHTML = THEME_SUN_SVG;
+  } else if (icon) {
+    icon.innerHTML = THEME_MOON_SVG;
   }
 
   if (btn) {
@@ -127,11 +132,11 @@ function initThemeSwitcher() {
       if (isDark) {
         root.removeAttribute("data-theme");
         localStorage.setItem("doomutech_theme", "light");
-        if (icon) icon.textContent = "🌙";
+        if (icon) icon.innerHTML = THEME_MOON_SVG;
       } else {
         root.setAttribute("data-theme", "dark");
         localStorage.setItem("doomutech_theme", "dark");
-        if (icon) icon.textContent = "☀️";
+        if (icon) icon.innerHTML = THEME_SUN_SVG;
       }
     });
   }
@@ -892,11 +897,13 @@ function initAdminDashboard() {
   function refreshSbStatus() {
     const cfg = getSupabaseConfig();
     if (cfg && cfg.url && cfg.key) {
-      dbStatus.textContent = "🟢 Connecté à Supabase Cloud + Cache Local";
-      document.getElementById("sbUrlInput").value = cfg.url;
-      document.getElementById("sbKeyInput").value = cfg.key;
+      if (dbStatus) dbStatus.innerHTML = '<span class="pulse-dot" style="display:inline-block;vertical-align:middle;margin-right:6px;"></span> Connecté à Supabase Cloud + Cache Local';
+      const urlInput = document.getElementById("sbUrlInput");
+      const keyInput = document.getElementById("sbKeyInput");
+      if (urlInput) urlInput.value = cfg.url;
+      if (keyInput) keyInput.value = cfg.key;
     } else {
-      dbStatus.textContent = "🟢 Base locale active (Prête pour Supabase)";
+      if (dbStatus) dbStatus.innerHTML = '<span class="pulse-dot" style="display:inline-block;vertical-align:middle;margin-right:6px;"></span> Base locale active (Prête pour Supabase)';
     }
   }
 

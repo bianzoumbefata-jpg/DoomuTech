@@ -8,7 +8,7 @@
   <link rel="canonical" href="https://doomutech-senegal.vercel.app/" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700;800&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
 
   <!-- Données structurées JSON-LD SEO Local (Section 5 de l'audit) -->
@@ -88,7 +88,7 @@
 
       <div class="header-actions">
         <button type="button" class="theme-toggle-btn" id="themeToggleBtn" aria-label="Basculer le thème clair ou sombre" title="Mode Clair / Sombre">
-          <span id="themeIcon">🌙</span>
+          <span id="themeIcon"><svg class="svg-icon svg-stroke" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg></span>
         </button>
         <a href="admin.html" class="admin-nav-pill" title="Espace de gestion des demandes (Admin)">
           <span>Suivi Devis</span>
@@ -342,7 +342,11 @@
           </div>
         </div>
         <div class="eng-floating-card" style="margin-top: 14px; margin-left: 0; margin-right: 0;">
-          <div class="eng-cert-icon">🇸🇳</div>
+          <div class="eng-cert-icon">
+            <svg class="svg-icon svg-stroke" viewBox="0 0 24 24" width="28" height="28" aria-hidden="true">
+              <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+            </svg>
+          </div>
           <div>
             <strong>Votre interlocuteur technique unique au Sénégal</strong>
             <p>Étude personnalisée • Installation soignée • Garanties constructeurs • SAV réactif</p>
@@ -364,7 +368,9 @@
           <div class="eng-feature-item">
             <div class="eng-feature-thumb">
               <img src="assets/images/local-technique-victron.jpg" alt="Dimensionnement sur mesure et continuité électrique" loading="lazy" />
-              <span class="eng-feature-thumb-badge">⚡</span>
+              <span class="eng-feature-thumb-badge">
+                <svg class="svg-icon svg-stroke" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+              </span>
             </div>
             <div>
               <h4>Continuité Électrique &amp; Dimensionnement Réaliste</h4>
@@ -375,7 +381,9 @@
           <div class="eng-feature-item">
             <div class="eng-feature-thumb">
               <img src="assets/images/carrier/carrier-xpower-12k.jpg" alt="Équipements adaptés au climat côtier sénégalais" loading="lazy" />
-              <span class="eng-feature-thumb-badge">🛡️</span>
+              <span class="eng-feature-thumb-badge">
+                <svg class="svg-icon svg-stroke" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+              </span>
             </div>
             <div>
               <h4>Matériel Adapté au Climat &amp; au Littoral Sénégalais</h4>
@@ -386,7 +394,9 @@
           <div class="eng-feature-item">
             <div class="eng-feature-thumb">
               <img src="assets/images/camera-kit-4k.jpg" alt="Installation professionnelle et service après-vente" loading="lazy" />
-              <span class="eng-feature-thumb-badge">🤝</span>
+              <span class="eng-feature-thumb-badge">
+                <svg class="svg-icon svg-stroke" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg>
+              </span>
             </div>
             <div>
               <h4>Installation Propre, Garanties &amp; Service Après-Vente</h4>
@@ -631,7 +641,13 @@
       <div class="testimonials-grid">
         <article class="testimonial-card">
           <div>
-            <div class="t-stars" aria-label="5 étoiles sur 5">★★★★★</div>
+            <div class="stars-svg-row" aria-label="5 étoiles sur 5">
+              <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+              <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+              <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+              <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+              <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+            </div>
             <p class="t-quote" style="margin-top: 12px;">
               « L'équipe DoomuTech a pris le temps de vérifier tous nos appareils avant de proposer le devis. Depuis l'installation du système solaire hybride avec batteries lithium, nos coupures de courant ne bloquent plus le télétravail ni le réfrigérateur. »
             </p>
@@ -647,7 +663,13 @@
 
         <article class="testimonial-card">
           <div>
-            <div class="t-stars" aria-label="5 étoiles sur 5">★★★★★</div>
+            <div class="stars-svg-row" aria-label="5 étoiles sur 5">
+              <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+              <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+              <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+              <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+              <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+            </div>
             <p class="t-quote" style="margin-top: 12px;">
               « Travail très propre pour la pose de nos 4 climatiseurs Inverter et leur contrat d'entretien. Les techniciens sont ponctuels, utilisent des goulottes bien finies et expliquent clairement comment régler les appareils pour moins consommer. »
             </p>
@@ -663,7 +685,13 @@
 
         <article class="testimonial-card">
           <div>
-            <div class="t-stars" aria-label="5 étoiles sur 5">★★★★★</div>
+            <div class="stars-svg-row" aria-label="5 étoiles sur 5">
+              <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+              <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+              <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+              <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+              <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+            </div>
             <p class="t-quote" style="margin-top: 12px;">
               « Nous avons fait installer des caméras IP et deux caméras solaires 4G pour surveiller notre dépôt et notre chantier à distance. L'application sur téléphone fonctionne parfaitement de jour comme de nuit. »
             </p>
@@ -806,21 +834,35 @@
 
         <div class="contact-cards">
           <div class="c-card">
-            <div class="c-icon">📱</div>
+            <div class="c-icon">
+              <svg class="svg-icon svg-stroke" viewBox="0 0 24 24" width="24" height="24" aria-hidden="true">
+                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+              </svg>
+            </div>
             <div>
               <h4>WhatsApp &amp; Téléphone Direct</h4>
               <p><a href="https://wa.me/221777019259" target="_blank" rel="noopener" style="color: var(--brand); font-weight: 700;">+221 77 701 92 59</a></p>
             </div>
           </div>
           <div class="c-card">
-            <div class="c-icon">📧</div>
+            <div class="c-icon">
+              <svg class="svg-icon svg-stroke" viewBox="0 0 24 24" width="24" height="24" aria-hidden="true">
+                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                <polyline points="22,6 12,13 2,6"/>
+              </svg>
+            </div>
             <div>
               <h4>E-mail Officiel</h4>
               <p><a href="mailto:doomutech@gmail.com" style="color: var(--brand); font-weight: 700;">doomutech@gmail.com</a></p>
             </div>
           </div>
           <div class="c-card">
-            <div class="c-icon">📍</div>
+            <div class="c-icon">
+              <svg class="svg-icon svg-stroke" viewBox="0 0 24 24" width="24" height="24" aria-hidden="true">
+                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+                <circle cx="12" cy="10" r="3"/>
+              </svg>
+            </div>
             <div>
               <h4>Zone d'intervention</h4>
               <p>Dakar, Diamniadio, Thiès, Saly et autres régions du Sénégal sur étude</p>
@@ -970,7 +1012,7 @@
     <div class="dt-modal-card">
       <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px;">
         <h3 style="font-size: 19px; font-weight: 800;">Mentions Légales, Garanties &amp; Confidentialité (CDP)</h3>
-        <button type="button" class="btn btn-outline btn-sm" id="closeLegalModalBtn">Fermer ✕</button>
+        <button type="button" class="btn btn-outline btn-sm" id="closeLegalModalBtn" aria-label="Fermer la boîte de dialogue">Fermer</button>
       </div>
       <div style="font-size: 13.5px; color: var(--body); line-height: 1.6; display: flex; flex-direction: column; gap: 12px;">
         <p><strong>1. Éditeur du site :</strong> DoomuTech Sénégal — Installation de systèmes solaires photovoltaïques, climatiseurs et caméras de surveillance. E-mail : <a href="mailto:doomutech@gmail.com">doomutech@gmail.com</a> | Téléphone &amp; WhatsApp : +221 77 701 92 59.</p>

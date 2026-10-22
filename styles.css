@@ -1,144 +1,118 @@
 /* ==========================================================================
-   DoomuTech × Chari Official CSS Design System
-   Figma Mobile Apps Prototyping Kit - Tokens officiels & Composants Chari
+   DoomuTech Sénégal — Official CSS Design System (UI/UX Pro Max Edition)
+   Conforme aux normes d'accessibilité WCAG AA (≥ 4.5:1), cibles tactiles ≥ 44px,
+   palette confiance & énergie (Bleu Nuit, Bleu Confiance, Vert Solaire),
+   typographie Modern Professional (Poppins titres + Inter texte),
+   et désactivation des animations (prefers-reduced-motion).
    ========================================================================== */
 
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700;800&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500;600&display=swap');
+
 :root {
-  /* Figma Mobile Apps Prototyping Kit - Tokens officiels (Chari) */
-  --highlight-darkest: #006FFD;
-  --highlight-dark: #2897FF;
-  --highlight-medium: #6FBAFF;
-  --highlight-light: #B4DBFF;
-  --highlight-lightest: #EAF2FF;
+  /* UI/UX Pro Max Master Tokens : Home Services & Sustainable Energy */
+  --navy-deep: #0B1528;
+  --solar-green: #047857;
+  --solar-green-hover: #065F46;
+  --solar-green-light: #10B981;
+  --solar-green-soft: #ECFDF5;
 
-  --neutral-dark-darkest: #1F2024;
-  --neutral-dark-dark: #2F3036;
-  --neutral-dark-medium: #494A50;
-  --neutral-dark-light: #71727A;
-  --neutral-dark-lightest: #8F9098;
-
-  --neutral-light-darkest: #C5C6CC;
-  --neutral-light-dark: #D4D6DD;
-  --neutral-light-medium: #E8E9F1;
-  --neutral-light-light: #F8F9FE;
-  --neutral-light-lightest: #FFFFFF;
-
-  --support-success-dark: #298267;
-  --support-success-medium: #3AC0A0;
-  --support-success-light: #E7F4E8;
-
-  --support-warning-dark: #E86339;
-  --support-warning-medium: #FFB37C;
-  --support-warning-light: #FFF4E4;
-
-  --support-error-dark: #ED3241;
-  --support-error-medium: #FF616D;
-  --support-error-light: #FFE2E5;
-
-  /* Mappings sémantiques Figma Kit (Chari) */
-  --bg: var(--neutral-light-light);
-  --surf: var(--neutral-light-lightest);
-  --ink: var(--neutral-dark-darkest);
-  --body: var(--neutral-dark-dark);
-  --mut: var(--neutral-dark-light);
-  --brand: var(--highlight-darkest);
-  --brand-light: var(--highlight-dark);
-  --brand-grad: linear-gradient(135deg, #006FFD 0%, #2897FF 100%);
+  --brand: #1D4ED8;
+  --brand-light: #2563EB;
+  --brand-dark: #1E40AF;
+  --brand-grad: linear-gradient(135deg, #1D4ED8 0%, #2563EB 100%);
   --onb: #FFFFFF;
-  --gold: #F59E0B;
+
+  --gold: #D97706;
   --gold-bg: #FEF3C7;
   --gold-grad: linear-gradient(135deg, #F59E0B 0%, #D97706 100%);
-  --heart: #ED3241;
-  --heart-grad: linear-gradient(135deg, #FF616D 0%, #ED3241 100%);
-  --heart-shadow: rgba(237, 50, 65, 0.35);
-  --onh: #FFFFFF;
-  --line: var(--neutral-light-medium);
-  --ring: rgba(0, 111, 253, 0.25);
-  --hdr: var(--neutral-light-lightest);
-  --sh-sm: 0 1px 3px rgba(31, 32, 36, 0.05), 0 1px 2px rgba(31, 32, 36, 0.03);
-  --sh-md: 0 6px 16px rgba(31, 32, 36, 0.06), 0 2px 4px rgba(31, 32, 36, 0.03);
-  --sh-lg: 0 16px 36px rgba(31, 32, 36, 0.08), 0 4px 12px rgba(31, 32, 36, 0.04);
 
-  /* Compatibilité avec les sections DoomuTech */
+  --ink: #0B1528;
+  --body: #334155;
+  --mut: #475569;
+
+  --bg: #F8FAFC;
+  --surf: #FFFFFF;
+  --line: #E2E8F0;
+  --ring: rgba(29, 78, 216, 0.25);
+  --hdr: #FFFFFF;
+
+  --sh-sm: 0 1px 3px rgba(11, 21, 40, 0.05), 0 1px 2px rgba(11, 21, 40, 0.03);
+  --sh-md: 0 6px 16px rgba(11, 21, 40, 0.06), 0 2px 4px rgba(11, 21, 40, 0.03);
+  --sh-lg: 0 16px 36px rgba(11, 21, 40, 0.08), 0 4px 12px rgba(11, 21, 40, 0.04);
+
+  /* Mappings de compatibilité */
   --bg-primary: var(--bg);
   --bg-elevated: var(--surf);
-  --bg-subtle: var(--highlight-lightest);
-  --bg-navy: #0f172a;
-  --bg-navy-card: #1e293b;
+  --bg-subtle: #EFF6FF;
+  --bg-navy: #0B1528;
+  --bg-navy-card: #152238;
   --text-primary: var(--ink);
   --text-secondary: var(--body);
   --text-muted: var(--mut);
-  --text-inverse: #F8F9FE;
+  --text-inverse: #F8FAFC;
   --solar-amber: var(--brand);
   --solar-amber-bright: var(--brand-light);
-  --solar-amber-soft: var(--highlight-lightest);
-  --emerald: var(--support-success-medium);
-  --emerald-soft: var(--support-success-light);
+  --solar-amber-soft: #EFF6FF;
+  --emerald: var(--solar-green);
+  --emerald-soft: var(--solar-green-soft);
   --border-subtle: var(--line);
-  --border-strong: var(--neutral-light-dark);
+  --border-strong: #CBD5E1;
   --shadow-sm: var(--sh-sm);
   --shadow-md: var(--sh-md);
   --shadow-lg: var(--sh-lg);
-  --font-display: "Inter", "IBM Plex Sans Arabic", system-ui, -apple-system, sans-serif;
-  --font-sans: "Inter", "IBM Plex Sans Arabic", system-ui, -apple-system, sans-serif;
-  --font-mono: "JetBrains Mono", "Inter", monospace;
-  --radius-sm: 12px;
-  --radius-md: 16px;
-  --radius-lg: 20px;
+
+  /* Typographie Modern Professional */
+  --font-display: "Poppins", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-mono: "JetBrains Mono", monospace;
+
+  --radius-sm: 10px;
+  --radius-md: 14px;
+  --radius-lg: 18px;
 }
 
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
-    --bg: #141517;
-    --surf: #1F2024;
-    --ink: #F8F9FE;
-    --body: #D4D6DD;
-    --mut: #8F9098;
-    --brand: #2897FF;
-    --brand-light: #6FBAFF;
-    --brand-grad: linear-gradient(135deg, #006FFD 0%, #2897FF 100%);
-    --onb: #FFFFFF;
-    --gold: #FBBF24;
-    --gold-bg: rgba(251, 191, 36, 0.15);
-    --gold-grad: linear-gradient(135deg, #FBBF24 0%, #F59E0B 100%);
-    --heart: #FF616D;
-    --heart-grad: linear-gradient(135deg, #FF616D 0%, #ED3241 100%);
-    --heart-shadow: rgba(237, 50, 65, 0.4);
-    --line: #2F3036;
-    --ring: rgba(40, 151, 255, 0.35);
-    --hdr: #1F2024;
+    --bg: #0B1220;
+    --surf: #111A2E;
+    --ink: #F1F5F9;
+    --body: #CBD5E1;
+    --mut: #94A3B8;
+    --brand: #3B82F6;
+    --brand-light: #60A5FA;
+    --brand-grad: linear-gradient(135deg, #1D4ED8 0%, #3B82F6 100%);
+    --line: #1E293B;
+    --ring: rgba(59, 130, 246, 0.35);
+    --hdr: #111A2E;
     --sh-sm: 0 1px 3px rgba(0, 0, 0, 0.3);
     --sh-md: 0 6px 16px rgba(0, 0, 0, 0.35);
     --sh-lg: 0 16px 36px rgba(0, 0, 0, 0.45);
-    --bg-subtle: rgba(0, 111, 253, 0.12);
-    --border-strong: #494A50;
+    --bg-subtle: rgba(29, 78, 216, 0.15);
+    --border-strong: #334155;
+    --bg-navy: #070B14;
+    --bg-navy-card: #0F172A;
   }
 }
 
 :root[data-theme="dark"] {
-  --bg: #141517;
-  --surf: #1F2024;
-  --ink: #F8F9FE;
-  --body: #D4D6DD;
-  --mut: #8F9098;
-  --brand: #2897FF;
-  --brand-light: #6FBAFF;
-  --brand-grad: linear-gradient(135deg, #006FFD 0%, #2897FF 100%);
-  --onb: #FFFFFF;
-  --gold: #FBBF24;
-  --gold-bg: rgba(251, 191, 36, 0.15);
-  --gold-grad: linear-gradient(135deg, #FBBF24 0%, #F59E0B 100%);
-  --heart: #FF616D;
-  --heart-grad: linear-gradient(135deg, #FF616D 0%, #ED3241 100%);
-  --heart-shadow: rgba(237, 50, 65, 0.4);
-  --line: #2F3036;
-  --ring: rgba(40, 151, 255, 0.35);
-  --hdr: #1F2024;
+  --bg: #0B1220;
+  --surf: #111A2E;
+  --ink: #F1F5F9;
+  --body: #CBD5E1;
+  --mut: #94A3B8;
+  --brand: #3B82F6;
+  --brand-light: #60A5FA;
+  --brand-grad: linear-gradient(135deg, #1D4ED8 0%, #3B82F6 100%);
+  --line: #1E293B;
+  --ring: rgba(59, 130, 246, 0.35);
+  --hdr: #111A2E;
   --sh-sm: 0 1px 3px rgba(0, 0, 0, 0.3);
   --sh-md: 0 6px 16px rgba(0, 0, 0, 0.35);
   --sh-lg: 0 16px 36px rgba(0, 0, 0, 0.45);
-  --bg-subtle: rgba(0, 111, 253, 0.12);
-  --border-strong: #494A50;
+  --bg-subtle: rgba(29, 78, 216, 0.15);
+  --border-strong: #334155;
+  --bg-navy: #070B14;
+  --bg-navy-card: #0F172A;
 }
 
 *, *::before, *::after {
@@ -149,23 +123,27 @@
 
 html {
   scroll-behavior: smooth;
-  font-size: 15px;
+  font-size: 16px;
   -webkit-text-size-adjust: 100%;
 }
 
 body {
   background: var(--bg);
   color: var(--body);
-  font: 400 15px/1.55 "Inter", "IBM Plex Sans Arabic", system-ui, -apple-system, sans-serif;
+  font: 400 1rem/1.6 var(--font-sans);
   -webkit-font-smoothing: antialiased;
   letter-spacing: -0.01em;
   overflow-x: hidden;
 }
 
+h1, h2, h3, h4, .section-title, .brand-name, .hero-title, .section-eyebrow, .logo {
+  font-family: var(--font-display);
+}
+
 h1, h2, h3, h4 {
   color: var(--ink);
-  font-family: "Inter", "IBM Plex Sans Arabic", system-ui, sans-serif;
   line-height: 1.25;
+  letter-spacing: -0.02em;
 }
 
 button, input, select, textarea {
@@ -333,18 +311,26 @@ ul {
 }
 
 .btn-whatsapp-sm {
-  min-height: 40px;
-  padding: 0 14px;
-  background: var(--support-success-light);
-  color: var(--support-success-dark);
-  border: 1.5px solid rgba(58, 192, 160, 0.4);
+  min-height: 44px;
+  padding: 0 16px;
+  background: var(--solar-green-soft);
+  color: var(--solar-green);
+  border: 1.5px solid rgba(4, 120, 87, 0.35);
   box-shadow: none;
-  font-size: 13px;
+  font-size: 13.5px;
+  font-weight: 700;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  border-radius: 12px;
+  cursor: pointer;
 }
 
 .btn-whatsapp-sm:hover {
-  background: #d1fae5;
-  color: var(--support-success-dark);
+  background: #D1FAE5;
+  color: var(--solar-green-hover);
+  border-color: var(--solar-green);
 }
 
 .btn-whatsapp-outline {
@@ -527,21 +513,24 @@ ul {
   gap: 10px;
 }
 
-/* Theme Toggle Button (Chari .lg style) */
+/* Theme Toggle Button (UI/UX Pro Max 44px Accessible Target) */
 .theme-toggle-btn {
-  min-height: 40px;
-  padding: 0 12px;
+  min-height: 44px;
+  min-width: 44px;
+  padding: 0 14px;
   border-radius: 999px;
   border: 1.5px solid var(--line);
   background: var(--surf);
   color: var(--ink);
   font-weight: 600;
-  font-size: 12px;
+  font-size: 13px;
   display: inline-flex;
   align-items: center;
-  gap: 6px;
+  justify-content: center;
+  gap: 8px;
   box-shadow: var(--sh-sm);
   transition: all 0.18s;
+  cursor: pointer;
 }
 
 .theme-toggle-btn:hover {
@@ -553,11 +542,11 @@ ul {
   display: inline-flex;
   align-items: center;
   gap: 10px;
-  min-height: 42px;
-  background: var(--highlight-lightest);
-  color: var(--highlight-darkest);
-  border: 1.5px solid var(--highlight-light);
-  padding: 0 14px;
+  min-height: 44px;
+  background: var(--bg-subtle);
+  color: var(--brand);
+  border: 1.5px solid var(--line);
+  padding: 0 16px;
   border-radius: 999px;
   cursor: pointer;
   font-weight: 700;
@@ -1318,16 +1307,20 @@ ul {
 }
 
 .btn-add-cart {
-  min-height: 42px;
+  min-height: 44px;
   background: var(--brand);
   color: #FFFFFF;
   font-weight: 600;
-  font-size: 13px;
-  padding: 0 12px;
+  font-size: 13.5px;
+  padding: 0 16px;
   border-radius: 12px;
   border: none;
-  box-shadow: 0 4px 12px rgba(0, 111, 253, 0.22);
+  box-shadow: 0 4px 12px rgba(29, 78, 216, 0.22);
   transition: all 0.18s;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .btn-add-cart:hover {
@@ -1336,17 +1329,26 @@ ul {
 }
 
 .btn-wa-product {
-  min-height: 42px;
-  background: var(--support-success-light);
-  color: var(--support-success-dark);
-  border: 1.5px solid rgba(58, 192, 160, 0.35);
+  min-height: 44px;
+  min-width: 44px;
+  background: var(--solar-green-soft);
+  color: var(--solar-green);
+  border: 1.5px solid rgba(4, 120, 87, 0.35);
   border-radius: 12px;
-  padding: 0 12px;
+  padding: 0 14px;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  font-size: 12px;
+  font-size: 13px;
   font-weight: 700;
+  cursor: pointer;
+  transition: all 0.18s ease;
+}
+
+.btn-wa-product:hover {
+  background: #D1FAE5;
+  color: var(--solar-green-hover);
+  border-color: var(--solar-green);
 }
 
 /* ==========================================================================
@@ -2832,20 +2834,21 @@ ul {
 }
 
 .btn-spec-sheet {
-  min-height: 36px;
+  min-height: 44px;
   width: 100%;
   margin-bottom: 8px;
   background: var(--bg);
   color: var(--brand);
   border: 1px solid var(--line);
   border-radius: 10px;
-  font-size: 12px;
+  font-size: 13px;
   font-weight: 700;
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 6px;
   transition: all 0.16s;
+  cursor: pointer;
 }
 
 .btn-spec-sheet:hover {
@@ -3800,10 +3803,12 @@ body {
 .top-nav-item {
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   gap: 6px;
-  padding: 8px 14px;
+  min-height: 44px;
+  padding: 0 16px;
   border-radius: 999px;
-  font-size: 13px;
+  font-size: 13.5px;
   font-weight: 700;
   color: var(--ink);
   transition: all 0.25s var(--framer-spring);
@@ -3811,15 +3816,15 @@ body {
 }
 
 .top-nav-item:hover {
-  background: var(--highlight-lightest);
-  color: var(--highlight-darkest);
+  background: var(--bg-subtle);
+  color: var(--brand);
   transform: translateY(-1px);
 }
 
 .top-nav-item.dock-active {
   background: var(--brand-grad);
   color: #FFFFFF;
-  box-shadow: 0 4px 12px rgba(0, 111, 253, 0.28);
+  box-shadow: 0 4px 12px rgba(29, 78, 216, 0.28);
 }
 
 @media (max-width: 1024px) {
@@ -3972,24 +3977,20 @@ body {
    ========================================================================== */
 
 /* Navigation responsive multipage / ancres */
-.top-nav-item {
-  padding: 7px 11px;
-  font-size: 12.5px;
-}
-
 .admin-nav-pill {
   display: inline-flex;
   align-items: center;
-  gap: 6px;
-  min-height: 40px;
-  padding: 0 14px;
+  gap: 8px;
+  min-height: 44px;
+  padding: 0 16px;
   border-radius: 999px;
-  font-size: 12px;
+  font-size: 13px;
   font-weight: 700;
-  background: var(--highlight-lightest);
-  color: var(--highlight-darkest);
-  border: 1.5px solid rgba(0, 111, 253, 0.25);
+  background: var(--bg-subtle);
+  color: var(--brand);
+  border: 1.5px solid rgba(29, 78, 216, 0.25);
   transition: all 0.2s ease;
+  cursor: pointer;
 }
 
 .admin-nav-pill:hover {
@@ -4743,5 +4744,81 @@ body {
   }
   .wa-floating-btn {
     padding: 14px;
+  }
+}
+
+/* ==========================================================================
+   UI/UX PRO MAX ADDITIONS:
+   - Composants SVG vectoriels standardisés (remplaçant les emojis)
+   - Ligne d'étoiles de satisfaction client SVG
+   - Focus accessible 3px & Cibles tactiles
+   - Respect strict des préférences de mouvement réduit (WCAG 2.1)
+   ========================================================================== */
+.svg-icon {
+  width: 1.25em;
+  height: 1.25em;
+  display: inline-block;
+  vertical-align: middle;
+  fill: currentColor;
+  flex-shrink: 0;
+}
+
+.svg-stroke {
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.stars-svg-row {
+  display: inline-flex;
+  gap: 3px;
+  color: #F59E0B;
+  align-items: center;
+}
+
+.stars-svg-row svg {
+  width: 17px;
+  height: 17px;
+  fill: currentColor;
+}
+
+.c-icon svg {
+  width: 24px;
+  height: 24px;
+  color: var(--brand);
+}
+
+.eng-feature-thumb-badge svg {
+  width: 18px;
+  height: 18px;
+  color: #FFFFFF;
+}
+
+.eng-cert-icon svg {
+  width: 28px;
+  height: 28px;
+  color: var(--solar-green);
+}
+
+/* Garantir un contraste accessible sur tous les badges et boutons */
+.badge-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--solar-green);
+  display: inline-block;
+}
+
+/* Respect des préférences de réduction de mouvement (Accessibilité Pro Max) */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
   }
 }
