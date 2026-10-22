@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<html lang="fr" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DoomuTech Sénégal × Style Agence PumpUp | Démonstration Design</title>
+  <meta name="description" content="Aperçu du design DoomuTech adapté avec la charte graphique de l'agence digitale PumpUp : typographie Instrument Serif, fond Dark Forest et accent Citrus Light." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Hanken+Grotesk:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles-pumpup.css" />
+</head>
+<body>
+
+  <!-- ========================================================================
+       BANNIÈRE DE COMPARAISON EN DIRECT (DÉMONSTRATION PUMPUP)
+       ======================================================================== -->
+  <aside class="pu-preview-banner">
+    <div>
+      <span>✨ <strong>Aperçu Thème Agence PumpUp</strong> (Rouen) — Typographie <em>Instrument Serif</em> + <em>Hanken Grotesk</em> &amp; Palette Dark Forest / Citrus <code>#E8FE8A</code></span>
+    </div>
+    <div style="display: flex; gap: 8px; align-items: center;">
+      <a href="index.html" class="pu-preview-switch-btn" title="Revenir au design standard">
+        ← Version Actuelle (Standard)
+      </a>
+      <a href="#devis" class="pu-preview-switch-btn" style="background: var(--pu-citrus); color: var(--pu-dark); border-color: var(--pu-citrus);">
+        Tester le Devis
+      </a>
+    </div>
+  </aside>
+
+  <!-- Barre supérieure de contact -->
+  <div class="utility-bar">
+    <div class="container utility-inner">
+      <div class="live-indicator">
+        <span class="pulse-dot"></span>
+        <span><strong>DOOMUTECH SÉNÉGAL</strong> — Solaire photovoltaïque • Climatisation • Vidéosurveillance</span>
+      </div>
+      <div>
+        <a href="mailto:doomutech@gmail.com">doomutech@gmail.com</a>
+        <span class="utility-divider">|</span>
+        <a href="https://wa.me/221777019259" target="_blank" rel="noopener" style="color: var(--pu-citrus); font-weight: 700;">WhatsApp : +221 77 701 92 59</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Header Sticky avec Effet Verre Dépoli -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="preview-pumpup.html" class="brand-logo">
+        <div class="logo-mark">
+          <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="20" cy="20" r="18" stroke="#E8FE8A" stroke-width="2.2" />
+            <circle cx="20" cy="20" r="8" fill="#E8FE8A" />
+            <path d="M20 3V7M20 33V37M3 20H7M33 20H37M7.98 7.98L10.8 10.8M29.2 29.2L32.02 32.02M32.02 7.98L29.2 10.8M10.8 29.2L7.98 32.02" stroke="#E8FE8A" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <div>
+          <span class="brand-name">Doomu<span>Tech</span></span>
+          <span class="brand-tag">SOLAIRE • CLIMATISATION • SÉCURITÉ</span>
+        </div>
+      </a>
+
+      <nav class="top-nav-pill-bar">
+        <a href="#accueil" class="top-nav-item dock-active">Accueil</a>
+        <a href="#services" class="top-nav-item">Expertises</a>
+        <a href="solaire.html" class="top-nav-item">Solaire</a>
+        <a href="climatisation.html" class="top-nav-item">Climatisation</a>
+        <a href="videosurveillance.html" class="top-nav-item">Vidéosurveillance</a>
+        <a href="#simulateur" class="top-nav-item">Simulateur</a>
+        <a href="#devis" class="top-nav-item">Devis gratuit</a>
+      </nav>
+
+      <div class="header-actions">
+        <a href="admin.html" class="admin-nav-pill" title="Espace de suivi des demandes">
+          <span>Suivi Devis</span>
+          <span class="cart-count-badge" id="headerLeadsBadge">0</span>
+        </a>
+        <a href="#devis" class="btn btn-primary btn-sm">Devis &rarr;</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- ========================================================================
+       01. HERO SECTION (Style Éditorial Inspiré de PumpUp Rouen)
+       ======================================================================== -->
+  <section class="hero-section" id="accueil">
+    <div class="container hero-grid">
+      <div>
+        <div class="eyebrow-badge">
+          <span class="badge-dot"></span>
+          <span>INGÉNIERIE CLIMATIQUE &amp; ÉNERGIE SOLAIRE AU SÉNÉGAL</span>
+        </div>
+
+        <h1 class="hero-title">
+          Réduisez vos factures, profitez du confort et <em>sécurisez vos installations.</em>
+        </h1>
+
+        <p class="hero-subtitle">
+          DoomuTech accompagne les particuliers et entreprises au Sénégal dans l'ingénierie et l'installation de systèmes solaires photovoltaïques, de climatiseurs économiques et de vidéosurveillance haute définition.
+        </p>
+
+        <div class="hero-cta-group">
+          <a href="#devis" class="btn btn-primary btn-lg">
+            Demander un devis gratuit &nbsp;&rarr;
+          </a>
+          <a href="https://wa.me/221777019259?text=Bonjour%20DoomuTech%2C%20je%20souhaite%20parler%20%C3%A0%20un%20conseiller%20pour%20mon%20projet." target="_blank" rel="noopener" class="btn btn-whatsapp-hero btn-lg">
+            Parler à un conseiller (WhatsApp)
+          </a>
+        </div>
+
+        <!-- Métriques techniques vérifiables -->
+        <div class="hero-specs-row">
+          <div class="spec-mini-item">
+            <strong>25+ ans</strong>
+            <span>Durée de vie attendue des panneaux</span>
+          </div>
+          <div class="spec-mini-item">
+            <strong>-40% à -60%</strong>
+            <span>Économie potentielle clim Inverter</span>
+          </div>
+          <div class="spec-mini-item">
+            <strong>3 à 5×</strong>
+            <span>Cyclage Lithium vs Plomb AGM</span>
+          </div>
+          <div class="spec-mini-item">
+            <strong>Sur mesure</strong>
+            <span>Continuité dimensionnée à Dakar</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-visual-card">
+        <img src="assets/images/hero-dakar-solar.jpg" alt="Installation solaire photovoltaïque à Dakar au Sénégal" />
+        <div class="hero-floating-badge">
+          <div class="pulse-dot"></div>
+          <div>
+            <strong>Installation solaire certifiée à Dakar</strong>
+            <span>Systèmes Victron Energy &amp; batteries Lithium LiFePO4</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       02. LES TROIS SERVICES & EXPERTISES (Cartes Inspirées de PumpUp)
+       ======================================================================== -->
+  <section class="services-section" id="services">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-eyebrow">02 — NOS TROIS DOMAINES D'EXPERTISE</span>
+        <h2 class="section-title">Toutes les expertises d'ingénierie, <em>réunies à Dakar.</em></h2>
+        <p class="section-desc">
+          Une approche technique globale : dimensionner votre énergie pour alimenter sans faillir votre climatisation et vos systèmes de sécurité.
+        </p>
+      </div>
+
+      <div class="services-grid-3">
+        <!-- 01 : Solaire -->
+        <article class="service-card">
+          <span class="service-card-num">01 / PHOTOVOLTAÏQUE</span>
+          <h3>Énergie Solaire &amp; Autonomie</h3>
+          <p>
+            Audit énergétique sur site, bilan de puissance et installation de centrales solaires hybrides ou autonomes avec onduleurs <strong>Victron Energy</strong> et batteries Lithium garanties.
+          </p>
+          <div class="service-tags">
+            <span class="service-tag">Onduleurs Hybrides</span>
+            <span class="service-tag">Batteries Lithium</span>
+            <span class="service-tag">Suivi Victron VRM</span>
+          </div>
+          <a href="solaire.html" class="service-card-action">
+            Découvrir l'offre Solaire &rarr;
+          </a>
+        </article>
+
+        <!-- 02 : Climatisation -->
+        <article class="service-card">
+          <span class="service-card-num">02 / CONFORT THERMIQUE</span>
+          <h3>Climatisation Inverter Économique</h3>
+          <p>
+            Splits muraux et cassettes <strong>Carrier Inverter</strong> tropicalisés, traités anti-corrosion Golden Fin pour résister aux embruns marins et réduire jusqu'à 60% la consommation.
+          </p>
+          <div class="service-tags">
+            <span class="service-tag">Splits Inverter</span>
+            <span class="service-tag">Cassettes Tertiaires</span>
+            <span class="service-tag">Traitement Littoral</span>
+          </div>
+          <a href="climatisation.html" class="service-card-action">
+            Découvrir la Climatisation &rarr;
+          </a>
+        </article>
+
+        <!-- 03 : Vidéosurveillance -->
+        <article class="service-card">
+          <span class="service-card-num">03 / SÉCURITÉ ÉLECTRONIQUE</span>
+          <h3>Vidéosurveillance IP 4K &amp; Solaire</h3>
+          <p>
+            Caméras IP ultra-haute définition avec vision nocturne couleur, caméras autonomes solaires 4G/Wi-Fi PTZ 360° et enregistrement sécurisé consultable en direct sur smartphone.
+          </p>
+          <div class="service-tags">
+            <span class="service-tag">Caméras IP 4K</span>
+            <span class="service-tag">Solaire 4G Autonome</span>
+            <span class="service-tag">Vision Nocturne</span>
+          </div>
+          <a href="videosurveillance.html" class="service-card-action">
+            Découvrir la Vidéosurveillance &rarr;
+          </a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       03. MÉTHODE DE TRAVAIL EN TROIS TEMPS (Inspiré de PumpUp)
+       ======================================================================== -->
+  <section class="engineering-section" id="methode">
+    <div class="container eng-grid">
+      <div class="eng-visual-collage">
+        <div class="eng-collage-main">
+          <img src="assets/images/team-installation.jpg" alt="Techniciens DoomuTech à Dakar" />
+          <span class="eng-collage-badge">Intervention certifiée</span>
+        </div>
+        <div class="eng-collage-sub">
+          <img src="assets/images/carrier/carrier-xpower-12k.jpg" alt="Pose de climatiseur Inverter" />
+          <span class="eng-collage-badge">Clim Inverter</span>
+        </div>
+        <div class="eng-collage-sub">
+          <img src="assets/images/camera-kit-4k.jpg" alt="Système caméras 4K" />
+          <span class="eng-collage-badge">Sécurité 4K</span>
+        </div>
+      </div>
+
+      <div>
+        <span class="section-eyebrow">03 — MÉTHODE &amp; ENGAGEMENTS</span>
+        <h2 class="section-title">Notre méthode de travail, <em>en trois temps.</em></h2>
+        <p class="section-desc">
+          Chez DoomuTech, chaque chantier suit un processus rigoureux pour assurer la continuité de service et la longévité de vos équipements.
+        </p>
+
+        <div class="eng-steps-list">
+          <div class="eng-step-item">
+            <div class="eng-step-code">01</div>
+            <div>
+              <h4>Étude &amp; Dimensionnement Réaliste</h4>
+              <p>Relevé de votre consommation réelle (facture Senelec, puissances de crête, appareils prioritaires) pour concevoir une installation calibrée exactement selon votre budget.</p>
+            </div>
+          </div>
+
+          <div class="eng-step-item">
+            <div class="eng-step-code">02</div>
+            <div>
+              <h4>Installation Propre &amp; Matériel Adapté</h4>
+              <p>Protections électriques AC/DC normalisées, câblage soigné sous goulottes, matériel tropicalisé résistant à la chaleur et à l'air marin de la presqu'île.</p>
+            </div>
+          </div>
+
+          <div class="eng-step-item">
+            <div class="eng-step-code">03</div>
+            <div>
+              <h4>Garanties, Suivi à Distance &amp; SAV</h4>
+              <p>Application stricte des garanties constructeurs, configuration du télé-diagnostic et contrats d'entretien périodiques assurés par nos propres techniciens.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       06. TÉMOIGNAGES CLIENTS
+       ======================================================================== -->
+  <section class="testimonials-section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-eyebrow">06 — PREUVE &amp; RETOURS D'EXPÉRIENCE</span>
+        <h2 class="section-title">Ce que disent nos clients <em>au Sénégal.</em></h2>
+        <p class="section-desc">
+          La satisfaction de nos clients résidentiels et professionnels à Dakar, Diamniadio et sur la Petite Côte.
+        </p>
+      </div>
+
+      <div class="testimonials-grid">
+        <article class="testimonial-card">
+          <div>
+            <div class="stars-svg-row">
+              <svg viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+              <svg viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+              <svg viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+              <svg viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+              <svg viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+            </div>
+            <p class="t-quote">
+              « L'équipe DoomuTech a pris le temps d'étudier nos appareils. Depuis la pose du kit solaire hybride avec batteries lithium, nos coupures de courant ne bloquent plus le télétravail ni le réfrigérateur. »
+            </p>
+          </div>
+          <div class="t-author-row">
+            <div class="t-author-info">
+              <strong>M. Abdoulaye N.</strong>
+              <span>Particulier — Dakar (Mermoz)</span>
+            </div>
+            <span class="t-service-tag">Solaire Hybride</span>
+          </div>
+        </article>
+
+        <article class="testimonial-card">
+          <div>
+            <div class="stars-svg-row">
+              <svg viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+              <svg viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+              <svg viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+              <svg viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+              <svg viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+            </div>
+            <p class="t-quote">
+              « Travail très soigné pour nos 4 climatiseurs Inverter. Les techniciens sont ponctuels, les finitions impeccables et les conseils de réglage nous ont permis de baisser notre facture. »
+            </p>
+          </div>
+          <div class="t-author-row">
+            <div class="t-author-info">
+              <strong>Mme Fatou D.</strong>
+              <span>Gérante de cabinet — Dakar (VDN)</span>
+            </div>
+            <span class="t-service-tag">Climatisation</span>
+          </div>
+        </article>
+
+        <article class="testimonial-card">
+          <div>
+            <div class="stars-svg-row">
+              <svg viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+              <svg viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+              <svg viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+              <svg viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+              <svg viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+            </div>
+            <p class="t-quote">
+              « Caméras IP et solaires 4G installées sur notre dépôt de Diamniadio. L'application mobile fonctionne très bien en temps réel, de jour comme de nuit. »
+            </p>
+          </div>
+          <div class="t-author-row">
+            <div class="t-author-info">
+              <strong>M. Cheikh S.</strong>
+              <span>Entrepreneur — Diamniadio &amp; Dakar</span>
+            </div>
+            <span class="t-service-tag">Vidéosurveillance</span>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       07. SIMULATEUR SOLAIRE SIMPLE (Style PumpUp)
+       ======================================================================== -->
+  <section class="simple-sim-section" id="simulateur">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-eyebrow">07 — SIMULATEUR &amp; ESTIMATION SOLAIRE</span>
+        <h2 class="section-title">Estimez votre puissance solaire, <em>en 30 secondes.</em></h2>
+        <p class="section-desc">
+          Renseignez votre facture Senelec et vos appareils pour obtenir une première estimation technique avant visite sur site.
+        </p>
+      </div>
+
+      <div class="simple-sim-grid">
+        <div class="simple-sim-inputs">
+          <div>
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+              <label for="simBillSlider" style="font-weight: 700; font-size: 14px;">1. Facture électrique mensuelle</label>
+              <span class="sim-readout" id="simBillDisplay">100 000 FCFA / mois</span>
+            </div>
+            <input type="range" id="simBillSlider" class="solar-slider" min="25000" max="500000" step="25000" value="100000" />
+            <div class="slider-ticks">
+              <span>25 000 FCFA</span>
+              <span>150 000 FCFA</span>
+              <span>300 000 FCFA</span>
+              <span>500 000+ FCFA</span>
+            </div>
+          </div>
+
+          <div>
+            <label style="display: block; font-weight: 700; font-size: 14px; margin-bottom: 10px;">2. Appareils à secourir lors des coupures</label>
+            <div class="sim-appliance-grid">
+              <label class="sim-app-label">
+                <input type="checkbox" class="sim-app-check" value="base" checked />
+                <span>Éclairage &amp; Box Wi-Fi</span>
+              </label>
+              <label class="sim-app-label">
+                <input type="checkbox" class="sim-app-check" value="frigo" checked />
+                <span>Réfrigérateur</span>
+              </label>
+              <label class="sim-app-label">
+                <input type="checkbox" class="sim-app-check" value="clim" />
+                <span>1–2 Climatiseurs</span>
+              </label>
+              <label class="sim-app-label">
+                <input type="checkbox" class="sim-app-check" value="cameras" checked />
+                <span>Caméras de sécurité</span>
+              </label>
+            </div>
+          </div>
+
+          <div>
+            <label for="simGoalSelect" style="display: block; font-weight: 700; font-size: 14px; margin-bottom: 8px;">3. Objectif principal</label>
+            <select id="simGoalSelect" class="sim-select">
+              <option value="hybride_secours" selected>Réduire facture + Autonomie anti-coupures (Hybride avec batteries)</option>
+              <option value="diurne_sans_batterie">Réduire la facture le jour uniquement (Sans batterie)</option>
+              <option value="autonomie_complete">Autonomie maximale jour &amp; nuit (Site isolé)</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="simple-sim-output">
+          <div>
+            <span class="section-eyebrow" style="background: rgba(232, 254, 138, 0.15); color: var(--pu-citrus);">ESTIMATION TECHNIQUE INDICATIVE</span>
+            <h3 id="simResultTitle" style="font-size: 26px; margin: 10px 0 6px; color: #FFFFFF;">
+              Kit Solaire Hybride 3 kWc + 5 kWh Lithium
+            </h3>
+            <p id="simResultSubtitle" style="font-size: 14px; color: var(--pu-muted);">
+              Adapté pour réduire votre facture et maintenir vos appareils essentiels lors des coupures Senelec.
+            </p>
+          </div>
+
+          <div class="sim-out-kpis">
+            <div class="sim-out-box">
+              <span>Puissance solaire estimée</span>
+              <strong id="simOutKwc">3,0 kWc</strong>
+            </div>
+            <div class="sim-out-box">
+              <span>Stockage Lithium conseillé</span>
+              <strong id="simOutKwh">5,0 kWh</strong>
+            </div>
+            <div class="sim-out-box">
+              <span>Onduleur hybride</span>
+              <strong id="simOutInverter">3 à 5 kVA</strong>
+            </div>
+            <div class="sim-out-box">
+              <span>Production estimée</span>
+              <strong id="simOutProd">~13 kWh / j</strong>
+            </div>
+          </div>
+
+          <a href="#devis" class="btn btn-primary btn-lg btn-block" id="simCtaBtn">
+            Demander une étude détaillée pour cette configuration &nbsp;&rarr;
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       08. FORMULAIRE DE DEVIS & CONTACT
+       ======================================================================== -->
+  <section class="contact-section" id="devis">
+    <div class="container contact-grid">
+      <div>
+        <span class="section-eyebrow">08 — CONTACT &amp; DEVIS</span>
+        <h2 class="section-title">Un projet solaire, clim ou caméra ? <em>Parlons-en.</em></h2>
+        <p class="section-desc">
+          Remplissez le formulaire ci-contre ou échangez directement sur WhatsApp pour une réponse rapide et personnalisée.
+        </p>
+
+        <div class="contact-cards">
+          <div class="c-card">
+            <div class="c-icon">
+              <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            </div>
+            <div>
+              <h4>WhatsApp &amp; Téléphone Direct</h4>
+              <p><a href="https://wa.me/221777019259" target="_blank" rel="noopener">+221 77 701 92 59</a></p>
+            </div>
+          </div>
+          <div class="c-card">
+            <div class="c-icon">
+              <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/></svg>
+            </div>
+            <div>
+              <h4>E-mail Officiel</h4>
+              <p><a href="mailto:doomutech@gmail.com">doomutech@gmail.com</a></p>
+            </div>
+          </div>
+          <div class="c-card">
+            <div class="c-icon">
+              <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            </div>
+            <div>
+              <h4>Zone d'intervention</h4>
+              <p>Dakar, Diamniadio, Thiès, Saly et partout au Sénégal</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="quote-form-col">
+        <form class="quote-form" id="quoteForm">
+          <h3>Demander un devis gratuit</h3>
+          <p class="form-sub">Étude sur mesure sans engagement.</p>
+
+          <div style="position: absolute; left: -9999px; opacity: 0;" aria-hidden="true">
+            <input type="text" name="hp_field" id="hp_field" tabindex="-1" autocomplete="off" />
+          </div>
+
+          <div class="form-row-2">
+            <div class="form-group">
+              <label for="clientName">Nom complet ou Entreprise *</label>
+              <input type="text" id="clientName" required placeholder="Ex: M. Amadou Diallo" />
+            </div>
+            <div class="form-group">
+              <label for="clientPhone">Téléphone / WhatsApp *</label>
+              <input type="tel" id="clientPhone" required placeholder="Ex: 77 123 45 67" />
+            </div>
+          </div>
+
+          <div class="form-row-2">
+            <div class="form-group">
+              <label for="clientEmail">E-mail (facultatif)</label>
+              <input type="email" id="clientEmail" placeholder="votre.email@domaine.sn" />
+            </div>
+            <div class="form-group">
+              <label for="projectCity">Ville ou quartier du projet *</label>
+              <input type="text" id="projectCity" required placeholder="Ex: Dakar (Almadies, Mermoz, Plateau...)" />
+            </div>
+          </div>
+
+          <div class="form-row-2">
+            <div class="form-group">
+              <label for="serviceType">Service demandé *</label>
+              <select id="serviceType" required>
+                <option value="Installation solaire photovoltaïque" selected>Installation solaire photovoltaïque</option>
+                <option value="Climatisation">Climatisation (Splits / Cassettes Inverter)</option>
+                <option value="Vidéosurveillance">Vidéosurveillance (IP 4K / 4G Solaire)</option>
+                <option value="Pack Multi-Services (Solaire + Clim + Caméras)">Pack Multi-Services</option>
+                <option value="Maintenance et dépannage">Maintenance et dépannage</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="projectBudget">Budget indicatif</label>
+              <select id="projectBudget">
+                <option value="À définir après étude">À définir après étude</option>
+                <option value="Moins de 500 000 FCFA">Moins de 500 000 FCFA</option>
+                <option value="500 000 à 2 000 000 FCFA">500 000 à 2 000 000 FCFA</option>
+                <option value="Plus de 2 000 000 FCFA">Plus de 2 000 000 FCFA</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="clientMessage">Précisions sur votre besoin *</label>
+            <textarea id="clientMessage" rows="3" required placeholder="Appareils à alimenter, nombre de climatiseurs ou caméras..."></textarea>
+          </div>
+
+          <label class="cdp-consent-box" for="cdpConsent">
+            <input type="checkbox" id="cdpConsent" required checked />
+            <span>J'accepte que mes coordonnées soient utilisées uniquement par DoomuTech pour traiter ma demande (Protection CDP Sénégal).</span>
+          </label>
+
+          <div style="display: flex; flex-direction: column; gap: 10px;">
+            <button type="submit" class="btn btn-primary btn-lg btn-block">
+              Envoyer ma demande de devis &nbsp;&rarr;
+            </button>
+            <button type="button" id="quickWhatsAppQuoteBtn" class="btn btn-whatsapp-hero btn-lg btn-block">
+              Demande rapide par WhatsApp (message prérempli)
+            </button>
+          </div>
+
+          <div id="formFeedback" class="form-feedback hidden" style="margin-top: 14px; padding: 12px; border-radius: 10px; background: rgba(232, 254, 138, 0.15); color: var(--pu-citrus); font-size: 13.5px;"></div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pied de page -->
+  <footer class="footer">
+    <div class="container" style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px;">
+      <div>
+        <p><strong>DoomuTech Sénégal</strong> — Solaire photovoltaïque, Climatisation &amp; Vidéosurveillance</p>
+        <p style="margin-top: 4px; font-size: 12px; color: var(--pu-muted);">
+          Démonstration de la charte visuelle inspirée de l'agence digitale PumpUp (Rouen).
+        </p>
+      </div>
+      <div style="display: flex; gap: 16px; align-items: center; font-size: 12.5px;">
+        <a href="index.html" style="color: var(--pu-citrus); font-weight: 700;">← Revenir à la version classique</a>
+        <span>•</span>
+        <a href="admin.html">Espace Admin (CRM)</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Bouton WhatsApp Flottant Permanent en Citrus -->
+  <a href="https://wa.me/221777019259?text=Bonjour%20DoomuTech%2C%20je%20souhaite%20parler%20%C3%A0%20un%20conseiller." target="_blank" rel="noopener" class="wa-floating-btn" aria-label="Contacter sur WhatsApp">
+    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.006c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.201.662.591 1.221.774 1.394.86s.274.072.376-.043c.101-.116.433-.506.549-.68.116-.173.231-.145.39-.087s1.011.477 1.184.564.289.13.332.202c.045.072.045.419-.1.824zm-3.423-14.416c-6.627 0-12 5.373-12 12 0 2.124.556 4.119 1.528 5.849l-1.528 5.576 5.714-1.498c1.682.912 3.608 1.433 5.656 1.433 6.627 0 12-5.373 12-12s-5.373-12-12-12z"/></svg>
+    <span>Parler à un conseiller</span>
+  </a>
+
+  <script src="app.js"></script>
+</body>
+</html>

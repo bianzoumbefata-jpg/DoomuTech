@@ -1,0 +1,1225 @@
+/* ==========================================================================
+   DoomuTech Sénégal — Thème Inspiré de l'Agence Digitale PumpUp (Rouen)
+   Charte graphique :
+   - Palette : Dark Forest (#151C15), Forest (#1F2D24), Citrus Light (#E8FE8A), Stone (#F2F5EE)
+   - Typographie : Instrument Serif (Titres éditoriaux) + Hanken Grotesk (Corps suisse moderne)
+   - Composants : Boutons pilules dynamiques avec flèches, cartes feutrées aux bordures subtiles
+   ========================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Hanken+Grotesk:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;600&display=swap');
+
+:root {
+  /* Couleurs officielles PumpUp */
+  --pu-dark: #151C15;             /* Fond principal Dark Forest */
+  --pu-forest: #1F2D24;           /* Cartes, surfaces & conteneurs */
+  --pu-forest-soft: #27382D;      /* Fonds secondaires & survols */
+  --pu-forest-border: rgba(232, 254, 138, 0.12); /* Lignes subtiles */
+  --pu-citrus: #E8FE8A;           /* Accent signature Citrus Light */
+  --pu-citrus-hover: #D7ED78;     /* Citrus survol */
+  --pu-citrus-glow: rgba(232, 254, 138, 0.22);
+  --pu-citrus-dim: rgba(232, 254, 138, 0.10);
+  --pu-text: #F2F5EE;             /* Blanc cassé naturel */
+  --pu-muted: #B9C4BC;            /* Gris-vert doux pour le texte secondaire */
+  --pu-line: rgba(255, 255, 255, 0.08);
+
+  /* Polices */
+  --font-heading: 'Instrument Serif', Georgia, 'Times New Roman', serif;
+  --font-body: 'Hanken Grotesk', system-ui, -apple-system, sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+
+  /* Rayons */
+  --radius-pill: 999px;
+  --radius-card: 20px;
+  --radius-lg: 24px;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+  background-color: var(--pu-dark);
+  color: var(--pu-text);
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  background-color: var(--pu-dark);
+  color: var(--pu-text);
+  font: 400 1rem/1.65 var(--font-body);
+  -webkit-font-smoothing: antialiased;
+  letter-spacing: -0.01em;
+  overflow-x: hidden;
+}
+
+/* ==========================================================================
+   Typographie Signature PumpUp
+   ========================================================================== */
+h1, h2, h3, h4, .section-title, .hero-title, .brand-name {
+  font-family: var(--font-heading);
+  font-weight: 400;
+  color: var(--pu-text);
+  letter-spacing: -0.01em;
+}
+
+h1 {
+  font-size: clamp(2.5rem, 5.5vw, 4.25rem);
+  line-height: 1.08;
+}
+
+h2, .section-title {
+  font-size: clamp(2rem, 3.8vw, 3rem);
+  line-height: 1.15;
+}
+
+h3 {
+  font-size: clamp(1.4rem, 2.2vw, 1.85rem);
+  line-height: 1.25;
+}
+
+h4 {
+  font-size: 1.25rem;
+  line-height: 1.35;
+}
+
+/* Accentuation éditoriale PumpUp : <em> en italique avec couleur Citrus */
+em, .pu-highlight {
+  font-family: var(--font-heading);
+  font-style: italic;
+  color: var(--pu-citrus);
+  font-weight: 400;
+}
+
+.section-eyebrow {
+  display: inline-block;
+  font-family: var(--font-body);
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--pu-citrus);
+  background: var(--pu-citrus-dim);
+  border: 1px solid rgba(232, 254, 138, 0.22);
+  padding: 5px 14px;
+  border-radius: var(--radius-pill);
+  margin-bottom: 14px;
+}
+
+p, .section-desc {
+  color: var(--pu-muted);
+  font-size: 1.05rem;
+  line-height: 1.65;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* ==========================================================================
+   Boutons Signature PumpUp
+   ========================================================================== */
+.btn {
+  min-height: 48px;
+  padding: 0 26px;
+  border-radius: var(--radius-pill);
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: 14.5px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  cursor: pointer;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  text-decoration: none;
+  border: none;
+  white-space: nowrap;
+}
+
+.btn-primary, .btn-pumpup-citrus {
+  background: var(--pu-citrus);
+  color: var(--pu-dark);
+  box-shadow: 0 4px 18px var(--pu-citrus-glow);
+}
+
+.btn-primary:hover, .btn-pumpup-citrus:hover {
+  background: var(--pu-citrus-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(232, 254, 138, 0.4);
+  color: var(--pu-dark);
+}
+
+.btn-outline, .btn-pumpup-outline {
+  background: transparent;
+  color: var(--pu-text);
+  border: 1.5px solid rgba(242, 245, 238, 0.22);
+}
+
+.btn-outline:hover, .btn-pumpup-outline:hover {
+  border-color: var(--pu-citrus);
+  color: var(--pu-citrus);
+  background: var(--pu-citrus-dim);
+  transform: translateY(-2px);
+}
+
+.btn-whatsapp-hero {
+  background: var(--pu-forest);
+  color: var(--pu-text);
+  border: 1.5px solid var(--pu-forest-border);
+}
+
+.btn-whatsapp-hero:hover {
+  background: var(--pu-forest-soft);
+  border-color: var(--pu-citrus);
+  color: var(--pu-citrus);
+  transform: translateY(-2px);
+}
+
+.btn-sm {
+  min-height: 44px;
+  padding: 0 18px;
+  font-size: 13.5px;
+}
+
+.btn-lg {
+  min-height: 52px;
+  padding: 0 30px;
+  font-size: 15.5px;
+}
+
+.btn-block {
+  width: 100%;
+}
+
+:focus-visible {
+  outline: 3px solid var(--pu-citrus);
+  outline-offset: 2px;
+}
+
+/* ==========================================================================
+   Bannière de Comparaison (Démo PumpUp)
+   ========================================================================== */
+.pu-preview-banner {
+  background: linear-gradient(90deg, #1A261C 0%, #203B32 100%);
+  border-bottom: 1px solid var(--pu-forest-border);
+  color: var(--pu-text);
+  padding: 10px 16px;
+  font-size: 13px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: sticky;
+  top: 0;
+  z-index: 400;
+}
+
+.pu-preview-banner strong {
+  color: var(--pu-citrus);
+  font-family: var(--font-body);
+}
+
+.pu-preview-switch-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 12px;
+  border-radius: var(--radius-pill);
+  background: rgba(255, 255, 255, 0.1);
+  color: #FFFFFF;
+  font-size: 12px;
+  font-weight: 700;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  transition: all 0.2s;
+}
+
+.pu-preview-switch-btn:hover {
+  background: var(--pu-citrus);
+  color: var(--pu-dark);
+  border-color: var(--pu-citrus);
+}
+
+/* ==========================================================================
+   Barre supérieure & Navigation Header
+   ========================================================================== */
+.container {
+  width: 100%;
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.utility-bar {
+  background: #0E140E;
+  color: var(--pu-muted);
+  font-size: 12px;
+  padding: 8px 0;
+  border-bottom: 1px solid var(--pu-line);
+}
+
+.utility-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.live-indicator {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.pulse-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--pu-citrus);
+  box-shadow: 0 0 10px var(--pu-citrus);
+}
+
+.utility-divider {
+  opacity: 0.3;
+  margin: 0 6px;
+}
+
+.site-header {
+  position: sticky;
+  top: 41px; /* Juste sous la barre de démo */
+  z-index: 300;
+  background: rgba(21, 28, 21, 0.88);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-bottom: 1px solid var(--pu-forest-border);
+  transition: background 0.3s ease;
+}
+
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 76px;
+  gap: 20px;
+}
+
+.brand-logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+}
+
+.logo-mark {
+  width: 38px;
+  height: 38px;
+}
+
+.brand-name {
+  font-size: 24px;
+  font-weight: 400;
+  color: var(--pu-text);
+  line-height: 1;
+}
+
+.brand-name span {
+  color: var(--pu-citrus);
+  font-style: italic;
+}
+
+.brand-tag {
+  display: block;
+  font-family: var(--font-body);
+  font-size: 9.5px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  color: var(--pu-muted);
+  margin-top: 3px;
+}
+
+.top-nav-pill-bar {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  background: var(--pu-forest);
+  border: 1px solid var(--pu-forest-border);
+  padding: 5px 8px;
+  border-radius: var(--radius-pill);
+}
+
+.top-nav-item {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 42px;
+  padding: 0 16px;
+  border-radius: var(--radius-pill);
+  font-size: 13.5px;
+  font-weight: 600;
+  color: var(--pu-muted);
+  transition: all 0.2s ease;
+}
+
+.top-nav-item:hover {
+  color: var(--pu-citrus);
+  background: var(--pu-citrus-dim);
+}
+
+.top-nav-item.dock-active {
+  background: var(--pu-citrus);
+  color: var(--pu-dark);
+  font-weight: 700;
+}
+
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.admin-nav-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 44px;
+  padding: 0 16px;
+  border-radius: var(--radius-pill);
+  background: var(--pu-forest);
+  color: var(--pu-text);
+  border: 1px solid var(--pu-forest-border);
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.admin-nav-pill:hover {
+  border-color: var(--pu-citrus);
+  color: var(--pu-citrus);
+}
+
+.cart-count-badge {
+  background: var(--pu-citrus);
+  color: var(--pu-dark);
+  font-size: 11px;
+  font-weight: 800;
+  min-width: 20px;
+  height: 20px;
+  border-radius: 999px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 6px;
+}
+
+.mobile-menu-btn {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  flex-direction: column;
+  gap: 5px;
+  padding: 8px;
+}
+
+.mobile-menu-btn span {
+  width: 24px;
+  height: 2px;
+  background: var(--pu-text);
+  border-radius: 2px;
+}
+
+/* ==========================================================================
+   01. Hero Section — Style Éditorial PumpUp
+   ========================================================================== */
+.hero-section {
+  padding: 80px 0 90px;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: 48px;
+  align-items: center;
+}
+
+.eyebrow-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 14px;
+  border-radius: var(--radius-pill);
+  background: var(--pu-forest);
+  border: 1px solid var(--pu-forest-border);
+  color: var(--pu-citrus);
+  font-size: 11.5px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  margin-bottom: 20px;
+}
+
+.badge-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--pu-citrus);
+}
+
+.hero-title {
+  margin-bottom: 20px;
+}
+
+.hero-subtitle {
+  font-size: 1.15rem;
+  line-height: 1.65;
+  color: var(--pu-muted);
+  margin-bottom: 32px;
+  max-width: 580px;
+}
+
+.hero-cta-group {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+  margin-bottom: 36px;
+}
+
+.hero-visual-card {
+  position: relative;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  border: 1px solid var(--pu-forest-border);
+  background: var(--pu-forest);
+  box-shadow: 0 20px 48px rgba(0, 0, 0, 0.4);
+}
+
+.hero-visual-card img {
+  width: 100%;
+  height: 440px;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.hero-visual-card:hover img {
+  transform: scale(1.03);
+}
+
+.hero-floating-badge {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  right: 20px;
+  padding: 14px 20px;
+  background: rgba(21, 28, 21, 0.88);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-radius: 16px;
+  border: 1px solid var(--pu-forest-border);
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.hero-floating-badge strong {
+  display: block;
+  font-size: 14px;
+  color: var(--pu-text);
+  font-family: var(--font-body);
+}
+
+.hero-floating-badge span {
+  font-size: 12px;
+  color: var(--pu-muted);
+}
+
+/* Bandeau métriques honnêtes */
+.hero-specs-row {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+  padding: 16px 20px;
+  background: var(--pu-forest);
+  border: 1px solid var(--pu-forest-border);
+  border-radius: var(--radius-card);
+}
+
+.spec-mini-item strong {
+  display: block;
+  font-family: var(--font-heading);
+  font-size: 20px;
+  color: var(--pu-citrus);
+}
+
+.spec-mini-item span {
+  font-size: 11.5px;
+  color: var(--pu-muted);
+  line-height: 1.35;
+}
+
+/* ==========================================================================
+   02. Section Les Trois Métiers — Cartes PumpUp
+   ========================================================================== */
+.services-section {
+  padding: 90px 0;
+  border-top: 1px solid var(--pu-line);
+}
+
+.section-header {
+  margin-bottom: 48px;
+}
+
+.services-grid-3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.service-card {
+  background: var(--pu-forest);
+  border: 1px solid var(--pu-forest-border);
+  border-radius: var(--radius-card);
+  padding: 32px 28px;
+  display: flex;
+  flex-direction: column;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  position: relative;
+}
+
+.service-card:hover {
+  transform: translateY(-5px);
+  border-color: rgba(232, 254, 138, 0.4);
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.3);
+}
+
+.service-card-num {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--pu-citrus);
+  margin-bottom: 14px;
+  display: inline-block;
+}
+
+.service-card h3 {
+  margin-bottom: 12px;
+  color: var(--pu-text);
+}
+
+.service-card p {
+  font-size: 14.5px;
+  color: var(--pu-muted);
+  line-height: 1.6;
+  margin-bottom: 22px;
+  flex-grow: 1;
+}
+
+.service-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 24px;
+}
+
+.service-tag {
+  font-size: 11.5px;
+  padding: 4px 10px;
+  border-radius: var(--radius-pill);
+  background: var(--pu-citrus-dim);
+  border: 1px solid rgba(232, 254, 138, 0.2);
+  color: var(--pu-citrus);
+  font-weight: 600;
+}
+
+.service-card-action {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--pu-citrus);
+  transition: gap 0.2s ease;
+}
+
+.service-card:hover .service-card-action {
+  gap: 12px;
+}
+
+/* ==========================================================================
+   03. Pourquoi Choisir DoomuTech — En 3 temps (Façon PumpUp)
+   ========================================================================== */
+.engineering-section {
+  padding: 90px 0;
+  background: #111811;
+  border-top: 1px solid var(--pu-line);
+}
+
+.eng-grid {
+  display: grid;
+  grid-template-columns: 0.95fr 1.05fr;
+  gap: 50px;
+  align-items: center;
+}
+
+.eng-visual-collage {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 14px;
+}
+
+.eng-collage-main {
+  grid-column: span 2;
+  position: relative;
+  border-radius: var(--radius-card);
+  overflow: hidden;
+  border: 1px solid var(--pu-forest-border);
+}
+
+.eng-collage-main img {
+  width: 100%;
+  height: 260px;
+  object-fit: cover;
+  display: block;
+}
+
+.eng-collage-sub {
+  position: relative;
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid var(--pu-forest-border);
+}
+
+.eng-collage-sub img {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+  display: block;
+}
+
+.eng-collage-badge {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  background: rgba(21, 28, 21, 0.9);
+  color: var(--pu-citrus);
+  font-size: 11px;
+  font-weight: 700;
+  padding: 4px 10px;
+  border-radius: var(--radius-pill);
+  border: 1px solid var(--pu-forest-border);
+}
+
+.eng-steps-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-top: 28px;
+}
+
+.eng-step-item {
+  background: var(--pu-forest);
+  border: 1px solid var(--pu-forest-border);
+  border-radius: 16px;
+  padding: 20px 24px;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 18px;
+  align-items: flex-start;
+  transition: border-color 0.2s ease;
+}
+
+.eng-step-item:hover {
+  border-color: rgba(232, 254, 138, 0.35);
+}
+
+.eng-step-code {
+  font-family: var(--font-heading);
+  font-size: 24px;
+  color: var(--pu-citrus);
+  line-height: 1;
+  padding-top: 2px;
+}
+
+.eng-step-item h4 {
+  font-size: 16px;
+  font-family: var(--font-body);
+  font-weight: 700;
+  color: var(--pu-text);
+  margin-bottom: 6px;
+}
+
+.eng-step-item p {
+  font-size: 13.5px;
+  color: var(--pu-muted);
+  line-height: 1.55;
+}
+
+/* ==========================================================================
+   06. Témoignages & Preuve Sociale
+   ========================================================================== */
+.testimonials-section {
+  padding: 90px 0;
+  border-top: 1px solid var(--pu-line);
+}
+
+.testimonials-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px;
+}
+
+.testimonial-card {
+  background: var(--pu-forest);
+  border: 1px solid var(--pu-forest-border);
+  border-radius: var(--radius-card);
+  padding: 30px 26px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.stars-svg-row {
+  display: inline-flex;
+  gap: 4px;
+  color: var(--pu-citrus);
+}
+
+.stars-svg-row svg {
+  width: 16px;
+  height: 16px;
+  fill: currentColor;
+}
+
+.t-quote {
+  font-family: var(--font-heading);
+  font-size: 1.35rem;
+  line-height: 1.35;
+  color: var(--pu-text);
+  margin: 16px 0 24px;
+}
+
+.t-author-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1px solid var(--pu-line);
+  padding-top: 16px;
+}
+
+.t-author-info strong {
+  display: block;
+  font-size: 13.5px;
+  color: var(--pu-text);
+}
+
+.t-author-info span {
+  font-size: 12px;
+  color: var(--pu-muted);
+}
+
+.t-service-tag {
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--pu-citrus);
+  background: var(--pu-citrus-dim);
+  padding: 3px 8px;
+  border-radius: var(--radius-pill);
+}
+
+/* ==========================================================================
+   07. Simulateur Solaire Simple — Intégré Style PumpUp
+   ========================================================================== */
+.simple-sim-section {
+  padding: 90px 0;
+  background: #111811;
+  border-top: 1px solid var(--pu-line);
+}
+
+.simple-sim-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+  margin-top: 36px;
+}
+
+.simple-sim-inputs {
+  background: var(--pu-forest);
+  border: 1px solid var(--pu-forest-border);
+  border-radius: var(--radius-card);
+  padding: 36px 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 26px;
+}
+
+.sim-readout {
+  font-family: var(--font-heading);
+  font-size: 26px;
+  color: var(--pu-citrus);
+}
+
+.solar-slider {
+  width: 100%;
+  accent-color: var(--pu-citrus);
+  height: 6px;
+  cursor: pointer;
+}
+
+.slider-ticks {
+  display: flex;
+  justify-content: space-between;
+  font-size: 11px;
+  color: var(--pu-muted);
+  margin-top: 6px;
+}
+
+.sim-appliance-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+}
+
+.sim-app-label {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--pu-line);
+  padding: 12px 14px;
+  border-radius: 12px;
+  font-size: 13px;
+  cursor: pointer;
+  color: var(--pu-text);
+  transition: all 0.2s ease;
+}
+
+.sim-app-label:hover {
+  border-color: var(--pu-citrus);
+}
+
+.sim-app-check {
+  accent-color: var(--pu-citrus);
+  width: 17px;
+  height: 17px;
+}
+
+.sim-select {
+  width: 100%;
+  min-height: 46px;
+  padding: 0 14px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--pu-line);
+  color: var(--pu-text);
+  font-family: var(--font-body);
+  font-size: 13.5px;
+}
+
+.sim-select option {
+  background: var(--pu-dark);
+  color: var(--pu-text);
+}
+
+.simple-sim-output {
+  background: linear-gradient(145deg, #1A271E 0%, #111A13 100%);
+  border: 1px solid rgba(232, 254, 138, 0.25);
+  border-radius: var(--radius-card);
+  padding: 36px 32px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-shadow: 0 20px 48px rgba(0, 0, 0, 0.35);
+}
+
+.sim-out-kpis {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 14px;
+  margin: 24px 0;
+}
+
+.sim-out-box {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--pu-line);
+  padding: 16px 18px;
+  border-radius: 14px;
+}
+
+.sim-out-box span {
+  display: block;
+  font-size: 12px;
+  color: var(--pu-muted);
+  margin-bottom: 4px;
+}
+
+.sim-out-box strong {
+  display: block;
+  font-family: var(--font-heading);
+  font-size: 26px;
+  color: var(--pu-citrus);
+  line-height: 1.1;
+}
+
+/* ==========================================================================
+   08. Contact & Devis Gratuit
+   ========================================================================== */
+.contact-section {
+  padding: 90px 0;
+  border-top: 1px solid var(--pu-line);
+}
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+  gap: 48px;
+}
+
+.contact-cards {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin-top: 28px;
+}
+
+.c-card {
+  background: var(--pu-forest);
+  border: 1px solid var(--pu-forest-border);
+  padding: 20px 22px;
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+.c-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: var(--radius-pill);
+  background: var(--pu-citrus-dim);
+  border: 1px solid rgba(232, 254, 138, 0.25);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--pu-citrus);
+  flex-shrink: 0;
+}
+
+.c-card h4 {
+  font-family: var(--font-body);
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--pu-text);
+  margin-bottom: 2px;
+}
+
+.c-card p {
+  font-size: 13.5px;
+  margin: 0;
+}
+
+.c-card a {
+  color: var(--pu-citrus);
+  font-weight: 700;
+}
+
+.quote-form {
+  background: var(--pu-forest);
+  border: 1px solid var(--pu-forest-border);
+  border-radius: var(--radius-card);
+  padding: 36px 32px;
+}
+
+.quote-form h3 {
+  margin-bottom: 6px;
+}
+
+.form-sub {
+  font-size: 14px;
+  color: var(--pu-muted);
+  margin-bottom: 22px;
+}
+
+.form-row-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 16px;
+}
+
+.form-group label {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--pu-text);
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+  min-height: 46px;
+  padding: 0 14px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--pu-line);
+  color: var(--pu-text);
+  font-family: var(--font-body);
+  font-size: 14px;
+}
+
+.form-group textarea {
+  padding: 12px 14px;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  outline: 2px solid var(--pu-citrus);
+  border-color: var(--pu-citrus);
+}
+
+.cdp-consent-box {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 12.5px;
+  color: var(--pu-muted);
+  margin: 18px 0;
+  line-height: 1.5;
+}
+
+.cdp-consent-box input {
+  margin-top: 3px;
+  accent-color: var(--pu-citrus);
+}
+
+/* ==========================================================================
+   Bouton WhatsApp Flottant Permanent
+   ========================================================================== */
+.wa-floating-btn {
+  position: fixed;
+  bottom: 22px;
+  right: 22px;
+  z-index: 320;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 13px 22px;
+  border-radius: var(--radius-pill);
+  background: var(--pu-citrus);
+  color: var(--pu-dark);
+  font-size: 14px;
+  font-weight: 700;
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.45), 0 0 20px var(--pu-citrus-glow);
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.wa-floating-btn:hover {
+  transform: translateY(-3px) scale(1.03);
+  background: var(--pu-citrus-hover);
+}
+
+.wa-floating-btn svg {
+  width: 22px;
+  height: 22px;
+}
+
+/* ==========================================================================
+   Footer
+   ========================================================================== */
+.footer {
+  padding: 50px 0 30px;
+  background: #0E140E;
+  border-top: 1px solid var(--pu-line);
+  font-size: 13px;
+  color: var(--pu-muted);
+}
+
+.footer a {
+  color: var(--pu-muted);
+  transition: color 0.2s;
+}
+
+.footer a:hover {
+  color: var(--pu-citrus);
+}
+
+/* Modal */
+.dt-modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(14, 20, 14, 0.85);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  z-index: 450;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.dt-modal-backdrop.hidden {
+  display: none !important;
+}
+
+.dt-modal-card {
+  background: var(--pu-forest);
+  border: 1px solid var(--pu-forest-border);
+  border-radius: var(--radius-card);
+  max-width: 620px;
+  width: 100%;
+  padding: 32px 28px;
+}
+
+/* ==========================================================================
+   Responsive
+   ========================================================================== */
+@media (max-width: 1024px) {
+  .hero-grid,
+  .eng-grid,
+  .simple-sim-grid,
+  .contact-grid {
+    grid-template-columns: 1fr;
+  }
+  .services-grid-3,
+  .testimonials-grid {
+    grid-template-columns: 1fr;
+  }
+  .hero-specs-row {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .top-nav-pill-bar {
+    display: none;
+  }
+  .mobile-menu-btn {
+    display: flex;
+  }
+}
+
+@media (max-width: 600px) {
+  .form-row-2,
+  .sim-appliance-grid,
+  .sim-out-kpis,
+  .hero-specs-row {
+    grid-template-columns: 1fr;
+  }
+  .wa-floating-btn span {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
