@@ -1,118 +1,68 @@
 /* ==========================================================================
-   DoomuTech Sénégal — Official CSS Design System (UI/UX Pro Max Edition)
-   Conforme aux normes d'accessibilité WCAG AA (≥ 4.5:1), cibles tactiles ≥ 44px,
-   palette confiance & énergie (Bleu Nuit, Bleu Confiance, Vert Solaire),
-   typographie Modern Professional (Poppins titres + Inter texte),
-   et désactivation des animations (prefers-reduced-motion).
+   DoomuTech Sénégal — Charte Visuelle Officielle Inspirée de PumpUp (Rouen)
+   - Palette : Dark Forest (#151C15), Forest (#1F2D24), Citrus Light (#E8FE8A), Stone (#F2F5EE)
+   - Typographie : Instrument Serif (Titres éditoriaux) + Hanken Grotesk (Corps suisse moderne)
+   - Composants : Boutons pilules dynamiques avec flèches, cartes feutrées aux bordures subtiles
+   - Accessibilité : Cibles tactiles ≥ 44px, contraste WCAG AA, focus visible 3px, reduced-motion
    ========================================================================== */
 
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700;800&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Hanken+Grotesk:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;600&display=swap');
 
 :root {
-  /* UI/UX Pro Max Master Tokens : Home Services & Sustainable Energy */
-  --navy-deep: #0B1528;
-  --solar-green: #047857;
-  --solar-green-hover: #065F46;
-  --solar-green-light: #10B981;
-  --solar-green-soft: #ECFDF5;
+  /* Couleurs officielles PumpUp */
+  --pu-dark: #151C15;             /* Fond principal Dark Forest */
+  --pu-forest: #1F2D24;           /* Cartes, surfaces & conteneurs */
+  --pu-forest-soft: #27382D;      /* Fonds secondaires & survols */
+  --pu-forest-border: rgba(232, 254, 138, 0.12); /* Lignes subtiles */
+  --pu-citrus: #E8FE8A;           /* Accent signature Citrus Light */
+  --pu-citrus-hover: #D7ED78;     /* Citrus survol */
+  --pu-citrus-glow: rgba(232, 254, 138, 0.22);
+  --pu-citrus-dim: rgba(232, 254, 138, 0.10);
+  --pu-text: #F2F5EE;             /* Blanc cassé naturel */
+  --pu-muted: #B9C4BC;            /* Gris-vert doux pour le texte secondaire */
+  --pu-line: rgba(255, 255, 255, 0.08);
 
-  --brand: #1D4ED8;
-  --brand-light: #2563EB;
-  --brand-dark: #1E40AF;
-  --brand-grad: linear-gradient(135deg, #1D4ED8 0%, #2563EB 100%);
-  --onb: #FFFFFF;
+  /* Mappings sémantiques universels */
+  --bg: var(--pu-dark);
+  --surf: var(--pu-forest);
+  --ink: var(--pu-text);
+  --body: var(--pu-text);
+  --mut: var(--pu-muted);
+  --brand: var(--pu-citrus);
+  --brand-light: var(--pu-citrus-hover);
+  --brand-dark: #C6DB65;
+  --brand-grad: linear-gradient(135deg, #E8FE8A 0%, #C8E865 100%);
+  --onb: #151C15;
+  --line: var(--pu-line);
+  --ring: rgba(232, 254, 138, 0.35);
 
-  --gold: #D97706;
-  --gold-bg: #FEF3C7;
-  --gold-grad: linear-gradient(135deg, #F59E0B 0%, #D97706 100%);
-
-  --ink: #0B1528;
-  --body: #334155;
-  --mut: #475569;
-
-  --bg: #F8FAFC;
-  --surf: #FFFFFF;
-  --line: #E2E8F0;
-  --ring: rgba(29, 78, 216, 0.25);
-  --hdr: #FFFFFF;
-
-  --sh-sm: 0 1px 3px rgba(11, 21, 40, 0.05), 0 1px 2px rgba(11, 21, 40, 0.03);
-  --sh-md: 0 6px 16px rgba(11, 21, 40, 0.06), 0 2px 4px rgba(11, 21, 40, 0.03);
-  --sh-lg: 0 16px 36px rgba(11, 21, 40, 0.08), 0 4px 12px rgba(11, 21, 40, 0.04);
-
-  /* Mappings de compatibilité */
   --bg-primary: var(--bg);
   --bg-elevated: var(--surf);
-  --bg-subtle: #EFF6FF;
-  --bg-navy: #0B1528;
-  --bg-navy-card: #152238;
+  --bg-subtle: var(--pu-citrus-dim);
+  --bg-navy: #0E140E;
+  --bg-navy-card: #151C15;
   --text-primary: var(--ink);
   --text-secondary: var(--body);
   --text-muted: var(--mut);
-  --text-inverse: #F8FAFC;
-  --solar-amber: var(--brand);
-  --solar-amber-bright: var(--brand-light);
-  --solar-amber-soft: #EFF6FF;
-  --emerald: var(--solar-green);
-  --emerald-soft: var(--solar-green-soft);
-  --border-subtle: var(--line);
-  --border-strong: #CBD5E1;
-  --shadow-sm: var(--sh-sm);
-  --shadow-md: var(--sh-md);
-  --shadow-lg: var(--sh-lg);
+  --text-inverse: #151C15;
+  --solar-green: var(--pu-citrus);
+  --solar-green-hover: var(--pu-citrus-hover);
+  --solar-green-soft: var(--pu-citrus-dim);
 
-  /* Typographie Modern Professional */
-  --font-display: "Poppins", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-  --font-sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-  --font-mono: "JetBrains Mono", monospace;
+  --sh-sm: 0 1px 3px rgba(0, 0, 0, 0.2);
+  --sh-md: 0 6px 16px rgba(0, 0, 0, 0.3);
+  --sh-lg: 0 16px 36px rgba(0, 0, 0, 0.4);
 
+  /* Typographie PumpUp */
+  --font-display: 'Instrument Serif', Georgia, 'Times New Roman', serif;
+  --font-sans: 'Hanken Grotesk', system-ui, -apple-system, sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+
+  --radius-pill: 999px;
+  --radius-card: 20px;
+  --radius-lg: 24px;
   --radius-sm: 10px;
   --radius-md: 14px;
-  --radius-lg: 18px;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root:not([data-theme="light"]) {
-    --bg: #0B1220;
-    --surf: #111A2E;
-    --ink: #F1F5F9;
-    --body: #CBD5E1;
-    --mut: #94A3B8;
-    --brand: #3B82F6;
-    --brand-light: #60A5FA;
-    --brand-grad: linear-gradient(135deg, #1D4ED8 0%, #3B82F6 100%);
-    --line: #1E293B;
-    --ring: rgba(59, 130, 246, 0.35);
-    --hdr: #111A2E;
-    --sh-sm: 0 1px 3px rgba(0, 0, 0, 0.3);
-    --sh-md: 0 6px 16px rgba(0, 0, 0, 0.35);
-    --sh-lg: 0 16px 36px rgba(0, 0, 0, 0.45);
-    --bg-subtle: rgba(29, 78, 216, 0.15);
-    --border-strong: #334155;
-    --bg-navy: #070B14;
-    --bg-navy-card: #0F172A;
-  }
-}
-
-:root[data-theme="dark"] {
-  --bg: #0B1220;
-  --surf: #111A2E;
-  --ink: #F1F5F9;
-  --body: #CBD5E1;
-  --mut: #94A3B8;
-  --brand: #3B82F6;
-  --brand-light: #60A5FA;
-  --brand-grad: linear-gradient(135deg, #1D4ED8 0%, #3B82F6 100%);
-  --line: #1E293B;
-  --ring: rgba(59, 130, 246, 0.35);
-  --hdr: #111A2E;
-  --sh-sm: 0 1px 3px rgba(0, 0, 0, 0.3);
-  --sh-md: 0 6px 16px rgba(0, 0, 0, 0.35);
-  --sh-lg: 0 16px 36px rgba(0, 0, 0, 0.45);
-  --bg-subtle: rgba(29, 78, 216, 0.15);
-  --border-strong: #334155;
-  --bg-navy: #070B14;
-  --bg-navy-card: #0F172A;
 }
 
 *, *::before, *::after {
@@ -124,26 +74,73 @@
 html {
   scroll-behavior: smooth;
   font-size: 16px;
+  background-color: var(--pu-dark);
+  color: var(--pu-text);
   -webkit-text-size-adjust: 100%;
 }
 
 body {
-  background: var(--bg);
-  color: var(--body);
-  font: 400 1rem/1.6 var(--font-sans);
+  background-color: var(--pu-dark);
+  color: var(--pu-text);
+  font: 400 1rem/1.65 var(--font-sans);
   -webkit-font-smoothing: antialiased;
   letter-spacing: -0.01em;
   overflow-x: hidden;
 }
 
-h1, h2, h3, h4, .section-title, .brand-name, .hero-title, .section-eyebrow, .logo {
+h1, h2, h3, h4, .section-title, .brand-name, .hero-title, .logo {
   font-family: var(--font-display);
+  font-weight: 400;
+  color: var(--pu-text);
+  letter-spacing: -0.01em;
 }
 
-h1, h2, h3, h4 {
-  color: var(--ink);
+em, .pu-highlight {
+  font-family: var(--font-display);
+  font-style: italic;
+  color: var(--pu-citrus);
+  font-weight: 400;
+}
+
+h1 {
+  font-size: clamp(2.5rem, 5.5vw, 4.25rem);
+  line-height: 1.08;
+}
+
+h2, .section-title {
+  font-size: clamp(2rem, 3.8vw, 3rem);
+  line-height: 1.15;
+}
+
+h3 {
+  font-size: clamp(1.4rem, 2.2vw, 1.85rem);
   line-height: 1.25;
-  letter-spacing: -0.02em;
+}
+
+h4 {
+  font-size: 1.25rem;
+  line-height: 1.35;
+}
+
+.section-eyebrow {
+  display: inline-block;
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--pu-citrus);
+  background: var(--pu-citrus-dim);
+  border: 1px solid rgba(232, 254, 138, 0.22);
+  padding: 5px 14px;
+  border-radius: var(--radius-pill);
+  margin-bottom: 14px;
+}
+
+p, .section-desc {
+  color: var(--pu-muted);
+  font-size: 1.05rem;
+  line-height: 1.65;
 }
 
 button, input, select, textarea {
@@ -244,30 +241,28 @@ ul {
   font-size: 11px;
 }
 
-/* ButtonKit Figma Specifications (Chari) */
+/* Boutons Signature PumpUp (Pill Buttons) */
 .btn {
   min-height: 48px;
-  padding: 0 22px;
-  border-radius: 12px;
-  border: 0;
-  background: var(--brand);
-  color: #FFFFFF;
-  font-weight: 600;
-  font-size: 14px;
+  padding: 0 26px;
+  border-radius: var(--radius-pill);
+  font-family: var(--font-sans);
+  font-weight: 700;
+  font-size: 14.5px;
   display: inline-flex;
-  gap: 8px;
+  gap: 10px;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 4px 14px rgba(0, 111, 253, 0.25);
-  transition: all 0.18s;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
   letter-spacing: -0.01em;
   cursor: pointer;
+  border: 0;
+  text-decoration: none;
+  white-space: nowrap;
 }
 
 .btn:hover {
-  background: var(--brand-light);
-  box-shadow: 0 6px 18px rgba(0, 111, 253, 0.32);
-  transform: translateY(-1px);
+  transform: translateY(-2px);
 }
 
 .btn:active {
@@ -276,9 +271,9 @@ ul {
 
 .btn-lg {
   min-height: 52px;
-  padding: 0 26px;
-  font-size: 15px;
-  border-radius: 14px;
+  padding: 0 30px;
+  font-size: 15.5px;
+  border-radius: var(--radius-pill);
 }
 
 .btn-block {
@@ -286,36 +281,42 @@ ul {
 }
 
 .btn-primary {
-  background: var(--brand-grad);
-  color: #FFFFFF;
-  box-shadow: 0 4px 14px rgba(0, 111, 253, 0.28);
+  background: var(--pu-citrus);
+  color: var(--pu-dark);
+  box-shadow: 0 4px 18px var(--pu-citrus-glow);
+}
+
+.btn-primary:hover {
+  background: var(--pu-citrus-hover);
+  color: var(--pu-dark);
+  box-shadow: 0 8px 24px rgba(232, 254, 138, 0.4);
 }
 
 .btn.gold, .btn-gold {
-  background: var(--gold-grad);
-  color: #FFFFFF;
-  box-shadow: 0 4px 14px rgba(217, 119, 6, 0.3);
+  background: var(--pu-citrus);
+  color: var(--pu-dark);
+  box-shadow: 0 4px 14px var(--pu-citrus-glow);
 }
 
 .btn-outline, .btn.sec {
-  background: var(--surf);
-  color: var(--brand);
-  border: 1.5px solid var(--line);
-  box-shadow: var(--sh-sm);
+  background: transparent;
+  color: var(--pu-text);
+  border: 1.5px solid rgba(242, 245, 238, 0.22);
+  box-shadow: none;
 }
 
 .btn-outline:hover, .btn.sec:hover {
-  border-color: var(--brand);
-  background: var(--highlight-lightest);
-  color: var(--highlight-darkest);
+  border-color: var(--pu-citrus);
+  color: var(--pu-citrus);
+  background: var(--pu-citrus-dim);
 }
 
 .btn-whatsapp-sm {
   min-height: 44px;
   padding: 0 16px;
-  background: var(--solar-green-soft);
-  color: var(--solar-green);
-  border: 1.5px solid rgba(4, 120, 87, 0.35);
+  background: var(--pu-citrus-dim);
+  color: var(--pu-citrus);
+  border: 1.5px solid rgba(232, 254, 138, 0.35);
   box-shadow: none;
   font-size: 13.5px;
   font-weight: 700;
@@ -323,36 +324,52 @@ ul {
   align-items: center;
   justify-content: center;
   gap: 8px;
-  border-radius: 12px;
+  border-radius: var(--radius-pill);
   cursor: pointer;
 }
 
 .btn-whatsapp-sm:hover {
-  background: #D1FAE5;
-  color: var(--solar-green-hover);
-  border-color: var(--solar-green);
+  background: var(--pu-citrus);
+  color: var(--pu-dark);
+  border-color: var(--pu-citrus);
 }
 
 .btn-whatsapp-outline {
-  background: rgba(58, 192, 160, 0.14);
-  color: #3AC0A0;
-  border: 1.5px solid rgba(58, 192, 160, 0.35);
+  background: var(--pu-citrus-dim);
+  color: var(--pu-citrus);
+  border: 1.5px solid rgba(232, 254, 138, 0.35);
+  border-radius: var(--radius-pill);
   box-shadow: none;
 }
 
 .btn-whatsapp-outline:hover {
-  background: rgba(58, 192, 160, 0.24);
+  background: var(--pu-citrus);
+  color: var(--pu-dark);
+}
+
+.btn-whatsapp-hero {
+  background: var(--pu-forest);
+  color: var(--pu-text);
+  border: 1.5px solid var(--pu-forest-border);
+  border-radius: var(--radius-pill);
+}
+
+.btn-whatsapp-hero:hover {
+  background: var(--pu-forest-soft);
+  border-color: var(--pu-citrus);
+  color: var(--pu-citrus);
+  transform: translateY(-2px);
 }
 
 /* ==========================================================================
-   Top Utility Bar (Chari Admin Dark Surface Style)
+   Top Utility Bar (PumpUp Dark Forest Style)
    ========================================================================== */
 .utility-bar {
-  background-color: #0f172a;
-  color: #94a3b8;
+  background-color: #0E140E;
+  color: var(--pu-muted);
   font-size: 12px;
   padding: 8px 0;
-  border-bottom: 1px solid #1e293b;
+  border-bottom: 1px solid var(--pu-line);
 }
 
 .utility-inner {
@@ -373,19 +390,19 @@ ul {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  color: #f8fafc;
+  color: var(--pu-text);
 }
 
 .live-indicator strong {
-  color: var(--highlight-dark);
+  color: var(--pu-citrus);
 }
 
 .pulse-dot {
   width: 8px;
   height: 8px;
   border-radius: 50%;
-  background-color: #3AC0A0;
-  box-shadow: 0 0 0 3px rgba(58, 192, 160, 0.25);
+  background-color: var(--pu-citrus);
+  box-shadow: 0 0 10px var(--pu-citrus);
 }
 
 .utility-divider {
@@ -393,37 +410,40 @@ ul {
 }
 
 .utility-phone {
-  color: #FFFFFF;
+  color: var(--pu-citrus);
   font-weight: 700;
-  background: rgba(0, 111, 253, 0.25);
-  border: 1px solid rgba(40, 151, 255, 0.4);
+  background: var(--pu-citrus-dim);
+  border: 1px solid rgba(232, 254, 138, 0.3);
   padding: 3px 12px;
-  border-radius: 999px;
-  transition: background 0.2s;
+  border-radius: var(--radius-pill);
+  transition: all 0.2s;
 }
 
 .utility-phone:hover {
-  background: var(--brand);
+  background: var(--pu-citrus);
+  color: var(--pu-dark);
 }
 
 /* ==========================================================================
-   Header (Chari Header Spec)
+   Header Sticky (PumpUp Dark Forest Glass)
    ========================================================================== */
 .site-header {
   position: sticky;
   top: 0;
-  z-index: 100;
-  background: var(--hdr);
-  color: var(--ink);
-  border-bottom: 1px solid var(--line);
-  box-shadow: var(--sh-sm);
+  z-index: 200;
+  background: rgba(21, 28, 21, 0.90);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  color: var(--pu-text);
+  border-bottom: 1px solid var(--pu-forest-border);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
 }
 
 .header-inner {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 70px;
+  height: 74px;
   gap: 16px;
 }
 
@@ -446,10 +466,11 @@ ul {
 }
 
 .brand-name {
-  font-size: 22px;
-  font-weight: 800;
-  letter-spacing: -0.03em;
-  color: var(--ink);
+  font-family: var(--font-display);
+  font-size: 26px;
+  font-weight: 400;
+  letter-spacing: -0.01em;
+  color: var(--pu-text);
   display: inline-flex;
   align-items: center;
   gap: 4px;
@@ -461,19 +482,21 @@ ul {
   width: 7px;
   height: 7px;
   border-radius: 50%;
-  background: var(--brand);
+  background: var(--pu-citrus);
   margin-left: 2px;
 }
 
 .brand-accent {
-  color: var(--brand);
+  color: var(--pu-citrus);
+  font-style: italic;
 }
 
 .brand-tag {
-  font-size: 10px;
+  font-family: var(--font-sans);
+  font-size: 9.5px;
   font-weight: 700;
   letter-spacing: 0.08em;
-  color: var(--mut);
+  color: var(--pu-muted);
   margin-top: 2px;
 }
 
@@ -566,8 +589,8 @@ ul {
 }
 
 .cart-count-badge {
-  background: var(--brand);
-  color: #FFFFFF;
+  background: var(--pu-citrus);
+  color: var(--pu-dark);
   font-size: 11px;
   font-weight: 800;
   min-width: 20px;
@@ -3311,32 +3334,28 @@ ul {
    ========================================================================== */
 
 :root {
-  --fintech-bg: #F4F7FB;
-  --fintech-card: #FFFFFF;
-  --fintech-navy: #0B1120;
-  --fintech-navy-elevated: #131C31;
-  --fintech-blue: #0062FF;
-  --fintech-cyan: #00D4FF;
-  --fintech-mint: #00E599;
-  --fintech-mint-soft: rgba(0, 229, 153, 0.14);
-  --fintech-radius: 24px;
-  --fintech-shadow:
-    inset 0 1px 0 rgba(255, 255, 255, 0.8),
-    0 14px 34px -10px rgba(11, 17, 32, 0.07),
-    0 2px 6px rgba(11, 17, 32, 0.03);
-  --carrier-blue: #003882;
+  --fintech-bg: var(--pu-dark);
+  --fintech-card: var(--pu-forest);
+  --fintech-navy: #151C15;
+  --fintech-navy-elevated: #1F2D24;
+  --fintech-blue: var(--pu-citrus);
+  --fintech-cyan: var(--pu-citrus);
+  --fintech-mint: var(--pu-citrus);
+  --fintech-mint-soft: var(--pu-citrus-dim);
+  --fintech-radius: 20px;
+  --fintech-shadow: 0 16px 36px rgba(0, 0, 0, 0.35);
+  --carrier-blue: #1F2D24;
 }
 
 :root[data-theme="dark"] {
-  --fintech-bg: #0B0F17;
-  --fintech-card: #151B28;
-  --fintech-shadow:
-    inset 0 1px 0 rgba(255, 255, 255, 0.07),
-    0 18px 40px -10px rgba(0, 0, 0, 0.55);
+  --fintech-bg: var(--pu-dark);
+  --fintech-card: var(--pu-forest);
+  --fintech-shadow: 0 16px 36px rgba(0, 0, 0, 0.45);
 }
 
 body {
-  background-color: var(--fintech-bg);
+  background-color: var(--pu-dark);
+  color: var(--pu-text);
 }
 
 /* Fintech Bento Card Upgrade */
@@ -3792,12 +3811,11 @@ body {
 .top-nav-pill-bar {
   display: flex;
   align-items: center;
-  gap: 6px;
-  padding: 6px 8px;
-  background: var(--fintech-bg);
-  border: 1px solid rgba(0, 111, 253, 0.16);
-  border-radius: 999px;
-  box-shadow: inset 0 1px 2px rgba(15, 23, 42, 0.04);
+  gap: 4px;
+  padding: 5px 8px;
+  background: var(--pu-forest);
+  border: 1px solid var(--pu-forest-border);
+  border-radius: var(--radius-pill);
 }
 
 .top-nav-item {
@@ -3805,26 +3823,27 @@ body {
   align-items: center;
   justify-content: center;
   gap: 6px;
-  min-height: 44px;
+  min-height: 42px;
   padding: 0 16px;
-  border-radius: 999px;
+  border-radius: var(--radius-pill);
+  font-family: var(--font-sans);
   font-size: 13.5px;
-  font-weight: 700;
-  color: var(--ink);
-  transition: all 0.25s var(--framer-spring);
+  font-weight: 600;
+  color: var(--pu-muted);
+  transition: all 0.2s ease;
   white-space: nowrap;
 }
 
 .top-nav-item:hover {
-  background: var(--bg-subtle);
-  color: var(--brand);
-  transform: translateY(-1px);
+  background: var(--pu-citrus-dim);
+  color: var(--pu-citrus);
 }
 
 .top-nav-item.dock-active {
-  background: var(--brand-grad);
-  color: #FFFFFF;
-  box-shadow: 0 4px 12px rgba(29, 78, 216, 0.28);
+  background: var(--pu-citrus);
+  color: var(--pu-dark);
+  font-weight: 700;
+  box-shadow: 0 4px 14px var(--pu-citrus-glow);
 }
 
 @media (max-width: 1024px) {
@@ -3983,19 +4002,19 @@ body {
   gap: 8px;
   min-height: 44px;
   padding: 0 16px;
-  border-radius: 999px;
+  border-radius: var(--radius-pill);
   font-size: 13px;
-  font-weight: 700;
-  background: var(--bg-subtle);
-  color: var(--brand);
-  border: 1.5px solid rgba(29, 78, 216, 0.25);
+  font-weight: 600;
+  background: var(--pu-forest);
+  color: var(--pu-text);
+  border: 1px solid var(--pu-forest-border);
   transition: all 0.2s ease;
   cursor: pointer;
 }
 
 .admin-nav-pill:hover {
-  background: var(--brand);
-  color: #FFFFFF;
+  border-color: var(--pu-citrus);
+  color: var(--pu-citrus);
 }
 
 /* Fiches Solutions Détaillées (Solutions Solaires / Climatisation / Vidéosurveillance) */
@@ -4429,27 +4448,7 @@ body {
    AUDIT REFINEMENTS — PALETTE BLEU NUIT / BLANC / VERT SOLAIRE,
    SIMULATEUR SIMPLE, TÉMOIGNAGES CLIENTS, PAGES SERVICES & WHATSAPP PERMANENT
    ========================================================================== */
-:root {
-  --solar-green: #059669;
-  --solar-green-light: #10B981;
-  --solar-green-soft: #ECFDF5;
-  --navy-deep: #0B1528;
-}
-
-.btn-whatsapp-hero {
-  background: var(--solar-green);
-  color: #FFFFFF;
-  border: 1.5px solid var(--solar-green);
-  box-shadow: 0 8px 20px -4px rgba(5, 150, 105, 0.35);
-}
-
-.btn-whatsapp-hero:hover {
-  background: #047857;
-  border-color: #047857;
-  transform: translateY(-2px);
-}
-
-/* Bouton WhatsApp flottant permanent (Mobile & Desktop) */
+/* Bouton WhatsApp flottant permanent (Signature Citrus PumpUp) */
 .wa-floating-btn {
   position: fixed;
   bottom: 22px;
@@ -4458,19 +4457,19 @@ body {
   display: inline-flex;
   align-items: center;
   gap: 10px;
-  padding: 13px 20px;
-  border-radius: 999px;
-  background: #059669;
-  color: #FFFFFF;
+  padding: 13px 22px;
+  border-radius: var(--radius-pill);
+  background: var(--pu-citrus);
+  color: var(--pu-dark);
   font-size: 14px;
   font-weight: 700;
-  box-shadow: 0 14px 30px -6px rgba(5, 150, 105, 0.5);
-  border: 2px solid rgba(255, 255, 255, 0.85);
-  transition: transform 0.25s var(--framer-spring), background 0.2s ease;
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.45), 0 0 20px var(--pu-citrus-glow);
+  border: 1.5px solid rgba(255, 255, 255, 0.15);
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), background 0.2s ease;
 }
 
 .wa-floating-btn:hover {
-  background: #047857;
+  background: var(--pu-citrus-hover);
   transform: translateY(-3px) scale(1.03);
 }
 
@@ -4512,10 +4511,11 @@ body {
 }
 
 .t-quote {
-  font-size: 14.5px;
-  color: var(--body);
-  line-height: 1.6;
-  font-style: italic;
+  font-family: var(--font-display);
+  font-size: 1.35rem;
+  line-height: 1.35;
+  color: var(--pu-text);
+  margin: 14px 0 18px;
 }
 
 .t-author-row {
@@ -4523,35 +4523,36 @@ body {
   align-items: center;
   justify-content: space-between;
   padding-top: 14px;
-  border-top: 1px solid var(--line);
+  border-top: 1px solid var(--pu-line);
   gap: 10px;
 }
 
 .t-author-info strong {
   display: block;
   font-size: 14px;
-  color: var(--ink);
+  color: var(--pu-text);
 }
 
 .t-author-info span {
   font-size: 12px;
-  color: var(--mut);
+  color: var(--pu-muted);
 }
 
 .t-service-tag {
   font-size: 11px;
   font-weight: 700;
   padding: 4px 10px;
-  border-radius: 999px;
-  background: var(--solar-green-soft);
-  color: var(--solar-green);
+  border-radius: var(--radius-pill);
+  background: var(--pu-citrus-dim);
+  color: var(--pu-citrus);
+  border: 1px solid rgba(232, 254, 138, 0.2);
 }
 
 /* Section 07 : Simulateur Solaire Simple */
 .simple-sim-section {
-  padding: 80px 0;
-  background: var(--surf);
-  border-top: 1px solid var(--line);
+  padding: 90px 0;
+  background: #111811;
+  border-top: 1px solid var(--pu-line);
 }
 
 .simple-sim-grid {
@@ -4562,13 +4563,34 @@ body {
 }
 
 .simple-sim-inputs {
-  background: var(--fintech-bg);
-  border: 1px solid var(--line);
-  border-radius: var(--fintech-radius);
-  padding: 30px;
+  background: var(--pu-forest);
+  border: 1px solid var(--pu-forest-border);
+  border-radius: var(--radius-card);
+  padding: 34px 30px;
   display: flex;
   flex-direction: column;
-  gap: 22px;
+  gap: 24px;
+}
+
+.sim-readout {
+  font-family: var(--font-display);
+  font-size: 26px;
+  color: var(--pu-citrus);
+}
+
+.solar-slider {
+  width: 100%;
+  accent-color: var(--pu-citrus);
+  height: 6px;
+  cursor: pointer;
+}
+
+.slider-ticks {
+  display: flex;
+  justify-content: space-between;
+  font-size: 11px;
+  color: var(--pu-muted);
+  margin-top: 6px;
 }
 
 .sim-appliance-grid {
@@ -4582,12 +4604,12 @@ body {
   align-items: center;
   gap: 10px;
   padding: 12px 14px;
-  background: var(--fintech-card);
-  border: 1.5px solid var(--line);
+  background: rgba(255, 255, 255, 0.04);
+  border: 1.5px solid var(--pu-line);
   border-radius: 14px;
   font-size: 13px;
   font-weight: 600;
-  color: var(--ink);
+  color: var(--pu-text);
   cursor: pointer;
   transition: border-color 0.2s ease, background 0.2s ease;
 }
@@ -4595,28 +4617,25 @@ body {
 .sim-app-label input[type="checkbox"] {
   width: 17px;
   height: 17px;
-  accent-color: var(--solar-green);
+  accent-color: var(--pu-citrus);
 }
 
 .sim-app-label:has(input:checked) {
-  border-color: var(--solar-green);
-  background: var(--solar-green-soft);
-}
-
-:root[data-theme="dark"] .sim-app-label:has(input:checked) {
-  background: rgba(16, 185, 129, 0.14);
+  border-color: var(--pu-citrus);
+  background: var(--pu-citrus-dim);
 }
 
 .simple-sim-output {
-  background: var(--navy-deep);
-  color: #FFFFFF;
-  border-radius: var(--fintech-radius);
-  padding: 32px;
+  background: linear-gradient(145deg, #1A271E 0%, #111A13 100%);
+  color: var(--pu-text);
+  border: 1px solid rgba(232, 254, 138, 0.25);
+  border-radius: var(--radius-card);
+  padding: 34px 30px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   gap: 20px;
-  box-shadow: var(--sh-lg);
+  box-shadow: 0 20px 48px rgba(0, 0, 0, 0.35);
 }
 
 .sim-out-kpis {
@@ -4626,23 +4645,26 @@ body {
 }
 
 .sim-out-box {
-  background: rgba(255, 255, 255, 0.06);
-  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--pu-line);
   border-radius: 16px;
   padding: 16px;
 }
 
 .sim-out-box span {
   display: block;
-  font-size: 11.5px;
-  color: #94A3B8;
+  font-size: 12px;
+  color: var(--pu-muted);
   margin-bottom: 4px;
 }
 
 .sim-out-box strong {
-  font-size: 22px;
-  font-weight: 800;
-  color: #10B981;
+  display: block;
+  font-family: var(--font-display);
+  font-size: 26px;
+  color: var(--pu-citrus);
+  line-height: 1.1;
+  font-weight: 400;
 }
 
 .sim-disclaimer {
@@ -4774,7 +4796,7 @@ body {
 .stars-svg-row {
   display: inline-flex;
   gap: 3px;
-  color: #F59E0B;
+  color: var(--pu-citrus);
   align-items: center;
 }
 
@@ -4787,7 +4809,7 @@ body {
 .c-icon svg {
   width: 24px;
   height: 24px;
-  color: var(--brand);
+  color: var(--pu-citrus);
 }
 
 .eng-feature-thumb-badge svg {
@@ -4799,15 +4821,15 @@ body {
 .eng-cert-icon svg {
   width: 28px;
   height: 28px;
-  color: var(--solar-green);
+  color: var(--pu-citrus);
 }
 
-/* Garantir un contraste accessible sur tous les badges et boutons */
+/* Point lumineux Citrus */
 .badge-dot {
   width: 8px;
   height: 8px;
   border-radius: 50%;
-  background: var(--solar-green);
+  background: var(--pu-citrus);
   display: inline-block;
 }
 
