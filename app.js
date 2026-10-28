@@ -357,6 +357,26 @@ function initLegalModal() {
 /* ==========================================================================
    7. FORMULAIRE DE DEVIS & DEMANDE RAPIDE WHATSAPP (Section 3 & Audit #4)
    ========================================================================== */
+function getFormFieldValue(ids, defaultVal = "") {
+  for (const id of ids) {
+    const el = document.getElementById(id);
+    if (el && typeof el.value === "string") {
+      return el.value.trim();
+    }
+  }
+  return defaultVal;
+}
+
+function getFormCheckboxState(ids, defaultState = false) {
+  for (const id of ids) {
+    const el = document.getElementById(id);
+    if (el && typeof el.checked === "boolean") {
+      return el.checked;
+    }
+  }
+  return defaultState;
+}
+
 function initQuoteForm() {
   const form = document.getElementById("quoteForm");
   const feedback = document.getElementById("formFeedback");
@@ -367,12 +387,14 @@ function initQuoteForm() {
   // Bouton de demande rapide WhatsApp avec message prérempli selon les champs saisis
   if (quickWaBtn) {
     quickWaBtn.addEventListener("click", () => {
-      const nom = (document.getElementById("clientName")?.value || "").trim();
-      const tel = (document.getElementById("clientPhone")?.value || "").trim();
-      const ville = (document.getElementById("clientLocation")?.value || "").trim();
-      const service = document.getElementById("projectService")?.value || "Installation solaire photovoltaïque";
-      const typeClient = document.getElementById("clientType")?.value || "Particulier / habitation";
-      const besoin = (document.getElementById("clientMessage")?.value || "").trim();
+      const nom = getFormFieldValue(["clientName", "nom", "name"]);
+      const tel = getFormFieldValue(["clientPhone", "telephone", "phone"]);
+      const email = getFormFieldValue(["clientEmail", "email"]);
+      const ville = getFormFieldValue(["clientLocation", "ville", "zone", "location"]);
+      const service = getFormFieldValue(["projectService", "service"], "Installation solaire photovoltaïque");
+      const typeClient = getFormFieldValue(["clientType", "type_client"], "Particulier / habitation");
+      const budget = getFormFieldValue(["projectBudget", "budget"]);
+      const besoin = getFormFieldValue(["clientMessage", "message", "besoin"]);
 
       const msg = encodeURIComponent(
         `Bonjour DoomuTech,\n` +
@@ -382,6 +404,8 @@ function initQuoteForm() {
         (ville ? `- Ville / Quartier : ${ville}\n` : "") +
         (nom ? `- Nom : ${nom}\n` : "") +
         (tel ? `- Téléphone : ${tel}\n` : "") +
+        (email ? `- E-mail : ${email}\n` : "") +
+        (budget ? `- Budget indicatif : ${budget}\n` : "") +
         (besoin ? `- Besoin : ${besoin}` : "Merci de me recontacter pour étudier mon besoin.")
       );
 
@@ -398,18 +422,20 @@ function initQuoteForm() {
       return;
     }
 
-    const nom_client = document.getElementById("clientName").value.trim();
-    const telephone = document.getElementById("clientPhone").value.trim();
-    const email = document.getElementById("clientEmail").value.trim();
-    const ville_zone = document.getElementById("clientLocation").value.trim();
-    const service_demande = document.getElementById("projectService").value;
-    const type_client = document.getElementById("clientType").value;
-    const nature_projet = document.getElementById("projectNature").value;
-    const budget_envisage = document.getElementById("projectBudget").value;
-    const description_besoin = document.getElementById("clientMessage").value.trim();
-    const consentement_cdp = document.getElementById("cdpConsent").checked;
+    const nom_client = getFormFieldValue(["clientName", "nom", "name"]);
+    const telephone = getFormFieldValue(["clientPhone", "telephone", "phone"]);
+    const email = getFormFieldValue(["clientEmail", "email"]);
+    const ville_zone = getFormFieldValue(["clientLocation", "ville", "zone", "location"]);
+    const service_demande = getFormFieldValue(["projectService", "service"], "Installation solaire photovoltaïque");
+    const type_client = getFormFieldValue(["clientType", "type_client"], "Particulier / habitation");
+    const nature_projet = getFormFieldValue(["projectNature", "nature_projet"], "Nouvelle installation complète");
+    const budget_envisage = getFormFieldValue(["projectBudget", "budget"], "À définir après étude");
+    const description_besoin = getFormFieldValue(["clientMessage", "message", "besoin"]);
+    const consentement_cdp = getFormCheckboxState(["cdpConsent", "consentement"], true);
 
     if (!nom_client || !telephone || !ville_zone || !description_besoin || !consentement_cdp) {
+      feedback.classList.remove("hidden");
+      feedback.innerHTML = `<strong style="color:#DC2626;">Veuillez renseigner tous les champs obligatoires (*) et accepter le traitement de votre demande.</strong>`;
       return;
     }
 
@@ -440,7 +466,7 @@ function initQuoteForm() {
     const leads = getStoredLeads();
     leads.unshift(newLead);
     saveStoredLeads(leads);
-    await syncLeadToSupabase(newLead);
+    const syncedToCloud = await syncLeadToSupabase(newLead);
 
     const waText = encodeURIComponent(
       `Bonjour DoomuTech,\n` +
@@ -458,16 +484,24 @@ function initQuoteForm() {
 
     const mailSubject = encodeURIComponent(`Demande de devis ${reference} - ${service_demande} (${nom_client})`);
 
+    const statusTitle = syncedToCloud
+      ? `Demande transmise et synchronisée avec succès (Référence : <code>${reference}</code>)`
+      : `Demande préparée sur votre navigateur (Référence : <code>${reference}</code>)`;
+
+    const statusDetail = syncedToCloud
+      ? `Merci <strong>${escapeHtml(nom_client)}</strong>. Votre demande a bien été transmise à la base centrale de DoomuTech. Vous pouvez également échanger immédiatement avec un conseiller sur WhatsApp :`
+      : `Merci <strong>${escapeHtml(nom_client)}</strong>. Votre demande est enregistrée localement dans votre navigateur. <strong>Pour que notre équipe technique à Dakar la reçoive immédiatement</strong>, cliquez sur le bouton WhatsApp ou E-mail ci-dessous :`;
+
     feedback.classList.remove("hidden");
     feedback.innerHTML = `
-      <strong>Demande enregistrée avec succès (Référence : <code>${reference}</code>)</strong><br/>
-      Merci <strong>${escapeHtml(nom_client)}</strong>. Votre demande a été enregistrée pour étude. Vous pouvez également lancer la conversation directe sur WhatsApp ci-dessous :<br/>
-      <div style="display:flex;flex-wrap:wrap;gap:10px;margin-top:10px;">
-        <a href="https://wa.me/221777019259?text=${waText}" target="_blank" rel="noopener" class="btn btn-whatsapp-hero btn-sm">
-          Envoyer maintenant sur WhatsApp (+221 77 701 92 59)
+      <strong>${statusTitle}</strong><br/>
+      ${statusDetail}<br/>
+      <div style="display:flex;flex-wrap:wrap;gap:10px;margin-top:12px;">
+        <a href="https://wa.me/221777019259?text=${waText}" target="_blank" rel="noopener" class="btn btn-primary btn-sm">
+          Transmettre maintenant sur WhatsApp (+221 77 701 92 59)
         </a>
         <a href="mailto:doomutech@gmail.com?subject=${mailSubject}&body=${waText}" class="btn btn-outline btn-sm">
-          Notifier par e-mail (doomutech@gmail.com)
+          Envoyer par e-mail (doomutech@gmail.com)
         </a>
         <a href="admin.html" class="btn btn-outline btn-sm">
           Voir dans le suivi des devis →
@@ -476,7 +510,8 @@ function initQuoteForm() {
     `;
 
     form.reset();
-    document.getElementById("cdpConsent").checked = true;
+    const consentEl = document.getElementById("cdpConsent") || document.getElementById("consentement");
+    if (consentEl) consentEl.checked = true;
   });
 }
 
@@ -499,9 +534,20 @@ function initAdminDashboard() {
     loginForm.addEventListener("submit", (e) => {
       e.preventDefault();
       const val = pinInput.value.trim();
-      if (val === "doomutech2025" || val.length >= 4) {
+      const expectedPin = localStorage.getItem("doomutech_admin_pin") || "doomutech2025";
+      let errEl = document.getElementById("adminPinError");
+      if (val === expectedPin) {
         sessionStorage.setItem(ADMIN_SESSION_KEY, "1");
         authBackdrop.classList.add("hidden");
+        if (errEl) errEl.remove();
+      } else {
+        if (!errEl) {
+          errEl = document.createElement("p");
+          errEl.id = "adminPinError";
+          errEl.style.cssText = "color:#DC2626;font-size:12.5px;font-weight:700;margin-top:6px;";
+          pinInput.parentElement.appendChild(errEl);
+        }
+        errEl.textContent = "Code d'accès incorrect. Veuillez vérifier votre code administrateur.";
       }
     });
   }

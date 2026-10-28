@@ -1,53 +1,54 @@
-# DoomuTech — Design System MASTER (Thème Agence PumpUp Rouen)
+# DoomuTech Sénégal — Design System Officiel (`ui-ux-pro-max`)
 
-Source d'inspiration & d'identité : **Agence Digitale PumpUp Rouen** ([pumpup.fr/agence-digitale-rouen/](https://www.pumpup.fr/agence-digitale-rouen/)).
-Ce thème premium a été définitivement appliqué sur l'ensemble de la plateforme DoomuTech Sénégal (accueil, sous-pages services, espace administrateur et simulateur).
-
----
-
-## 1. Typographie Éditoriale
-| Rôle | Police | Graisse | Notes |
-|---|---|---|---|
-| **Titres (h1, h2, h3, h4, brand)** | `'Instrument Serif', Georgia, serif` | 400 | Style éditorial, grand format fluide avec `clamp()`, tracking léger `-0.01em` |
-| **Accents & Mots-clés (`<em>`, `.pu-highlight`)** | `'Instrument Serif', Georgia, serif` (Italique) | 400 | Teinte Citrus `#E8FE8A`, contraste éclatant sur fond sombre |
-| **Texte courant & Composants UI** | `'Hanken Grotesk', system-ui, sans-serif` | 400, 500, 600, 700, 800 | Lisibilité contemporaine, césure soignée, interligne 1.65 |
-| **Code & Télémétrie** | `'JetBrains Mono', monospace` | 500, 600 | KPIs, données chiffrées, badges de statut |
+Ce document de référence (`MASTER.md`) définit l'identité visuelle, l'architecture d'interface et les règles d'accessibilité de **DoomuTech Sénégal**, générées à partir de la base de données d'intelligence de design **[`ui-ux-pro-max-skill`](https://github.com/nextlevelbuilder/ui-ux-pro-max-skill)**.
 
 ---
 
-## 2. Palette de Couleurs (Dark Forest & Citrus)
-| Token CSS | Hex / Valeur | Usage | Contraste |
-|---|---|---|---|
-| `--pu-dark` | `#151C15` | Fond de page principal (Dark Forest) | Base sombre d'exception |
-| `--pu-forest` | `#1F2D24` | Surface des cartes bento, formulaires, conteneurs | Élévation subtile |
-| `--pu-forest-deep` | `#27382D` | Hover des cartes, fonds d'encarts | Profondeur |
-| `--pu-citrus` | `#E8FE8A` | CTA principal, accents titres `<em>`, étoiles, focus ring | ≥ 14:1 sur fond sombre |
-| `--pu-citrus-hover` | `#F2FFA6` | Survol des boutons primaires | Éclat dynamique |
-| `--pu-citrus-dim` | `rgba(232, 254, 138, 0.10)` | Badges, tags, arrière-plans de mise en avant | Douceur |
-| `--pu-text` | `#F2F5EE` | Titres et texte principal (Stone White) | ≥ 15:1 |
-| `--pu-muted` | `#B9C4BC` | Descriptions, sous-titres, labels secondaires | ≥ 7:1 |
-| `--pu-line` | `rgba(255, 255, 255, 0.08)` | Bordures séparatrices légères | Délimitation nette |
+## 1. Profils d'Architecture Sélectionnés (`ui-ux-pro-max`)
+
+- **Catégorie Principale (`colors.csv` & `ui-reasoning.csv`)** :
+  - `#90 Sustainable Energy / Climate Tech` (`Data + Trust`)
+  - `#55 Home Services (Plumber / Electrician / HVAC)` (`Conversion-Optimized + Trust`)
+  - `#5 B2B Service` (`Trust & Authority`)
+- **Style UI (`styles.csv`)** :
+  - `#39 Bento Box Grid` + `#26 Trust & Authority` + `#8 Accessible & Ethical`
+- **Règle Anti-Pattern respectée (`ui-reasoning.csv`)** :
+  - *Éviter le mode sombre imposé par défaut pour les services B2B & d'intervention technique* -> **Mode Clair (`Daylight #F8FAFC`) par défaut** pour une lisibilité parfaite en extérieur au Sénégal, avec bascule fluide vers le **Mode Sombre Bleu Nuit (`[data-theme="dark"]`)**.
 
 ---
 
-## 3. Composants d'Interface Signature
-1. **Boutons Pilules (`.btn`)** :
-   - `border-radius: 999px;`
-   - Bouton primaire : Fond Citrus `#E8FE8A`, texte Dark Forest `#151C15`, typographie Hanken Grotesk 700, hover avec halo lumineux `box-shadow: 0 10px 24px rgba(232, 254, 138, 0.28)`.
-   - Bouton WhatsApp : Fond `#25D366` avec texte blanc ou badge Citrus.
-   - Bouton Outline : Bordure `rgba(255, 255, 255, 0.2)` et texte blanc cassé `#F2F5EE`.
-2. **Cartes Bento & Modales** :
-   - Fond Forest `#1F2D24`, bordure ultra fine `1px solid rgba(255, 255, 255, 0.08)`, arrondi 20px (`--radius-card`).
-3. **Simulateur Solaire Simple** :
-   - Calcul en temps réel selon le coût mensuel Senelec et les appareils prioritaires.
-   - Affichage des KPIs chiffrés en Citrus `#E8FE8A`.
-4. **Bouton WhatsApp Flottant Permanent** :
-   - Fixé en bas à droite (`z-index: 1000`), forme pilule, halo Citrus, accessible dès le premier écran et sur mobile.
+## 2. Palette Chromatique Sémantique (Bleu Nuit, Blanc & Vert Solaire)
+
+| Rôle Sémantique | Token CSS | Mode Clair (Défaut) | Mode Sombre (`[data-theme="dark"]`) | Ratio Contraste |
+| :--- | :--- | :--- | :--- | :--- |
+| **Fond Principal** | `--bg` | `#F8FAFC` (Slate 50) | `#0B1120` (Deep Navy) | — |
+| **Surface Cartes (Bento)** | `--surf` | `#FFFFFF` (Blanc pur) | `#111C33` (Navy Card) | — |
+| **Autorité & Titres** | `--ink` | `#0F172A` (Bleu Nuit) | `#F8FAFC` (Blanc) | `16.8:1` (AAA) |
+| **Texte Courant** | `--body` | `#334155` (Slate 700) | `#CBD5E1` (Slate 300) | `10.4:1` (AAA) |
+| **Texte Secondaire** | `--mut` | `#475569` (Slate 600) | `#94A3B8` (Slate 400) | `7.1:1` (AAA) |
+| **Action / Vert Solaire** | `--brand` | `#059669` (Emerald 600) | `#10B981` (Emerald 500) | `4.6:1` (AA+) |
+| **Survol Action** | `--brand-dark` | `#047857` (Emerald 700) | `#059669` (Emerald 600) | `5.8:1` (AA+) |
+| **Accent Or Solaire** | `--solar-amber` | `#D97706` / `#F59E0B` | `#FBBF24` | — |
+| **Bordures Subtiles** | `--line` | `#E2E8F0` (Slate 200) | `#1E293B` (Slate 800) | — |
 
 ---
 
-## 4. Règles d'Accessibilité & Conformité
-- **Accessibilité** : Cibles tactiles $\ge 44 \times 44\text{ px}$, labels ARIA explicites, focus visible Citrus 3px.
-- **Respect du mouvement** : `@media (prefers-reduced-motion: reduce)` respecté sans animations superflues.
-- **Performance** : Images WebP/JPG compressées, Lazy-loading, zéro dépendance JavaScript externe lourde.
-- **Protection des données** : Formulaire conforme à la réglementation sénégalaise (CDP - Loi 2008-12) avec champ anti-spam honeypot silencieux.
+## 3. Système Typographique (`typography.csv` #11 Geometric Modern)
+
+- **Titres & En-têtes (`--font-display`)** : **`Outfit`** (`600`, `700`, `800`) — géométrique, technique, nette et moderne, sans empattements décoratifs.
+- **Corps de texte & Formulaires (`--font-sans`)** : **`Plus Jakarta Sans`** (`400`, `500`, `600`, `700`) — lisibilité optimale sur mobile et écran haute densité.
+- **Métriques, Devis & Simulateur (`--font-mono`)** : **`JetBrains Mono`** (`500`, `600`) avec `font-variant-numeric: tabular-nums` pour aligner les puissances (`kWc`, `kWh`, `BTU`) et montants (`FCFA`).
+
+---
+
+## 4. Composants & Règles d'Interaction
+
+1. **Boutons d'Action & Cibles Tactiles** :
+   - Hauteur minimale `48px` (`52px` pour `.btn-lg`), `border-radius: 12px` à `14px`.
+   - Premier écran avec double CTA clair : **« Demander un devis gratuit »** (`.btn-primary`) et **« Parler à un conseiller (WhatsApp) »** (`.btn-whatsapp-hero`).
+2. **Cartes Bento (`.activity-bento-card`, `.project-card`, `.testimonial-card`)** :
+   - `border-radius: 20px`, bordure `1px solid var(--line)`, ombre douce `var(--sh-md)`.
+   - Pas d'emojis décoratifs dans l'interface : utilisation exclusive d'icônes vectorielles SVG (`24x24`, `stroke-width: 2`).
+3. **Accessibilité & Performance** :
+   - `:focus-visible` avec contour `3px solid var(--brand)` et `outline-offset: 2px`.
+   - Prise en charge complète de `@media (prefers-reduced-motion: reduce)`.

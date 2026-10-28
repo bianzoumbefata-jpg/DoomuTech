@@ -1,61 +1,89 @@
 /* ==========================================================================
-   DoomuTech Sénégal — Charte Visuelle Officielle Inspirée de PumpUp (Rouen)
-   - Palette : Dark Forest (#151C15), Forest (#1F2D24), Citrus Light (#E8FE8A), Stone (#F2F5EE)
-   - Typographie : Instrument Serif (Titres éditoriaux) + Hanken Grotesk (Corps suisse moderne)
-   - Composants : Boutons pilules dynamiques avec flèches, cartes feutrées aux bordures subtiles
-   - Accessibilité : Cibles tactiles ≥ 44px, contraste WCAG AA, focus visible 3px, reduced-motion
+   DoomuTech Sénégal — Design System Officiel UI/UX Pro Max
+   - Architecture : Sustainable Energy (#90) + Home Services (#55) + Bento Grid (#39)
+   - Palette (Light-First & Dark Mode) :
+     * Fond Daylight : #F8FAFC (Slate 50) | Cartes : #FFFFFF | Bordures : #E2E8F0
+     * Autorité & Encre : #0F172A (Deep Navy Slate, contraste > 16:1)
+     * Primaire Solaire / Action : #059669 (Solar Emerald Green) -> survol #047857
+     * Secondaire Ingénierie : #0284C7 (Sky Blue) & #D97706 (Solar Amber Gold)
+   - Typographie (#11 Geometric Modern) :
+     * Titres : Outfit (600, 700, 800)
+     * Corps & UI : Plus Jakarta Sans (400, 500, 600, 700)
+     * Métriques & Devis : JetBrains Mono (500, 600)
+   - Accessibilité : Cibles tactiles >= 44px, contraste WCAG AAA, focus visible 3px
    ========================================================================== */
 
-@import url('https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Hanken+Grotesk:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;600&display=swap');
 
 :root {
-  /* Couleurs officielles PumpUp */
-  --pu-dark: #151C15;             /* Fond principal Dark Forest */
-  --pu-forest: #1F2D24;           /* Cartes, surfaces & conteneurs */
-  --pu-forest-soft: #27382D;      /* Fonds secondaires & survols */
-  --pu-forest-border: rgba(232, 254, 138, 0.12); /* Lignes subtiles */
-  --pu-citrus: #E8FE8A;           /* Accent signature Citrus Light */
-  --pu-citrus-hover: #D7ED78;     /* Citrus survol */
-  --pu-citrus-glow: rgba(232, 254, 138, 0.22);
-  --pu-citrus-dim: rgba(232, 254, 138, 0.10);
-  --pu-text: #F2F5EE;             /* Blanc cassé naturel */
-  --pu-muted: #B9C4BC;            /* Gris-vert doux pour le texte secondaire */
-  --pu-line: rgba(255, 255, 255, 0.08);
+  /* Palette UI/UX Pro Max — Mode Clair par défaut (Lecture extérieure optimale au Sénégal) */
+  --bg: #F8FAFC;                  /* Slate 50 Daylight */
+  --surf: #FFFFFF;                /* Surface cartes & conteneurs */
+  --hdr: rgba(255, 255, 255, 0.92);
+  --ink: #0F172A;                 /* Bleu Nuit profond (Autorité & Titres) */
+  --body: #334155;                /* Slate 700 (Texte courant haute lisibilité) */
+  --mut: #475569;                 /* Slate 600 (Texte secondaire conforme WCAG AA) */
+  --line: #E2E8F0;                /* Bordure subtile Slate 200 */
 
-  /* Mappings sémantiques universels */
-  --bg: var(--pu-dark);
-  --surf: var(--pu-forest);
-  --ink: var(--pu-text);
-  --body: var(--pu-text);
-  --mut: var(--pu-muted);
-  --brand: var(--pu-citrus);
-  --brand-light: var(--pu-citrus-hover);
-  --brand-dark: #C6DB65;
-  --brand-grad: linear-gradient(135deg, #E8FE8A 0%, #C8E865 100%);
-  --onb: #151C15;
-  --line: var(--pu-line);
-  --ring: rgba(232, 254, 138, 0.35);
+  /* Couleurs d'action Solaire & Ingénierie */
+  --brand: #059669;               /* Vert Solaire Émeraude (Primaire) */
+  --brand-light: #10B981;         /* Émeraude lumineux */
+  --brand-dark: #047857;          /* Émeraude foncé survol */
+  --brand-grad: linear-gradient(135deg, #059669 0%, #047857 100%);
+  --solar-amber: #D97706;         /* Or Solaire / Ambre */
+  --solar-amber-light: #FEF3C7;
+  --eng-blue: #0284C7;            /* Bleu Ingénierie / Climatisation */
+  --gold-grad: linear-gradient(135deg, #F59E0B 0%, #D97706 100%);
+
+  /* Tokens de surbrillance et badges */
+  --highlight-darkest: #065F46;
+  --highlight-dark: #059669;
+  --highlight-medium: #10B981;
+  --highlight-light: #A7F3D0;
+  --highlight-lightest: #ECFDF5;
+  --neutral-light-darkest: #CBD5E1;
+
+  --support-success-dark: #065F46;
+  --support-success-medium: #10B981;
+  --support-success-light: #D1FAE5;
+  --heart: #DC2626;
+
+  --onb: #FFFFFF;
+  --ring: rgba(5, 150, 105, 0.35);
+
+  /* Alias de compatibilité ascendante */
+  --pu-dark: var(--bg);
+  --pu-forest: var(--surf);
+  --pu-forest-soft: #F1F5F9;
+  --pu-forest-border: var(--line);
+  --pu-citrus: var(--brand);
+  --pu-citrus-hover: var(--brand-dark);
+  --pu-citrus-glow: rgba(5, 150, 105, 0.22);
+  --pu-citrus-dim: #ECFDF5;
+  --pu-text: var(--ink);
+  --pu-muted: var(--mut);
+  --pu-line: var(--line);
 
   --bg-primary: var(--bg);
   --bg-elevated: var(--surf);
-  --bg-subtle: var(--pu-citrus-dim);
-  --bg-navy: #0E140E;
-  --bg-navy-card: #151C15;
+  --bg-subtle: #ECFDF5;
+  --bg-navy: #0F172A;
+  --bg-navy-card: #1E293B;
   --text-primary: var(--ink);
   --text-secondary: var(--body);
   --text-muted: var(--mut);
-  --text-inverse: #151C15;
-  --solar-green: var(--pu-citrus);
-  --solar-green-hover: var(--pu-citrus-hover);
-  --solar-green-soft: var(--pu-citrus-dim);
+  --text-inverse: #FFFFFF;
+  --solar-green: var(--brand);
+  --solar-green-hover: var(--brand-dark);
+  --solar-green-soft: #ECFDF5;
 
-  --sh-sm: 0 1px 3px rgba(0, 0, 0, 0.2);
-  --sh-md: 0 6px 16px rgba(0, 0, 0, 0.3);
-  --sh-lg: 0 16px 36px rgba(0, 0, 0, 0.4);
+  --sh-sm: 0 1px 3px rgba(15, 23, 42, 0.06);
+  --sh-md: 0 6px 20px -2px rgba(15, 23, 42, 0.08);
+  --sh-lg: 0 20px 38px -6px rgba(15, 23, 42, 0.12);
 
-  /* Typographie PumpUp */
-  --font-display: 'Instrument Serif', Georgia, 'Times New Roman', serif;
-  --font-sans: 'Hanken Grotesk', system-ui, -apple-system, sans-serif;
+  /* Typographie UI/UX Pro Max (#11 Geometric Modern) */
+  --font-display: 'Outfit', system-ui, -apple-system, sans-serif;
+  --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
   --font-mono: 'JetBrains Mono', monospace;
 
   --radius-pill: 999px;
@@ -63,6 +91,46 @@
   --radius-lg: 24px;
   --radius-sm: 10px;
   --radius-md: 14px;
+}
+
+/* Mode Sombre (Dark Mode Bleu Nuit Ingénierie) */
+:root[data-theme="dark"] {
+  --bg: #0B1120;
+  --surf: #111C33;
+  --hdr: rgba(11, 17, 32, 0.90);
+  --ink: #F8FAFC;
+  --body: #CBD5E1;
+  --mut: #94A3B8;
+  --line: #1E293B;
+
+  --brand: #10B981;
+  --brand-light: #34D399;
+  --brand-dark: #059669;
+  --brand-grad: linear-gradient(135deg, #10B981 0%, #059669 100%);
+
+  --highlight-darkest: #6EE7B7;
+  --highlight-dark: #34D399;
+  --highlight-medium: #10B981;
+  --highlight-light: rgba(16, 185, 129, 0.3);
+  --highlight-lightest: rgba(16, 185, 129, 0.12);
+  --neutral-light-darkest: #334155;
+
+  --pu-dark: var(--bg);
+  --pu-forest: var(--surf);
+  --pu-forest-soft: #1E293B;
+  --pu-forest-border: #1E293B;
+  --pu-citrus: #10B981;
+  --pu-citrus-hover: #34D399;
+  --pu-citrus-glow: rgba(16, 185, 129, 0.25);
+  --pu-citrus-dim: rgba(16, 185, 129, 0.14);
+  --pu-text: var(--ink);
+  --pu-muted: var(--mut);
+  --pu-line: var(--line);
+  --bg-subtle: rgba(16, 185, 129, 0.12);
+
+  --sh-sm: 0 2px 6px rgba(0, 0, 0, 0.3);
+  --sh-md: 0 10px 24px rgba(0, 0, 0, 0.4);
+  --sh-lg: 0 20px 44px rgba(0, 0, 0, 0.55);
 }
 
 *, *::before, *::after {
@@ -74,14 +142,14 @@
 html {
   scroll-behavior: smooth;
   font-size: 16px;
-  background-color: var(--pu-dark);
-  color: var(--pu-text);
+  background-color: var(--bg);
+  color: var(--ink);
   -webkit-text-size-adjust: 100%;
 }
 
 body {
-  background-color: var(--pu-dark);
-  color: var(--pu-text);
+  background-color: var(--bg);
+  color: var(--body);
   font: 400 1rem/1.65 var(--font-sans);
   -webkit-font-smoothing: antialiased;
   letter-spacing: -0.01em;
@@ -90,56 +158,58 @@ body {
 
 h1, h2, h3, h4, .section-title, .brand-name, .hero-title, .logo {
   font-family: var(--font-display);
-  font-weight: 400;
-  color: var(--pu-text);
-  letter-spacing: -0.01em;
+  font-weight: 800;
+  color: var(--ink);
+  letter-spacing: -0.025em;
 }
 
 em, .pu-highlight {
-  font-family: var(--font-display);
-  font-style: italic;
-  color: var(--pu-citrus);
-  font-weight: 400;
+  font-family: inherit;
+  font-style: normal;
+  color: var(--brand);
+  font-weight: inherit;
 }
 
 h1 {
-  font-size: clamp(2.5rem, 5.5vw, 4.25rem);
-  line-height: 1.08;
+  font-size: clamp(2.15rem, 4.2vw, 3.35rem);
+  line-height: 1.12;
 }
 
 h2, .section-title {
-  font-size: clamp(2rem, 3.8vw, 3rem);
-  line-height: 1.15;
+  font-size: clamp(1.75rem, 3.2vw, 2.5rem);
+  line-height: 1.18;
 }
 
 h3 {
-  font-size: clamp(1.4rem, 2.2vw, 1.85rem);
-  line-height: 1.25;
+  font-size: clamp(1.2rem, 1.8vw, 1.45rem);
+  line-height: 1.28;
 }
 
 h4 {
-  font-size: 1.25rem;
+  font-size: 1.1rem;
   line-height: 1.35;
 }
 
 .section-eyebrow {
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
   font-family: var(--font-sans);
   font-size: 0.75rem;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.08em;
-  color: var(--pu-citrus);
-  background: var(--pu-citrus-dim);
-  border: 1px solid rgba(232, 254, 138, 0.22);
-  padding: 5px 14px;
+  color: var(--highlight-darkest);
+  background: var(--highlight-lightest);
+  border: 1px solid var(--highlight-light);
+  padding: 6px 14px;
   border-radius: var(--radius-pill);
   margin-bottom: 14px;
 }
 
 p, .section-desc {
-  color: var(--pu-muted);
-  font-size: 1.05rem;
+  color: var(--mut);
+  font-size: 1.02rem;
   line-height: 1.65;
 }
 
@@ -178,18 +248,18 @@ ul {
   padding: 0 20px;
 }
 
-/* Chari Signature 3px Brand Gradient Strip */
+/* Bandeau supérieur 3px Signature Solaire */
 .strip {
   height: 3px;
   width: 100%;
-  background: var(--brand-grad);
+  background: linear-gradient(90deg, #059669 0%, #10B981 50%, #F59E0B 100%);
 }
 
 /* ==========================================================================
-   Chari Official Components (.logo, .lg, .badge, .chips, .btn, .fld, .seg, .h-chip)
+   Composants UI/UX Pro Max (.logo, .lg, .badge, .btn)
    ========================================================================== */
 .logo {
-  font-family: "Inter", "IBM Plex Sans Arabic", system-ui, sans-serif;
+  font-family: var(--font-display);
   font-size: 24px;
   font-weight: 800;
   letter-spacing: -0.03em;
@@ -225,7 +295,7 @@ ul {
 }
 
 .lg:hover {
-  background: #dbeafe;
+  background: var(--highlight-light);
   border-color: var(--brand);
 }
 
@@ -234,18 +304,18 @@ ul {
   align-items: center;
   background: var(--highlight-lightest);
   color: var(--highlight-darkest);
-  border: 1px solid rgba(0, 111, 253, 0.2);
+  border: 1px solid var(--highlight-light);
   border-radius: 999px;
   padding: 4px 12px;
   font-weight: 600;
   font-size: 11px;
 }
 
-/* Boutons Signature PumpUp (Pill Buttons) */
+/* Boutons d'action haute conversion (Cible tactile >= 48px) */
 .btn {
   min-height: 48px;
-  padding: 0 26px;
-  border-radius: var(--radius-pill);
+  padding: 0 24px;
+  border-radius: 12px;
   font-family: var(--font-sans);
   font-weight: 700;
   font-size: 14.5px;
@@ -253,7 +323,7 @@ ul {
   gap: 10px;
   align-items: center;
   justify-content: center;
-  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1);
   letter-spacing: -0.01em;
   cursor: pointer;
   border: 0;
@@ -271,9 +341,9 @@ ul {
 
 .btn-lg {
   min-height: 52px;
-  padding: 0 30px;
+  padding: 0 28px;
   font-size: 15.5px;
-  border-radius: var(--radius-pill);
+  border-radius: 14px;
 }
 
 .btn-block {
@@ -281,42 +351,42 @@ ul {
 }
 
 .btn-primary {
-  background: var(--pu-citrus);
-  color: var(--pu-dark);
-  box-shadow: 0 4px 18px var(--pu-citrus-glow);
+  background: var(--brand-grad);
+  color: #FFFFFF;
+  box-shadow: 0 6px 18px rgba(5, 150, 105, 0.28);
 }
 
 .btn-primary:hover {
-  background: var(--pu-citrus-hover);
-  color: var(--pu-dark);
-  box-shadow: 0 8px 24px rgba(232, 254, 138, 0.4);
+  background: var(--brand-dark);
+  color: #FFFFFF;
+  box-shadow: 0 10px 24px rgba(5, 150, 105, 0.38);
 }
 
 .btn.gold, .btn-gold {
-  background: var(--pu-citrus);
-  color: var(--pu-dark);
-  box-shadow: 0 4px 14px var(--pu-citrus-glow);
+  background: var(--gold-grad);
+  color: #FFFFFF;
+  box-shadow: 0 4px 14px rgba(217, 119, 6, 0.28);
 }
 
 .btn-outline, .btn.sec {
-  background: transparent;
-  color: var(--pu-text);
-  border: 1.5px solid rgba(242, 245, 238, 0.22);
-  box-shadow: none;
+  background: var(--surf);
+  color: var(--ink);
+  border: 1.5px solid var(--line);
+  box-shadow: var(--sh-sm);
 }
 
 .btn-outline:hover, .btn.sec:hover {
-  border-color: var(--pu-citrus);
-  color: var(--pu-citrus);
-  background: var(--pu-citrus-dim);
+  border-color: var(--brand);
+  color: var(--brand);
+  background: var(--highlight-lightest);
 }
 
 .btn-whatsapp-sm {
   min-height: 44px;
   padding: 0 16px;
-  background: var(--pu-citrus-dim);
-  color: var(--pu-citrus);
-  border: 1.5px solid rgba(232, 254, 138, 0.35);
+  background: var(--highlight-lightest);
+  color: var(--highlight-darkest);
+  border: 1.5px solid var(--highlight-light);
   box-shadow: none;
   font-size: 13.5px;
   font-weight: 700;
@@ -324,52 +394,58 @@ ul {
   align-items: center;
   justify-content: center;
   gap: 8px;
-  border-radius: var(--radius-pill);
+  border-radius: 10px;
   cursor: pointer;
 }
 
 .btn-whatsapp-sm:hover {
-  background: var(--pu-citrus);
-  color: var(--pu-dark);
-  border-color: var(--pu-citrus);
+  background: var(--brand);
+  color: #FFFFFF;
+  border-color: var(--brand);
 }
 
 .btn-whatsapp-outline {
-  background: var(--pu-citrus-dim);
-  color: var(--pu-citrus);
-  border: 1.5px solid rgba(232, 254, 138, 0.35);
-  border-radius: var(--radius-pill);
+  background: var(--highlight-lightest);
+  color: var(--highlight-darkest);
+  border: 1.5px solid var(--highlight-light);
+  border-radius: 12px;
   box-shadow: none;
 }
 
 .btn-whatsapp-outline:hover {
-  background: var(--pu-citrus);
-  color: var(--pu-dark);
+  background: var(--brand);
+  color: #FFFFFF;
 }
 
 .btn-whatsapp-hero {
-  background: var(--pu-forest);
-  color: var(--pu-text);
-  border: 1.5px solid var(--pu-forest-border);
-  border-radius: var(--radius-pill);
+  background: #0F172A;
+  color: #FFFFFF;
+  border: 1.5px solid #1E293B;
+  border-radius: 14px;
+  box-shadow: 0 6px 18px rgba(15, 23, 42, 0.16);
+}
+
+:root[data-theme="dark"] .btn-whatsapp-hero {
+  background: #1E293B;
+  border-color: #334155;
 }
 
 .btn-whatsapp-hero:hover {
-  background: var(--pu-forest-soft);
-  border-color: var(--pu-citrus);
-  color: var(--pu-citrus);
+  background: #1E293B;
+  border-color: var(--brand);
+  color: #FFFFFF;
   transform: translateY(-2px);
 }
 
 /* ==========================================================================
-   Top Utility Bar (PumpUp Dark Forest Style)
+   Top Utility Bar (Bleu Nuit Autorité #0F172A)
    ========================================================================== */
 .utility-bar {
-  background-color: #0E140E;
-  color: var(--pu-muted);
+  background-color: #0F172A;
+  color: #CBD5E1;
   font-size: 12px;
   padding: 8px 0;
-  border-bottom: 1px solid var(--pu-line);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 .utility-inner {
@@ -390,19 +466,19 @@ ul {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  color: var(--pu-text);
+  color: #F8FAFC;
 }
 
 .live-indicator strong {
-  color: var(--pu-citrus);
+  color: #34D399;
 }
 
 .pulse-dot {
   width: 8px;
   height: 8px;
   border-radius: 50%;
-  background-color: var(--pu-citrus);
-  box-shadow: 0 0 10px var(--pu-citrus);
+  background-color: #10B981;
+  box-shadow: 0 0 10px #10B981;
 }
 
 .utility-divider {
@@ -410,33 +486,33 @@ ul {
 }
 
 .utility-phone {
-  color: var(--pu-citrus);
+  color: #34D399;
   font-weight: 700;
-  background: var(--pu-citrus-dim);
-  border: 1px solid rgba(232, 254, 138, 0.3);
+  background: rgba(16, 185, 129, 0.15);
+  border: 1px solid rgba(52, 211, 153, 0.35);
   padding: 3px 12px;
   border-radius: var(--radius-pill);
   transition: all 0.2s;
 }
 
 .utility-phone:hover {
-  background: var(--pu-citrus);
-  color: var(--pu-dark);
+  background: #10B981;
+  color: #FFFFFF;
 }
 
 /* ==========================================================================
-   Header Sticky (PumpUp Dark Forest Glass)
+   Header Sticky (Verre Dépoli Clair / Sombre)
    ========================================================================== */
 .site-header {
   position: sticky;
   top: 0;
   z-index: 200;
-  background: rgba(21, 28, 21, 0.90);
+  background: var(--hdr);
   backdrop-filter: blur(14px);
   -webkit-backdrop-filter: blur(14px);
-  color: var(--pu-text);
-  border-bottom: 1px solid var(--pu-forest-border);
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+  color: var(--ink);
+  border-bottom: 1px solid var(--line);
+  box-shadow: var(--sh-sm);
 }
 
 .header-inner {
@@ -467,13 +543,13 @@ ul {
 
 .brand-name {
   font-family: var(--font-display);
-  font-size: 26px;
-  font-weight: 400;
-  letter-spacing: -0.01em;
-  color: var(--pu-text);
+  font-size: 24px;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  color: var(--ink);
   display: inline-flex;
   align-items: center;
-  gap: 4px;
+  gap: 2px;
 }
 
 .brand-name::after {
@@ -482,13 +558,13 @@ ul {
   width: 7px;
   height: 7px;
   border-radius: 50%;
-  background: var(--pu-citrus);
-  margin-left: 2px;
+  background: var(--brand);
+  margin-left: 3px;
 }
 
 .brand-accent {
-  color: var(--pu-citrus);
-  font-style: italic;
+  color: var(--brand);
+  font-style: normal;
 }
 
 .brand-tag {
@@ -496,7 +572,7 @@ ul {
   font-size: 9.5px;
   font-weight: 700;
   letter-spacing: 0.08em;
-  color: var(--pu-muted);
+  color: var(--mut);
   margin-top: 2px;
 }
 
@@ -509,7 +585,7 @@ ul {
 .nav-link {
   font-size: 14px;
   font-weight: 600;
-  color: var(--mut);
+  color: var(--body);
   transition: color 0.18s;
   display: inline-flex;
   align-items: center;
@@ -523,7 +599,7 @@ ul {
 .nav-badge {
   background: var(--highlight-lightest);
   color: var(--highlight-darkest);
-  border: 1px solid rgba(0, 111, 253, 0.2);
+  border: 1px solid var(--highlight-light);
   font-size: 11px;
   font-weight: 700;
   padding: 2px 8px;
@@ -567,8 +643,8 @@ ul {
   gap: 10px;
   min-height: 44px;
   background: var(--bg-subtle);
-  color: var(--brand);
-  border: 1.5px solid var(--line);
+  color: var(--highlight-darkest);
+  border: 1.5px solid var(--highlight-light);
   padding: 0 16px;
   border-radius: 999px;
   cursor: pointer;
@@ -578,7 +654,7 @@ ul {
 }
 
 .cart-trigger-btn:hover {
-  background: #dbeafe;
+  background: var(--highlight-light);
   border-color: var(--brand);
   transform: translateY(-1px);
 }
@@ -589,8 +665,8 @@ ul {
 }
 
 .cart-count-badge {
-  background: var(--pu-citrus);
-  color: var(--pu-dark);
+  background: var(--brand);
+  color: #FFFFFF;
   font-size: 11px;
   font-weight: 800;
   min-width: 20px;
@@ -628,7 +704,7 @@ ul {
 }
 
 /* ==========================================================================
-   Hero Section (Chari Card & Pill Aesthetics)
+   Hero Section (Architecture Conversion & Confiance)
    ========================================================================== */
 .hero-section {
   padding: 48px 0 44px;
@@ -647,7 +723,7 @@ ul {
   gap: 8px;
   background: var(--highlight-lightest);
   color: var(--highlight-darkest);
-  border: 1px solid rgba(0, 111, 253, 0.2);
+  border: 1px solid var(--highlight-light);
   padding: 6px 14px;
   border-radius: 999px;
   font-size: 11px;
@@ -3329,33 +3405,32 @@ ul {
 
 
 /* ==========================================================================
-   SHEIKH SHIHAB (MUZLI) — PERSONAL FINANCE & INVESTMENT APP CSS SYSTEM
-   Fintech Bento Cards, Portfolio Yield Badges, Specular Borders & Carrier AC UI
+   BENTO GRID & FINTECH / ENGINEERING CARDS (UI/UX PRO MAX #39)
    ========================================================================== */
 
 :root {
-  --fintech-bg: var(--pu-dark);
-  --fintech-card: var(--pu-forest);
-  --fintech-navy: #151C15;
-  --fintech-navy-elevated: #1F2D24;
-  --fintech-blue: var(--pu-citrus);
-  --fintech-cyan: var(--pu-citrus);
-  --fintech-mint: var(--pu-citrus);
-  --fintech-mint-soft: var(--pu-citrus-dim);
+  --fintech-bg: var(--bg);
+  --fintech-card: var(--surf);
+  --fintech-navy: #0F172A;
+  --fintech-navy-elevated: #1E293B;
+  --fintech-blue: var(--brand);
+  --fintech-cyan: #0284C7;
+  --fintech-mint: #059669;
+  --fintech-mint-soft: var(--highlight-lightest);
   --fintech-radius: 20px;
-  --fintech-shadow: 0 16px 36px rgba(0, 0, 0, 0.35);
-  --carrier-blue: #1F2D24;
+  --fintech-shadow: var(--sh-md);
+  --carrier-blue: #003882;
 }
 
 :root[data-theme="dark"] {
-  --fintech-bg: var(--pu-dark);
-  --fintech-card: var(--pu-forest);
-  --fintech-shadow: 0 16px 36px rgba(0, 0, 0, 0.45);
+  --fintech-bg: var(--bg);
+  --fintech-card: var(--surf);
+  --fintech-shadow: var(--sh-md);
 }
 
 body {
-  background-color: var(--pu-dark);
-  color: var(--pu-text);
+  background-color: var(--bg);
+  color: var(--body);
 }
 
 /* Fintech Bento Card Upgrade */
@@ -3367,7 +3442,7 @@ body {
   background: var(--fintech-card);
   border-radius: var(--fintech-radius);
   box-shadow: var(--fintech-shadow);
-  border: 1px solid rgba(0, 98, 255, 0.1);
+  border: 1px solid var(--line);
 }
 
 :root[data-theme="dark"] .product-card,
@@ -3375,7 +3450,7 @@ body {
 :root[data-theme="dark"] .project-card,
 :root[data-theme="dark"] .sim-controls-card,
 :root[data-theme="dark"] .quote-form {
-  border-color: rgba(255, 255, 255, 0.08);
+  border-color: var(--line);
 }
 
 /* Fintech Portfolio & Investment Card Style for Telemetry & Simulator Output */
@@ -4445,10 +4520,10 @@ body {
 }
 
 /* ==========================================================================
-   AUDIT REFINEMENTS — PALETTE BLEU NUIT / BLANC / VERT SOLAIRE,
+   AUDIT REFINEMENTS — PALETTE BLEU NUIT (#0F172A) / BLANC (#FFFFFF) / VERT SOLAIRE (#059669),
    SIMULATEUR SIMPLE, TÉMOIGNAGES CLIENTS, PAGES SERVICES & WHATSAPP PERMANENT
    ========================================================================== */
-/* Bouton WhatsApp flottant permanent (Signature Citrus PumpUp) */
+/* Bouton WhatsApp flottant permanent (Vert Solaire & WhatsApp) */
 .wa-floating-btn {
   position: fixed;
   bottom: 22px;
@@ -4459,17 +4534,18 @@ body {
   gap: 10px;
   padding: 13px 22px;
   border-radius: var(--radius-pill);
-  background: var(--pu-citrus);
-  color: var(--pu-dark);
+  background: linear-gradient(135deg, #059669 0%, #047857 100%);
+  color: #FFFFFF;
   font-size: 14px;
   font-weight: 700;
-  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.45), 0 0 20px var(--pu-citrus-glow);
-  border: 1.5px solid rgba(255, 255, 255, 0.15);
+  box-shadow: 0 12px 28px rgba(5, 150, 105, 0.38);
+  border: 1.5px solid rgba(255, 255, 255, 0.22);
   transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), background 0.2s ease;
 }
 
 .wa-floating-btn:hover {
-  background: var(--pu-citrus-hover);
+  background: #047857;
+  color: #FFFFFF;
   transform: translateY(-3px) scale(1.03);
 }
 
@@ -4511,11 +4587,11 @@ body {
 }
 
 .t-quote {
-  font-family: var(--font-display);
-  font-size: 1.35rem;
-  line-height: 1.35;
-  color: var(--pu-text);
-  margin: 14px 0 18px;
+  font-family: var(--font-sans);
+  font-size: 1.02rem;
+  line-height: 1.6;
+  color: var(--body);
+  margin: 12px 0 16px;
 }
 
 .t-author-row {
@@ -4523,19 +4599,19 @@ body {
   align-items: center;
   justify-content: space-between;
   padding-top: 14px;
-  border-top: 1px solid var(--pu-line);
+  border-top: 1px solid var(--line);
   gap: 10px;
 }
 
 .t-author-info strong {
   display: block;
   font-size: 14px;
-  color: var(--pu-text);
+  color: var(--ink);
 }
 
 .t-author-info span {
   font-size: 12px;
-  color: var(--pu-muted);
+  color: var(--mut);
 }
 
 .t-service-tag {
@@ -4543,16 +4619,16 @@ body {
   font-weight: 700;
   padding: 4px 10px;
   border-radius: var(--radius-pill);
-  background: var(--pu-citrus-dim);
-  color: var(--pu-citrus);
-  border: 1px solid rgba(232, 254, 138, 0.2);
+  background: var(--highlight-lightest);
+  color: var(--highlight-darkest);
+  border: 1px solid var(--highlight-light);
 }
 
 /* Section 07 : Simulateur Solaire Simple */
 .simple-sim-section {
   padding: 90px 0;
-  background: #111811;
-  border-top: 1px solid var(--pu-line);
+  background: var(--surf);
+  border-top: 1px solid var(--line);
 }
 
 .simple-sim-grid {
@@ -4563,24 +4639,26 @@ body {
 }
 
 .simple-sim-inputs {
-  background: var(--pu-forest);
-  border: 1px solid var(--pu-forest-border);
+  background: var(--bg);
+  border: 1px solid var(--line);
   border-radius: var(--radius-card);
   padding: 34px 30px;
   display: flex;
   flex-direction: column;
   gap: 24px;
+  box-shadow: var(--sh-sm);
 }
 
 .sim-readout {
-  font-family: var(--font-display);
-  font-size: 26px;
-  color: var(--pu-citrus);
+  font-family: var(--font-mono);
+  font-weight: 700;
+  font-size: 22px;
+  color: var(--brand);
 }
 
 .solar-slider {
   width: 100%;
-  accent-color: var(--pu-citrus);
+  accent-color: var(--brand);
   height: 6px;
   cursor: pointer;
 }
@@ -4589,7 +4667,7 @@ body {
   display: flex;
   justify-content: space-between;
   font-size: 11px;
-  color: var(--pu-muted);
+  color: var(--mut);
   margin-top: 6px;
 }
 
@@ -4604,12 +4682,12 @@ body {
   align-items: center;
   gap: 10px;
   padding: 12px 14px;
-  background: rgba(255, 255, 255, 0.04);
-  border: 1.5px solid var(--pu-line);
+  background: var(--surf);
+  border: 1.5px solid var(--line);
   border-radius: 14px;
   font-size: 13px;
   font-weight: 600;
-  color: var(--pu-text);
+  color: var(--ink);
   cursor: pointer;
   transition: border-color 0.2s ease, background 0.2s ease;
 }
@@ -4617,25 +4695,25 @@ body {
 .sim-app-label input[type="checkbox"] {
   width: 17px;
   height: 17px;
-  accent-color: var(--pu-citrus);
+  accent-color: var(--brand);
 }
 
 .sim-app-label:has(input:checked) {
-  border-color: var(--pu-citrus);
-  background: var(--pu-citrus-dim);
+  border-color: var(--brand);
+  background: var(--highlight-lightest);
 }
 
 .simple-sim-output {
-  background: linear-gradient(145deg, #1A271E 0%, #111A13 100%);
-  color: var(--pu-text);
-  border: 1px solid rgba(232, 254, 138, 0.25);
+  background: linear-gradient(145deg, #0F172A 0%, #1E293B 100%);
+  color: #F8FAFC;
+  border: 1px solid rgba(16, 185, 129, 0.3);
   border-radius: var(--radius-card);
   padding: 34px 30px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   gap: 20px;
-  box-shadow: 0 20px 48px rgba(0, 0, 0, 0.35);
+  box-shadow: 0 20px 44px rgba(15, 23, 42, 0.22);
 }
 
 .sim-out-kpis {
@@ -4645,8 +4723,8 @@ body {
 }
 
 .sim-out-box {
-  background: rgba(255, 255, 255, 0.04);
-  border: 1px solid var(--pu-line);
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.12);
   border-radius: 16px;
   padding: 16px;
 }
@@ -4654,25 +4732,25 @@ body {
 .sim-out-box span {
   display: block;
   font-size: 12px;
-  color: var(--pu-muted);
+  color: #CBD5E1;
   margin-bottom: 4px;
 }
 
 .sim-out-box strong {
   display: block;
-  font-family: var(--font-display);
-  font-size: 26px;
-  color: var(--pu-citrus);
-  line-height: 1.1;
-  font-weight: 400;
+  font-family: var(--font-mono);
+  font-size: 22px;
+  color: #34D399;
+  line-height: 1.15;
+  font-weight: 700;
 }
 
 .sim-disclaimer {
   font-size: 12px;
-  color: #94A3B8;
+  color: #CBD5E1;
   line-height: 1.5;
   padding: 12px 14px;
-  background: rgba(255, 255, 255, 0.04);
+  background: rgba(255, 255, 255, 0.05);
   border-radius: 12px;
   border-left: 3px solid #10B981;
 }
@@ -4680,7 +4758,7 @@ body {
 /* Pages de services dédiées (solaire.html, climatisation.html, videosurveillance.html) */
 .service-page-hero {
   padding: 56px 0;
-  background: linear-gradient(135deg, #0B1528 0%, #132342 100%);
+  background: linear-gradient(135deg, #0F172A 0%, #1E293B 100%);
   color: #FFFFFF;
 }
 
@@ -4796,7 +4874,7 @@ body {
 .stars-svg-row {
   display: inline-flex;
   gap: 3px;
-  color: var(--pu-citrus);
+  color: #F59E0B;
   align-items: center;
 }
 
@@ -4809,7 +4887,7 @@ body {
 .c-icon svg {
   width: 24px;
   height: 24px;
-  color: var(--pu-citrus);
+  color: var(--brand);
 }
 
 .eng-feature-thumb-badge svg {
@@ -4821,15 +4899,15 @@ body {
 .eng-cert-icon svg {
   width: 28px;
   height: 28px;
-  color: var(--pu-citrus);
+  color: var(--brand);
 }
 
-/* Point lumineux Citrus */
+/* Point lumineux Émeraude Solaire */
 .badge-dot {
   width: 8px;
   height: 8px;
   border-radius: 50%;
-  background: var(--pu-citrus);
+  background: var(--brand);
   display: inline-block;
 }
 
