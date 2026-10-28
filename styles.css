@@ -1,138 +1,105 @@
 /* ==========================================================================
-   DoomuTech Sénégal — Design System Officiel UI/UX Pro Max
-   - Architecture : Sustainable Energy (#90) + Home Services (#55) + Bento Grid (#39)
-   - Palette (Light-First & Dark Mode) :
-     * Fond Daylight : #F8FAFC (Slate 50) | Cartes : #FFFFFF | Bordures : #E2E8F0
-     * Autorité & Encre : #0F172A (Deep Navy Slate, contraste > 16:1)
-     * Primaire Solaire / Action : #059669 (Solar Emerald Green) -> survol #047857
-     * Secondaire Ingénierie : #0284C7 (Sky Blue) & #D97706 (Solar Amber Gold)
+   DOOMUTECH SÉNÉGAL — DESIGN SYSTEM OFFICIEL (UI/UX PRO MAX SKILL)
+   Source : https://github.com/nextlevelbuilder/ui-ux-pro-max-skill
+   - Style : #39 Bento Box Grid + #1 Swiss Modernism + #33 Trust & Authority
+   - Palette : #90 Sustainable Energy / Climate Tech + #55 Home Services
+     * Surface Daylight : #F8FAFC (Slate 50) | Cartes Bento : #FFFFFF
+     * Encre & Autorité : #0F172A (Deep Navy Slate — Contraste AAA 16.8:1)
+     * Primaire Solaire : #059669 (Solar Emerald) -> Survol #047857
+     * Accent Solaire : #D97706 / #F59E0B (Solar Amber) | Bleu Clim : #0284C7
    - Typographie (#11 Geometric Modern) :
      * Titres : Outfit (600, 700, 800)
-     * Corps & UI : Plus Jakarta Sans (400, 500, 600, 700)
-     * Métriques & Devis : JetBrains Mono (500, 600)
-   - Accessibilité : Cibles tactiles >= 44px, contraste WCAG AAA, focus visible 3px
+     * Corps & Interface : Plus Jakarta Sans (400, 500, 600, 700)
+     * Chiffres & Devis : JetBrains Mono (500, 600)
    ========================================================================== */
 
 @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;600&display=swap');
 
 :root {
-  /* Palette UI/UX Pro Max — Mode Clair par défaut (Lecture extérieure optimale au Sénégal) */
-  --bg: #F8FAFC;                  /* Slate 50 Daylight */
-  --surf: #FFFFFF;                /* Surface cartes & conteneurs */
+  /* Surfaces & Fonds (Mode Clair par défaut — Lecture extérieure optimale) */
+  --bg: #F8FAFC;
+  --bg-alt: #F1F5F9;
+  --surf: #FFFFFF;
   --hdr: rgba(255, 255, 255, 0.92);
-  --ink: #0F172A;                 /* Bleu Nuit profond (Autorité & Titres) */
-  --body: #334155;                /* Slate 700 (Texte courant haute lisibilité) */
-  --mut: #475569;                 /* Slate 600 (Texte secondaire conforme WCAG AA) */
-  --line: #E2E8F0;                /* Bordure subtile Slate 200 */
+  --navy: #0F172A;
+  --navy-elevated: #1E293B;
 
-  /* Couleurs d'action Solaire & Ingénierie */
-  --brand: #059669;               /* Vert Solaire Émeraude (Primaire) */
-  --brand-light: #10B981;         /* Émeraude lumineux */
-  --brand-dark: #047857;          /* Émeraude foncé survol */
+  /* Typographie & Contrastes (WCAG AAA) */
+  --ink: #0F172A;
+  --body: #334155;
+  --mut: #64748B;
+  --line: #E2E8F0;
+  --line-strong: #CBD5E1;
+
+  /* Couleurs d'Action & Marque */
+  --brand: #059669;
+  --brand-light: #10B981;
+  --brand-dark: #047857;
+  --brand-soft: #ECFDF5;
+  --brand-border: #A7F3D0;
   --brand-grad: linear-gradient(135deg, #059669 0%, #047857 100%);
-  --solar-amber: #D97706;         /* Or Solaire / Ambre */
-  --solar-amber-light: #FEF3C7;
-  --eng-blue: #0284C7;            /* Bleu Ingénierie / Climatisation */
-  --gold-grad: linear-gradient(135deg, #F59E0B 0%, #D97706 100%);
 
-  /* Tokens de surbrillance et badges */
-  --highlight-darkest: #065F46;
-  --highlight-dark: #059669;
-  --highlight-medium: #10B981;
-  --highlight-light: #A7F3D0;
-  --highlight-lightest: #ECFDF5;
-  --neutral-light-darkest: #CBD5E1;
+  /* Accents Métiers */
+  --amber: #D97706;
+  --amber-light: #FEF3C7;
+  --sky: #0284C7;
+  --sky-light: #E0F2FE;
+  --danger: #DC2626;
 
-  --support-success-dark: #065F46;
-  --support-success-medium: #10B981;
-  --support-success-light: #D1FAE5;
-  --heart: #DC2626;
+  /* Ombres Bento Douces (Style #39) */
+  --sh-sm: 0 1px 3px rgba(15, 23, 42, 0.05), 0 1px 2px rgba(15, 23, 42, 0.03);
+  --sh-md: 0 10px 30px -5px rgba(15, 23, 42, 0.06), 0 4px 12px -2px rgba(15, 23, 42, 0.04);
+  --sh-lg: 0 20px 44px -8px rgba(15, 23, 42, 0.12), 0 8px 20px -4px rgba(15, 23, 42, 0.06);
 
-  --onb: #FFFFFF;
-  --ring: rgba(5, 150, 105, 0.35);
-
-  /* Alias de compatibilité ascendante */
-  --pu-dark: var(--bg);
-  --pu-forest: var(--surf);
-  --pu-forest-soft: #F1F5F9;
-  --pu-forest-border: var(--line);
-  --pu-citrus: var(--brand);
-  --pu-citrus-hover: var(--brand-dark);
-  --pu-citrus-glow: rgba(5, 150, 105, 0.22);
-  --pu-citrus-dim: #ECFDF5;
-  --pu-text: var(--ink);
-  --pu-muted: var(--mut);
-  --pu-line: var(--line);
-
-  --bg-primary: var(--bg);
-  --bg-elevated: var(--surf);
-  --bg-subtle: #ECFDF5;
-  --bg-navy: #0F172A;
-  --bg-navy-card: #1E293B;
-  --text-primary: var(--ink);
-  --text-secondary: var(--body);
-  --text-muted: var(--mut);
-  --text-inverse: #FFFFFF;
-  --solar-green: var(--brand);
-  --solar-green-hover: var(--brand-dark);
-  --solar-green-soft: #ECFDF5;
-
-  --sh-sm: 0 1px 3px rgba(15, 23, 42, 0.06);
-  --sh-md: 0 6px 20px -2px rgba(15, 23, 42, 0.08);
-  --sh-lg: 0 20px 38px -6px rgba(15, 23, 42, 0.12);
-
-  /* Typographie UI/UX Pro Max (#11 Geometric Modern) */
+  /* Polices */
   --font-display: 'Outfit', system-ui, -apple-system, sans-serif;
   --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
   --font-mono: 'JetBrains Mono', monospace;
 
-  --radius-pill: 999px;
-  --radius-card: 20px;
-  --radius-lg: 24px;
+  /* Rayons & Transitions */
   --radius-sm: 10px;
   --radius-md: 14px;
+  --radius-card: 20px;
+  --radius-lg: 24px;
+  --radius-pill: 999px;
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+
+  /* Alias de compatibilité */
+  --fintech-bg: var(--bg);
+  --fintech-card: var(--surf);
+  --fintech-radius: var(--radius-card);
+  --fintech-shadow: var(--sh-md);
+  --highlight-lightest: var(--brand-soft);
+  --highlight-darkest: var(--brand-dark);
+  --highlight-light: var(--brand-border);
 }
 
 /* Mode Sombre (Dark Mode Bleu Nuit Ingénierie) */
 :root[data-theme="dark"] {
   --bg: #0B1120;
+  --bg-alt: #0F172A;
   --surf: #111C33;
   --hdr: rgba(11, 17, 32, 0.90);
   --ink: #F8FAFC;
   --body: #CBD5E1;
   --mut: #94A3B8;
   --line: #1E293B;
+  --line-strong: #334155;
 
   --brand: #10B981;
   --brand-light: #34D399;
   --brand-dark: #059669;
-  --brand-grad: linear-gradient(135deg, #10B981 0%, #059669 100%);
-
-  --highlight-darkest: #6EE7B7;
-  --highlight-dark: #34D399;
-  --highlight-medium: #10B981;
-  --highlight-light: rgba(16, 185, 129, 0.3);
-  --highlight-lightest: rgba(16, 185, 129, 0.12);
-  --neutral-light-darkest: #334155;
-
-  --pu-dark: var(--bg);
-  --pu-forest: var(--surf);
-  --pu-forest-soft: #1E293B;
-  --pu-forest-border: #1E293B;
-  --pu-citrus: #10B981;
-  --pu-citrus-hover: #34D399;
-  --pu-citrus-glow: rgba(16, 185, 129, 0.25);
-  --pu-citrus-dim: rgba(16, 185, 129, 0.14);
-  --pu-text: var(--ink);
-  --pu-muted: var(--mut);
-  --pu-line: var(--line);
-  --bg-subtle: rgba(16, 185, 129, 0.12);
+  --brand-soft: rgba(16, 185, 129, 0.14);
+  --brand-border: rgba(16, 185, 129, 0.32);
 
   --sh-sm: 0 2px 6px rgba(0, 0, 0, 0.3);
-  --sh-md: 0 10px 24px rgba(0, 0, 0, 0.4);
-  --sh-lg: 0 20px 44px rgba(0, 0, 0, 0.55);
+  --sh-md: 0 12px 32px rgba(0, 0, 0, 0.42);
+  --sh-lg: 0 24px 52px rgba(0, 0, 0, 0.6);
 }
 
+/* ==========================================================================
+   1. RESET & TYPOGRAPHIE GLOBALE
+   ========================================================================== */
 *, *::before, *::after {
   box-sizing: border-box;
   margin: 0;
@@ -150,72 +117,31 @@ html {
 body {
   background-color: var(--bg);
   color: var(--body);
-  font: 400 1rem/1.65 var(--font-sans);
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  line-height: 1.65;
   -webkit-font-smoothing: antialiased;
-  letter-spacing: -0.01em;
   overflow-x: hidden;
 }
 
-h1, h2, h3, h4, .section-title, .brand-name, .hero-title, .logo {
-  font-family: var(--font-display);
-  font-weight: 800;
-  color: var(--ink);
-  letter-spacing: -0.025em;
+img, svg {
+  display: block;
+  max-width: 100%;
 }
 
-em, .pu-highlight {
-  font-family: inherit;
-  font-style: normal;
-  color: var(--brand);
-  font-weight: inherit;
+a {
+  color: inherit;
+  text-decoration: none;
+  transition: color 0.2s ease;
 }
 
-h1 {
-  font-size: clamp(2.15rem, 4.2vw, 3.35rem);
-  line-height: 1.12;
-}
-
-h2, .section-title {
-  font-size: clamp(1.75rem, 3.2vw, 2.5rem);
-  line-height: 1.18;
-}
-
-h3 {
-  font-size: clamp(1.2rem, 1.8vw, 1.45rem);
-  line-height: 1.28;
-}
-
-h4 {
-  font-size: 1.1rem;
-  line-height: 1.35;
-}
-
-.section-eyebrow {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  font-family: var(--font-sans);
-  font-size: 0.75rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  color: var(--highlight-darkest);
-  background: var(--highlight-lightest);
-  border: 1px solid var(--highlight-light);
-  padding: 6px 14px;
-  border-radius: var(--radius-pill);
-  margin-bottom: 14px;
-}
-
-p, .section-desc {
-  color: var(--mut);
-  font-size: 1.02rem;
-  line-height: 1.65;
+ul {
+  list-style: none;
 }
 
 button, input, select, textarea {
   font: inherit;
-  box-sizing: border-box;
+  color: inherit;
 }
 
 button {
@@ -227,108 +153,107 @@ button {
   outline-offset: 2px;
 }
 
-a {
-  color: inherit;
-  text-decoration: none;
-}
-
-ul {
-  list-style: none;
-}
-
-.mono {
-  font-family: var(--font-mono);
-  font-variant-numeric: tabular-nums;
-}
-
 .container {
   width: 100%;
-  max-width: 1280px;
+  max-width: 1240px;
   margin: 0 auto;
-  padding: 0 20px;
+  padding: 0 24px;
 }
 
-/* Bandeau supérieur 3px Signature Solaire */
-.strip {
-  height: 3px;
-  width: 100%;
-  background: linear-gradient(90deg, #059669 0%, #10B981 50%, #F59E0B 100%);
-}
-
-/* ==========================================================================
-   Composants UI/UX Pro Max (.logo, .lg, .badge, .btn)
-   ========================================================================== */
-.logo {
+/* Hiérarchie Typographique */
+h1, h2, h3, h4, .section-title, .hero-title {
   font-family: var(--font-display);
-  font-size: 24px;
   font-weight: 800;
-  letter-spacing: -0.03em;
   color: var(--ink);
+  letter-spacing: -0.025em;
+  line-height: 1.15;
+}
+
+h1, .hero-title {
+  font-size: clamp(2.1rem, 4vw, 3.25rem);
+  line-height: 1.12;
+}
+
+h2, .section-title {
+  font-size: clamp(1.75rem, 3vw, 2.45rem);
+  line-height: 1.18;
+}
+
+h3 {
+  font-size: clamp(1.2rem, 1.8vw, 1.4rem);
+  line-height: 1.28;
+}
+
+h4 {
+  font-size: 1.05rem;
+  font-weight: 700;
+  line-height: 1.35;
+}
+
+em {
+  font-style: normal;
+  color: var(--brand);
+}
+
+p, .section-desc {
+  color: var(--mut);
+  font-size: 1.02rem;
+  line-height: 1.65;
+}
+
+.section-header {
+  max-width: 680px;
+  margin-bottom: 48px;
+}
+
+.section-eyebrow, .eyebrow-badge {
   display: inline-flex;
   align-items: center;
-  gap: 6px;
+  gap: 8px;
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--brand-dark);
+  background: var(--brand-soft);
+  border: 1px solid var(--brand-border);
+  padding: 6px 14px;
+  border-radius: var(--radius-pill);
+  margin-bottom: 16px;
 }
 
-.logo::after {
-  content: "";
-  display: inline-block;
+:root[data-theme="dark"] .section-eyebrow,
+:root[data-theme="dark"] .eyebrow-badge {
+  color: var(--brand-light);
+}
+
+.badge-dot {
   width: 8px;
   height: 8px;
   border-radius: 50%;
   background: var(--brand);
+  display: inline-block;
 }
 
-.lg {
-  min-height: 36px;
-  padding: 0 14px;
-  border-radius: 999px;
-  border: 1.5px solid var(--highlight-light);
-  background: var(--highlight-lightest);
-  color: var(--highlight-darkest);
-  font-weight: 600;
-  font-size: 12px;
-  transition: all 0.18s;
-  letter-spacing: 0.01em;
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-}
-
-.lg:hover {
-  background: var(--highlight-light);
-  border-color: var(--brand);
-}
-
-.badge {
-  display: inline-flex;
-  align-items: center;
-  background: var(--highlight-lightest);
-  color: var(--highlight-darkest);
-  border: 1px solid var(--highlight-light);
-  border-radius: 999px;
-  padding: 4px 12px;
-  font-weight: 600;
-  font-size: 11px;
-}
-
-/* Boutons d'action haute conversion (Cible tactile >= 48px) */
+/* ==========================================================================
+   2. BOUTONS & ACTIONS (Cibles Tactiles >= 48px — UI/UX Pro Max)
+   ========================================================================== */
 .btn {
   min-height: 48px;
   padding: 0 24px;
   border-radius: 12px;
   font-family: var(--font-sans);
   font-weight: 700;
-  font-size: 14.5px;
+  font-size: 0.9375rem;
   display: inline-flex;
-  gap: 10px;
   align-items: center;
   justify-content: center;
-  transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1);
-  letter-spacing: -0.01em;
-  cursor: pointer;
-  border: 0;
-  text-decoration: none;
+  gap: 8px;
+  border: 1.5px solid transparent;
+  transition: transform 0.2s var(--ease-out), box-shadow 0.2s var(--ease-out), background 0.2s ease, border-color 0.2s ease;
   white-space: nowrap;
+  text-decoration: none;
 }
 
 .btn:hover {
@@ -340,10 +265,17 @@ ul {
 }
 
 .btn-lg {
-  min-height: 52px;
+  min-height: 54px;
   padding: 0 28px;
-  font-size: 15.5px;
+  font-size: 1rem;
   border-radius: 14px;
+}
+
+.btn-sm {
+  min-height: 42px;
+  padding: 0 18px;
+  font-size: 0.875rem;
+  border-radius: 10px;
 }
 
 .btn-block {
@@ -353,98 +285,54 @@ ul {
 .btn-primary {
   background: var(--brand-grad);
   color: #FFFFFF;
-  box-shadow: 0 6px 18px rgba(5, 150, 105, 0.28);
+  box-shadow: 0 8px 20px -4px rgba(5, 150, 105, 0.35);
 }
 
 .btn-primary:hover {
   background: var(--brand-dark);
   color: #FFFFFF;
-  box-shadow: 0 10px 24px rgba(5, 150, 105, 0.38);
+  box-shadow: 0 12px 26px -4px rgba(5, 150, 105, 0.45);
 }
 
-.btn.gold, .btn-gold {
-  background: var(--gold-grad);
-  color: #FFFFFF;
-  box-shadow: 0 4px 14px rgba(217, 119, 6, 0.28);
-}
-
-.btn-outline, .btn.sec {
+.btn-outline {
   background: var(--surf);
   color: var(--ink);
-  border: 1.5px solid var(--line);
+  border-color: var(--line-strong);
   box-shadow: var(--sh-sm);
 }
 
-.btn-outline:hover, .btn.sec:hover {
+.btn-outline:hover {
   border-color: var(--brand);
   color: var(--brand);
-  background: var(--highlight-lightest);
-}
-
-.btn-whatsapp-sm {
-  min-height: 44px;
-  padding: 0 16px;
-  background: var(--highlight-lightest);
-  color: var(--highlight-darkest);
-  border: 1.5px solid var(--highlight-light);
-  box-shadow: none;
-  font-size: 13.5px;
-  font-weight: 700;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-  border-radius: 10px;
-  cursor: pointer;
-}
-
-.btn-whatsapp-sm:hover {
-  background: var(--brand);
-  color: #FFFFFF;
-  border-color: var(--brand);
-}
-
-.btn-whatsapp-outline {
-  background: var(--highlight-lightest);
-  color: var(--highlight-darkest);
-  border: 1.5px solid var(--highlight-light);
-  border-radius: 12px;
-  box-shadow: none;
-}
-
-.btn-whatsapp-outline:hover {
-  background: var(--brand);
-  color: #FFFFFF;
+  background: var(--brand-soft);
 }
 
 .btn-whatsapp-hero {
-  background: #0F172A;
+  background: var(--navy);
   color: #FFFFFF;
-  border: 1.5px solid #1E293B;
-  border-radius: 14px;
-  box-shadow: 0 6px 18px rgba(15, 23, 42, 0.16);
+  border-color: var(--navy-elevated);
+  box-shadow: 0 8px 20px -4px rgba(15, 23, 42, 0.2);
 }
 
 :root[data-theme="dark"] .btn-whatsapp-hero {
-  background: #1E293B;
-  border-color: #334155;
+  background: var(--navy-elevated);
+  border-color: var(--line-strong);
 }
 
 .btn-whatsapp-hero:hover {
   background: #1E293B;
-  border-color: var(--brand);
+  border-color: var(--brand-light);
   color: #FFFFFF;
-  transform: translateY(-2px);
 }
 
 /* ==========================================================================
-   Top Utility Bar (Bleu Nuit Autorité #0F172A)
+   3. BARRE SUPÉRIEURE & NAVIGATION STICKY ÉPURÉE
    ========================================================================== */
 .utility-bar {
-  background-color: #0F172A;
+  background-color: var(--navy);
   color: #CBD5E1;
-  font-size: 12px;
-  padding: 8px 0;
+  font-size: 0.78rem;
+  padding: 9px 0;
   border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 }
 
@@ -471,6 +359,7 @@ ul {
 
 .live-indicator strong {
   color: #34D399;
+  font-weight: 700;
 }
 
 .pulse-dot {
@@ -478,21 +367,20 @@ ul {
   height: 8px;
   border-radius: 50%;
   background-color: #10B981;
-  box-shadow: 0 0 10px #10B981;
+  box-shadow: 0 0 8px #10B981;
 }
 
 .utility-divider {
-  opacity: 0.3;
+  opacity: 0.25;
 }
 
 .utility-phone {
   color: #34D399;
   font-weight: 700;
-  background: rgba(16, 185, 129, 0.15);
-  border: 1px solid rgba(52, 211, 153, 0.35);
+  background: rgba(16, 185, 129, 0.14);
+  border: 1px solid rgba(52, 211, 153, 0.3);
   padding: 3px 12px;
   border-radius: var(--radius-pill);
-  transition: all 0.2s;
 }
 
 .utility-phone:hover {
@@ -500,17 +388,14 @@ ul {
   color: #FFFFFF;
 }
 
-/* ==========================================================================
-   Header Sticky (Verre Dépoli Clair / Sombre)
-   ========================================================================== */
+/* Header Sticky */
 .site-header {
   position: sticky;
   top: 0;
   z-index: 200;
   background: var(--hdr);
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
-  color: var(--ink);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
   border-bottom: 1px solid var(--line);
   box-shadow: var(--sh-sm);
 }
@@ -519,20 +404,19 @@ ul {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 74px;
-  gap: 16px;
+  height: 76px;
+  gap: 20px;
 }
 
 .brand-logo {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 12px;
 }
 
 .logo-mark svg {
   width: 38px;
   height: 38px;
-  display: block;
 }
 
 .brand-text {
@@ -543,67 +427,55 @@ ul {
 
 .brand-name {
   font-family: var(--font-display);
-  font-size: 24px;
+  font-size: 1.45rem;
   font-weight: 800;
-  letter-spacing: -0.03em;
   color: var(--ink);
-  display: inline-flex;
-  align-items: center;
-  gap: 2px;
-}
-
-.brand-name::after {
-  content: "";
-  display: inline-block;
-  width: 7px;
-  height: 7px;
-  border-radius: 50%;
-  background: var(--brand);
-  margin-left: 3px;
+  letter-spacing: -0.03em;
 }
 
 .brand-accent {
   color: var(--brand);
-  font-style: normal;
 }
 
 .brand-tag {
-  font-family: var(--font-sans);
-  font-size: 9.5px;
+  font-size: 0.62rem;
   font-weight: 700;
   letter-spacing: 0.08em;
   color: var(--mut);
-  margin-top: 2px;
+  margin-top: 3px;
 }
 
-.main-nav {
+.top-nav-pill-bar {
   display: flex;
-  align-items: center;
-  gap: 22px;
-}
-
-.nav-link {
-  font-size: 14px;
-  font-weight: 600;
-  color: var(--body);
-  transition: color 0.18s;
-  display: inline-flex;
   align-items: center;
   gap: 6px;
 }
 
-.nav-link:hover {
+.top-nav-item {
+  display: inline-flex;
+  align-items: center;
+  min-height: 40px;
+  padding: 0 14px;
+  border-radius: 10px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--body);
+  transition: background 0.18s ease, color 0.18s ease;
+}
+
+.top-nav-item:hover {
+  background: var(--bg-alt);
   color: var(--brand);
 }
 
-.nav-badge {
-  background: var(--highlight-lightest);
-  color: var(--highlight-darkest);
-  border: 1px solid var(--highlight-light);
-  font-size: 11px;
+.top-nav-item.dock-active {
+  background: var(--brand-soft);
+  color: var(--brand-dark);
   font-weight: 700;
-  padding: 2px 8px;
-  border-radius: 999px;
+}
+
+:root[data-theme="dark"] .top-nav-item.dock-active {
+  color: var(--brand-light);
 }
 
 .header-actions {
@@ -612,79 +484,22 @@ ul {
   gap: 10px;
 }
 
-/* Theme Toggle Button (UI/UX Pro Max 44px Accessible Target) */
 .theme-toggle-btn {
-  min-height: 44px;
-  min-width: 44px;
-  padding: 0 14px;
-  border-radius: 999px;
+  width: 42px;
+  height: 42px;
+  border-radius: 10px;
   border: 1.5px solid var(--line);
   background: var(--surf);
   color: var(--ink);
-  font-weight: 600;
-  font-size: 13px;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 8px;
-  box-shadow: var(--sh-sm);
-  transition: all 0.18s;
-  cursor: pointer;
+  transition: border-color 0.2s ease, color 0.2s ease;
 }
 
 .theme-toggle-btn:hover {
   border-color: var(--brand);
   color: var(--brand);
-}
-
-.cart-trigger-btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  min-height: 44px;
-  background: var(--bg-subtle);
-  color: var(--highlight-darkest);
-  border: 1.5px solid var(--highlight-light);
-  padding: 0 16px;
-  border-radius: 999px;
-  cursor: pointer;
-  font-weight: 700;
-  font-size: 13px;
-  transition: all 0.18s ease;
-}
-
-.cart-trigger-btn:hover {
-  background: var(--highlight-light);
-  border-color: var(--brand);
-  transform: translateY(-1px);
-}
-
-.cart-icon-wrap {
-  display: flex;
-  align-items: center;
-}
-
-.cart-count-badge {
-  background: var(--brand);
-  color: #FFFFFF;
-  font-size: 11px;
-  font-weight: 800;
-  min-width: 20px;
-  height: 20px;
-  border-radius: 999px;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  margin-left: 6px;
-  padding: 0 6px;
-}
-
-.cart-total-preview {
-  font-size: 12px;
-  font-weight: 700;
-  color: var(--highlight-darkest);
-  border-left: 1px solid var(--highlight-light);
-  padding-left: 10px;
 }
 
 .mobile-menu-btn {
@@ -693,7 +508,7 @@ ul {
   gap: 5px;
   background: none;
   border: none;
-  padding: 6px;
+  padding: 8px;
 }
 
 .mobile-menu-btn span {
@@ -704,137 +519,60 @@ ul {
 }
 
 /* ==========================================================================
-   Hero Section (Architecture Conversion & Confiance)
+   4. SECTION 01 — HERO (Spacieux, Lisible, 1 Photo Réelle Haute Définition)
    ========================================================================== */
 .hero-section {
-  padding: 48px 0 44px;
+  padding: 64px 0 72px;
+  background: radial-gradient(circle at 85% 15%, rgba(5, 150, 105, 0.06) 0%, transparent 45%);
 }
 
 .hero-grid {
   display: grid;
   grid-template-columns: 1.08fr 0.92fr;
-  gap: 44px;
+  gap: 56px;
   align-items: center;
-}
-
-.eyebrow-badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  background: var(--highlight-lightest);
-  color: var(--highlight-darkest);
-  border: 1px solid var(--highlight-light);
-  padding: 6px 14px;
-  border-radius: 999px;
-  font-size: 11px;
-  font-weight: 800;
-  letter-spacing: 0.06em;
-  margin-bottom: 18px;
-}
-
-.badge-dot {
-  width: 7px;
-  height: 7px;
-  border-radius: 50%;
-  background: var(--brand);
-}
-
-.hero-title {
-  font-size: clamp(2.1rem, 3.6vw, 3.2rem);
-  font-weight: 800;
-  line-height: 1.12;
-  letter-spacing: -0.025em;
-  color: var(--ink);
-  margin-bottom: 18px;
-}
-
-.text-gradient {
-  background: var(--brand-grad);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
 }
 
 .hero-subtitle {
-  font-size: 15px;
-  line-height: 1.6;
+  font-size: 1.1rem;
   color: var(--body);
+  line-height: 1.65;
+  margin: 20px 0 28px;
   max-width: 60ch;
-  margin-bottom: 24px;
 }
 
 .hero-cta-group {
   display: flex;
   flex-wrap: wrap;
-  gap: 12px;
-  margin-bottom: 24px;
-}
-
-/* Chari .sf & .row inspired Dual Pillars */
-.hero-dual-pillars {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 12px;
-  margin-bottom: 24px;
-}
-
-.pillar-chip {
-  display: flex;
-  align-items: flex-start;
-  gap: 12px;
-  background: var(--surf);
-  border: 1px solid var(--line);
-  padding: 14px 16px;
-  border-radius: 16px;
-  box-shadow: var(--sh-sm);
-  transition: all 0.18s;
-}
-
-.pillar-chip:hover {
-  border-color: var(--neutral-light-darkest);
-  box-shadow: var(--sh-md);
-}
-
-.pillar-icon {
-  font-size: 22px;
-  line-height: 1;
-}
-
-.pillar-chip strong {
-  display: block;
-  font-size: 14px;
-  font-weight: 700;
-  color: var(--ink);
-}
-
-.pillar-chip span {
-  font-size: 12px;
-  color: var(--mut);
+  gap: 14px;
+  margin-bottom: 36px;
 }
 
 .hero-metrics {
   display: flex;
   align-items: center;
+  flex-wrap: wrap;
   gap: 24px;
-  padding-top: 20px;
+  padding-top: 24px;
   border-top: 1px solid var(--line);
 }
 
 .metric-item {
   display: flex;
   flex-direction: column;
+  gap: 2px;
 }
 
 .metric-value {
-  font-size: 24px;
+  font-family: var(--font-display);
+  font-size: 1.35rem;
   font-weight: 800;
-  letter-spacing: -0.02em;
-  color: var(--brand);
+  color: var(--ink);
 }
 
 .metric-label {
-  font-size: 12px;
+  font-size: 0.8rem;
   color: var(--mut);
-  font-weight: 500;
 }
 
 .metric-divider {
@@ -843,1228 +581,154 @@ ul {
   background: var(--line);
 }
 
-/* Hero Visual Frame (Chari .hero-box & .pill spec) */
 .hero-image-frame {
   position: relative;
-  border-radius: 20px;
+  border-radius: var(--radius-lg);
   overflow: hidden;
-  box-shadow: var(--sh-lg);
   border: 1px solid var(--line);
-  background: #1F2024;
-  aspect-ratio: 16 / 11;
+  box-shadow: var(--sh-lg);
+  background: var(--surf);
 }
 
 .hero-img {
   width: 100%;
-  height: 100%;
+  height: 440px;
   object-fit: cover;
   display: block;
+  transition: transform 0.6s var(--ease-out);
+}
+
+.hero-image-frame:hover .hero-img {
+  transform: scale(1.03);
 }
 
 .image-location-badge {
   position: absolute;
-  top: 14px;
-  left: 14px;
-  background: rgba(31, 32, 36, 0.8);
-  backdrop-filter: blur(8px);
-  color: #fff;
-  border-radius: 999px;
-  padding: 5px 14px;
-  font-size: 12px;
-  font-weight: 600;
-  border: 1px solid rgba(255, 255, 255, 0.2);
-}
-
-/* Chari .visa-card-box inspired Live Telemetry Card */
-.telemetry-card {
-  margin-top: -38px;
-  margin-left: 18px;
-  margin-right: 18px;
-  position: relative;
-  z-index: 3;
-  background: linear-gradient(135deg, #006FFD 0%, #1A1F71 100%);
-  color: #fff;
-  border-radius: 16px;
-  padding: 18px 20px;
-  box-shadow: 0 10px 26px rgba(0, 111, 253, 0.28);
-  overflow: hidden;
-}
-
-.telemetry-card::before {
-  content: "";
-  position: absolute;
-  top: -40px;
-  right: -40px;
-  width: 140px;
-  height: 140px;
-  border-radius: 50%;
-  background: radial-gradient(circle, rgba(255, 255, 255, 0.18) 0%, transparent 70%);
-}
-
-.telemetry-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 12px;
-  padding-bottom: 10px;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.16);
-  font-size: 12px;
-}
-
-.telemetry-status {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  font-weight: 600;
-}
-
-.status-dot {
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background: #3AC0A0;
-}
-
-.telemetry-tag {
-  background: rgba(255, 255, 255, 0.2);
+  bottom: 16px;
+  left: 16px;
+  right: 16px;
+  background: rgba(15, 23, 42, 0.86);
+  backdrop-filter: blur(10px);
   color: #FFFFFF;
-  padding: 3px 10px;
-  border-radius: 999px;
-  font-size: 11px;
-  font-weight: 700;
-}
-
-.telemetry-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 12px;
-}
-
-.telemetry-box {
-  display: flex;
-  flex-direction: column;
-}
-
-.telemetry-label {
-  font-size: 11px;
-  opacity: 0.8;
-}
-
-.telemetry-val {
-  font-size: 15px;
-  font-weight: 800;
-  margin-top: 2px;
-}
-
-.text-amber {
-  color: #FBBF24 !important;
-}
-
-.text-emerald {
-  color: #3AC0A0 !important;
-}
-
-.text-sky {
-  color: #6FBAFF !important;
-}
-
-.text-danger {
-  color: #ED3241 !important;
-}
-
-.text-white {
-  color: #FFFFFF !important;
-}
-
-/* Partner Strip (Chari .h-chips style) */
-.partner-strip {
-  margin-top: 40px;
-  padding-top: 20px;
-  border-top: 1px solid var(--line);
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  gap: 14px;
-}
-
-.partner-title {
-  font-size: 11px;
-  font-weight: 800;
-  color: var(--brand);
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-}
-
-.partner-logos {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-}
-
-.partner-badge {
-  display: inline-flex;
-  align-items: center;
-  min-height: 34px;
-  padding: 0 14px;
-  border-radius: 999px;
-  border: 1px solid var(--neutral-light-dark);
-  background: var(--surf);
-  color: var(--body);
-  font-size: 12px;
+  padding: 10px 16px;
+  border-radius: 12px;
+  font-size: 0.82rem;
   font-weight: 600;
-  box-shadow: var(--sh-sm);
+  border: 1px solid rgba(255, 255, 255, 0.14);
 }
 
 /* ==========================================================================
-   Section Headers (Chari .ctag & h2)
+   5. SECTION 02 — NOS TROIS SERVICES (Bento Grid #39 — 3 Cartes Épurées)
    ========================================================================== */
-.section-header {
-  text-align: center;
-  max-width: 720px;
-  margin: 0 auto 40px;
-}
-
-.section-eyebrow {
-  display: inline-block;
-  font-size: 11px;
-  font-weight: 800;
-  color: var(--brand);
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  margin-bottom: 8px;
-}
-
-.section-title {
-  font-size: clamp(1.65rem, 2.6vw, 2.25rem);
-  font-weight: 800;
-  letter-spacing: -0.025em;
-  color: var(--ink);
-  margin-bottom: 12px;
-}
-
-.section-desc {
-  color: var(--mut);
-  font-size: 15px;
-}
-
-/* ==========================================================================
-   Boutique en Ligne (#boutique) — Chari Cards, .h-chip & .fld
-   ========================================================================== */
-.shop-section {
-  padding: 72px 0;
-  background: var(--surf);
+.activities-section {
+  padding: 88px 0;
+  background: var(--bg-alt);
   border-top: 1px solid var(--line);
   border-bottom: 1px solid var(--line);
 }
 
-.shop-top-banner {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-end;
-  flex-wrap: wrap;
-  gap: 20px;
-  margin-bottom: 28px;
-}
-
-.shop-trust-pills {
-  display: flex;
-  gap: 10px;
-  flex-wrap: wrap;
-}
-
-.trust-pill {
-  background: var(--bg);
-  border: 1px solid var(--line);
-  border-radius: 14px;
-  padding: 10px 14px;
-  display: flex;
-  flex-direction: column;
-  font-size: 12px;
-  box-shadow: var(--sh-sm);
-}
-
-.trust-pill strong {
-  color: var(--ink);
-  font-weight: 700;
-}
-
-.trust-pill span {
-  color: var(--mut);
-  font-size: 11px;
-}
-
-.shop-toolbar {
-  background: var(--bg);
-  border: 1px solid var(--line);
-  border-radius: 20px;
-  padding: 18px;
-  margin-bottom: 28px;
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
-  box-shadow: var(--sh-sm);
-}
-
-.shop-categories {
-  display: flex;
-  gap: 8px;
-  flex-wrap: wrap;
-}
-
-/* Chari .h-chip exact styling */
-.shop-cat-btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  min-height: 38px;
-  padding: 0 14px;
-  border-radius: 999px;
-  border: 1.5px solid var(--line);
-  background: var(--surf);
-  color: var(--body);
-  font-size: 13px;
-  font-weight: 600;
-  box-shadow: var(--sh-sm);
-  cursor: pointer;
-  transition: all 0.18s;
-}
-
-.shop-cat-btn:hover {
-  border-color: var(--brand);
-  transform: translateY(-1px);
-}
-
-.shop-cat-btn.active {
-  background: var(--highlight-lightest);
-  color: var(--highlight-darkest);
-  border-color: var(--highlight-darkest);
-  font-weight: 700;
-  box-shadow: 0 2px 8px rgba(0, 111, 253, 0.15);
-}
-
-.cat-count {
-  font-size: 11px;
-  background: var(--neutral-light-medium);
-  color: var(--ink);
-  padding: 2px 7px;
-  border-radius: 999px;
-}
-
-.shop-cat-btn.active .cat-count {
-  background: var(--brand);
-  color: #FFFFFF;
-}
-
-.shop-controls-row {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 12px;
-}
-
-.shop-search-wrap {
-  flex: 1;
-  min-width: 260px;
-  position: relative;
-  display: flex;
-  align-items: center;
-}
-
-.shop-search-wrap svg {
-  position: absolute;
-  left: 14px;
-  color: var(--mut);
-}
-
-.shop-search-wrap input {
-  width: 100%;
-  min-height: 46px;
-  border-radius: 12px;
-  border: 1.5px solid var(--neutral-light-darkest);
-  background: var(--surf);
-  color: var(--ink);
-  padding: 0 16px 0 42px;
-  font-size: 14px;
-  box-shadow: var(--sh-sm);
-  transition: all 0.18s;
-}
-
-.shop-search-wrap input:focus {
-  border-color: var(--brand);
-  outline: none;
-  box-shadow: 0 0 0 3px rgba(0, 111, 253, 0.15);
-}
-
-.shop-Right-filters {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  flex-wrap: wrap;
-}
-
-/* Chari .sw Toggle Switch Spec */
-.install-toggle-label {
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  min-height: 46px;
-  padding: 0 14px;
-  border: 1.5px solid var(--line);
-  border-radius: 12px;
-  background: var(--surf);
-  color: var(--ink);
-  font-size: 13px;
-  box-shadow: var(--sh-sm);
-  cursor: pointer;
-}
-
-.install-toggle-label input {
-  display: none;
-}
-
-.toggle-track {
-  width: 44px;
-  height: 24px;
-  border-radius: 999px;
-  background: var(--neutral-light-dark);
-  position: relative;
-  transition: background 0.2s;
-}
-
-.toggle-thumb {
-  width: 18px;
-  height: 18px;
-  border-radius: 50%;
-  background: #fff;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
-  position: absolute;
-  top: 3px;
-  left: 3px;
-  transition: transform 0.2s;
-}
-
-.install-toggle-label input:checked + .toggle-track {
-  background: var(--brand);
-}
-
-.install-toggle-label input:checked + .toggle-track .toggle-thumb {
-  transform: translateX(20px);
-}
-
-/* Product Cards Grid (Chari .card 20px radius) */
-.shop-products-grid {
+.activities-bento-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 20px;
-}
-
-.product-card {
-  background: var(--surf);
-  border: 1px solid var(--line);
-  border-radius: 20px;
-  overflow: hidden;
-  box-shadow: var(--sh-md);
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  transition: transform 0.2s, box-shadow 0.2s;
-}
-
-.product-card:hover {
-  transform: translateY(-4px);
-  box-shadow: var(--sh-lg);
-}
-
-.product-visual-box {
-  position: relative;
-  height: 170px;
-  background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 16px;
-}
-
-.product-visual-box.cat-clim {
-  background: linear-gradient(135deg, #006FFD 0%, #12307A 100%);
-}
-
-.product-visual-box.cat-batteries {
-  background: linear-gradient(135deg, #298267 0%, #0f172a 100%);
-}
-
-.product-visual-box.cat-panneaux {
-  background: linear-gradient(135deg, #1A1F71 0%, #0f172a 100%);
-}
-
-.product-badge-top {
-  position: absolute;
-  top: 10px;
-  left: 10px;
-  background: linear-gradient(135deg, #F59E0B, #D97706);
-  color: #fff;
-  font-size: 10px;
-  font-weight: 700;
-  padding: 3px 9px;
-  border-radius: 999px;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
-}
-
-.product-stock-pill {
-  position: absolute;
-  bottom: 10px;
-  right: 10px;
-  background: rgba(31, 32, 36, 0.8);
-  backdrop-filter: blur(8px);
-  color: #3AC0A0;
-  border-radius: 999px;
-  padding: 3px 10px;
-  font-size: 11px;
-  font-weight: 700;
-  border: 1px solid rgba(255, 255, 255, 0.2);
-}
-
-.product-svg-icon {
-  width: 90px;
-  height: 90px;
-}
-
-.product-content {
-  padding: 18px;
-  display: flex;
-  flex-direction: column;
-  flex: 1;
-  justify-content: space-between;
-}
-
-.product-brand {
-  font-size: 11px;
-  font-weight: 800;
-  color: var(--brand);
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-}
-
-.product-title {
-  font-size: 15px;
-  font-weight: 700;
-  color: var(--ink);
-  margin: 4px 0 8px;
-  line-height: 1.3;
-}
-
-.product-specs-tags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 6px;
-  margin-bottom: 10px;
-}
-
-.p-spec-tag {
-  border: 1px solid var(--neutral-light-dark);
-  background: var(--bg);
-  border-radius: 999px;
-  padding: 3px 10px;
-  font-size: 11px;
-  color: var(--body);
-  font-weight: 600;
-}
-
-.product-desc {
-  font-size: 13px;
-  color: var(--mut);
-  margin-bottom: 14px;
-  line-height: 1.45;
-}
-
-.product-price-block {
-  padding-top: 12px;
-  border-top: 1px solid var(--line);
-  margin-bottom: 12px;
-}
-
-.product-price-main {
-  font-size: 20px;
-  font-weight: 800;
-  color: var(--gold);
-  letter-spacing: -0.02em;
-}
-
-.product-price-sub {
-  display: block;
-  font-size: 11px;
-  color: var(--mut);
-  margin-top: 2px;
-}
-
-.product-actions {
-  display: grid;
-  grid-template-columns: 1fr auto;
-  gap: 8px;
-}
-
-.btn-add-cart {
-  min-height: 44px;
-  background: var(--brand);
-  color: #FFFFFF;
-  font-weight: 600;
-  font-size: 13.5px;
-  padding: 0 16px;
-  border-radius: 12px;
-  border: none;
-  box-shadow: 0 4px 12px rgba(29, 78, 216, 0.22);
-  transition: all 0.18s;
-  cursor: pointer;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.btn-add-cart:hover {
-  background: var(--brand-light);
-  transform: translateY(-1px);
-}
-
-.btn-wa-product {
-  min-height: 44px;
-  min-width: 44px;
-  background: var(--solar-green-soft);
-  color: var(--solar-green);
-  border: 1.5px solid rgba(4, 120, 87, 0.35);
-  border-radius: 12px;
-  padding: 0 14px;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 13px;
-  font-weight: 700;
-  cursor: pointer;
-  transition: all 0.18s ease;
-}
-
-.btn-wa-product:hover {
-  background: #D1FAE5;
-  color: var(--solar-green-hover);
-  border-color: var(--solar-green);
-}
-
-/* ==========================================================================
-   Climatisation Section (#climatisation) — Chari Admin Dark Theme
-   ========================================================================== */
-.ac-section {
-  padding: 72px 0;
-  background: #0f172a;
-  color: #f8fafc;
-}
-
-.ac-hero-banner {
-  display: grid;
-  grid-template-columns: 1.15fr 0.85fr;
-  gap: 40px;
-  align-items: center;
-}
-
-.ac-banner-desc {
-  color: #94a3b8;
-  font-size: 15px;
-  margin-bottom: 24px;
-}
-
-.ac-benefits-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 14px;
-  margin-bottom: 24px;
-}
-
-.ac-benefit-card {
-  background: #1e293b;
-  border: 1px solid #334155;
-  border-radius: 16px;
-  padding: 16px;
-  display: flex;
-  gap: 12px;
-  align-items: flex-start;
-}
-
-.ac-b-icon {
-  font-size: 22px;
-}
-
-.ac-benefit-card h4 {
-  font-size: 14px;
-  font-weight: 700;
-  color: #ffffff;
-  margin-bottom: 4px;
-}
-
-.ac-benefit-card p {
-  font-size: 12.5px;
-  color: #94a3b8;
-}
-
-.ac-cta-bar {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 12px;
-}
-
-.ac-comparison-card {
-  background: #1e293b;
-  border: 1px solid #475569;
-  border-radius: 20px;
-  padding: 24px;
-  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.35);
-}
-
-.ac-comp-tag {
-  font-size: 11px;
-  font-weight: 800;
-  color: #6FBAFF;
-}
-
-.ac-comp-header h3 {
-  font-size: 18px;
-  color: #fff;
-  margin: 4px 0 18px;
-}
-
-.ac-comp-bars {
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-  margin-bottom: 20px;
-}
-
-.comp-top {
-  display: flex;
-  justify-content: space-between;
-  font-size: 13px;
-  margin-bottom: 6px;
-}
-
-.comp-track {
-  background: #0f172a;
-  height: 24px;
-  border-radius: 99px;
-  overflow: hidden;
-}
-
-.comp-fill {
-  height: 100%;
-  display: flex;
-  align-items: center;
-  padding-left: 12px;
-  font-size: 11px;
-  font-weight: 700;
-  color: #fff;
-  border-radius: 99px;
-}
-
-.comp-fill-bad {
-  background: var(--heart-grad);
-}
-
-.comp-fill-mid {
-  background: var(--gold-grad);
-}
-
-.comp-fill-good {
-  background: var(--brand-grad);
-  min-width: 155px;
-}
-
-.ac-service-box {
-  background: #0f172a;
-  border: 1px solid #334155;
-  border-radius: 14px;
-  padding: 16px;
-}
-
-.ac-service-box h4 {
-  font-size: 13px;
-  color: #6FBAFF;
-  margin-bottom: 10px;
-}
-
-.ac-service-box ul {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-  font-size: 12.5px;
-  color: #cbd5e1;
-}
-
-.ac-service-box li {
-  display: flex;
-  justify-content: space-between;
-  border-bottom: 1px dashed #334155;
-  padding-bottom: 6px;
-}
-
-/* ==========================================================================
-   Simulator Section (#simulateur) — Chari ContentSwitcherKit & TextFieldKit
-   ========================================================================== */
-.simulator-section {
-  padding: 72px 0;
-  background: var(--bg);
-}
-
-.simulator-workbench {
-  display: grid;
-  grid-template-columns: 1.05fr 0.95fr;
+  grid-template-columns: repeat(3, 1fr);
   gap: 28px;
   align-items: stretch;
 }
 
-.sim-controls-card {
+.activity-bento-card {
   background: var(--surf);
   border: 1px solid var(--line);
-  border-radius: 20px;
-  padding: 28px;
+  border-radius: var(--radius-card);
   box-shadow: var(--sh-md);
-  display: flex;
-  flex-direction: column;
-  gap: 22px;
-}
-
-.sim-field {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-}
-
-.sim-label-row {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 8px;
-}
-
-.sim-label {
-  font-weight: 700;
-  font-size: 13px;
-  color: var(--ink);
-}
-
-.sim-readout {
-  background: var(--highlight-lightest);
-  color: var(--highlight-darkest);
-  border: 1px solid rgba(0, 111, 253, 0.2);
-  border-radius: 999px;
-  padding: 4px 12px;
-  font-weight: 700;
-  font-size: 13px;
-}
-
-/* Chari ContentSwitcherKit (.seg) */
-.segmented-control {
-  display: flex;
-  gap: 6px;
-  background: var(--neutral-light-medium);
-  padding: 4px;
-  border-radius: 12px;
-}
-
-.seg-btn {
-  flex: 1;
-  min-height: 40px;
-  border-radius: 8px;
-  border: 0;
-  background: transparent;
-  color: var(--neutral-dark-light);
-  font-weight: 600;
-  font-size: 13px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 6px;
-  transition: all 0.18s;
-}
-
-.seg-btn.active {
-  background: var(--surf);
-  color: var(--brand);
-  box-shadow: 0 2px 6px rgba(31, 32, 36, 0.08);
-}
-
-.solar-slider {
-  width: 100%;
-  min-height: 36px;
-  accent-color: var(--brand);
-  cursor: pointer;
-}
-
-.slider-ticks {
-  display: flex;
-  justify-content: space-between;
-  font-size: 11px;
-  color: var(--mut);
-}
-
-.sim-hint {
-  font-size: 12px;
-  color: var(--mut);
-}
-
-.mode-cards {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-
-.mode-card {
-  text-align: left;
-  padding: 14px 16px;
-  border-radius: 16px;
-  background: var(--surf);
-  border: 1.5px solid var(--line);
-  box-shadow: var(--sh-sm);
-  cursor: pointer;
-  transition: all 0.18s;
-}
-
-.mode-card.active {
-  background: var(--highlight-lightest);
-  border-color: var(--brand);
-}
-
-.mode-card-top {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 4px;
-}
-
-.mode-title {
-  font-weight: 700;
-  font-size: 14px;
-  color: var(--ink);
-}
-
-.mode-pill {
-  font-size: 10px;
-  font-weight: 700;
-  background: var(--brand);
-  color: #FFFFFF;
-  padding: 2px 8px;
-  border-radius: 999px;
-}
-
-.mode-pill-muted {
-  background: var(--neutral-light-medium);
-  color: var(--body);
-}
-
-.mode-desc {
-  font-size: 12.5px;
-  color: var(--mut);
-}
-
-.sim-row-2col {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 12px;
-}
-
-.sim-select {
-  width: 100%;
-  min-height: 46px;
-  border-radius: 12px;
-  border: 1.5px solid var(--neutral-light-darkest);
-  background: var(--surf);
-  color: var(--ink);
-  padding: 0 12px;
-  font-size: 13px;
-  font-weight: 600;
-  box-shadow: var(--sh-sm);
-}
-
-/* Simulator Output Card (Chari Admin + Visa Card Hybrid) */
-.sim-result-card {
-  background: #0f172a;
-  color: #f8fafc;
-  border-radius: 20px;
-  padding: 28px;
-  box-shadow: var(--sh-lg);
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  gap: 20px;
-  border: 1px solid #334155;
-}
-
-.sim-result-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  gap: 12px;
-  flex-wrap: wrap;
-}
-
-.sim-result-badge {
-  font-size: 11px;
-  font-weight: 800;
-  color: #6FBAFF;
-  letter-spacing: 0.06em;
-}
-
-.sim-result-title {
-  font-size: 20px;
-  font-weight: 800;
-  margin-top: 4px;
-  color: #FFFFFF;
-}
-
-.coastal-badge {
-  background: rgba(0, 111, 253, 0.25);
-  color: #B4DBFF;
-  border: 1px solid rgba(111, 186, 255, 0.35);
-  padding: 4px 10px;
-  border-radius: 999px;
-  font-size: 11px;
-  font-weight: 700;
-}
-
-.sim-specs-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 12px;
-}
-
-.spec-box {
-  background: #1e293b;
-  border: 1px solid #334155;
-  padding: 14px;
-  border-radius: 14px;
-  display: flex;
-  flex-direction: column;
-}
-
-.spec-label {
-  font-size: 11px;
-  color: #94a3b8;
-  font-weight: 600;
-  text-transform: uppercase;
-}
-
-.spec-value {
-  font-size: 22px;
-  font-weight: 800;
-  color: #FFFFFF;
-  margin: 4px 0 2px;
-}
-
-.spec-sub {
-  font-size: 11.5px;
-  color: #cbd5e1;
-}
-
-.sim-financial-panel {
-  background: linear-gradient(135deg, rgba(0, 111, 253, 0.2) 0%, rgba(26, 31, 113, 0.4) 100%);
-  border: 1px solid rgba(111, 186, 255, 0.3);
-  border-radius: 16px;
-  padding: 16px 18px;
-}
-
-.fin-row {
-  display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  gap: 12px;
-  margin-bottom: 12px;
-}
-
-.fin-item {
-  display: flex;
-  flex-direction: column;
-}
-
-.fin-label {
-  font-size: 11px;
-  color: #cbd5e1;
-}
-
-.fin-amount, .fin-roi {
-  font-size: 20px;
-  font-weight: 800;
-  color: #fff;
-}
-
-.fin-bar-labels {
-  font-size: 12px;
-  color: #e2e8f0;
-  margin-bottom: 6px;
-}
-
-.fin-progress-track {
-  height: 6px;
-  border-radius: 99px;
-  background: rgba(255, 255, 255, 0.15);
   overflow: hidden;
-  margin-bottom: 12px;
-}
-
-.fin-progress-fill {
-  height: 100%;
-  background: var(--brand-grad);
-  border-radius: 99px;
-}
-
-.fin-estimate-note {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding-top: 10px;
-  border-top: 1px solid rgba(255, 255, 255, 0.12);
-  font-size: 13px;
-}
-
-.sim-result-actions {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-
-/* ==========================================================================
-   Packages Section (#solutions) — Chari .plan & .price
-   ========================================================================== */
-.packages-section {
-  padding: 72px 0;
-}
-
-.packages-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 24px;
-  align-items: stretch;
-}
-
-.package-card {
-  background: var(--surf);
-  border: 1px solid var(--line);
-  border-radius: 20px;
-  padding: 28px 24px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  box-shadow: var(--sh-md);
-  position: relative;
-  transition: transform 0.2s, box-shadow 0.2s;
+  transition: transform 0.3s var(--ease-out), box-shadow 0.3s var(--ease-out), border-color 0.25s ease;
 }
 
-.package-card:hover {
+.activity-bento-card:hover {
   transform: translateY(-4px);
   box-shadow: var(--sh-lg);
+  border-color: var(--brand-border);
 }
 
-.package-featured {
-  border: 2px solid var(--gold);
+.activity-media {
+  position: relative;
+  height: 230px;
+  background: #FFFFFF;
+  border-bottom: 1px solid var(--line);
+  overflow: hidden;
 }
 
-.featured-ribbon {
+.activity-cover-photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.55s var(--ease-out);
+}
+
+.activity-bento-card:hover .activity-cover-photo {
+  transform: scale(1.05);
+}
+
+.activity-tag-pill {
   position: absolute;
-  top: -12px;
-  left: 50%;
-  transform: translateX(-50%);
-  background: var(--gold-grad);
+  top: 14px;
+  left: 14px;
+  z-index: 2;
+  background: var(--brand);
   color: #FFFFFF;
-  font-size: 10.5px;
-  font-weight: 800;
-  padding: 4px 14px;
-  border-radius: 999px;
-  letter-spacing: 0.05em;
-  white-space: nowrap;
-  box-shadow: 0 2px 8px rgba(217, 119, 6, 0.35);
+  font-size: 0.72rem;
+  font-weight: 700;
+  padding: 5px 12px;
+  border-radius: var(--radius-pill);
+  letter-spacing: 0.04em;
+  box-shadow: 0 4px 12px rgba(15, 23, 42, 0.22);
+}
+
+.activity-body {
+  padding: 28px 26px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  justify-content: space-between;
 }
 
 .pkg-tag {
-  font-size: 11px;
-  font-weight: 800;
-  color: var(--brand);
-  letter-spacing: 0.06em;
-}
-
-.pkg-title {
-  font-size: 20px;
-  font-weight: 800;
-  margin: 6px 0 8px;
-}
-
-.pkg-subtitle {
-  font-size: 13px;
-  color: var(--mut);
-  margin-bottom: 16px;
-}
-
-.pkg-price-box {
-  background: var(--bg);
-  border: 1px solid var(--line);
-  border-radius: 16px;
-  padding: 16px;
-  margin-bottom: 16px;
-}
-
-.pkg-price-label {
-  font-size: 11px;
-  color: var(--mut);
-}
-
-.pkg-price {
-  font-size: 28px;
-  font-weight: 800;
-  color: var(--gold);
-  letter-spacing: -0.02em;
-  margin: 2px 0 6px;
-}
-
-.pkg-price span {
-  font-size: 14px;
-  color: var(--body);
-}
-
-.pkg-Save-badge {
   display: inline-block;
-  font-size: 11px;
-  font-weight: 700;
-  color: var(--support-success-dark);
-  background: var(--support-success-light);
-  padding: 3px 10px;
-  border-radius: 999px;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--brand);
+  margin-bottom: 6px;
 }
 
-.pkg-specs-pills {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 6px;
-  margin-bottom: 18px;
+.activity-body h3 {
+  font-size: 1.3rem;
+  margin-bottom: 10px;
 }
 
-.spec-pill {
-  background: var(--highlight-lightest);
-  color: var(--highlight-darkest);
-  border: 1px solid rgba(0, 111, 253, 0.18);
-  padding: 4px 10px;
-  border-radius: 999px;
-  font-size: 11px;
-  font-weight: 700;
+.activity-body p {
+  font-size: 0.92rem;
+  color: var(--mut);
+  margin-bottom: 16px;
+  line-height: 1.6;
 }
 
 .pkg-features {
   display: flex;
   flex-direction: column;
-  gap: 10px;
-  margin-bottom: 24px;
-  font-size: 13px;
-  color: var(--body);
+  gap: 8px;
+  margin-bottom: 8px;
 }
 
 .pkg-features li {
   position: relative;
-  padding-left: 20px;
+  padding-left: 22px;
+  font-size: 0.875rem;
+  color: var(--body);
+  line-height: 1.45;
 }
 
 .pkg-features li::before {
@@ -2077,102 +741,74 @@ ul {
 }
 
 /* ==========================================================================
-   Engineering, Portfolio, FAQ & Contact (Chari .sf, .row, .fld, .note)
+   6. SECTION 03 — POURQUOI CHOISIR DOOMUTECH ? (2 Colonnes Aérées)
    ========================================================================== */
 .engineering-section {
-  padding: 72px 0;
-  background: var(--surf);
-  border-top: 1px solid var(--line);
-  border-bottom: 1px solid var(--line);
+  padding: 88px 0;
+  background: var(--bg);
 }
 
 .eng-grid {
   display: grid;
-  grid-template-columns: 0.92fr 1.08fr;
-  gap: 48px;
+  grid-template-columns: 0.95fr 1.05fr;
+  gap: 56px;
   align-items: center;
-}
-
-.eng-img {
-  width: 100%;
-  border-radius: 20px;
-  box-shadow: var(--sh-lg);
-  border: 1px solid var(--line);
-  aspect-ratio: 4 / 3;
-  object-fit: cover;
-  display: block;
-}
-
-.eng-floating-card {
-  position: relative;
-  margin-top: -32px;
-  margin-left: 16px;
-  margin-right: 16px;
-  background: var(--surf);
-  color: var(--ink);
-  border: 1px solid var(--line);
-  padding: 16px 18px;
-  border-radius: 16px;
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  box-shadow: var(--sh-lg);
-}
-
-.eng-cert-icon {
-  font-size: 26px;
-}
-
-.eng-floating-card p {
-  font-size: 12.5px;
-  color: var(--mut);
-  margin-top: 2px;
 }
 
 .eng-feature-list {
   display: flex;
   flex-direction: column;
-  gap: 14px;
-  margin-top: 22px;
+  gap: 16px;
+  margin-top: 28px;
 }
 
-/* Chari .sf card style */
 .eng-feature-item {
   display: flex;
-  gap: 14px;
-  padding: 16px;
+  align-items: flex-start;
+  gap: 16px;
+  padding: 20px;
   border-radius: 16px;
+  background: var(--surf);
   border: 1px solid var(--line);
-  background: var(--bg);
   box-shadow: var(--sh-sm);
+  transition: border-color 0.2s ease, transform 0.2s ease;
+}
+
+.eng-feature-item:hover {
+  border-color: var(--brand);
+  transform: translateY(-2px);
 }
 
 .eng-icon-box {
-  width: 42px;
-  height: 42px;
-  flex-shrink: 0;
+  width: 46px;
+  height: 46px;
   border-radius: 12px;
-  background: var(--highlight-lightest);
+  background: var(--brand-soft);
+  border: 1px solid var(--brand-border);
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 20px;
+  flex-shrink: 0;
 }
 
 .eng-feature-item h4 {
-  font-size: 15px;
-  font-weight: 700;
   margin-bottom: 4px;
+  color: var(--ink);
 }
 
 .eng-feature-item p {
-  font-size: 13px;
+  font-size: 0.9rem;
   color: var(--mut);
+  line-height: 1.55;
 }
 
-/* Portfolio */
+/* ==========================================================================
+   7. SECTION 04 — NOS SOLUTIONS TYPES & RÉALISATIONS
+   ========================================================================== */
 .portfolio-section {
-  padding: 72px 0;
+  padding: 88px 0;
+  background: var(--surf);
+  border-top: 1px solid var(--line);
 }
 
 .section-header-row {
@@ -2180,8 +816,8 @@ ul {
   justify-content: space-between;
   align-items: flex-end;
   flex-wrap: wrap;
-  gap: 16px;
-  margin-bottom: 32px;
+  gap: 20px;
+  margin-bottom: 40px;
 }
 
 .portfolio-filters {
@@ -2191,1498 +827,57 @@ ul {
 }
 
 .filter-btn {
-  min-height: 38px;
-  padding: 0 16px;
-  border-radius: 999px;
+  min-height: 40px;
+  padding: 0 18px;
+  border-radius: var(--radius-pill);
   border: 1.5px solid var(--line);
-  background: var(--surf);
-  font-weight: 600;
-  font-size: 13px;
+  background: var(--bg);
   color: var(--body);
-  box-shadow: var(--sh-sm);
-  cursor: pointer;
-  transition: all 0.18s;
+  font-size: 0.875rem;
+  font-weight: 600;
+  transition: all 0.2s ease;
+}
+
+.filter-btn:hover {
+  border-color: var(--brand);
+  color: var(--brand);
 }
 
 .filter-btn.active {
-  background: var(--highlight-lightest);
-  color: var(--highlight-darkest);
-  border-color: var(--highlight-darkest);
-  font-weight: 700;
+  background: var(--brand);
+  color: #FFFFFF;
+  border-color: var(--brand);
 }
 
 .portfolio-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 24px;
+  gap: 28px;
 }
 
 .project-card {
-  background: var(--surf);
+  background: var(--bg);
   border: 1px solid var(--line);
-  border-radius: 20px;
+  border-radius: var(--radius-card);
   overflow: hidden;
   box-shadow: var(--sh-md);
-  transition: transform 0.2s;
+  transition: transform 0.3s var(--ease-out), box-shadow 0.3s var(--ease-out);
 }
 
 .project-card:hover {
-  transform: translateY(-3px);
+  transform: translateY(-4px);
+  box-shadow: var(--sh-lg);
 }
 
 .project-visual {
-  height: 175px;
+  position: relative;
+  height: 240px;
   padding: 16px;
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
-  color: #fff;
-}
-
-.project-bg-1 {
-  background: linear-gradient(135deg, #006FFD 0%, #1A1F71 100%);
-}
-.project-bg-2 {
-  background: linear-gradient(135deg, #298267 0%, #0f172a 100%);
-}
-.project-bg-3 {
-  background: linear-gradient(135deg, #1e293b 0%, #006FFD 100%);
-}
-.project-bg-4 {
-  background: linear-gradient(135deg, #0f172a 0%, #2897FF 100%);
-}
-
-.project-zone {
-  background: rgba(31, 32, 36, 0.8);
-  backdrop-filter: blur(8px);
-  padding: 5px 12px;
-  border-radius: 999px;
-  font-size: 12px;
-  font-weight: 600;
-}
-
-.project-power {
-  background: var(--gold-grad);
-  color: #fff;
-  padding: 5px 12px;
-  border-radius: 999px;
-  font-size: 11px;
-  font-weight: 700;
-}
-
-.project-body {
-  padding: 20px;
-}
-
-.project-body h3 {
-  font-size: 17px;
-  margin-bottom: 6px;
-}
-
-.project-body p {
-  font-size: 13px;
-  color: var(--mut);
-  margin-bottom: 16px;
-}
-
-.project-metrics {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 10px;
-  padding-top: 12px;
-  border-top: 1px solid var(--line);
-  font-size: 12px;
-}
-
-.pm-label {
-  display: block;
-  color: var(--mut);
-  font-size: 11px;
-}
-
-.pm-old {
-  color: var(--heart);
-  text-decoration: line-through;
-}
-
-.pm-new {
-  color: var(--support-success-dark);
-}
-
-.pm-rate {
-  color: var(--brand);
-}
-
-/* FAQ */
-.faq-section {
-  padding: 64px 0;
-  background: var(--surf);
-  border-top: 1px solid var(--line);
-}
-
-.faq-container {
-  max-width: 820px;
-}
-
-.faq-list {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-}
-
-.faq-item {
-  background: var(--bg);
-  border: 1px solid var(--line);
-  border-radius: 16px;
-  box-shadow: var(--sh-sm);
   overflow: hidden;
-}
-
-.faq-question {
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 14px;
-  padding: 18px 20px;
-  background: none;
-  border: none;
-  text-align: left;
-  font-size: 15px;
-  font-weight: 700;
-  color: var(--ink);
-}
-
-.faq-icon {
-  font-size: 18px;
-  font-weight: 800;
-  color: var(--brand);
-}
-
-.faq-answer {
-  display: none;
-  padding: 0 20px 18px;
-  color: var(--body);
-  font-size: 14px;
-}
-
-.faq-item.active .faq-answer {
-  display: block;
-}
-
-/* Contact & Quote Form (Chari .row, .note, .fld) */
-.contact-section {
-  padding: 72px 0;
-  background: var(--bg);
-  border-top: 1px solid var(--line);
-}
-
-.contact-grid {
-  display: grid;
-  grid-template-columns: 0.95fr 1.05fr;
-  gap: 40px;
-  align-items: start;
-}
-
-.contact-lead {
-  font-size: 15px;
-  color: var(--body);
-  margin-bottom: 20px;
-}
-
-.contact-cards {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  margin-bottom: 18px;
-}
-
-.c-card {
-  display: flex;
-  gap: 14px;
-  align-items: center;
-  min-height: 68px;
-  background: var(--surf);
-  border: 1px solid var(--line);
-  border-radius: 16px;
-  padding: 12px 16px;
-  box-shadow: var(--sh-sm);
-}
-
-.c-icon {
-  font-size: 22px;
-}
-
-.c-card h4 {
-  font-size: 14px;
-  font-weight: 700;
-}
-
-.c-card p {
-  font-size: 13px;
-  color: var(--mut);
-}
-
-/* Chari .note */
-.guarantee-box {
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-  font-size: 13px;
-  color: var(--highlight-darkest);
-  background: var(--highlight-lightest);
-  padding: 12px 16px;
-  border-radius: 12px;
-  border: 1px solid rgba(0, 111, 253, 0.18);
-}
-
-.quote-form {
-  background: var(--surf);
-  border: 1px solid var(--line);
-  border-radius: 20px;
-  padding: 32px;
-  box-shadow: var(--sh-lg);
-}
-
-.quote-form h3 {
-  font-size: 20px;
-  font-weight: 800;
-  margin-bottom: 4px;
-}
-
-.form-sub {
-  font-size: 13px;
-  color: var(--mut);
-  margin-bottom: 18px;
-}
-
-.form-row-2 {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 14px;
-}
-
-.form-group {
-  display: flex;
-  flex-direction: column;
-  margin-bottom: 14px;
-}
-
-.form-group label {
-  font-weight: 700;
-  font-size: 13px;
-  color: var(--body);
-  margin-bottom: 6px;
-}
-
-/* Chari .fld TextFieldKit */
-.form-group input,
-.form-group select,
-.form-group textarea {
-  width: 100%;
-  min-height: 48px;
-  border-radius: 12px;
-  border: 1.5px solid var(--neutral-light-darkest);
-  background: var(--surf);
-  color: var(--ink);
-  padding: 10px 16px;
-  font-size: 14px;
-  box-shadow: var(--sh-sm);
-  transition: all 0.18s;
-}
-
-.form-group input:focus,
-.form-group select:focus,
-.form-group textarea:focus {
-  border-color: var(--brand);
-  outline: none;
-  box-shadow: 0 0 0 3px rgba(0, 111, 253, 0.15);
-}
-
-.form-success-banner {
-  margin-top: 16px;
-  padding: 14px;
-  border-radius: 14px;
-  background: var(--support-success-light);
-  border: 1px solid var(--support-success-medium);
-  color: var(--support-success-dark);
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-}
-
-/* ==========================================================================
-   Slide-Over Cart Drawer & Toast (Chari .sheet-box & .ov style)
-   ========================================================================== */
-.cart-backdrop {
-  position: fixed;
-  inset: 0;
-  background: rgba(11, 15, 25, 0.75);
-  backdrop-filter: blur(8px);
-  z-index: 200;
-}
-
-.cart-drawer {
-  position: fixed;
-  top: 0;
-  right: 0;
-  width: 100%;
-  max-width: 450px;
-  height: 100vh;
-  background: var(--surf);
-  color: var(--ink);
-  z-index: 210;
-  box-shadow: var(--sh-lg);
-  border-left: 1px solid var(--line);
-  display: flex;
-  flex-direction: column;
-  transform: translateX(100%);
-  transition: transform 0.25s ease-out;
-}
-
-.cart-drawer.open {
-  transform: translateX(0);
-}
-
-.cart-drawer-header {
-  padding: 18px 20px;
-  background: var(--hdr);
-  border-bottom: 1px solid var(--line);
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.cart-drawer-header h3 {
-  font-size: 18px;
-  font-weight: 800;
-}
-
-.cart-subtitle {
-  font-size: 12px;
-  color: var(--mut);
-}
-
-.cart-close-btn {
-  background: var(--bg);
-  color: var(--ink);
-  border: 1px solid var(--line);
-  width: 36px;
-  height: 36px;
-  border-radius: 10px;
-  font-weight: 700;
-}
-
-.cart-drawer-body {
-  flex: 1;
-  overflow-y: auto;
-  padding: 16px 20px;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-
-.cart-empty-state {
-  text-align: center;
-  padding: 48px 16px;
-  color: var(--mut);
-}
-
-.cart-item-row {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 12px;
-  background: var(--bg);
-  border: 1px solid var(--line);
-  padding: 12px 14px;
-  border-radius: 14px;
-}
-
-.cart-item-info h4 {
-  font-size: 13.5px;
-  font-weight: 700;
-}
-
-.cart-item-price {
-  font-size: 12px;
-  color: var(--brand);
-  font-weight: 700;
-}
-
-.cart-qty-controls {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-
-.qty-btn {
-  width: 28px;
-  height: 28px;
-  border-radius: 8px;
-  border: 1px solid var(--line);
-  background: var(--surf);
-  color: var(--ink);
-  font-weight: 700;
-}
-
-.cart-drawer-footer {
-  padding: 16px 20px;
-  background: var(--bg);
-  border-top: 1px solid var(--line);
-}
-
-.cart-install-option {
-  background: var(--highlight-lightest);
-  border: 1px solid rgba(0, 111, 253, 0.2);
-  padding: 10px 12px;
-  border-radius: 12px;
-  margin-bottom: 12px;
-  font-size: 12px;
-  color: var(--highlight-darkest);
-}
-
-.cart-check-label {
-  display: flex;
-  align-items: flex-start;
-  gap: 8px;
-  cursor: pointer;
-}
-
-.cart-summary-lines {
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
-  margin-bottom: 12px;
-  font-size: 13px;
-}
-
-.summary-line {
-  display: flex;
-  justify-content: space-between;
-}
-
-.summary-total {
-  font-size: 16px;
-  font-weight: 800;
-  padding-top: 8px;
-  border-top: 1px solid var(--line);
-}
-
-.cart-checkout-form {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-}
-
-.checkout-inputs {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-  margin-bottom: 6px;
-}
-
-.checkout-inputs input,
-.checkout-inputs select {
-  min-height: 42px;
-  padding: 0 12px;
-  border-radius: 10px;
-  border: 1.5px solid var(--neutral-light-darkest);
-  background: var(--surf);
-  color: var(--ink);
-  font-size: 13px;
-}
-
-.cart-order-success {
-  margin-top: 10px;
-  background: var(--support-success-light);
-  border: 1px solid var(--support-success-medium);
-  color: var(--support-success-dark);
-  padding: 12px;
-  border-radius: 12px;
-  font-size: 13px;
-}
-
-.cart-toast {
-  position: fixed;
-  bottom: 24px;
-  right: 24px;
-  z-index: 250;
-  background: var(--ink);
-  color: var(--surf);
-  padding: 12px 18px;
-  border-radius: 14px;
-  box-shadow: var(--sh-lg);
-  display: flex;
-  align-items: center;
-  gap: 12px;
-}
-
-.cart-toast button {
-  background: var(--brand);
-  color: #FFFFFF;
-  border: none;
-  padding: 6px 12px;
-  border-radius: 8px;
-  font-weight: 700;
-}
-
-/* Footer */
-.site-footer {
-  background: #090d16;
-  color: #8F9098;
-  padding: 56px 0 28px;
-}
-
-.footer-grid {
-  display: grid;
-  grid-template-columns: 1.4fr 1fr 1fr 1fr;
-  gap: 32px;
-  padding-bottom: 36px;
-  border-bottom: 1px solid #1F2024;
-}
-
-.footer-desc {
-  margin-top: 12px;
-  font-size: 13px;
-  max-width: 34ch;
-}
-
-.footer-col h4 {
-  color: #FFFFFF;
-  font-size: 14px;
-  font-weight: 700;
-  margin-bottom: 12px;
-}
-
-.footer-col ul {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-  font-size: 13px;
-}
-
-.footer-col a:hover {
-  color: var(--brand-light);
-}
-
-.footer-bottom {
-  padding-top: 22px;
-  display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  gap: 12px;
-  font-size: 12px;
-}
-
-/* Responsive */
-@media (max-width: 1100px) {
-  .hero-grid,
-  .simulator-workbench,
-  .eng-grid,
-  .contact-grid,
-  .ac-hero-banner {
-    grid-template-columns: 1fr;
-  }
-  .shop-products-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-  .packages-grid {
-    grid-template-columns: 1fr;
-    max-width: 540px;
-    margin: 0 auto;
-  }
-  .footer-grid {
-    grid-template-columns: 1fr 1fr;
-  }
-}
-
-@media (max-width: 768px) {
-  .utility-right,
-  .cart-total-preview,
-  .btn-sm-hide {
-    display: none;
-  }
-  .main-nav {
-    display: none;
-    position: absolute;
-    top: 70px;
-    left: 0;
-    right: 0;
-    background: var(--surf);
-    flex-direction: column;
-    padding: 18px;
-    border-bottom: 1px solid var(--line);
-    box-shadow: var(--sh-md);
-  }
-  .main-nav.open {
-    display: flex;
-  }
-  .mobile-menu-btn {
-    display: flex;
-  }
-  .shop-products-grid,
-  .portfolio-grid,
-  .form-row-2,
-  .sim-row-2col,
-  .segmented-control,
-  .ac-benefits-grid,
-  .hero-dual-pillars,
-  .footer-grid,
-  .telemetry-grid {
-    grid-template-columns: 1fr;
-  }
-}
-
-
-/* ==========================================================================
-   Victron Energy Official Storefront Additions (Solaris-Shop Architecture)
-   ========================================================================== */
-.victron-showcase-grid {
-  display: grid;
-  grid-template-columns: repeat(6, 1fr);
-  gap: 12px;
-  margin-bottom: 24px;
-}
-
-.v-cat-card {
-  background: var(--bg);
-  border: 1.5px solid var(--line);
-  border-radius: 16px;
-  padding: 12px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  gap: 8px;
-  cursor: pointer;
-  transition: all 0.18s ease;
-  box-shadow: var(--sh-sm);
-}
-
-.v-cat-card:hover {
-  border-color: var(--brand);
-  background: var(--highlight-lightest);
-  transform: translateY(-2px);
-  box-shadow: var(--sh-md);
-}
-
-.v-cat-card img {
-  width: 68px;
-  height: 68px;
-  object-fit: contain;
-  display: block;
-}
-
-.v-cat-card strong {
-  display: block;
-  font-size: 12px;
-  font-weight: 700;
-  color: var(--ink);
-  line-height: 1.25;
-}
-
-.v-cat-card span {
-  display: block;
-  font-size: 10.5px;
-  color: var(--mut);
-  margin-top: 2px;
-  line-height: 1.2;
-}
-
-/* Official Victron Product Photo inside Product Card */
-.product-visual-box.victron-photo-bg {
-  background: radial-gradient(circle at center, #FFFFFF 0%, #EAF2FF 100%);
-  border-bottom: 1px solid var(--line);
-  cursor: pointer;
-}
-
-:root[data-theme="dark"] .product-visual-box.victron-photo-bg {
-  background: radial-gradient(circle at center, #2F3036 0%, #1F2024 100%);
-}
-
-.product-real-img {
-  width: 82%;
-  height: 140px;
-  object-fit: contain;
-  display: block;
-  transition: transform 0.25s ease;
-  filter: drop-shadow(0 6px 12px rgba(0, 30, 80, 0.12));
-}
-
-.product-card:hover .product-real-img {
-  transform: scale(1.06);
-}
-
-.product-sku-row {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 6px;
-  margin-bottom: 2px;
-}
-
-.product-sku-code {
-  font-size: 10.5px;
-  font-weight: 700;
-  color: var(--mut);
-  background: var(--bg);
-  border: 1px solid var(--line);
-  padding: 1px 6px;
-  border-radius: 6px;
-}
-
-.btn-spec-sheet {
-  min-height: 44px;
-  width: 100%;
-  margin-bottom: 8px;
-  background: var(--bg);
-  color: var(--brand);
-  border: 1px solid var(--line);
-  border-radius: 10px;
-  font-size: 13px;
-  font-weight: 700;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 6px;
-  transition: all 0.16s;
-  cursor: pointer;
-}
-
-.btn-spec-sheet:hover {
-  background: var(--highlight-lightest);
-  border-color: var(--brand);
-}
-
-/* Solaris-Shop × Victron Technical Datasheet Modal */
-.spec-modal-backdrop {
-  position: fixed;
-  inset: 0;
-  background: rgba(11, 15, 25, 0.78);
-  backdrop-filter: blur(8px);
-  z-index: 300;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 16px;
-}
-
-.spec-modal-backdrop[hidden] {
-  display: none !important;
-}
-
-.spec-modal-box {
-  background: var(--surf);
-  color: var(--ink);
-  border: 1px solid var(--line);
-  border-radius: 22px;
-  max-width: 720px;
-  width: 100%;
-  max-height: 90vh;
-  overflow-y: auto;
-  box-shadow: var(--sh-lg);
-}
-
-.spec-modal-header {
-  padding: 18px 24px;
-  border-bottom: 1px solid var(--line);
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  position: sticky;
-  top: 0;
-  background: var(--surf);
-  z-index: 2;
-}
-
-.spec-modal-brand {
-  font-size: 11px;
-  font-weight: 800;
-  color: var(--brand);
-  letter-spacing: 0.08em;
-}
-
-.spec-modal-header h3 {
-  font-size: 18px;
-  font-weight: 800;
-  margin-top: 2px;
-}
-
-.spec-modal-body {
-  padding: 24px;
-}
-
-.spec-modal-grid {
-  display: grid;
-  grid-template-columns: 240px 1fr;
-  gap: 24px;
-  align-items: start;
-}
-
-.spec-modal-img-wrap {
-  background: radial-gradient(circle at center, #FFFFFF 0%, #EAF2FF 100%);
-  border: 1px solid var(--line);
-  border-radius: 16px;
-  padding: 20px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 10px;
-}
-
-.spec-modal-img-wrap img {
-  width: 100%;
-  max-height: 190px;
-  object-fit: contain;
-}
-
-.spec-table {
-  width: 100%;
-  border-collapse: collapse;
-  margin: 14px 0 18px;
-  font-size: 13px;
-}
-
-.spec-table tr {
-  border-bottom: 1px solid var(--line);
-}
-
-.spec-table th {
-  text-align: left;
-  padding: 8px 6px;
-  color: var(--mut);
-  font-weight: 600;
-  width: 45%;
-}
-
-.spec-table td {
-  padding: 8px 6px;
-  font-weight: 700;
-  color: var(--ink);
-}
-
-@media (max-width: 1100px) {
-  .victron-showcase-grid {
-    grid-template-columns: repeat(3, 1fr);
-  }
-}
-
-@media (max-width: 640px) {
-  .victron-showcase-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-  .spec-modal-grid {
-    grid-template-columns: 1fr;
-  }
-}
-
-
-/* ==========================================================================
-   OASIS ONE (FRAMER TEMPLATE BY RAVITEJA KARROTHU) — MOTION DESIGN SYSTEM
-   Spring Physics, Blur-to-Crisp Scroll Reveals, Floating Dock, Rolling Text
-   & Interactive Spotlight Tilt Cards
-   ========================================================================== */
-
-:root {
-  --framer-spring: cubic-bezier(0.16, 1, 0.3, 1);
-  --framer-bounce: cubic-bezier(0.34, 1.56, 0.64, 1);
-  --framer-smooth: cubic-bezier(0.22, 1, 0.36, 1);
-}
-
-/* 1. Scroll Progress Bar at Very Top (Framer Signature) */
-.framer-scroll-progress {
-  position: fixed;
-  top: 0;
-  left: 0;
-  height: 3px;
-  width: 0%;
-  background: linear-gradient(90deg, #006FFD, #2897FF, #F59E0B);
-  z-index: 9999;
-  transition: width 0.08s linear;
-  box-shadow: 0 0 12px rgba(0, 111, 253, 0.55);
-}
-
-/* 2. Framer Blur-to-Crisp Staggered Scroll Reveal Choreography */
-.framer-reveal {
-  opacity: 0;
-  filter: blur(10px);
-  transform: translate3d(0, 34px, 0) scale(0.975);
-  transition:
-    opacity 0.85s var(--framer-spring),
-    filter 0.85s var(--framer-spring),
-    transform 0.85s var(--framer-spring);
-  transition-delay: calc(var(--stagger, 0) * 90ms);
-  will-change: opacity, filter, transform;
-}
-
-.framer-reveal.is-visible {
-  opacity: 1;
-  filter: blur(0px);
-  transform: translate3d(0, 0, 0) scale(1);
-}
-
-/* Hero Staggered Word Blur Reveal */
-.oasis-word {
-  display: inline-block;
-  opacity: 0;
-  filter: blur(12px);
-  transform: translate3d(0, 24px, 0);
-  animation: oasisWordIn 0.9s var(--framer-spring) forwards;
-  animation-delay: calc(var(--word-index, 0) * 55ms + 80ms);
-}
-
-@keyframes oasisWordIn {
-  to {
-    opacity: 1;
-    filter: blur(0px);
-    transform: translate3d(0, 0, 0);
-  }
-}
-
-/* 3. Oasis One Signature "Rolling Text" Micro-Interaction on Buttons & Nav Links */
-.oasis-roll-wrap {
-  position: relative;
-  display: inline-flex;
-  overflow: hidden;
-  line-height: 1.25;
-}
-
-.oasis-roll-inner {
-  display: inline-block;
-  transition: transform 0.45s var(--framer-spring);
-}
-
-.oasis-roll-inner::after {
-  content: attr(data-text);
-  position: absolute;
-  top: 105%;
-  left: 0;
-  width: 100%;
-  white-space: nowrap;
-}
-
-.btn:hover .oasis-roll-inner,
-.nav-link:hover .oasis-roll-inner {
-  transform: translateY(-105%);
-}
-
-.btn svg {
-  transition: transform 0.38s var(--framer-bounce);
-}
-
-.btn:hover svg {
-  transform: translate(3px, -2px) scale(1.06);
-}
-
-/* 4. Interactive 3D Spotlight & Spring Lift on Cards (Oasis One Card Physics) */
-.product-card,
-.package-card,
-.project-card,
-.v-cat-card,
-.pillar-chip,
-.ac-benefit-card {
-  position: relative;
-  transition:
-    transform 0.55s var(--framer-spring),
-    box-shadow 0.55s var(--framer-spring),
-    border-color 0.35s ease;
-  will-change: transform;
-}
-
-.product-card::before,
-.package-card::before,
-.project-card::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  border-radius: inherit;
-  background: radial-gradient(
-    420px circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
-    rgba(0, 111, 253, 0.11),
-    transparent 65%
-  );
-  opacity: 0;
-  transition: opacity 0.4s ease;
-  pointer-events: none;
-  z-index: 1;
-}
-
-.product-card:hover::before,
-.package-card:hover::before,
-.project-card:hover::before {
-  opacity: 1;
-}
-
-/* Smooth Editorial Image Zoom & Parallax Frame */
-.hero-image-frame,
-.eng-image-wrapper {
-  overflow: hidden;
-}
-
-.hero-img,
-.eng-img {
-  transition: transform 1.1s var(--framer-spring), filter 0.8s var(--framer-spring);
-}
-
-.hero-image-frame:hover .hero-img,
-.eng-image-wrapper:hover .eng-img {
-  transform: scale(1.045);
-}
-
-/* Floating Telemetry Card Gentle Levitation */
-@keyframes framerFloat {
-  0%, 100% {
-    transform: translateY(0px);
-  }
-  50% {
-    transform: translateY(-6px);
-  }
-}
-
-.telemetry-card {
-  animation: framerFloat 5.5s ease-in-out infinite;
-}
-
-/* 5. Infinite Framer Marquee Ticker for Partner Strip */
-.marquee-viewport {
-  overflow: hidden;
-  flex: 1;
-  mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
-  -webkit-mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
-}
-
-.marquee-track {
-  display: flex;
-  gap: 12px;
-  width: max-content;
-  animation: oasisMarquee 26s linear infinite;
-}
-
-.marquee-viewport:hover .marquee-track {
-  animation-play-state: paused;
-}
-
-@keyframes oasisMarquee {
-  from {
-    transform: translateX(0);
-  }
-  to {
-    transform: translateX(-50%);
-  }
-}
-
-/* 6. OASIS ONE SIGNATURE FLOATING PROJECT & QUICK-SHOP DOCK */
-.oasis-floating-dock {
-  position: fixed;
-  bottom: 20px;
-  left: 50%;
-  transform: translateX(-50%) translateY(0);
-  z-index: 180;
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  padding: 8px 10px;
-  background: rgba(255, 255, 255, 0.82);
-  backdrop-filter: blur(18px) saturate(180%);
-  -webkit-backdrop-filter: blur(18px) saturate(180%);
-  border: 1px solid rgba(0, 111, 253, 0.22);
-  border-radius: 999px;
-  box-shadow:
-    0 20px 44px -10px rgba(15, 23, 42, 0.22),
-    0 2px 10px rgba(0, 111, 253, 0.12);
-  transition: transform 0.55s var(--framer-spring), opacity 0.4s ease;
-}
-
-:root[data-theme="dark"] .oasis-floating-dock {
-  background: rgba(31, 32, 36, 0.84);
-  border-color: rgba(40, 151, 255, 0.28);
-  box-shadow: 0 20px 44px -10px rgba(0, 0, 0, 0.65);
-}
-
-.dock-item {
-  position: relative;
-  display: inline-flex;
-  align-items: center;
-  gap: 7px;
-  padding: 9px 14px;
-  border-radius: 999px;
-  font-size: 12.5px;
-  font-weight: 700;
-  color: var(--ink);
-  background: transparent;
-  border: none;
-  cursor: pointer;
-  transition:
-    transform 0.35s var(--framer-bounce),
-    background 0.22s ease,
-    color 0.22s ease;
-  white-space: nowrap;
-}
-
-.dock-item:hover {
-  transform: translateY(-5px) scale(1.06);
-  background: var(--highlight-lightest);
-  color: var(--highlight-darkest);
-}
-
-.dock-item.dock-active {
-  background: var(--brand-grad);
-  color: #FFFFFF;
-  box-shadow: 0 4px 14px rgba(0, 111, 253, 0.32);
-}
-
-.dock-divider {
-  width: 1px;
-  height: 22px;
-  background: var(--line);
-  margin: 0 2px;
-}
-
-/* Oasis One Pinned Project Preview Popover on Dock Hover */
-.dock-preview-card {
-  position: absolute;
-  bottom: calc(100% + 14px);
-  left: 50%;
-  transform: translateX(-50%) translateY(10px) scale(0.92);
-  width: 230px;
-  background: var(--surf);
-  border: 1px solid var(--line);
-  border-radius: 16px;
-  padding: 10px;
-  box-shadow: var(--sh-lg);
-  opacity: 0;
-  pointer-events: none;
-  transition:
-    opacity 0.3s var(--framer-spring),
-    transform 0.35s var(--framer-bounce);
-  text-align: left;
-  z-index: 10;
-}
-
-.dock-item:hover .dock-preview-card {
-  opacity: 1;
-  transform: translateX(-50%) translateY(0) scale(1);
-}
-
-.dock-preview-card img {
-  width: 100%;
-  height: 86px;
-  object-fit: contain;
-  background: var(--highlight-lightest);
-  border-radius: 10px;
-  padding: 6px;
-  margin-bottom: 6px;
-}
-
-.dock-preview-card strong {
-  display: block;
-  font-size: 11.5px;
-  color: var(--ink);
-}
-
-.dock-preview-card span {
-  display: block;
-  font-size: 10.5px;
-  color: var(--brand);
-  font-weight: 700;
-}
-
-@media (max-width: 768px) {
-  .oasis-floating-dock {
-    bottom: 12px;
-    padding: 6px 8px;
-    max-width: 95vw;
-    overflow-x: auto;
-  }
-  .dock-item span.dock-lbl-hide-sm {
-    display: none;
-  }
-  .dock-preview-card {
-    display: none;
-  }
-}
-
-
-/* ==========================================================================
-   BENTO GRID & FINTECH / ENGINEERING CARDS (UI/UX PRO MAX #39)
-   ========================================================================== */
-
-:root {
-  --fintech-bg: var(--bg);
-  --fintech-card: var(--surf);
-  --fintech-navy: #0F172A;
-  --fintech-navy-elevated: #1E293B;
-  --fintech-blue: var(--brand);
-  --fintech-cyan: #0284C7;
-  --fintech-mint: #059669;
-  --fintech-mint-soft: var(--highlight-lightest);
-  --fintech-radius: 20px;
-  --fintech-shadow: var(--sh-md);
-  --carrier-blue: #003882;
-}
-
-:root[data-theme="dark"] {
-  --fintech-bg: var(--bg);
-  --fintech-card: var(--surf);
-  --fintech-shadow: var(--sh-md);
-}
-
-body {
-  background-color: var(--bg);
-  color: var(--body);
-}
-
-/* Fintech Bento Card Upgrade */
-.product-card,
-.package-card,
-.project-card,
-.sim-controls-card,
-.quote-form {
-  background: var(--fintech-card);
-  border-radius: var(--fintech-radius);
-  box-shadow: var(--fintech-shadow);
-  border: 1px solid var(--line);
-}
-
-:root[data-theme="dark"] .product-card,
-:root[data-theme="dark"] .package-card,
-:root[data-theme="dark"] .project-card,
-:root[data-theme="dark"] .sim-controls-card,
-:root[data-theme="dark"] .quote-form {
-  border-color: var(--line);
-}
-
-/* Fintech Portfolio & Investment Card Style for Telemetry & Simulator Output */
-.telemetry-card,
-.sim-result-card {
-  background: radial-gradient(120% 120% at 100% 0%, #172554 0%, #0B1120 65%, #070B14 100%);
-  border: 1px solid rgba(56, 189, 248, 0.22);
-  border-radius: var(--fintech-radius);
-  box-shadow:
-    inset 0 1px 0 rgba(255, 255, 255, 0.16),
-    0 24px 48px -12px rgba(7, 11, 20, 0.55);
-}
-
-/* Fintech Growth / Yield Pill (+86% ↗) */
-.fintech-yield-pill {
-  display: inline-flex;
-  align-items: center;
-  gap: 4px;
-  background: rgba(0, 229, 153, 0.16);
-  color: #00E599;
-  border: 1px solid rgba(0, 229, 153, 0.35);
-  border-radius: 999px;
-  padding: 4px 10px;
-  font-family: var(--font-mono);
-  font-size: 11.5px;
-  font-weight: 700;
-}
-
-/* Fintech Sparkline & Portfolio Balance Box inside Simulator */
-.sim-financial-panel {
-  background: rgba(255, 255, 255, 0.04);
-  backdrop-filter: blur(12px);
-  border: 1px solid rgba(255, 255, 255, 0.11);
-  border-radius: 20px;
-  padding: 20px;
-  position: relative;
-  overflow: hidden;
-}
-
-.sim-financial-panel::after {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  right: 0;
-  width: 180px;
-  height: 70px;
-  background: linear-gradient(180deg, rgba(0, 229, 153, 0.12) 0%, transparent 100%);
-  clip-path: polygon(0 85%, 25% 65%, 50% 72%, 75% 35%, 100% 10%, 100% 100%, 0 100%);
-  pointer-events: none;
-}
-
-.spec-box {
-  background: rgba(255, 255, 255, 0.04);
-  border: 1px solid rgba(255, 255, 255, 0.09);
-  border-radius: 18px;
-  padding: 16px;
-  transition: transform 0.25s var(--framer-spring), border-color 0.25s ease;
-}
-
-.spec-box:hover {
-  transform: translateY(-2px);
-  border-color: rgba(0, 212, 255, 0.35);
-}
-
-/* Carrier Air Conditioning Official Visual Styling */
-.product-visual-box.carrier-photo-bg {
-  background: radial-gradient(circle at center, #FFFFFF 0%, #E0F2FE 100%);
-  border-bottom: 1px solid var(--line);
-  cursor: pointer;
-}
-
-:root[data-theme="dark"] .product-visual-box.carrier-photo-bg {
-  background: radial-gradient(circle at center, #1E293B 0%, #0F172A 100%);
-}
-
-.carrier-logo-pill {
-  display: inline-flex;
-  align-items: center;
-  gap: 5px;
-  background: #003882;
-  color: #FFFFFF;
-  font-weight: 800;
-  font-style: italic;
-  font-size: 11px;
-  padding: 2px 10px;
-  border-radius: 999px;
-  letter-spacing: 0.03em;
-}
-
-/* ==========================================================================
-   SIMPLIFIED CORPORATE LAYOUT — ACTIVITÉS, COLLABORATEURS & ADRESSE
-   ========================================================================== */
-.activities-section {
-  padding: 84px 0;
-  background: var(--fintech-bg);
-}
-
-.activities-bento-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 24px;
-  align-items: stretch;
-}
-
-.activity-bento-card {
-  background: var(--fintech-card);
-  border-radius: var(--fintech-radius);
-  box-shadow: var(--fintech-shadow);
-  border: 1px solid rgba(0, 98, 255, 0.1);
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-}
-
-:root[data-theme="dark"] .activity-bento-card {
-  border-color: rgba(255, 255, 255, 0.08);
-}
-
-.activity-media {
-  height: 225px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 0;
-  position: relative;
-  border-bottom: 1px solid var(--line);
-  background: radial-gradient(circle at center, #FFFFFF 0%, #EEF6FF 100%);
-  overflow: hidden;
-}
-
-:root[data-theme="dark"] .activity-media {
-  background: radial-gradient(circle at center, #1E293B 0%, #0F172A 100%);
-}
-
-.activity-media img.activity-cover-photo {
-  width: 100%;
-  height: 100%;
-  max-height: none;
-  max-width: none;
-  object-fit: cover;
-  transition: transform 0.65s var(--framer-spring);
-}
-
-.activity-bento-card:hover .activity-media img.activity-cover-photo {
-  transform: scale(1.06);
-}
-
-.activity-tag-pill {
-  position: absolute;
-  top: 14px;
-  left: 14px;
-  z-index: 2;
-  background: var(--brand);
-  color: #FFFFFF;
-  font-size: 11px;
-  font-weight: 700;
-  padding: 5px 12px;
-  border-radius: 999px;
-  letter-spacing: 0.03em;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
-}
-
-/* Mini-galerie d'équipements par pôle */
-.activity-equip-strip {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 8px;
-  margin-bottom: 18px;
-  padding: 10px;
-  background: var(--fintech-bg);
-  border: 1px solid var(--line);
-  border-radius: 14px;
-}
-
-.equip-mini-item {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  background: var(--fintech-card);
-  border: 1px solid var(--line);
-  border-radius: 10px;
-  padding: 6px 4px;
-  gap: 4px;
-}
-
-.equip-mini-item img {
-  height: 44px;
-  width: 100%;
-  object-fit: contain;
-}
-
-.equip-mini-item span {
-  font-size: 10px;
-  font-weight: 700;
-  color: var(--body);
-  line-height: 1.15;
-}
-
-.activity-body {
-  padding: 24px;
-  display: flex;
-  flex-direction: column;
-  flex: 1;
-  justify-content: space-between;
-}
-
-.activity-body h3 {
-  font-size: 19px;
-  font-weight: 800;
-  color: var(--ink);
-  margin: 6px 0 10px;
-}
-
-.activity-body p {
-  font-size: 14px;
-  color: var(--mut);
-  margin-bottom: 14px;
-  line-height: 1.55;
-}
-
-/* Photos réelles sur les cartes Réalisations (#realisations) */
-.project-visual {
-  position: relative;
-  height: 220px;
-  padding: 16px;
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  color: #fff;
-  overflow: hidden;
+  background: #0F172A;
 }
 
 .project-photo {
@@ -3692,561 +887,640 @@ body {
   height: 100%;
   object-fit: cover;
   z-index: 0;
-  transition: transform 0.65s var(--framer-spring);
+  transition: transform 0.6s var(--ease-out);
 }
 
 .project-card:hover .project-photo {
-  transform: scale(1.06);
+  transform: scale(1.05);
 }
 
 .project-visual::after {
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(180deg, rgba(15, 23, 42, 0.55) 0%, rgba(15, 23, 42, 0.15) 50%, rgba(15, 23, 42, 0.65) 100%);
+  background: linear-gradient(180deg, rgba(15, 23, 42, 0.55) 0%, rgba(15, 23, 42, 0.1) 55%, rgba(15, 23, 42, 0.55) 100%);
   z-index: 1;
-  pointer-events: none;
 }
 
 .project-zone,
 .project-power {
   position: relative;
   z-index: 2;
+  padding: 6px 12px;
+  border-radius: var(--radius-pill);
+  font-size: 0.75rem;
+  font-weight: 700;
 }
 
-/* Collaborateurs & Partenaires avec photos */
-.collaborators-section {
-  padding: 84px 0;
-  background: var(--surf);
-  border-top: 1px solid var(--line);
-  border-bottom: 1px solid var(--line);
+.project-zone {
+  background: rgba(15, 23, 42, 0.82);
+  backdrop-filter: blur(8px);
+  color: #FFFFFF;
 }
 
-.team-grid {
+.project-power {
+  background: var(--brand);
+  color: #FFFFFF;
+}
+
+.project-body {
+  padding: 26px;
+}
+
+.project-body h3 {
+  font-size: 1.2rem;
+  margin-bottom: 8px;
+}
+
+.project-body p {
+  font-size: 0.9rem;
+  color: var(--mut);
+  margin-bottom: 20px;
+}
+
+.project-metrics {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 24px;
-  margin-bottom: 44px;
+  gap: 12px;
+  padding-top: 16px;
+  border-top: 1px solid var(--line);
 }
 
-.team-card {
-  background: var(--fintech-bg);
-  border: 1px solid var(--line);
-  border-radius: var(--fintech-radius);
-  overflow: hidden;
-  box-shadow: var(--sh-sm);
-  display: flex;
-  flex-direction: column;
+.pm-label {
+  display: block;
+  font-size: 0.75rem;
+  color: var(--mut);
+  margin-bottom: 2px;
 }
 
-.team-photo-wrap {
-  position: relative;
-  height: 195px;
-  overflow: hidden;
-  border-bottom: 1px solid var(--line);
-}
-
-.team-photo-wrap img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: transform 0.6s var(--framer-spring);
-}
-
-.team-card:hover .team-photo-wrap img {
-  transform: scale(1.05);
-}
-
-.team-card-content {
-  padding: 22px 24px 26px;
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-  flex: 1;
-}
-
-.team-role-tag {
-  display: inline-block;
-  align-self: flex-start;
-  font-size: 11px;
-  font-weight: 800;
-  color: var(--brand);
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
-}
-
-.team-card h3 {
-  font-size: 18px;
-  font-weight: 800;
+.pm-new, .pm-rate {
+  font-family: var(--font-sans);
+  font-size: 0.875rem;
+  font-weight: 700;
   color: var(--ink);
 }
 
-.team-card p {
-  font-size: 13.5px;
-  color: var(--mut);
-  line-height: 1.55;
-}
-
-.partners-box {
-  background: var(--fintech-bg);
-  border: 1px solid var(--line);
-  border-radius: var(--fintech-radius);
-  padding: 28px;
+/* ==========================================================================
+   8. SECTION 05 — NOS MARQUES ET ÉQUIPEMENTS
+   ========================================================================== */
+.collaborators-section {
+  padding: 88px 0;
+  background: var(--bg-alt);
+  border-top: 1px solid var(--line);
 }
 
 .partners-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 16px;
-  margin-top: 18px;
+  gap: 24px;
 }
 
 .partner-card-item {
-  background: var(--fintech-card);
+  background: var(--surf);
   border: 1px solid var(--line);
-  border-radius: 16px;
-  padding: 18px 16px;
+  border-radius: var(--radius-card);
+  padding: 24px 20px;
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 12px;
   box-shadow: var(--sh-sm);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.partner-card-item:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--sh-md);
 }
 
 .partner-img-preview {
-  height: 76px;
-  background: var(--fintech-bg);
-  border-radius: 12px;
-  padding: 8px;
+  height: 110px;
+  background: #FFFFFF;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 12px;
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 10px;
-  border: 1px solid var(--line);
+  gap: 12px;
 }
 
 .partner-img-preview img {
-  max-height: 58px;
-  max-width: 45%;
+  max-height: 82px;
+  max-width: 46%;
   object-fit: contain;
 }
 
 .partner-card-item strong {
-  font-size: 15px;
+  font-family: var(--font-display);
+  font-size: 1.05rem;
   color: var(--ink);
 }
 
 .partner-card-item span {
-  font-size: 12.5px;
-  color: var(--mut);
-}
-
-@media (max-width: 980px) {
-  .activities-bento-grid,
-  .team-grid {
-    grid-template-columns: 1fr;
-  }
-  .partners-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-@media (max-width: 560px) {
-  .partners-grid {
-    grid-template-columns: 1fr;
-  }
-}
-
-/* ==========================================================================
-   TOP NAVIGATION BAR (Déplacée en haut dans le Header Sticky)
-   ========================================================================== */
-.site-header {
-  position: sticky;
-  top: 0;
-  z-index: 200;
-  background: rgba(255, 255, 255, 0.88);
-  backdrop-filter: blur(18px) saturate(180%);
-  -webkit-backdrop-filter: blur(18px) saturate(180%);
-  border-bottom: 1px solid rgba(0, 111, 253, 0.14);
-  box-shadow: 0 8px 26px -8px rgba(15, 23, 42, 0.08);
-}
-
-:root[data-theme="dark"] .site-header {
-  background: rgba(15, 23, 42, 0.88);
-  border-bottom-color: rgba(40, 151, 255, 0.22);
-}
-
-.header-inner {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  min-height: 76px;
-  gap: 16px;
-}
-
-.top-nav-pill-bar {
-  display: flex;
-  align-items: center;
-  gap: 4px;
-  padding: 5px 8px;
-  background: var(--pu-forest);
-  border: 1px solid var(--pu-forest-border);
-  border-radius: var(--radius-pill);
-}
-
-.top-nav-item {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 6px;
-  min-height: 42px;
-  padding: 0 16px;
-  border-radius: var(--radius-pill);
-  font-family: var(--font-sans);
-  font-size: 13.5px;
-  font-weight: 600;
-  color: var(--pu-muted);
-  transition: all 0.2s ease;
-  white-space: nowrap;
-}
-
-.top-nav-item:hover {
-  background: var(--pu-citrus-dim);
-  color: var(--pu-citrus);
-}
-
-.top-nav-item.dock-active {
-  background: var(--pu-citrus);
-  color: var(--pu-dark);
-  font-weight: 700;
-  box-shadow: 0 4px 14px var(--pu-citrus-glow);
-}
-
-@media (max-width: 1024px) {
-  .top-nav-pill-bar {
-    display: none;
-    position: absolute;
-    top: 76px;
-    left: 16px;
-    right: 16px;
-    flex-direction: column;
-    align-items: stretch;
-    border-radius: 20px;
-    padding: 12px;
-    background: var(--fintech-card);
-    box-shadow: var(--sh-lg);
-    border: 1px solid var(--line);
-  }
-
-  .top-nav-pill-bar.open {
-    display: flex;
-  }
-
-  .mobile-menu-btn {
-    display: flex;
-  }
-}
-
-/* ==========================================================================
-   QUI SOMMES-NOUS (#qui-sommes-nous) — IMAGES POUR CHAQUE PARTIE
-   ========================================================================== */
-.eng-visual-collage {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 14px;
-}
-
-.eng-collage-main {
-  grid-column: 1 / -1;
-  position: relative;
-  border-radius: 20px;
-  overflow: hidden;
-  border: 1px solid var(--line);
-  box-shadow: var(--sh-md);
-}
-
-.eng-collage-main img {
-  width: 100%;
-  height: 250px;
-  object-fit: cover;
-  display: block;
-}
-
-.eng-collage-sub {
-  position: relative;
-  border-radius: 18px;
-  overflow: hidden;
-  border: 1px solid var(--line);
-  box-shadow: var(--sh-sm);
-}
-
-.eng-collage-sub img {
-  width: 100%;
-  height: 165px;
-  object-fit: cover;
-  display: block;
-  transition: transform 0.5s var(--framer-spring);
-}
-
-.eng-collage-sub:hover img,
-.eng-collage-main:hover img {
-  transform: scale(1.04);
-}
-
-.eng-collage-badge {
-  position: absolute;
-  bottom: 10px;
-  left: 10px;
-  background: rgba(15, 23, 42, 0.82);
-  backdrop-filter: blur(8px);
-  color: #FFFFFF;
-  font-size: 11px;
-  font-weight: 700;
-  padding: 4px 10px;
-  border-radius: 999px;
-  border: 1px solid rgba(255, 255, 255, 0.18);
-}
-
-.eng-feature-item {
-  display: grid;
-  grid-template-columns: 112px 1fr;
-  align-items: center;
-  gap: 16px;
-  padding: 14px;
-  border-radius: 18px;
-  border: 1px solid var(--line);
-  background: var(--fintech-bg);
-  box-shadow: var(--sh-sm);
-  transition: transform 0.25s var(--framer-spring), border-color 0.25s ease;
-}
-
-.eng-feature-item:hover {
-  transform: translateY(-2px);
-  border-color: var(--brand);
-}
-
-.eng-feature-thumb {
-  width: 112px;
-  height: 88px;
-  border-radius: 12px;
-  overflow: hidden;
-  border: 1px solid var(--line);
-  background: var(--fintech-card);
-  position: relative;
-  flex-shrink: 0;
-}
-
-.eng-feature-thumb img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-}
-
-.eng-feature-thumb-badge {
-  position: absolute;
-  top: 6px;
-  left: 6px;
-  width: 24px;
-  height: 24px;
-  border-radius: 8px;
-  background: rgba(15, 23, 42, 0.8);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 13px;
-}
-
-@media (max-width: 560px) {
-  .eng-feature-item {
-    grid-template-columns: 1fr;
-  }
-  .eng-feature-thumb {
-    width: 100%;
-    height: 140px;
-  }
-}
-
-/* ==========================================================================
-   ARCHITECTURE COMPLÈTE DOOMUTECH — SECTIONS MÉTIERS, CONSEILS, DEVIS QUALIFIÉ & ADMIN CRM
-   ========================================================================== */
-
-/* Navigation responsive multipage / ancres */
-.admin-nav-pill {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  min-height: 44px;
-  padding: 0 16px;
-  border-radius: var(--radius-pill);
-  font-size: 13px;
-  font-weight: 600;
-  background: var(--pu-forest);
-  color: var(--pu-text);
-  border: 1px solid var(--pu-forest-border);
-  transition: all 0.2s ease;
-  cursor: pointer;
-}
-
-.admin-nav-pill:hover {
-  border-color: var(--pu-citrus);
-  color: var(--pu-citrus);
-}
-
-/* Fiches Solutions Détaillées (Solutions Solaires / Climatisation / Vidéosurveillance) */
-.solutions-detail-section {
-  padding: 76px 0;
-  background: var(--surf);
-  border-top: 1px solid var(--line);
-}
-
-.solution-spotlight-block {
-  display: grid;
-  grid-template-columns: 1.05fr 0.95fr;
-  gap: 40px;
-  align-items: center;
-  padding: 36px;
-  background: var(--fintech-bg);
-  border: 1px solid var(--line);
-  border-radius: var(--fintech-radius);
-  margin-bottom: 32px;
-  box-shadow: var(--sh-sm);
-}
-
-.solution-spotlight-block.reverse {
-  grid-template-columns: 0.95fr 1.05fr;
-}
-
-.solution-spotlight-media {
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
-}
-
-.solution-main-img {
-  width: 100%;
-  height: 290px;
-  object-fit: cover;
-  border-radius: 18px;
-  border: 1px solid var(--line);
-  box-shadow: var(--sh-md);
-}
-
-/* Grille Conseils & Guides Techniques (#conseils) */
-.tips-articles-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 20px;
-  margin-bottom: 36px;
-}
-
-.tip-article-card {
-  background: var(--fintech-card);
-  border: 1px solid var(--line);
-  border-radius: 20px;
-  padding: 24px;
-  box-shadow: var(--sh-sm);
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  gap: 12px;
-}
-
-.tip-badge {
-  display: inline-flex;
-  align-self: flex-start;
-  font-size: 11px;
-  font-weight: 800;
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
-  padding: 4px 10px;
-  border-radius: 999px;
-  background: var(--highlight-lightest);
-  color: var(--highlight-darkest);
-}
-
-.tip-article-card h3 {
-  font-size: 17px;
-  font-weight: 800;
-  color: var(--ink);
-  line-height: 1.35;
-}
-
-.tip-article-card p {
-  font-size: 13.5px;
+  font-size: 0.86rem;
   color: var(--mut);
   line-height: 1.55;
 }
 
-/* Formulaire de qualification de devis (Section 3 du cahier des charges) */
-.qualification-steps-bar {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-  margin-top: 22px;
+/* ==========================================================================
+   9. SECTION 06 — AVIS DE NOS CLIENTS
+   ========================================================================== */
+.testimonials-section {
+  padding: 88px 0;
+  background: var(--bg);
+  border-top: 1px solid var(--line);
 }
 
-.q-step-pill {
+.testimonials-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+}
+
+.testimonial-card {
+  background: var(--surf);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-card);
+  padding: 30px 26px;
+  box-shadow: var(--sh-md);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.stars-svg-row {
+  display: inline-flex;
+  gap: 4px;
+  color: #F59E0B;
+}
+
+.stars-svg-row svg {
+  width: 18px;
+  height: 18px;
+  fill: currentColor;
+}
+
+.t-quote {
+  font-size: 0.96rem;
+  line-height: 1.65;
+  color: var(--body);
+  margin-top: 14px;
+}
+
+.t-author-row {
   display: flex;
   align-items: center;
-  gap: 8px;
-  background: var(--fintech-card);
+  justify-content: space-between;
+  padding-top: 16px;
+  border-top: 1px solid var(--line);
+  gap: 12px;
+}
+
+.t-author-info strong {
+  display: block;
+  font-size: 0.92rem;
+  color: var(--ink);
+}
+
+.t-author-info span {
+  font-size: 0.78rem;
+  color: var(--mut);
+}
+
+.t-service-tag {
+  font-size: 0.72rem;
+  font-weight: 700;
+  padding: 4px 12px;
+  border-radius: var(--radius-pill);
+  background: var(--brand-soft);
+  color: var(--brand-dark);
+  border: 1px solid var(--brand-border);
+}
+
+:root[data-theme="dark"] .t-service-tag {
+  color: var(--brand-light);
+}
+
+/* ==========================================================================
+   10. SECTION 07 — SIMULATEUR SOLAIRE SIMPLE
+   ========================================================================== */
+.simple-sim-section {
+  padding: 88px 0;
+  background: var(--surf);
+  border-top: 1px solid var(--line);
+}
+
+.simple-sim-grid {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 32px;
+  align-items: stretch;
+}
+
+.simple-sim-inputs {
+  background: var(--bg);
   border: 1px solid var(--line);
-  padding: 8px 14px;
+  border-radius: var(--radius-card);
+  padding: 34px 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 26px;
+}
+
+.sim-readout {
+  font-family: var(--font-mono);
+  font-weight: 700;
+  font-size: 1.25rem;
+  color: var(--brand);
+}
+
+.solar-slider {
+  width: 100%;
+  accent-color: var(--brand);
+  height: 6px;
+  cursor: pointer;
+}
+
+.slider-ticks {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.75rem;
+  color: var(--mut);
+  margin-top: 6px;
+}
+
+.sim-appliance-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+}
+
+.sim-app-label {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 13px 14px;
+  background: var(--surf);
+  border: 1.5px solid var(--line);
   border-radius: 12px;
-  font-size: 12.5px;
+  font-size: 0.86rem;
   font-weight: 600;
-  color: var(--body);
+  color: var(--ink);
+  cursor: pointer;
+  transition: border-color 0.2s ease, background 0.2s ease;
+}
+
+.sim-app-label input[type="checkbox"] {
+  width: 17px;
+  height: 17px;
+  accent-color: var(--brand);
+}
+
+.sim-app-label:has(input:checked) {
+  border-color: var(--brand);
+  background: var(--brand-soft);
+}
+
+.sim-select {
+  width: 100%;
+  min-height: 48px;
+  padding: 0 14px;
+  border-radius: 12px;
+  border: 1.5px solid var(--line-strong);
+  background: var(--surf);
+  color: var(--ink);
+  font-size: 0.92rem;
+  font-weight: 600;
+}
+
+.simple-sim-output {
+  background: linear-gradient(145deg, #0F172A 0%, #1E293B 100%);
+  color: #F8FAFC;
+  border: 1px solid rgba(16, 185, 129, 0.3);
+  border-radius: var(--radius-card);
+  padding: 34px 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 20px;
+  box-shadow: var(--sh-lg);
+}
+
+.fintech-yield-pill {
+  display: inline-flex;
+  align-items: center;
+  background: rgba(16, 185, 129, 0.18);
+  color: #34D399;
+  border: 1px solid rgba(52, 211, 153, 0.35);
+  border-radius: var(--radius-pill);
+  padding: 4px 12px;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 700;
+}
+
+.sim-out-kpis {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 14px;
+}
+
+.sim-out-box {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 14px;
+  padding: 16px;
+}
+
+.sim-out-box span {
+  display: block;
+  font-size: 0.76rem;
+  color: #CBD5E1;
+  margin-bottom: 4px;
+}
+
+.sim-out-box strong {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: 1.3rem;
+  color: #34D399;
+  font-weight: 700;
+}
+
+.sim-disclaimer {
+  font-size: 0.76rem;
+  color: #CBD5E1;
+  line-height: 1.5;
+  padding: 12px 14px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 10px;
+  border-left: 3px solid #10B981;
+}
+
+/* ==========================================================================
+   11. SECTION 08 — DEVIS GRATUIT & CONTACT
+   ========================================================================== */
+.contact-section {
+  padding: 88px 0;
+  background: var(--bg-alt);
+  border-top: 1px solid var(--line);
+}
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: 0.92fr 1.08fr;
+  gap: 48px;
+  align-items: start;
+}
+
+.contact-lead {
+  margin: 14px 0 28px;
+}
+
+.contact-cards {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin-bottom: 24px;
+}
+
+.c-card {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 18px 20px;
+  background: var(--surf);
+  border: 1px solid var(--line);
+  border-radius: 16px;
   box-shadow: var(--sh-sm);
 }
 
-.q-step-num {
-  width: 22px;
-  height: 22px;
-  border-radius: 50%;
-  background: var(--brand);
-  color: #FFFFFF;
-  font-size: 11px;
-  font-weight: 800;
-  display: inline-flex;
+.c-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  background: var(--brand-soft);
+  color: var(--brand);
+  display: flex;
   align-items: center;
   justify-content: center;
+  flex-shrink: 0;
 }
 
-.budget-note-hint {
-  font-size: 11.5px;
+.guarantee-box {
+  background: var(--surf);
+  border: 1px solid var(--line);
+  border-left: 4px solid var(--brand);
+  padding: 16px 18px;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
   color: var(--mut);
-  margin-top: 4px;
-  display: block;
+}
+
+.quote-form {
+  background: var(--surf);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  padding: 36px 32px;
+  box-shadow: var(--sh-lg);
+}
+
+.quote-form h3 {
+  font-size: 1.5rem;
+  margin-bottom: 4px;
+}
+
+.form-sub {
+  font-size: 0.9rem;
+  color: var(--mut);
+  margin-bottom: 24px;
+}
+
+.form-row-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 16px;
+}
+
+.form-group label {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--ink);
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+  width: 100%;
+  min-height: 48px;
+  padding: 10px 14px;
+  border-radius: 12px;
+  border: 1.5px solid var(--line-strong);
+  background: var(--bg);
+  color: var(--ink);
+  font-size: 0.92rem;
+  transition: border-color 0.2s ease, background 0.2s ease;
+}
+
+.form-group textarea {
+  min-height: 96px;
+  resize: vertical;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  border-color: var(--brand);
+  background: var(--surf);
+  outline: none;
 }
 
 .cdp-consent-box {
   display: flex;
   align-items: flex-start;
   gap: 10px;
-  padding: 12px 14px;
-  background: var(--fintech-bg);
-  border: 1px solid var(--line);
-  border-radius: 12px;
-  margin-bottom: 18px;
-  font-size: 12.5px;
-  color: var(--body);
-  line-height: 1.45;
+  font-size: 0.82rem;
+  color: var(--mut);
+  margin: 8px 0 20px;
+  cursor: pointer;
 }
 
-.cdp-consent-box input[type="checkbox"] {
-  margin-top: 3px;
-  width: 18px;
-  height: 18px;
+.cdp-consent-box input {
+  width: 17px;
+  height: 17px;
+  margin-top: 2px;
   accent-color: var(--brand);
-  flex-shrink: 0;
+}
+
+.form-feedback {
+  margin-top: 16px;
+  padding: 16px;
+  border-radius: 12px;
+  background: var(--brand-soft);
+  border: 1px solid var(--brand-border);
+  color: var(--ink);
+  font-size: 0.9rem;
+}
+
+.hidden {
+  display: none !important;
 }
 
 /* ==========================================================================
-   ESPACE ADMINISTRATEUR DOOMUTECH (admin.html — Section 4 du cahier des charges)
+   12. PAGES SERVICES DÉDIÉES & PIED DE PAGE
+   ========================================================================== */
+.service-page-hero {
+  padding: 64px 0;
+  background: linear-gradient(135deg, #0F172A 0%, #1E293B 100%);
+  color: #FFFFFF;
+}
+
+.service-page-hero h1 {
+  color: #FFFFFF;
+  margin-bottom: 16px;
+}
+
+.service-page-hero p {
+  color: #CBD5E1;
+  font-size: 1.05rem;
+  margin-bottom: 28px;
+}
+
+.install-steps-section {
+  padding: 80px 0;
+  background: var(--bg);
+  border-top: 1px solid var(--line);
+}
+
+.install-steps-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+}
+
+.install-step-card {
+  background: var(--surf);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-card);
+  padding: 26px 22px;
+  box-shadow: var(--sh-sm);
+}
+
+.step-num-badge {
+  width: 38px;
+  height: 38px;
+  border-radius: 10px;
+  background: var(--brand);
+  color: #FFFFFF;
+  font-weight: 800;
+  font-size: 0.9rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 14px;
+}
+
+.footer {
+  background: #0F172A;
+  color: #CBD5E1;
+  padding: 36px 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.footer p {
+  color: #CBD5E1;
+  font-size: 0.88rem;
+}
+
+.footer a:hover {
+  color: #34D399;
+}
+
+/* Bouton WhatsApp Flottant */
+.wa-floating-btn {
+  position: fixed;
+  bottom: 22px;
+  right: 22px;
+  z-index: 320;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 13px 22px;
+  border-radius: var(--radius-pill);
+  background: var(--brand-grad);
+  color: #FFFFFF;
+  font-size: 0.88rem;
+  font-weight: 700;
+  box-shadow: 0 12px 28px rgba(5, 150, 105, 0.38);
+  border: 1.5px solid rgba(255, 255, 255, 0.22);
+  transition: transform 0.25s var(--ease-out);
+}
+
+.wa-floating-btn:hover {
+  transform: translateY(-3px) scale(1.02);
+  color: #FFFFFF;
+}
+
+.wa-floating-btn svg {
+  width: 22px;
+  height: 22px;
+}
+
+/* ==========================================================================
+   13. ESPACE ADMINISTRATEUR CRM (admin.html) & MODALES
    ========================================================================== */
 .admin-page-wrap {
-  padding: 36px 0 80px;
-  min-height: calc(100vh - 140px);
+  padding: 40px 0 80px;
 }
 
 .admin-top-bar {
@@ -4266,18 +1540,18 @@ body {
 }
 
 .admin-kpi-card {
-  background: var(--fintech-card);
+  background: var(--surf);
   border: 1px solid var(--line);
-  border-radius: 20px;
-  padding: 20px 22px;
-  box-shadow: var(--fintech-shadow);
+  border-radius: 18px;
+  padding: 22px;
+  box-shadow: var(--sh-sm);
   display: flex;
   flex-direction: column;
   gap: 6px;
 }
 
 .admin-kpi-label {
-  font-size: 12px;
+  font-size: 0.75rem;
   font-weight: 700;
   color: var(--mut);
   text-transform: uppercase;
@@ -4285,21 +1559,20 @@ body {
 }
 
 .admin-kpi-value {
-  font-size: 30px;
+  font-family: var(--font-mono);
+  font-size: 1.85rem;
   font-weight: 800;
   color: var(--ink);
-  font-family: var(--font-mono);
 }
 
 .admin-kpi-sub {
-  font-size: 12px;
+  font-size: 0.78rem;
   color: var(--brand);
   font-weight: 600;
 }
 
-/* Cycle de traitement des prospects (01 -> 05) */
 .pipeline-cycle-box {
-  background: var(--fintech-card);
+  background: var(--surf);
   border: 1px solid var(--line);
   border-radius: 20px;
   padding: 22px 24px;
@@ -4315,9 +1588,9 @@ body {
 }
 
 .pipeline-step-card {
-  background: var(--fintech-bg);
+  background: var(--bg);
   border: 1.5px solid var(--line);
-  border-radius: 16px;
+  border-radius: 14px;
   padding: 14px;
   cursor: pointer;
   transition: all 0.2s ease;
@@ -4326,7 +1599,7 @@ body {
 .pipeline-step-card:hover,
 .pipeline-step-card.active {
   border-color: var(--brand);
-  background: var(--highlight-lightest);
+  background: var(--brand-soft);
 }
 
 .p-step-head {
@@ -4338,39 +1611,26 @@ body {
 
 .p-step-code {
   font-family: var(--font-mono);
-  font-size: 12px;
+  font-size: 0.75rem;
   font-weight: 800;
   color: var(--brand);
-  background: rgba(0, 111, 253, 0.12);
+  background: var(--brand-soft);
   padding: 2px 8px;
-  border-radius: 999px;
+  border-radius: var(--radius-pill);
 }
 
 .p-step-count {
   font-family: var(--font-mono);
-  font-size: 15px;
+  font-size: 0.95rem;
   font-weight: 800;
   color: var(--ink);
 }
 
-.pipeline-step-card strong {
-  display: block;
-  font-size: 14px;
-  color: var(--ink);
-  margin-bottom: 2px;
-}
-
-.pipeline-step-card span {
-  font-size: 11.5px;
-  color: var(--mut);
-}
-
-/* Barre de filtres Admin */
 .admin-filters-bar {
-  background: var(--fintech-card);
+  background: var(--surf);
   border: 1px solid var(--line);
-  border-radius: 18px;
-  padding: 16px 18px;
+  border-radius: 16px;
+  padding: 16px;
   margin-bottom: 20px;
   display: grid;
   grid-template-columns: 1.5fr 1fr 1fr 1fr auto;
@@ -4384,20 +1644,19 @@ body {
   width: 100%;
   min-height: 42px;
   border-radius: 10px;
-  border: 1.5px solid var(--line);
-  background: var(--fintech-bg);
+  border: 1.5px solid var(--line-strong);
+  background: var(--bg);
   color: var(--ink);
   padding: 0 12px;
-  font-size: 13px;
+  font-size: 0.85rem;
 }
 
-/* Tableau des demandes */
 .admin-table-card {
-  background: var(--fintech-card);
+  background: var(--surf);
   border: 1px solid var(--line);
   border-radius: 20px;
   overflow: hidden;
-  box-shadow: var(--fintech-shadow);
+  box-shadow: var(--sh-md);
 }
 
 .admin-table-scroll {
@@ -4408,13 +1667,13 @@ body {
   width: 100%;
   border-collapse: collapse;
   text-align: left;
-  font-size: 13px;
+  font-size: 0.85rem;
 }
 
 .admin-table th {
-  background: var(--fintech-bg);
+  background: var(--bg);
   color: var(--mut);
-  font-size: 11px;
+  font-size: 0.72rem;
   font-weight: 800;
   text-transform: uppercase;
   letter-spacing: 0.05em;
@@ -4429,48 +1688,24 @@ body {
   color: var(--body);
 }
 
-.admin-table tr:hover td {
-  background: rgba(0, 111, 253, 0.03);
-}
-
-/* Badges de statut commercial */
 .status-pill {
   display: inline-flex;
   align-items: center;
   gap: 5px;
   padding: 4px 10px;
-  border-radius: 999px;
-  font-size: 11.5px;
+  border-radius: var(--radius-pill);
+  font-size: 0.75rem;
   font-weight: 700;
   white-space: nowrap;
 }
 
-.status-01_nouveau {
-  background: #DBEAFE;
-  color: #1D4ED8;
-}
-.status-02_a_qualifier {
-  background: #FEF3C7;
-  color: #B45309;
-}
-.status-03_etude_devis {
-  background: #E0E7FF;
-  color: #4338CA;
-}
-.status-04_relance {
-  background: #FFEDD5;
-  color: #C2410C;
-}
-.status-05_gagne {
-  background: #D1FAE5;
-  color: #047857;
-}
-.status-05_perdu {
-  background: #FEE2E2;
-  color: #B91C1C;
-}
+.status-01_nouveau { background: #DBEAFE; color: #1D4ED8; }
+.status-02_a_qualifier { background: #FEF3C7; color: #B45309; }
+.status-03_etude_devis { background: #E0E7FF; color: #4338CA; }
+.status-04_relance { background: #FFEDD5; color: #C2410C; }
+.status-05_gagne { background: #D1FAE5; color: #047857; }
+.status-05_perdu { background: #FEE2E2; color: #B91C1C; }
 
-/* Modal d'édition de prospect & d'authentification */
 .dt-modal-backdrop {
   position: fixed;
   inset: 0;
@@ -4483,12 +1718,8 @@ body {
   padding: 20px;
 }
 
-.dt-modal-backdrop.hidden {
-  display: none;
-}
-
 .dt-modal-card {
-  background: var(--fintech-card);
+  background: var(--surf);
   border: 1px solid var(--line);
   border-radius: 24px;
   max-width: 640px;
@@ -4499,361 +1730,12 @@ body {
   box-shadow: var(--sh-lg);
 }
 
-@media (max-width: 1024px) {
-  .solution-spotlight-block,
-  .solution-spotlight-block.reverse {
-    grid-template-columns: 1fr;
-    padding: 24px;
-  }
-  .tips-articles-grid {
-    grid-template-columns: 1fr;
-  }
-  .admin-kpi-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-  .pipeline-steps-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-  .admin-filters-bar {
-    grid-template-columns: 1fr;
-  }
-}
-
-/* ==========================================================================
-   AUDIT REFINEMENTS — PALETTE BLEU NUIT (#0F172A) / BLANC (#FFFFFF) / VERT SOLAIRE (#059669),
-   SIMULATEUR SIMPLE, TÉMOIGNAGES CLIENTS, PAGES SERVICES & WHATSAPP PERMANENT
-   ========================================================================== */
-/* Bouton WhatsApp flottant permanent (Vert Solaire & WhatsApp) */
-.wa-floating-btn {
-  position: fixed;
-  bottom: 22px;
-  right: 22px;
-  z-index: 320;
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  padding: 13px 22px;
-  border-radius: var(--radius-pill);
-  background: linear-gradient(135deg, #059669 0%, #047857 100%);
-  color: #FFFFFF;
-  font-size: 14px;
-  font-weight: 700;
-  box-shadow: 0 12px 28px rgba(5, 150, 105, 0.38);
-  border: 1.5px solid rgba(255, 255, 255, 0.22);
-  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), background 0.2s ease;
-}
-
-.wa-floating-btn:hover {
-  background: #047857;
-  color: #FFFFFF;
-  transform: translateY(-3px) scale(1.03);
-}
-
-.wa-floating-btn svg {
-  width: 22px;
-  height: 22px;
-  flex-shrink: 0;
-}
-
-/* Section 06 : Avis de nos clients */
-.testimonials-section {
-  padding: 80px 0;
-  background: var(--fintech-bg);
-  border-top: 1px solid var(--line);
-}
-
-.testimonials-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 24px;
-}
-
-.testimonial-card {
-  background: var(--fintech-card);
-  border: 1px solid var(--line);
-  border-radius: var(--fintech-radius);
-  padding: 28px 24px;
-  box-shadow: var(--fintech-shadow);
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  gap: 18px;
-}
-
-.t-stars {
-  color: #F59E0B;
-  font-size: 15px;
-  letter-spacing: 2px;
-}
-
-.t-quote {
-  font-family: var(--font-sans);
-  font-size: 1.02rem;
-  line-height: 1.6;
-  color: var(--body);
-  margin: 12px 0 16px;
-}
-
-.t-author-row {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding-top: 14px;
-  border-top: 1px solid var(--line);
-  gap: 10px;
-}
-
-.t-author-info strong {
-  display: block;
-  font-size: 14px;
-  color: var(--ink);
-}
-
-.t-author-info span {
-  font-size: 12px;
+.budget-note-hint {
+  font-size: 0.78rem;
   color: var(--mut);
 }
 
-.t-service-tag {
-  font-size: 11px;
-  font-weight: 700;
-  padding: 4px 10px;
-  border-radius: var(--radius-pill);
-  background: var(--highlight-lightest);
-  color: var(--highlight-darkest);
-  border: 1px solid var(--highlight-light);
-}
-
-/* Section 07 : Simulateur Solaire Simple */
-.simple-sim-section {
-  padding: 90px 0;
-  background: var(--surf);
-  border-top: 1px solid var(--line);
-}
-
-.simple-sim-grid {
-  display: grid;
-  grid-template-columns: 1.1fr 0.9fr;
-  gap: 32px;
-  align-items: stretch;
-}
-
-.simple-sim-inputs {
-  background: var(--bg);
-  border: 1px solid var(--line);
-  border-radius: var(--radius-card);
-  padding: 34px 30px;
-  display: flex;
-  flex-direction: column;
-  gap: 24px;
-  box-shadow: var(--sh-sm);
-}
-
-.sim-readout {
-  font-family: var(--font-mono);
-  font-weight: 700;
-  font-size: 22px;
-  color: var(--brand);
-}
-
-.solar-slider {
-  width: 100%;
-  accent-color: var(--brand);
-  height: 6px;
-  cursor: pointer;
-}
-
-.slider-ticks {
-  display: flex;
-  justify-content: space-between;
-  font-size: 11px;
-  color: var(--mut);
-  margin-top: 6px;
-}
-
-.sim-appliance-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 10px;
-}
-
-.sim-app-label {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  padding: 12px 14px;
-  background: var(--surf);
-  border: 1.5px solid var(--line);
-  border-radius: 14px;
-  font-size: 13px;
-  font-weight: 600;
-  color: var(--ink);
-  cursor: pointer;
-  transition: border-color 0.2s ease, background 0.2s ease;
-}
-
-.sim-app-label input[type="checkbox"] {
-  width: 17px;
-  height: 17px;
-  accent-color: var(--brand);
-}
-
-.sim-app-label:has(input:checked) {
-  border-color: var(--brand);
-  background: var(--highlight-lightest);
-}
-
-.simple-sim-output {
-  background: linear-gradient(145deg, #0F172A 0%, #1E293B 100%);
-  color: #F8FAFC;
-  border: 1px solid rgba(16, 185, 129, 0.3);
-  border-radius: var(--radius-card);
-  padding: 34px 30px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  gap: 20px;
-  box-shadow: 0 20px 44px rgba(15, 23, 42, 0.22);
-}
-
-.sim-out-kpis {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 14px;
-}
-
-.sim-out-box {
-  background: rgba(255, 255, 255, 0.06);
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  border-radius: 16px;
-  padding: 16px;
-}
-
-.sim-out-box span {
-  display: block;
-  font-size: 12px;
-  color: #CBD5E1;
-  margin-bottom: 4px;
-}
-
-.sim-out-box strong {
-  display: block;
-  font-family: var(--font-mono);
-  font-size: 22px;
-  color: #34D399;
-  line-height: 1.15;
-  font-weight: 700;
-}
-
-.sim-disclaimer {
-  font-size: 12px;
-  color: #CBD5E1;
-  line-height: 1.5;
-  padding: 12px 14px;
-  background: rgba(255, 255, 255, 0.05);
-  border-radius: 12px;
-  border-left: 3px solid #10B981;
-}
-
-/* Pages de services dédiées (solaire.html, climatisation.html, videosurveillance.html) */
-.service-page-hero {
-  padding: 56px 0;
-  background: linear-gradient(135deg, #0F172A 0%, #1E293B 100%);
-  color: #FFFFFF;
-}
-
-.service-page-hero h1 {
-  color: #FFFFFF;
-  font-size: clamp(2rem, 3.3vw, 2.9rem);
-  font-weight: 800;
-  line-height: 1.15;
-  margin-bottom: 16px;
-}
-
-.service-page-hero p {
-  color: #CBD5E1;
-  font-size: 16px;
-  line-height: 1.6;
-  margin-bottom: 24px;
-}
-
-.install-steps-section {
-  padding: 72px 0;
-  background: var(--fintech-bg);
-  border-top: 1px solid var(--line);
-}
-
-.install-steps-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 20px;
-}
-
-.install-step-card {
-  background: var(--fintech-card);
-  border: 1px solid var(--line);
-  border-radius: 20px;
-  padding: 24px 20px;
-  box-shadow: var(--sh-sm);
-}
-
-.step-num-badge {
-  width: 36px;
-  height: 36px;
-  border-radius: 10px;
-  background: var(--brand);
-  color: #FFFFFF;
-  font-weight: 800;
-  font-size: 14px;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: 12px;
-}
-
-.install-step-card h3 {
-  font-size: 16px;
-  font-weight: 800;
-  margin-bottom: 8px;
-}
-
-.install-step-card p {
-  font-size: 13.5px;
-  color: var(--mut);
-  line-height: 1.5;
-}
-
-@media (max-width: 980px) {
-  .testimonials-grid,
-  .simple-sim-grid {
-    grid-template-columns: 1fr;
-  }
-  .install-steps-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-@media (max-width: 560px) {
-  .sim-appliance-grid,
-  .sim-out-kpis,
-  .install-steps-grid {
-    grid-template-columns: 1fr;
-  }
-  .wa-floating-btn span {
-    display: none;
-  }
-  .wa-floating-btn {
-    padding: 14px;
-  }
-}
-
-/* ==========================================================================
-   UI/UX PRO MAX ADDITIONS:
-   - Composants SVG vectoriels standardisés (remplaçant les emojis)
-   - Ligne d'étoiles de satisfaction client SVG
-   - Focus accessible 3px & Cibles tactiles
-   - Respect strict des préférences de mouvement réduit (WCAG 2.1)
-   ========================================================================== */
+/* Vecteurs SVG */
 .svg-icon {
   width: 1.25em;
   height: 1.25em;
@@ -4871,51 +1753,93 @@ body {
   stroke-linejoin: round;
 }
 
-.stars-svg-row {
-  display: inline-flex;
-  gap: 3px;
-  color: #F59E0B;
-  align-items: center;
+/* ==========================================================================
+   14. RESPONSIVE & ACCESSIBILITÉ (WCAG 2.1)
+   ========================================================================== */
+@media (max-width: 1024px) {
+  .hero-grid,
+  .eng-grid,
+  .simple-sim-grid,
+  .contact-grid {
+    grid-template-columns: 1fr;
+    gap: 36px;
+  }
+
+  .activities-bento-grid,
+  .testimonials-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .partners-grid,
+  .install-steps-grid,
+  .admin-kpi-grid,
+  .pipeline-steps-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .admin-filters-bar {
+    grid-template-columns: 1fr;
+  }
+
+  .top-nav-pill-bar {
+    display: none;
+    position: absolute;
+    top: 76px;
+    left: 16px;
+    right: 16px;
+    flex-direction: column;
+    align-items: stretch;
+    background: var(--surf);
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    padding: 12px;
+    box-shadow: var(--sh-lg);
+  }
+
+  .top-nav-pill-bar.open {
+    display: flex;
+  }
+
+  .mobile-menu-btn {
+    display: flex;
+  }
 }
 
-.stars-svg-row svg {
-  width: 17px;
-  height: 17px;
-  fill: currentColor;
+@media (max-width: 640px) {
+  .utility-right {
+    display: none;
+  }
+
+  .portfolio-grid,
+  .partners-grid,
+  .install-steps-grid,
+  .sim-appliance-grid,
+  .sim-out-kpis,
+  .form-row-2,
+  .admin-kpi-grid,
+  .pipeline-steps-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-img {
+    height: 300px;
+  }
+
+  .quote-form {
+    padding: 24px 20px;
+  }
+
+  .wa-floating-btn span {
+    display: none;
+  }
+
+  .wa-floating-btn {
+    padding: 14px;
+  }
 }
 
-.c-icon svg {
-  width: 24px;
-  height: 24px;
-  color: var(--brand);
-}
-
-.eng-feature-thumb-badge svg {
-  width: 18px;
-  height: 18px;
-  color: #FFFFFF;
-}
-
-.eng-cert-icon svg {
-  width: 28px;
-  height: 28px;
-  color: var(--brand);
-}
-
-/* Point lumineux Émeraude Solaire */
-.badge-dot {
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background: var(--brand);
-  display: inline-block;
-}
-
-/* Respect des préférences de réduction de mouvement (Accessibilité Pro Max) */
 @media (prefers-reduced-motion: reduce) {
-  *,
-  *::before,
-  *::after {
+  *, *::before, *::after {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
