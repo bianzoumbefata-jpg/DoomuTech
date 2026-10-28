@@ -11,7 +11,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
 
-  <!-- Données structurées JSON-LD SEO Local (Section 5 de l'audit) -->
+  <!-- Données structurées JSON-LD SEO Local -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -41,13 +41,13 @@
 </head>
 <body>
 
-  <!-- Barre supérieure avec coordonnées officielles -->
+  <!-- Barre supérieure discrète avec coordonnées directes -->
   <div class="utility-bar">
     <div class="container utility-inner">
       <div class="utility-left">
         <span class="live-indicator">
           <span class="pulse-dot"></span>
-          <strong>DOOMUTECH SÉNÉGAL</strong> — Installation Solaire • Climatisation • Caméras de Surveillance
+          <strong>DOOMUTECH SÉNÉGAL</strong> — Solaire • Climatisation • Vidéosurveillance
         </span>
       </div>
       <div class="utility-right">
@@ -58,7 +58,7 @@
     </div>
   </div>
 
-  <!-- Barre de Navigation Principale en Haut (Sticky Header) -->
+  <!-- Navigation principale épurée -->
   <header class="site-header" id="navbar">
     <div class="container header-inner">
       <a href="#accueil" class="brand-logo" aria-label="DoomuTech Accueil">
@@ -76,24 +76,19 @@
       </a>
 
       <nav class="top-nav-pill-bar" id="navLinks" aria-label="Navigation principale">
-        <a href="#accueil" class="top-nav-item dock-active" data-dock-link="accueil">Accueil</a>
-        <a href="#services" class="top-nav-item" data-dock-link="services">Nos services</a>
+        <a href="#services" class="top-nav-item" data-dock-link="services">Services</a>
         <a href="solaire.html" class="top-nav-item">Solaire</a>
         <a href="climatisation.html" class="top-nav-item">Climatisation</a>
         <a href="videosurveillance.html" class="top-nav-item">Vidéosurveillance</a>
         <a href="#realisations" class="top-nav-item" data-dock-link="realisations">Réalisations</a>
         <a href="#simulateur" class="top-nav-item" data-dock-link="simulateur">Simulateur</a>
-        <a href="#devis" class="top-nav-item" data-dock-link="devis">Devis gratuit</a>
       </nav>
 
       <div class="header-actions">
         <button type="button" class="theme-toggle-btn" id="themeToggleBtn" aria-label="Basculer le thème clair ou sombre" title="Mode Clair / Sombre">
           <span id="themeIcon"><svg class="svg-icon svg-stroke" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg></span>
         </button>
-        <a href="admin.html" class="admin-nav-pill" title="Espace de gestion des demandes (Admin)">
-          <span>Suivi Devis</span>
-          <span class="cart-count-badge" id="headerLeadsBadge">0</span>
-        </a>
+        <a href="#devis" class="btn btn-primary btn-sm">Devis gratuit</a>
         <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Ouvrir le menu">
           <span></span><span></span><span></span>
         </button>
@@ -102,17 +97,17 @@
   </header>
 
   <!-- ========================================================================
-       01. ACCUEIL PREMIUM (Architecture UI/UX Pro Max — Solaire & Ingénierie)
+       01. ACCUEIL PREMIUM (Message direct, 1 photo réaliste, 2 boutons d'action)
        ======================================================================== -->
   <section class="hero-section" id="accueil">
     <div class="container hero-grid">
       <div class="hero-content">
         <div class="eyebrow-badge">
           <span class="badge-dot"></span>
-          <span>INSTALLATION SOLAIRE À DAKAR • CLIMATISATION • CAMÉRAS DE SURVEILLANCE</span>
+          <span>INSTALLATION &amp; MAINTENANCE AU SÉNÉGAL</span>
         </div>
         <h1 class="hero-title">
-          Réduisez vos factures, profitez du confort et <em>sécurisez vos installations.</em>
+          Réduisez vos factures, profitez du confort et <em>sécurisez vos installations avec DoomuTech.</em>
         </h1>
         <p class="hero-subtitle">
           DoomuTech vous accompagne au Sénégal dans l'installation de systèmes solaires, de climatiseurs économiques et de caméras de surveillance. De l'étude à l'installation, bénéficiez d'un accompagnement adapté à vos besoins et d'un service après-vente.
@@ -123,11 +118,10 @@
             Demander un devis gratuit &nbsp;&rarr;
           </a>
           <a href="https://wa.me/221777019259?text=Bonjour%20DoomuTech%2C%20je%20souhaite%20parler%20%C3%A0%20un%20conseiller%20pour%20mon%20projet." target="_blank" rel="noopener" class="btn btn-whatsapp-hero btn-lg">
-            Parler à un conseiller (WhatsApp)
+            Parler à un conseiller
           </a>
         </div>
 
-        <!-- Repères techniques précis et vérifiables (Section 3 de l'audit) -->
         <div class="hero-metrics">
           <div class="metric-item">
             <span class="metric-value">25+ Ans</span>
@@ -136,45 +130,21 @@
           <div class="metric-divider"></div>
           <div class="metric-item">
             <span class="metric-value">3 à 5×</span>
-            <span class="metric-label">Cycles Lithium LiFePO4 vs Plomb AGM*</span>
+            <span class="metric-label">Cycles Lithium LiFePO4 vs AGM*</span>
           </div>
           <div class="metric-divider"></div>
           <div class="metric-item">
-            <span class="metric-value">Sur mesure</span>
-            <span class="metric-label">Étude, pose &amp; suivi SAV au Sénégal</span>
+            <span class="metric-value">Dakar &amp; Régions</span>
+            <span class="metric-label">Étude, pose &amp; suivi SAV réactif</span>
           </div>
         </div>
       </div>
 
       <div class="hero-visual">
         <div class="hero-image-frame">
-          <img src="assets/images/team-installation.jpg" alt="Équipe technique DoomuTech en intervention sur une installation solaire à Dakar" class="hero-img" />
+          <img src="assets/images/hero-dakar-solar.jpg" alt="Installation solaire photovoltaïque sur toiture moderne à Dakar" class="hero-img" />
           <div class="image-location-badge">
-            <span>Équipe technique DoomuTech — Intervention à Dakar</span>
-          </div>
-        </div>
-
-        <div class="telemetry-card">
-          <div class="telemetry-header">
-            <div class="telemetry-status">
-              <span class="status-dot"></span>
-              <span>ACCOMPAGNEMENT TECHNIQUE COMPLET</span>
-            </div>
-            <span class="fintech-yield-pill">DEVIS GRATUIT</span>
-          </div>
-          <div class="telemetry-grid">
-            <div class="telemetry-box">
-              <span class="telemetry-label">1. Bureau d'Études</span>
-              <span class="telemetry-val text-amber">Étude &amp; Solaire</span>
-            </div>
-            <div class="telemetry-box">
-              <span class="telemetry-label">2. Installations</span>
-              <span class="telemetry-val text-sky">Clim &amp; Caméras</span>
-            </div>
-            <div class="telemetry-box">
-              <span class="telemetry-label">3. Maintenance</span>
-              <span class="telemetry-val text-emerald">Suivi &amp; SAV</span>
-            </div>
+            <span>Installation solaire résidentielle &amp; tertiaire au Sénégal</span>
           </div>
         </div>
       </div>
@@ -182,139 +152,94 @@
   </section>
 
   <!-- ========================================================================
-       02. NOS TROIS SERVICES & PÔLES D'EXPERTISE (Chacun avec sa page dédiée)
+       02. NOS TROIS SERVICES (3 cartes épurées, 1 photo réaliste par service)
        ======================================================================== -->
   <section class="activities-section" id="services">
     <div class="container">
       <div class="section-header">
-        <span class="section-eyebrow">02 — NOS TROIS SERVICES &amp; EXPERTISES</span>
-        <h2 class="section-title">Trois expertises complémentaires <em>réunies à Dakar.</em></h2>
+        <span class="section-eyebrow">NOS TROIS SERVICES</span>
+        <h2 class="section-title">Trois solutions complémentaires <em>pour votre maison ou entreprise.</em></h2>
         <p class="section-desc">
-          Consultez le détail de chaque service ou demandez directement votre étude personnalisée.
+          Découvrez chacun de nos pôles d'intervention et demandez votre étude personnalisée.
         </p>
       </div>
 
       <div class="activities-bento-grid">
-        <!-- Pôle 1 : Bureau d'Études & Solutions Solaires -->
+        <!-- Service 1 : Énergie Solaire -->
         <article class="activity-bento-card">
           <div class="activity-media">
             <span class="activity-tag-pill">1. ÉNERGIE SOLAIRE</span>
-            <img src="assets/images/local-technique-victron.jpg" alt="Installation solaire photovoltaïque et onduleurs hybrides à Dakar" class="activity-cover-photo" />
+            <img src="assets/images/real/service-solaire.jpg" alt="Panneaux solaires photovoltaïques monocristallins" class="activity-cover-photo" loading="lazy" />
           </div>
           <div class="activity-body">
             <div>
-              <span class="pkg-tag">BUREAU D'ÉTUDES &amp; PHOTOVOLTAÏQUE</span>
-              <h3>1. Bureau d'Études &amp; Solutions Solaires</h3>
+              <span class="pkg-tag">AUTONOMIE &amp; ÉCONOMIES</span>
+              <h3>Systèmes Solaires Photovoltaïques</h3>
               <p>
-                Audit énergétique, bilan de puissance, étude de rentabilité et dimensionnement sur mesure de centrales solaires photovoltaïques résidentielles et entreprises (onduleurs hybrides <strong>Victron Energy</strong>, panneaux N-Type et batteries Lithium).
+                Dimensionnement sur mesure, pose de panneaux monocristallins N-Type, onduleurs hybrides <strong>Victron Energy</strong> et batteries Lithium LiFePO4 pour réduire vos factures Senelec et sécuriser vos équipements essentiels.
               </p>
-
-              <div class="activity-equip-strip">
-                <div class="equip-mini-item">
-                  <img src="assets/images/victron/multiplus-ii.png" alt="Onduleur Hybride Victron" loading="lazy" />
-                  <span>Onduleurs Hybrides</span>
-                </div>
-                <div class="equip-mini-item">
-                  <img src="assets/images/victron/smartsolar-mppt.png" alt="Régulateur SmartSolar MPPT" loading="lazy" />
-                  <span>MPPT &amp; Panneaux</span>
-                </div>
-                <div class="equip-mini-item">
-                  <img src="assets/images/victron/agm-super-cycle.png" alt="Batteries Lithium" loading="lazy" />
-                  <span>Batteries Lithium</span>
-                </div>
-              </div>
-
               <ul class="pkg-features">
-                <li>Réduction de vos factures Senelec selon votre profil de consommation</li>
-                <li>Continuité électrique sur vos appareils essentiels (selon capacité batteries et dimensionnement)</li>
-                <li>Systèmes évolutifs pouvant fonctionner avec ou sans batterie</li>
+                <li>Systèmes hybrides avec batteries ou autoconsommation diurne</li>
+                <li>Continuité électrique adaptée aux appareils dimensionnés</li>
+                <li>Nettoyage et maintenance préventive du champ solaire</li>
               </ul>
             </div>
-            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px;">
-              <a href="solaire.html" class="btn btn-outline btn-sm">Page Solaire →</a>
-              <a href="#devis" class="btn btn-primary btn-sm" data-prefill-service="Installation solaire photovoltaïque">Devis gratuit</a>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 18px;">
+              <a href="solaire.html" class="btn btn-outline btn-sm">Découvrir →</a>
+              <a href="#devis" class="btn btn-primary btn-sm" data-prefill-service="Installation solaire photovoltaïque">Devis solaire</a>
             </div>
           </div>
         </article>
 
-        <!-- Pôle 2 : Installation de Climatiseurs & Caméras de Surveillance -->
+        <!-- Service 2 : Climatisation -->
         <article class="activity-bento-card">
           <div class="activity-media">
-            <span class="activity-tag-pill" style="background: #003882;">2. CLIMATISATION &amp; VIDÉOSURVEILLANCE</span>
-            <img src="assets/images/installation-climatisation.jpg" alt="Installation de climatiseurs économiques et caméras de surveillance à Dakar" class="activity-cover-photo" />
+            <span class="activity-tag-pill" style="background: #0284C7;">2. CLIMATISATION</span>
+            <img src="assets/images/carrier/carrier-smart-9k.jpg" alt="Climatiseur mural économique Inverter basse consommation" class="activity-cover-photo" loading="lazy" />
           </div>
           <div class="activity-body">
             <div>
-              <span class="pkg-tag">CONFORT THERMIQUE &amp; SÉCURITÉ</span>
-              <h3>2. Installation de Climatiseurs &amp; Caméras de Surveillance</h3>
+              <span class="pkg-tag">CONFORT THERMIQUE</span>
+              <h3>Climatiseurs Économiques Inverter</h3>
               <p>
-                Fourniture et pose professionnelle de climatiseurs basse consommation (splits muraux et cassettes <strong>Carrier Inverter</strong>) ainsi que de systèmes de vidéosurveillance (caméras IP 4K <strong>Hikvision/Dahua</strong> et caméras solaires autonomes 4G/Wi-Fi motorisées PTZ 360° avec suivi sur smartphone).
+                Fourniture, installation soignée et entretien périodique de splits muraux, cassettes et armoires <strong>Carrier Inverter</strong> compatibles avec votre installation solaire.
               </p>
-
-              <div class="activity-equip-strip">
-                <div class="equip-mini-item">
-                  <img src="assets/images/carrier/carrier-xpower-12k.jpg" alt="Split Carrier Inverter" loading="lazy" />
-                  <span>Splits Inverter</span>
-                </div>
-                <div class="equip-mini-item">
-                  <img src="assets/images/carrier/carrier-cassette-24k.jpg" alt="Cassette Climatisation" loading="lazy" />
-                  <span>Clim Tertiaire</span>
-                </div>
-                <div class="equip-mini-item">
-                  <img src="assets/images/camera-kit-4k.jpg" alt="Kit Caméras de Surveillance 4K" loading="lazy" />
-                  <span>Caméras IP &amp; 4G</span>
-                </div>
-              </div>
-
               <ul class="pkg-features">
-                <li>Climatiseurs Inverter : économie potentielle jusqu'à 40–60% vs climatiseur classique (selon modèle et usage)</li>
-                <li>Caméras IP 4K vision nocturne et caméras solaires autonomes 4G/Wi-Fi</li>
-                <li>Accès et alertes en direct sur votre téléphone portable</li>
+                <li>Économie potentielle jusqu'à 40–60% vs climatiseur classique*</li>
+                <li>Traitement anti-corrosion adapté au littoral sénégalais</li>
+                <li>Entretien antibactérien, nettoyage des filtres et appoint de gaz</li>
               </ul>
             </div>
-            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px;">
-              <a href="climatisation.html" class="btn btn-outline btn-sm">Page Clim →</a>
-              <a href="videosurveillance.html" class="btn btn-outline btn-sm">Page Caméras →</a>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 18px;">
+              <a href="climatisation.html" class="btn btn-outline btn-sm">Découvrir →</a>
+              <a href="#devis" class="btn btn-primary btn-sm" data-prefill-service="Climatisation">Devis clim</a>
             </div>
           </div>
         </article>
 
-        <!-- Pôle 3 : Maintenance des Équipements Installés -->
+        <!-- Service 3 : Vidéosurveillance -->
         <article class="activity-bento-card">
           <div class="activity-media">
-            <span class="activity-tag-pill" style="background: #059669;">3. MAINTENANCE &amp; SAV</span>
-            <img src="assets/images/installation-cameras.jpg" alt="Maintenance des équipements solaires, climatiseurs et caméras à Dakar" class="activity-cover-photo" />
+            <span class="activity-tag-pill" style="background: #0F172A;">3. VIDÉOSURVEILLANCE</span>
+            <img src="assets/images/camera-kit-4k.jpg" alt="Kit caméras de surveillance IP 4K et caméras solaires 4G avec application mobile" class="activity-cover-photo" loading="lazy" />
           </div>
           <div class="activity-body">
             <div>
-              <span class="pkg-tag">ENTRETIEN PRÉVENTIF &amp; DÉPANNAGE</span>
-              <h3>3. Maintenance des Équipements Installés</h3>
+              <span class="pkg-tag">SÉCURITÉ 24H/24</span>
+              <h3>Caméras de Surveillance IP &amp; 4G</h3>
               <p>
-                Entretien préventif et curatif de l'ensemble de vos équipements : nettoyage des panneaux solaires (sable, poussière), maintenance antibactérienne et contrôle gaz des climatiseurs, entretien des caméras/NVR, télé-diagnostic et service après-vente réactif à Dakar.
+                Pose et configuration de caméras IP 4K <strong>Hikvision / Dahua</strong>, dômes motorisés PTZ 360° et caméras autonomes solaires 4G/Wi-Fi avec visualisation en direct sur smartphone.
               </p>
-
-              <div class="activity-equip-strip">
-                <div class="equip-mini-item">
-                  <img src="assets/images/victron/gx-touch-50.png" alt="Diagnostic Victron GX" loading="lazy" />
-                  <span>Télé-diagnostic</span>
-                </div>
-                <div class="equip-mini-item">
-                  <img src="assets/images/carrier/carrier-tropical-18k.jpg" alt="Entretien Climatisation" loading="lazy" />
-                  <span>Entretien Clim</span>
-                </div>
-                <div class="equip-mini-item">
-                  <img src="assets/images/cctv-surveillance.svg" alt="Maintenance Caméras" loading="lazy" />
-                  <span>Suivi Caméras</span>
-                </div>
-              </div>
-
               <ul class="pkg-features">
-                <li>Nettoyage régulier des panneaux pour préserver leur rendement face au sable</li>
-                <li>Désinfection des climatiseurs, débouchage des drains et appoint de gaz</li>
-                <li>Vérification des enregistreurs NVR, disques durs et alimentations</li>
+                <li>Vision nocturne haute définition et détection intelligente</li>
+                <li>Caméras solaires 4G autonomes pour chantiers et sites isolés</li>
+                <li>Enregistreurs NVR sécurisés et alertes sur téléphone</li>
               </ul>
             </div>
-            <a href="#devis" class="btn btn-primary btn-block" data-prefill-service="Maintenance et dépannage">Planifier une maintenance</a>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 18px;">
+              <a href="videosurveillance.html" class="btn btn-outline btn-sm">Découvrir →</a>
+              <a href="#devis" class="btn btn-primary btn-sm" data-prefill-service="Vidéosurveillance">Devis caméras</a>
+            </div>
           </div>
         </article>
       </div>
@@ -322,85 +247,54 @@
   </section>
 
   <!-- ========================================================================
-       03. POURQUOI CHOISIR DOOMUTECH ? (Expertise, garanties, pose & SAV)
+       03. POURQUOI CHOISIR DOOMUTECH ? (Mise en page aérée, 1 grande photo réelle)
        ======================================================================== -->
   <section class="engineering-section" id="pourquoi-doomutech">
     <div class="container eng-grid">
       <div class="eng-image-col">
-        <div class="eng-visual-collage">
-          <div class="eng-collage-main">
-            <img src="assets/images/hero-dakar-solar.jpg" alt="Installation solaire photovoltaïque DoomuTech à Dakar" loading="lazy" />
-            <span class="eng-collage-badge">1. Installation Solaire Photovoltaïque</span>
-          </div>
-          <div class="eng-collage-sub">
-            <img src="assets/images/installation-climatisation.jpg" alt="Installation de climatiseurs basse consommation à Dakar" loading="lazy" />
-            <span class="eng-collage-badge">2. Climatiseurs Économiques</span>
-          </div>
-          <div class="eng-collage-sub">
-            <img src="assets/images/installation-cameras.jpg" alt="Installation de caméras de surveillance IP et solaires à Dakar" loading="lazy" />
-            <span class="eng-collage-badge">3. Caméras de Surveillance</span>
-          </div>
-        </div>
-        <div class="eng-floating-card" style="margin-top: 14px; margin-left: 0; margin-right: 0;">
-          <div class="eng-cert-icon">
-            <svg class="svg-icon svg-stroke" viewBox="0 0 24 24" width="28" height="28" aria-hidden="true">
-              <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
-            </svg>
-          </div>
-          <div>
-            <strong>Votre interlocuteur technique unique au Sénégal</strong>
-            <p>Étude personnalisée • Installation soignée • Garanties constructeurs • SAV réactif</p>
+        <div class="hero-image-frame" style="height: 100%; min-height: 380px;">
+          <img src="assets/images/real/hero-solar-roof.jpg" alt="Champ solaire photovoltaïque haute performance" class="hero-img" style="height: 100%; object-fit: cover;" loading="lazy" />
+          <div class="image-location-badge">
+            <span>Bureau d'études, installation normalisée &amp; suivi SAV</span>
           </div>
         </div>
       </div>
 
       <div class="eng-content-col">
-        <span class="section-eyebrow">03 — POURQUOI CHOISIR DOOMUTECH ?</span>
-        <h2 class="section-title">Un interlocuteur unique pour votre énergie, <em>votre confort et votre sécurité.</em></h2>
-        <p class="section-desc" style="margin-bottom: 16px;">
-          <strong>DoomuTech</strong> regroupe au sein d'une même équipe trois expertises complémentaires : l'<strong>installation solaire photovoltaïque</strong>, l'<strong>installation de climatiseurs basse consommation</strong> et l'<strong>installation de caméras de surveillance</strong>.
-        </p>
+        <span class="section-eyebrow">POURQUOI CHOISIR DOOMUTECH ?</span>
+        <h2 class="section-title">Un interlocuteur unique de l'étude <em>jusqu'au service après-vente.</em></h2>
         <p class="section-desc">
-          Cette approche globale garantit que votre centrale solaire est correctement dimensionnée pour supporter vos climatiseurs et maintenir votre système de sécurité alimenté lors des coupures du réseau.
+          En réunissant le solaire, la climatisation et la vidéosurveillance au sein d'une même équipe, nous dimensionnons des installations cohérentes, durables et faciles à entretenir.
         </p>
 
         <div class="eng-feature-list">
           <div class="eng-feature-item">
-            <div class="eng-feature-thumb">
-              <img src="assets/images/local-technique-victron.jpg" alt="Dimensionnement sur mesure et continuité électrique" loading="lazy" />
-              <span class="eng-feature-thumb-badge">
-                <svg class="svg-icon svg-stroke" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
-              </span>
+            <div class="eng-icon-box">
+              <svg class="svg-icon svg-stroke" viewBox="0 0 24 24" width="22" height="22" style="color: var(--brand);" aria-hidden="true"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
             </div>
             <div>
-              <h4>Continuité Électrique &amp; Dimensionnement Réaliste</h4>
-              <p>Nous dimensionnons votre parc batteries et votre onduleur selon vos équipements prioritaires réels (éclairage, réfrigérateur, Wi-Fi, caméras, climatisation) pour assurer la continuité souhaitée en cas de délestage.</p>
+              <h4>Dimensionnement Réaliste &amp; Transparent</h4>
+              <p>Bilan de puissance précis de vos appareils avant travaux afin de définir l'autonomie réellement souhaitée en cas de coupure.</p>
             </div>
           </div>
 
           <div class="eng-feature-item">
-            <div class="eng-feature-thumb">
-              <img src="assets/images/carrier/carrier-xpower-12k.jpg" alt="Équipements adaptés au climat côtier sénégalais" loading="lazy" />
-              <span class="eng-feature-thumb-badge">
-                <svg class="svg-icon svg-stroke" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-              </span>
+            <div class="eng-icon-box">
+              <svg class="svg-icon svg-stroke" viewBox="0 0 24 24" width="22" height="22" style="color: var(--brand);" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
             </div>
             <div>
-              <h4>Matériel Adapté au Climat &amp; au Littoral Sénégalais</h4>
-              <p>Sélection de panneaux monocristallins, de climatiseurs à traitement anti-corrosion Golden Fin et de caméras extérieures étanches IP67 résistant à la chaleur, à la poussière et à l'air marin.</p>
+              <h4>Matériel Éprouvé pour le Climat Sénégalais</h4>
+              <p>Panneaux N-Type, onduleurs hybrides, climatiseurs protégés contre l'air salin et caméras extérieures étanches IP67.</p>
             </div>
           </div>
 
           <div class="eng-feature-item">
-            <div class="eng-feature-thumb">
-              <img src="assets/images/camera-kit-4k.jpg" alt="Installation professionnelle et service après-vente" loading="lazy" />
-              <span class="eng-feature-thumb-badge">
-                <svg class="svg-icon svg-stroke" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg>
-              </span>
+            <div class="eng-icon-box">
+              <svg class="svg-icon svg-stroke" viewBox="0 0 24 24" width="22" height="22" style="color: var(--brand);" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg>
             </div>
             <div>
-              <h4>Installation Propre, Garanties &amp; Service Après-Vente</h4>
-              <p>Protections électriques AC/DC normalisées, câblage soigné, application des garanties constructeurs et contrats d'entretien annuel assurés par nos techniciens.</p>
+              <h4>Pose Soignée, Garanties &amp; Contrats d'Entretien</h4>
+              <p>Protections AC/DC conformes, câblage propre sous goulottes, garanties constructeurs et interventions SAV rapides à Dakar.</p>
             </div>
           </div>
         </div>
@@ -409,18 +303,18 @@
   </section>
 
   <!-- ========================================================================
-       04. NOS RÉALISATIONS & SOLUTIONS TYPES (Présentées avec transparence)
+       04. NOS RÉALISATIONS & SOLUTIONS TYPES (4 photos réalistes distinctes)
        ======================================================================== -->
   <section class="portfolio-section" id="realisations">
     <div class="container">
       <div class="section-header-row">
         <div>
-          <span class="section-eyebrow">04 — RÉALISATIONS &amp; SOLUTIONS TYPES</span>
-          <h2 class="section-title">Exemples de solutions types <em>adaptées au Sénégal.</em></h2>
-          <p class="section-desc">Configurations techniques représentatives pour maisons, bureaux, commerces et sites isolés (adaptables sur mesure après visite technique).</p>
+          <span class="section-eyebrow">NOS SOLUTIONS TYPES</span>
+          <h2 class="section-title">Exemples de configurations <em>adaptées au Sénégal.</em></h2>
+          <p class="section-desc">Solutions types représentatives pour villas, bureaux, commerces et sites isolés (ajustées après visite technique).</p>
         </div>
         <div class="portfolio-filters" id="portfolioFilters">
-          <button type="button" class="filter-btn active" data-filter="all">Toutes les solutions</button>
+          <button type="button" class="filter-btn active" data-filter="all">Toutes</button>
           <button type="button" class="filter-btn" data-filter="solaire">Solaire</button>
           <button type="button" class="filter-btn" data-filter="climatisation">Climatisation</button>
           <button type="button" class="filter-btn" data-filter="cameras">Vidéosurveillance</button>
@@ -430,13 +324,13 @@
       <div class="portfolio-grid" id="portfolioGrid">
         <article class="project-card" data-category="solaire">
           <div class="project-visual project-bg-1">
-            <img src="assets/images/hero-dakar-solar.jpg" alt="Solution type villa résidentielle à Dakar" class="project-photo" loading="lazy" />
-            <div class="project-zone">Dakar — Villa Résidentielle (Solution type)</div>
+            <img src="assets/images/real/projet-villa-solaire.jpg" alt="Toiture équipée de panneaux solaires photovoltaïques" class="project-photo" loading="lazy" />
+            <div class="project-zone">Dakar — Villa &amp; Habitation</div>
             <div class="project-power">Hybride 5 à 10 kVA + Lithium</div>
           </div>
           <div class="project-body">
-            <h3>Configuration Villa : Solaire Hybride &amp; Secours Anti-Coupures</h3>
-            <p>Solution destinée aux habitations souhaitant réduire leur facture Senelec et maintenir l'éclairage, le réfrigérateur, le Wi-Fi, les caméras et 1 à 3 climatiseurs Inverter en cas de coupure (selon capacité batterie installée).</p>
+            <h3>Villa Résidentielle : Solaire Hybride &amp; Secours Anti-Coupures</h3>
+            <p>Réduction de la facture Senelec et maintien de l'éclairage, du réfrigérateur, du Wi-Fi, des caméras et de 1 à 3 climatiseurs Inverter selon la capacité batterie choisie.</p>
             <div class="project-metrics">
               <div>
                 <span class="pm-label">Onduleur</span>
@@ -448,7 +342,7 @@
               </div>
               <div>
                 <span class="pm-label">Suivi</span>
-                <strong class="pm-rate">Application VRM</strong>
+                <strong class="pm-rate">Application Mobile</strong>
               </div>
             </div>
           </div>
@@ -456,13 +350,13 @@
 
         <article class="project-card" data-category="climatisation">
           <div class="project-visual project-bg-2">
-            <img src="assets/images/installation-climatisation.jpg" alt="Solution type climatisation bureaux et commerces à Dakar" class="project-photo" loading="lazy" />
-            <div class="project-zone">Dakar — Bureaux &amp; Cliniques (Solution type)</div>
+            <img src="assets/images/carrier/carrier-cassette-24k.jpg" alt="Climatiseurs cassettes et armoires Carrier Inverter pour bureaux" class="project-photo" loading="lazy" />
+            <div class="project-zone">Dakar — Bureaux &amp; Commerces</div>
             <div class="project-power">Splits &amp; Cassettes Inverter</div>
           </div>
           <div class="project-body">
-            <h3>Configuration Tertiaire : Climatisation Économique + Solaire Diurne</h3>
-            <p>Installation de climatiseurs Inverter (9 000 à 24 000 BTU) couplés à un champ solaire en autoconsommation diurne pour alléger la dépense électrique liée à la climatisation en journée.</p>
+            <h3>Bureaux &amp; Cliniques : Climatisation Économique + Solaire Diurne</h3>
+            <p>Climatiseurs Inverter (9 000 à 24 000 BTU) couplés à un champ solaire diurne pour réduire significativement la consommation électrique en journée.</p>
             <div class="project-metrics">
               <div>
                 <span class="pm-label">Technologie</span>
@@ -473,8 +367,8 @@
                 <strong class="pm-rate">Jusqu'à 40–60%*</strong>
               </div>
               <div>
-                <span class="pm-label">Maintenance</span>
-                <strong class="pm-rate">Contrat périodique</strong>
+                <span class="pm-label">Entretien</span>
+                <strong class="pm-rate">Contrat annuel</strong>
               </div>
             </div>
           </div>
@@ -482,39 +376,39 @@
 
         <article class="project-card" data-category="cameras">
           <div class="project-visual project-bg-3">
-            <img src="assets/images/installation-cameras.jpg" alt="Solution type vidéosurveillance IP 4K pour commerce et entrepôt" class="project-photo" loading="lazy" />
+            <img src="assets/images/real/projet-securite-commerce.jpg" alt="Contrôle de sécurité et vidéosurveillance sur smartphone" class="project-photo" loading="lazy" />
             <div class="project-zone">Dakar &amp; Régions — Commerce / Entrepôt</div>
             <div class="project-power">Pack 4 à 16 Caméras IP + NVR</div>
           </div>
           <div class="project-body">
-            <h3>Configuration Sécurité : Vidéosurveillance IP &amp; Accès Mobile</h3>
-            <p>Déploiement de caméras IP haute définition intérieures et extérieures étanches IP67 avec enregistreur NVR secouru sur batterie et visualisation en direct sur smartphone.</p>
+            <h3>Commerce &amp; Entrepôt : Vidéosurveillance IP 4K &amp; Accès Mobile</h3>
+            <p>Caméras IP intérieures et extérieures étanches IP67 avec enregistreur NVR secouru sur onduleur et alertes en temps réel sur smartphone.</p>
             <div class="project-metrics">
               <div>
                 <span class="pm-label">Vision nocturne</span>
-                <strong class="pm-new">IR / ColorVu</strong>
+                <strong class="pm-new">Couleur / IR</strong>
               </div>
               <div>
-                <span class="pm-label">Stockage vidéo</span>
+                <span class="pm-label">Enregistrement</span>
                 <strong class="pm-rate">Disque NVR dédié</strong>
               </div>
               <div>
-                <span class="pm-label">Alertes</span>
-                <strong class="pm-rate">Notification Mobile</strong>
+                <span class="pm-label">Contrôle</span>
+                <strong class="pm-rate">Accès à distance</strong>
               </div>
             </div>
           </div>
         </article>
 
-        <article class="project-card" data-category="cameras">
+        <article class="project-card" data-category="solaire">
           <div class="project-visual project-bg-4">
-            <img src="assets/images/local-technique-victron.jpg" alt="Solution type site isolé solaire et caméras 4G" class="project-photo" loading="lazy" />
+            <img src="assets/images/real/projet-site-isole.jpg" alt="Champ solaire photovoltaïque autonome pour site isolé" class="project-photo" loading="lazy" />
             <div class="project-zone">Diamniadio / Thiès / Saly — Site Isolé</div>
             <div class="project-power">Solaire Autonome + Caméras 4G</div>
           </div>
           <div class="project-body">
-            <h3>Configuration Site Isolé : Autonomie Hors Réseau &amp; Caméras Solaires 4G</h3>
-            <p>Système solaire autonome et caméras motorisées PTZ 360° fonctionnant sur panneau solaire individuel et carte SIM 4G pour surveiller un chantier, un verger ou une résidence secondaire.</p>
+            <h3>Site Isolé &amp; Chantier : Autonomie Solaire &amp; Caméras 4G</h3>
+            <p>Alimentation solaire autonome et caméras motorisées PTZ 360° sur panneau solaire individuel et carte SIM 4G pour surveiller un chantier ou une exploitation.</p>
             <div class="project-metrics">
               <div>
                 <span class="pm-label">Alimentation</span>
@@ -522,11 +416,11 @@
               </div>
               <div>
                 <span class="pm-label">Transmission</span>
-                <strong class="pm-rate">Carte SIM 4G / Wi-Fi</strong>
+                <strong class="pm-rate">SIM 4G / Wi-Fi</strong>
               </div>
               <div>
-                <span class="pm-label">Installation</span>
-                <strong class="pm-rate">Sans génie civil lourd</strong>
+                <span class="pm-label">Pose</span>
+                <strong class="pm-rate">Rapide &amp; évolutive</strong>
               </div>
             </div>
           </div>
@@ -536,35 +430,34 @@
   </section>
 
   <!-- ========================================================================
-       05. NOS MARQUES ET ÉQUIPEMENTS (Produits, caractéristiques & compatibilités)
+       05. NOS MARQUES ET ÉQUIPEMENTS (Section épurée à 4 cartes matérielles)
        ======================================================================== -->
   <section class="collaborators-section" id="equipements">
     <div class="container">
       <div class="section-header">
-        <span class="section-eyebrow">05 — NOS MARQUES ET ÉQUIPEMENTS</span>
-        <h2 class="section-title">Des équipements de référence, <em>parfaitement compatibles.</em></h2>
+        <span class="section-eyebrow">NOS MARQUES &amp; ÉQUIPEMENTS</span>
+        <h2 class="section-title">Du matériel authentique, <em>sélectionné pour durer.</em></h2>
         <p class="section-desc">
-          Nous sélectionnons des composants éprouvés au Sénégal et assurons leur paramétrage complet par nos équipes spécialisées.
+          Nous travaillons avec des constructeurs reconnus dont les pièces et le suivi sont disponibles au Sénégal.
         </p>
       </div>
 
-      <div class="partners-box" style="margin-bottom: 36px;">
+      <div class="partners-box">
         <div class="partners-grid" style="margin-top: 0;">
           <div class="partner-card-item">
             <div class="partner-img-preview">
               <img src="assets/images/victron/multiplus-ii.png" alt="Victron MultiPlus-II" loading="lazy" />
               <img src="assets/images/victron/cerbo-gx.png" alt="Victron Cerbo GX" loading="lazy" />
             </div>
-            <strong>Onduleurs &amp; Régulateurs (Victron Energy)</strong>
-            <span>Onduleurs-chargeurs MultiPlus-II et Quattro, régulateurs SmartSolar MPPT et suivi à distance Cerbo GX.</span>
+            <strong>Victron Energy (Onduleurs &amp; MPPT)</strong>
+            <span>Onduleurs-chargeurs MultiPlus-II / Quattro, régulateurs SmartSolar MPPT et supervision Cerbo GX.</span>
           </div>
 
           <div class="partner-card-item">
             <div class="partner-img-preview">
               <img src="assets/images/carrier/carrier-xpower-12k.jpg" alt="Carrier XPower Gold" loading="lazy" />
-              <img src="assets/images/carrier/carrier-cassette-24k.jpg" alt="Carrier Cassette 4 Voies" loading="lazy" />
             </div>
-            <strong>Climatiseurs Inverter (Carrier)</strong>
+            <strong>Carrier (Climatiseurs Inverter)</strong>
             <span>Splits muraux 9 000 à 24 000 BTU et cassettes tertiaires à démarrage progressif compatibles solaire.</span>
           </div>
 
@@ -572,7 +465,7 @@
             <div class="partner-img-preview">
               <img src="assets/images/camera-kit-4k.jpg" alt="Kit Caméras IP 4K" style="max-width: 85%;" loading="lazy" />
             </div>
-            <strong>Caméras IP, Wi-Fi &amp; 4G (Hikvision / Dahua)</strong>
+            <strong>Hikvision &amp; Dahua (Vidéosurveillance)</strong>
             <span>Caméras fixes 4K, dômes motorisés PTZ 360°, caméras solaires 4G autonomes et enregistreurs NVR.</span>
           </div>
 
@@ -581,44 +474,8 @@
               <img src="assets/images/victron/agm-super-cycle.png" alt="Batterie Solaire" loading="lazy" />
               <img src="assets/images/victron/inverter-rs-smart.png" alt="Inverter RS Smart" loading="lazy" />
             </div>
-            <strong>Batteries Lithium LiFePO4 &amp; Panneaux N-Type</strong>
+            <strong>Lithium LiFePO4 &amp; Panneaux N-Type</strong>
             <span>Stockage Lithium 48V haute sécurité (BMS intégré) et modules monocristallins à haut rendement.</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- Nos 3 pôles de techniciens -->
-      <div class="team-grid" style="margin-bottom: 0;">
-        <div class="team-card">
-          <div class="team-photo-wrap">
-            <img src="assets/images/team-installation.jpg" alt="Équipe d'ingénieurs et installateurs solaires DoomuTech" loading="lazy" />
-          </div>
-          <div class="team-card-content">
-            <span class="team-role-tag">PÔLE ÉTUDES &amp; SOLAIRE</span>
-            <h3>Ingénieurs &amp; Installateurs Photovoltaïques</h3>
-            <p>Dimensionnement électrique, pose des panneaux et programmation des onduleurs hybrides et batteries Lithium.</p>
-          </div>
-        </div>
-
-        <div class="team-card">
-          <div class="team-photo-wrap">
-            <img src="assets/images/installation-climatisation.jpg" alt="Équipe de frigoristes DoomuTech" loading="lazy" />
-          </div>
-          <div class="team-card-content">
-            <span class="team-role-tag">PÔLE FROID &amp; CLIMATISATION</span>
-            <h3>Frigoristes &amp; Techniciens Climatisation</h3>
-            <p>Bilan thermique, pose soignée des splits et cassettes Inverter, tirage au vide et maintenance préventive.</p>
-          </div>
-        </div>
-
-        <div class="team-card">
-          <div class="team-photo-wrap">
-            <img src="assets/images/installation-cameras.jpg" alt="Équipe vidéosurveillance DoomuTech" loading="lazy" />
-          </div>
-          <div class="team-card-content">
-            <span class="team-role-tag">PÔLE SÉCURITÉ ÉLECTRONIQUE</span>
-            <h3>Techniciens Caméras IP, 4G &amp; Réseaux</h3>
-            <p>Installation de caméras IP 4K et solaires 4G, câblage PoE, enregistreurs NVR et configuration sur smartphone.</p>
           </div>
         </div>
       </div>
@@ -626,16 +483,13 @@
   </section>
 
   <!-- ========================================================================
-       06. AVIS DE NOS CLIENTS (Retours d'expérience sur nos interventions)
+       06. AVIS DE NOS CLIENTS (Témoignages clairs et concis)
        ======================================================================== -->
   <section class="testimonials-section" id="avis-clients">
     <div class="container">
       <div class="section-header">
-        <span class="section-eyebrow">06 — AVIS DE NOS CLIENTS</span>
-        <h2 class="section-title">Ce que nos clients apprécient <em>au quotidien.</em></h2>
-        <p class="section-desc">
-          La clarté du conseil avant travaux, la propreté de l'installation et le suivi après la mise en service.
-        </p>
+        <span class="section-eyebrow">AVIS DE NOS CLIENTS</span>
+        <h2 class="section-title">La satisfaction de nos clients <em>à Dakar et en régions.</em></h2>
       </div>
 
       <div class="testimonials-grid">
@@ -648,8 +502,8 @@
               <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
               <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
             </div>
-            <p class="t-quote" style="margin-top: 12px;">
-              « L'équipe DoomuTech a pris le temps de vérifier tous nos appareils avant de proposer le devis. Depuis l'installation du système solaire hybride avec batteries lithium, nos coupures de courant ne bloquent plus le télétravail ni le réfrigérateur. »
+            <p class="t-quote">
+              « L'équipe DoomuTech a vérifié tous nos appareils avant de proposer le devis. Depuis l'installation du système solaire hybride avec batteries lithium, les coupures ne bloquent plus le télétravail ni le réfrigérateur. »
             </p>
           </div>
           <div class="t-author-row">
@@ -670,8 +524,8 @@
               <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
               <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
             </div>
-            <p class="t-quote" style="margin-top: 12px;">
-              « Travail très propre pour la pose de nos 4 climatiseurs Inverter et leur contrat d'entretien. Les techniciens sont ponctuels, utilisent des goulottes bien finies et expliquent clairement comment régler les appareils pour moins consommer. »
+            <p class="t-quote">
+              « Pose très propre de nos 4 climatiseurs Inverter et suivi d'entretien régulier. Les techniciens sont ponctuels, utilisent des goulottes bien finies et conseillent sur les réglages économiques. »
             </p>
           </div>
           <div class="t-author-row">
@@ -692,8 +546,8 @@
               <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
               <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
             </div>
-            <p class="t-quote" style="margin-top: 12px;">
-              « Nous avons fait installer des caméras IP et deux caméras solaires 4G pour surveiller notre dépôt et notre chantier à distance. L'application sur téléphone fonctionne parfaitement de jour comme de nuit. »
+            <p class="t-quote">
+              « Installation rapide de caméras IP et de deux caméras solaires 4G pour surveiller notre dépôt et notre chantier à distance. L'application sur téléphone fonctionne jour et nuit. »
             </p>
           </div>
           <div class="t-author-row">
@@ -714,19 +568,18 @@
   <section class="simple-sim-section" id="simulateur">
     <div class="container">
       <div class="section-header">
-        <span class="section-eyebrow">07 — SIMULATEUR &amp; ESTIMATION SOLAIRE</span>
-        <h2 class="section-title">Estimez votre installation solaire <em>en 30 secondes.</em></h2>
+        <span class="section-eyebrow">SIMULATEUR SOLAIRE</span>
+        <h2 class="section-title">Estimez votre puissance solaire <em>en 30 secondes.</em></h2>
         <p class="section-desc">
-          Indiquez votre facture mensuelle, vos appareils prioritaires et votre objectif pour obtenir une première estimation technique avant étude sur site.
+          Indiquez votre facture mensuelle, vos appareils et votre objectif pour obtenir une estimation indicative avant étude technique.
         </p>
       </div>
 
       <div class="simple-sim-grid">
         <div class="simple-sim-inputs">
-          <!-- Étape 1 : Facture mensuelle -->
           <div>
             <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
-              <label for="simBillSlider" style="font-weight: 700; font-size: 14px; color: var(--ink);">1. Votre facture d'électricité mensuelle moyenne</label>
+              <label for="simBillSlider" style="font-weight: 700; font-size: 14px; color: var(--ink);">1. Facture Senelec mensuelle moyenne</label>
               <span class="sim-readout" id="simBillDisplay">100 000 FCFA / mois</span>
             </div>
             <input type="range" id="simBillSlider" class="solar-slider" min="25000" max="500000" step="25000" value="100000" />
@@ -738,13 +591,12 @@
             </div>
           </div>
 
-          <!-- Étape 2 : Appareils principaux -->
           <div>
-            <label style="display: block; font-weight: 700; font-size: 14px; color: var(--ink); margin-bottom: 10px;">2. Vos appareils principaux à alimenter</label>
+            <label style="display: block; font-weight: 700; font-size: 14px; color: var(--ink); margin-bottom: 10px;">2. Appareils principaux à alimenter</label>
             <div class="sim-appliance-grid">
               <label class="sim-app-label">
                 <input type="checkbox" class="sim-app-check" value="base" checked />
-                <span>Éclairage, TV, Box Wi-Fi &amp; Brasseurs</span>
+                <span>Éclairage, TV, Wi-Fi &amp; Brasseurs</span>
               </label>
               <label class="sim-app-label">
                 <input type="checkbox" class="sim-app-check" value="frigo" checked />
@@ -756,26 +608,24 @@
               </label>
               <label class="sim-app-label">
                 <input type="checkbox" class="sim-app-check" value="cameras" checked />
-                <span>Caméras de surveillance &amp; Sécurité</span>
+                <span>Caméras de surveillance</span>
               </label>
             </div>
           </div>
 
-          <!-- Étape 3 : Objectif -->
           <div>
             <label for="simGoalSelect" style="display: block; font-weight: 700; font-size: 14px; color: var(--ink); margin-bottom: 8px;">3. Votre objectif principal</label>
             <select id="simGoalSelect" class="sim-select">
-              <option value="hybride_secours" selected>Réduire ma facture + Autonomie anti-coupures (Hybride avec batteries)</option>
-              <option value="diurne_sans_batterie">Réduire ma facture le jour uniquement (Évolutif sans batterie)</option>
-              <option value="autonomie_complete">Autonomie maximale jour &amp; nuit (Maisons ou sites isolés)</option>
+              <option value="hybride_secours" selected>Réduire ma facture + Secours anti-coupures (Hybride avec batteries)</option>
+              <option value="diurne_sans_batterie">Réduire ma facture le jour uniquement (Sans batterie)</option>
+              <option value="autonomie_complete">Autonomie complète jour &amp; nuit (Site isolé)</option>
             </select>
           </div>
         </div>
 
-        <!-- Résultat du simulateur -->
         <div class="simple-sim-output">
           <div>
-            <span class="fintech-yield-pill" style="margin-bottom: 10px;">ESTIMATION TECHNIQUE INDICATIVE</span>
+            <span class="fintech-yield-pill" style="margin-bottom: 10px;">ESTIMATION INDICATIVE</span>
             <h3 id="simResultTitle" style="font-size: 21px; font-weight: 800; color: #FFFFFF; margin-bottom: 6px;">
               Kit Solaire Hybride 3 kWc + 5 kWh Lithium
             </h3>
@@ -786,11 +636,11 @@
 
           <div class="sim-out-kpis">
             <div class="sim-out-box">
-              <span>Puissance panneaux estimée</span>
+              <span>Puissance panneaux</span>
               <strong id="simOutKwc">3,0 kWc</strong>
             </div>
             <div class="sim-out-box">
-              <span>Stockage Lithium estimé</span>
+              <span>Stockage Lithium</span>
               <strong id="simOutKwh">5,0 kWh</strong>
             </div>
             <div class="sim-out-box">
@@ -804,15 +654,15 @@
           </div>
 
           <p class="sim-disclaimer">
-            * Estimation indicative basée sur l'ensoleillement moyen au Sénégal. Le dimensionnement définitif et le tarif dépendent du relevé précis de vos équipements et de votre toiture par un ingénieur DoomuTech.
+            * Estimation indicative avant visite technique. Le dimensionnement définitif dépend du relevé précis de vos équipements et de votre toiture.
           </p>
 
           <div style="display: flex; flex-direction: column; gap: 10px;">
             <a href="#devis" id="simApplyToFormBtn" class="btn btn-primary btn-lg btn-block">
-              Demander une étude gratuite pour cette configuration
+              Demander un devis pour cette configuration
             </a>
             <a href="https://wa.me/221777019259" id="simWhatsAppBtn" target="_blank" rel="noopener" class="btn btn-whatsapp-hero btn-sm btn-block" style="text-align: center;">
-              Envoyer cette estimation à un conseiller sur WhatsApp
+              Envoyer cette estimation sur WhatsApp
             </a>
           </div>
         </div>
@@ -821,15 +671,15 @@
   </section>
 
   <!-- ========================================================================
-       08. DEVIS ET CONTACT (Formulaire court + Demande rapide WhatsApp)
+       08. DEVIS ET CONTACT (Formulaire court 5 champs + WhatsApp direct)
        ======================================================================== -->
   <section class="contact-section" id="devis">
     <div class="container contact-grid">
       <div class="contact-info-col">
-        <span class="section-eyebrow">08 — DEVIS GRATUIT &amp; CONTACT</span>
-        <h2 class="section-title">Concrétisez votre projet. <em>Parlons-en dès aujourd'hui.</em></h2>
+        <span class="section-eyebrow">DEVIS GRATUIT &amp; CONTACT</span>
+        <h2 class="section-title">Parlons de votre projet <em>dès aujourd'hui.</em></h2>
         <p class="contact-lead">
-          Remplissez le formulaire ci-contre ou cliquez sur le bouton WhatsApp pour échanger directement avec un technicien DoomuTech.
+          Remplissez ce formulaire rapide ou contactez directement notre équipe technique sur WhatsApp.
         </p>
 
         <div class="contact-cards">
@@ -865,15 +715,15 @@
             </div>
             <div>
               <h4>Zone d'intervention</h4>
-              <p>Dakar, Diamniadio, Thiès, Saly et autres régions du Sénégal sur étude</p>
+              <p>Dakar, Diamniadio, Thiès, Saly et régions du Sénégal</p>
             </div>
           </div>
         </div>
 
         <div class="guarantee-box">
-          <strong>Notes sur nos engagements et garanties :</strong>
+          <strong>Précisions techniques :</strong>
           <span style="font-size: 12px; line-height: 1.5;">
-            * La durée de vie de 25+ ans concerne les panneaux photovoltaïques dans des conditions d'installation et d'entretien adaptées. La comparaison 3 à 5× des batteries Lithium LiFePO4 s'entend par rapport aux batteries plomb-acide AGM à profondeur de décharge équivalente. Les économies d'énergie en climatisation Inverter dépendent du modèle, de l'isolation et de l'usage.
+            * La durée de vie de 25+ ans concerne les panneaux photovoltaïques dans des conditions d'entretien adaptées. La comparaison 3 à 5× des batteries Lithium LiFePO4 s'entend face aux batteries plomb AGM à profondeur de décharge équivalente. Les économies en climatisation Inverter varient selon le modèle, l'isolation et l'usage.
           </span>
         </div>
       </div>
@@ -881,9 +731,9 @@
       <div class="contact-form-col">
         <form class="quote-form" id="quoteForm">
           <h3>Demander un devis gratuit</h3>
-          <p class="form-sub">Réponse rapide par téléphone ou WhatsApp après étude de votre besoin.</p>
+          <p class="form-sub">Réponse rapide par téléphone ou WhatsApp.</p>
 
-          <!-- Champ anti-spam Honeypot invisible (Section 5 Sécurité) -->
+          <!-- Champ anti-spam Honeypot invisible -->
           <div style="position: absolute; left: -9999px; opacity: 0; pointer-events: none;" aria-hidden="true">
             <label for="websiteHoney">Ne pas remplir ce champ</label>
             <input type="text" id="websiteHoney" name="websiteHoney" tabindex="-1" autocomplete="off" />
@@ -902,16 +752,9 @@
 
           <div class="form-row-2">
             <div class="form-group">
-              <label for="clientEmail">E-mail (facultatif)</label>
-              <input type="email" id="clientEmail" placeholder="Ex: client@email.com" />
-            </div>
-            <div class="form-group">
               <label for="clientLocation">Ville ou quartier du projet *</label>
-              <input type="text" id="clientLocation" required placeholder="Ex: Dakar (Almadies, Mermoz...), Diamniadio, Saly..." />
+              <input type="text" id="clientLocation" required placeholder="Ex: Dakar (Mermoz, Almadies...), Diamniadio, Saly" />
             </div>
-          </div>
-
-          <div class="form-row-2">
             <div class="form-group">
               <label for="projectService">Service demandé *</label>
               <select id="projectService" required>
@@ -922,45 +765,27 @@
                 <option value="Pack Multi-Services (Solaire + Clim + Caméras)">Pack Multi-Services (Solaire + Clim + Caméras)</option>
               </select>
             </div>
-            <div class="form-group">
-              <label for="clientType">Type de client *</label>
-              <select id="clientType" required>
-                <option value="Particulier / habitation">Particulier / habitation</option>
-                <option value="Entreprise / commerce">Entreprise / commerce</option>
-                <option value="Projet industriel ou institutionnel">Projet industriel ou institutionnel</option>
-              </select>
-            </div>
-          </div>
-
-          <div class="form-row-2">
-            <div class="form-group">
-              <label for="projectNature">Nature du projet *</label>
-              <select id="projectNature" required>
-                <option value="Nouvelle installation">Nouvelle installation</option>
-                <option value="Extension d’une installation existante">Extension d’une installation existante</option>
-                <option value="Panne ou maintenance">Panne ou maintenance</option>
-              </select>
-            </div>
-            <div class="form-group">
-              <label for="projectBudget">Budget envisagé (facultatif)</label>
-              <select id="projectBudget">
-                <option value="À définir après étude">À définir après étude</option>
-                <option value="Moins de 500 000 FCFA">Moins de 500 000 FCFA</option>
-                <option value="500 000 à 2 000 000 FCFA">500 000 à 2 000 000 FCFA</option>
-                <option value="Plus de 2 000 000 FCFA">Plus de 2 000 000 FCFA</option>
-              </select>
-            </div>
           </div>
 
           <div class="form-group">
-            <label for="clientMessage">Description du besoin *</label>
-            <textarea id="clientMessage" rows="3" required placeholder="Précisez votre besoin (ex: appareils à alimenter, nombre de climatiseurs ou de caméras souhaités, coupures fréquentes...)"></textarea>
+            <label for="projectBudget">Budget envisagé (facultatif)</label>
+            <select id="projectBudget">
+              <option value="À définir après étude">À définir après étude</option>
+              <option value="Moins de 500 000 FCFA">Moins de 500 000 FCFA</option>
+              <option value="500 000 à 2 000 000 FCFA">500 000 à 2 000 000 FCFA</option>
+              <option value="Plus de 2 000 000 FCFA">Plus de 2 000 000 FCFA</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="clientMessage">Votre besoin *</label>
+            <textarea id="clientMessage" rows="3" required placeholder="Précisez brièvement votre besoin (ex: maison ou commerce, équipements à alimenter, nombre de climatiseurs ou caméras...)"></textarea>
           </div>
 
           <label class="cdp-consent-box" for="cdpConsent">
             <input type="checkbox" id="cdpConsent" required checked />
             <span>
-              J'accepte que mes coordonnées soient utilisées par <strong>DoomuTech</strong> uniquement pour traiter ma demande de devis et me recontacter (<a href="#" id="openLegalModalLink" style="color: var(--brand); text-decoration: underline;">Mentions légales &amp; Confidentialité CDP</a>). *
+              J'accepte que mes coordonnées soient utilisées par <strong>DoomuTech</strong> pour traiter ma demande de devis (<a href="#" id="openLegalModalLink" style="color: var(--brand); text-decoration: underline;">Mentions légales &amp; Confidentialité CDP</a>). *
             </span>
           </label>
 
@@ -969,7 +794,7 @@
               Demander mon devis gratuit
             </button>
             <button type="button" id="quickWhatsAppQuoteBtn" class="btn btn-whatsapp-hero btn-lg btn-block">
-              Demande rapide par WhatsApp (message prérempli)
+              Demande rapide par WhatsApp
             </button>
           </div>
 
@@ -979,29 +804,29 @@
     </div>
   </section>
 
-  <!-- Pied de page complet -->
+  <!-- Pied de page épuré -->
   <footer class="footer">
     <div class="container">
       <div class="footer-bottom" style="border-top: none; padding-top: 0; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px;">
         <div>
-          <p><strong>DoomuTech Sénégal</strong> — Solutions solaires photovoltaïques, climatisation &amp; vidéosurveillance | <a href="mailto:doomutech@gmail.com">doomutech@gmail.com</a> | WhatsApp : <a href="https://wa.me/221777019259" target="_blank" rel="noopener">+221 77 701 92 59</a></p>
+          <p><strong>DoomuTech Sénégal</strong> — Énergie solaire, climatisation &amp; vidéosurveillance | <a href="mailto:doomutech@gmail.com">doomutech@gmail.com</a> | WhatsApp : <a href="https://wa.me/221777019259" target="_blank" rel="noopener">+221 77 701 92 59</a></p>
           <p class="footer-made" style="margin-top: 4px;">
-            <a href="solaire.html" style="text-decoration: underline;">Page Solaire</a> •
-            <a href="climatisation.html" style="text-decoration: underline;">Page Climatisation</a> •
-            <a href="videosurveillance.html" style="text-decoration: underline;">Page Vidéosurveillance</a> •
+            <a href="solaire.html" style="text-decoration: underline;">Solaire</a> •
+            <a href="climatisation.html" style="text-decoration: underline;">Climatisation</a> •
+            <a href="videosurveillance.html" style="text-decoration: underline;">Vidéosurveillance</a> •
             <a href="#simulateur" style="text-decoration: underline;">Simulateur Solaire</a>
           </p>
         </div>
         <div style="display: flex; gap: 14px; align-items: center; font-size: 12.5px;">
           <a href="#" id="footerLegalLink" style="text-decoration: underline;">Mentions légales &amp; Garanties (CDP)</a>
           <span>•</span>
-          <a href="admin.html" style="font-weight: 700; color: #60A5FA;">Espace Administrateur (Suivi des Devis)</a>
+          <a href="admin.html" style="font-weight: 700; color: var(--brand-light);">Suivi des Devis (Admin)</a>
         </div>
       </div>
     </div>
   </footer>
 
-  <!-- Bouton WhatsApp Flottant Permanent (Accessible dès le premier écran et sur mobile) -->
+  <!-- Bouton WhatsApp Flottant Permanent -->
   <a href="https://wa.me/221777019259?text=Bonjour%20DoomuTech%2C%20je%20souhaite%20parler%20%C3%A0%20un%20conseiller%20pour%20un%20devis." target="_blank" rel="noopener" class="wa-floating-btn" aria-label="Contacter DoomuTech sur WhatsApp">
     <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.006c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.201.662.591 1.221.774 1.394.86s.274.072.376-.043c.101-.116.433-.506.549-.68.116-.173.231-.145.39-.087s1.011.477 1.184.564.289.13.332.202c.045.072.045.419-.1.824zm-3.423-14.416c-6.627 0-12 5.373-12 12 0 2.124.556 4.119 1.528 5.849l-1.528 5.576 5.714-1.498c1.682.912 3.608 1.433 5.656 1.433 6.627 0 12-5.373 12-12s-5.373-12-12-12z"/></svg>
     <span>Parler à un conseiller</span>
