@@ -1,0 +1,13 @@
+# Orbital Photon — philosophie visuelle
+
+**Orbital Photon** traite la lumière comme une donnée et la donnée comme une lumière. Le mouvement naît d'une seule tension : celle d'un point lumineux qui se fragmente en unités discrètes, puis de ces unités qui se rangent en une trame parfaitement ordonnée. Le chaos du rayonnement se résout en grille ; la grille, vue de loin, redevient rayonnement.
+
+**Espace et forme.** Le carré est l'unité de base, minuscule, répété des centaines de fois avec une régularité presque obsessionnelle. Les carrés se tiennent serrés dans une matrice, puis, à la lisière, se détachent un à un, de plus en plus espacés, comme s'ils prenaient leur envol. Une seule courbe a le droit de couper ce monde orthogonal : une orbite elliptique, tracée d'un trait fin et continu, terminée par un nœud circulaire. Tout le reste obéit à la grille. Chaque position est calculée, chaque intervalle vérifié ; l'ensemble doit paraître le fruit d'un travail méticuleux, poursuivi pendant des heures par une main experte.
+
+**Couleur et matière.** La palette est volontairement étroite : un blanc froid comme papier technique, un bleu marine profond pour la masse, un bleu électrique pour l'énergie en mouvement, et une seule note d'or solaire, rare, réservée à la source lumineuse. L'or n'apparaît qu'une fois ; sa rareté lui donne sa valeur. Les dégradés, s'il y en a, se font par densité de carrés plutôt que par mélange de teintes : la couleur est quantifiée, jamais diffuse.
+
+**Échelle et rythme.** Le regard doit voyager entre deux échelles : de loin, une composition calme faite de grandes masses et de vide ; de près, une accumulation patiente de marques identiques, de graduations et de repères qui récompensent l'attention. Le rythme vient de la répétition et de ses rares ruptures, une rangée incomplète ou une cellule allumée, placées avec une précision de maître.
+
+**Composition et hiérarchie.** Le vide est un matériau à part entière : de larges marges, une respiration généreuse autour de la masse principale. La hiérarchie se lit par le poids visuel, pas par le texte. Le texte, quand il existe, est un repère clinique : quelques étiquettes fines en capitales espacées, des coordonnées, une légende de figure, comme sur la planche d'une discipline scientifique imaginaire. Jamais de paragraphe, jamais de slogan criard.
+
+**Exigence.** Rien ne se chevauche, rien ne déborde, chaque alignement a été repris jusqu'à la perfection. L'œuvre doit donner l'impression d'un objet longuement mûri, d'une maîtrise technique absolue, d'un soin porté à chaque pixel, au point de pouvoir être exposé tel quel.

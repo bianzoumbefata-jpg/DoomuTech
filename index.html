@@ -9,7 +9,7 @@
   <link rel="canonical" href="https://doomutech-senegal.vercel.app/" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..800;1,6..96,400..700&family=Jost:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
   <link rel="stylesheet" href="premium.css" />
 
@@ -48,15 +48,22 @@
     <div class="container header-inner">
       <a href="#accueil" class="brand-logo" aria-label="DoomuTech Accueil">
         <div class="logo-mark">
-          <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <circle cx="20" cy="20" r="18" stroke="#059669" stroke-width="2.2" />
-            <circle cx="20" cy="20" r="8" fill="#059669" />
-            <path d="M20 3V7M20 33V37M3 20H7M33 20H37M7.98 7.98L10.8 10.8M29.2 29.2L32.02 32.02M32.02 7.98L29.2 10.8M10.8 29.2L7.98 32.02" stroke="#F59E0B" stroke-width="2.2" stroke-linecap="round"/>
+          <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <rect class="logo-pixel" x="1" y="11" width="4" height="4" fill="#1A6BF0"/>
+            <rect class="logo-pixel" x="6.5" y="6" width="3" height="3" fill="#0B2560"/>
+            <rect class="logo-pixel" x="4" y="18" width="3" height="3" fill="#0B2560"/>
+            <rect class="logo-pixel" x="8.5" y="13" width="4" height="4" fill="#1A6BF0"/>
+            <rect class="logo-pixel" x="8" y="23" width="2.5" height="2.5" fill="#1A6BF0"/>
+            <path fill="#0B2560" fill-rule="evenodd" d="M14 6h11c10 0 17 8 17 18s-7 18-17 18H14V6zm6 6v24h5c6.6 0 11-5.4 11-12s-4.4-12-11-12h-5z"/>
+            <path fill="#1A6BF0" d="M17 15h17l-2 5h-6v17h-6V20h-3z"/>
+            <path d="M7 37C16 45 33 40 43.5 22" stroke="#FFFFFF" stroke-width="5.5" stroke-linecap="round"/>
+            <path class="logo-orbit" d="M7 37C16 45 33 40 43.5 22" stroke="#1A6BF0" stroke-width="2.4" stroke-linecap="round"/>
+            <circle class="logo-node" cx="43.5" cy="22" r="3" fill="#FFFFFF" stroke="#1A6BF0" stroke-width="2"/>
           </svg>
         </div>
         <div class="brand-text">
           <span class="brand-name">Doomu<span class="brand-accent">Tech</span></span>
-          <span class="brand-tag">SOLAIRE • CLIMATISATION • VIDÉOSURVEILLANCE</span>
+          <span class="brand-tag">INNOVER · CONNECTER · PROPULSER</span>
         </div>
       </a>
 
@@ -126,10 +133,19 @@
       </div>
 
       <div class="hero-visual">
-        <div class="hero-image-frame">
+        <div class="hero-pixels" aria-hidden="true">
+            <i style="--x:0;--y:0;--s:16px;--d:.24s"></i><i style="--x:22px;--y:0;--s:16px;--c:#1A6BF0;--d:.2s"></i><i style="--x:44px;--y:0;--s:16px;--d:.16s"></i><i style="--x:66px;--y:0;--s:16px;--c:#1A6BF0;--d:.12s"></i>
+            <i style="--x:0;--y:22px;--s:16px;--c:#1A6BF0;--d:.2s"></i><i style="--x:22px;--y:22px;--s:16px;--d:.14s"></i><i style="--x:44px;--y:22px;--s:12px;--o:.8;--d:.1s"></i>
+            <i style="--x:0;--y:44px;--s:16px;--d:.16s"></i><i style="--x:22px;--y:44px;--s:12px;--c:#1A6BF0;--o:.8;--d:.1s"></i>
+            <i style="--x:0;--y:66px;--s:12px;--o:.8;--d:.12s"></i>
+            <i style="--x:-26px;--y:-24px;--s:9px;--c:#1A6BF0;--o:.7;--d:.3s"></i><i style="--x:-46px;--y:14px;--s:7px;--o:.55;--d:.36s"></i><i style="--x:30px;--y:-40px;--s:8px;--o:.6;--d:.4s"></i><i style="--x:-24px;--y:52px;--s:6px;--c:#1A6BF0;--o:.5;--d:.44s"></i><i style="--x:96px;--y:-26px;--s:6px;--c:#1A6BF0;--o:.45;--d:.48s"></i>
+          </div>
+          <svg class="hero-orbit hero-orbit--back" viewBox="-20 180 700 300" aria-hidden="true"><path class="orbit-path" d="M22.5 450.9L11.6 446.1L3.1 440.4L-3.0 433.8L-6.4 426.5L-7.4 418.4L-5.7 409.7L-1.5 400.3L5.2 390.4L14.4 380.1L26.0 369.3L39.9 358.3L56.0 347.1L74.2 335.7L94.3 324.3L116.3 312.9L139.8 301.6L164.8 290.6L191.1 279.9L218.4 269.5L246.6 259.7L275.4 250.3L304.6 241.6L334.1 233.5L363.4 226.2L392.6 219.6L421.2 213.9L449.2 209.1L476.3 205.2L502.2 202.2L526.8 200.2L550.0 199.2L571.4 199.3L591.1 200.2L608.7 202.2L624.2 205.2L637.5 209.1L648.4 213.9"/></svg>
+          <div class="hero-image-frame">
           <img src="assets/images/hero-dakar-solar.webp" alt="Installation solaire photovoltaïque sur toiture moderne à Dakar" class="hero-img" />
           <div class="hero-sun" aria-hidden="true"></div>
         </div>
+          <svg class="hero-orbit" viewBox="-20 180 700 300" aria-hidden="true"><path class="orbit-path" d="M656.9 219.6L663.0 226.2L666.4 233.5L667.4 241.6L665.7 250.3L661.5 259.7L654.8 269.6L645.6 279.9L634.0 290.7L620.1 301.7L604.0 312.9L585.8 324.3L565.7 335.7L543.7 347.1L520.2 358.4L495.2 369.4L468.9 380.1L441.6 390.5L413.4 400.3L384.6 409.7L355.4 418.4L325.9 426.5L296.6 433.8L267.4 440.4L238.8 446.1L210.8 450.9L183.7 454.8L157.8 457.8L133.2 459.8L110.0 460.8L88.6 460.7L68.9 459.8L51.3 457.8"/><g class="orbit-node"><circle class="orbit-node-ring" cx="656.9" cy="219.6" r="11"/><circle class="orbit-node-dot" cx="656.9" cy="219.6" r="4"/></g></svg>
       </div>
     </div>
   </section>
